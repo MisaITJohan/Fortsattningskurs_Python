@@ -1,0 +1,9 @@
+# Ni kan använda samma fil för att lösa varje uppgift eller göra en ny kopia
+# för varje, det bestämmer ni själva.
+
+
+Övningen:
+Metoden check_guess() består för stunden av fyra rader kod. Egentligen behöver
+den inte vara längre än en enda rad.
+Skriv om metoden så att den är två rader eller kortare.
+Ledtråd: Vad är resultatet av "self.current_guess in self.word_to_guess"?

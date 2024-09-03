@@ -1,0 +1,20 @@
+Ni kan själva välja om ni vill arbeta med det spel som jag använder som exempel
+eller om ni vill skapa ett eget program när ni gör dessa övningar.
+MEN det kommer vara upp till er att hitta saker som motsvarar de färdiga
+övningarna.
+
+T.ex: Första övningen handlar om att dela upp kod i konstruktorn för klassen
+och syftar till att öva på att dela upp kod i mindre bitar. Ni skulle kunna
+göra något liknande och sen berätta för mig vad ni gjort och visa kod som är
+ordentligt uppdelad.
+
+Ni kan använda samma fil för att lösa varje uppgift eller göra en ny kopia
+för varje, det bestämmer ni själva.
+
+Övningen:
+Utgå ifrån den hangman.py som jag laddat upp i Discord eller den som ligger
+i exercises02 på Github, de är identiska.
+Bryt ut delar av metoden __init__() och lägg dem i setup(). Att lista ut vilka
+delar som bör brytas ut är också en del av övningen.
+En ledtråd är att, som det står i kommentaren i setup(), setup() även borde
+kunna användas för att "nollställa" spelet och därmed starta en ny omgång.
