@@ -14,34 +14,37 @@ POSSIBLE_WORDS = (
 
 class HangmanGame:
 
-    def __init__(self, allowed_guesses=5):
+    def __init__(self, possible_words=None, allowed_guesses=5):
+        if possible_words is None:
+            self.possible_words = POSSIBLE_WORDS
         self.allowed_guesses = allowed_guesses
         self.incorrect_guesses_made = 0
         self.word_to_guess = ""
-        self.get_word_to_guess()
         self.guessed_letters = set()
         self.current_guess = ""
-        self.display_current_state()
 
 
     def setup(self):
-        # Här borde vissa delar av __init__ ligga för att korta ned den
-        # metoden. Detta kan också användas för att nollställa spelet.
-        pass
+        self.incorrect_guesses_made = 0
+        self.get_word_to_guess()
+        if len(self.guessed_letters) > 0:
+            self.guessed_letters.clear()
+        self.display_current_state()
 
     def get_word_to_guess(self):
-        self.word_to_guess = random.choice(POSSIBLE_WORDS).lower()
+        self.word_to_guess = random.choice(self.possible_words).lower()
 
     def display_current_state(self):
         print("Det hemliga ordet är", len(self.word_to_guess), "tecken långt.")
         if len(self.guessed_letters) > 0:
-            print("Du har gissat dessa bokstäver:", self.guessed_letters)
+            print("Du har gissat dessa bokstäver:", *self.guessed_letters)
             print("Du har gissat fel", self.incorrect_guesses_made, "gånger.")
         print("Du har", self.allowed_guesses - self.incorrect_guesses_made, "gissningar kvar.")
-        self.make_guess()
 
     def make_guess(self):
-        guess = input("Gissa en bokstav: ").lower()
+        guess = ""
+        while guess in self.guessed_letters or len(guess) != 1:
+            guess = input("Gissa en bokstav: ").lower()
         self.guessed_letters.add(guess)
         self.current_guess = guess
         check_correct = self.check_guess()
@@ -49,7 +52,6 @@ class HangmanGame:
             self.correct_guess()
         else:
             self.incorrect_guess()
-        self.display_current_state()
 
     def check_guess(self):
         if self.current_guess in self.word_to_guess:
@@ -79,6 +81,37 @@ class HangmanGame:
             print("Game over! Det hemliga ordet var", self.word_to_guess)
             quit()
 
+    def game_loop(self):
+        while True:
+            self.display_current_state()
+            self.make_guess()
+            if self.incorrect_guesses_made >= self.allowed_guesses:
+                break
+
+
+# TODO: Finish this ASAP
+# Too distracted; leaving this for later.
+# class GameController:
+#     def __init__(self):
+#         self.game = HangmanGame()
+#
+#     def run_game(self):
+#         restart = False
+#         reset = False
+#         while True:
+#
+#             game = HangmanGame()
+#             while restart:
+#                 game.setup()
+#
+#     def game_loop(self):
+#         while True:
+
+
+def main():
+    game = HangmanGame()
+    game.setup()
+
 
 if __name__ == '__main__':
-    game = HangmanGame()
+    main()

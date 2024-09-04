@@ -54,10 +54,7 @@ class HangmanGame:
         self.display_current_state()
 
     def check_guess(self):
-        if self.current_guess in self.word_to_guess:
-            return True
-        else:
-            return False
+        return self.current_guess in self.word_to_guess
 
     def correct_guess(self):
         print(self.current_guess.upper(), "finns i det hemliga ordet.\n")

@@ -1,0 +1,20 @@
+Lektion03
+Flödeskontroll i praktiken:
+
+I grundkursen gick vi igenom de två huvudsakliga typer av flödeskontroll som finns i Python:
+    - IF-satser som kollar vilken, om någon, bit kod som ska köras
+    - Loopar som kör kod noll eller flera gånger
+
+Nu ska vi titta på hur det kan se ut när vi kombinerar de två och hur man kan ha
+flera delar i en bit flödeskontroll.
+Nya saker vi ska titta på:
+    and
+    or
+    not
+    if i klausulen för en loop
+
+Någonting nytt vi kommer att titta på är comprehensions. Dessa är väldigt
+effektiva och smidiga sätt att skapa nya samlingar på.
+Comprehensions finns för list, tuple och dict. Försöker man göra en
+"tuple comprehension" så skapas istället något som kallas för en "generator"
+dessa är otroligt praktiska att använda i vissa situationer.
