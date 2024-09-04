@@ -2,7 +2,9 @@
 # för varje, det bestämmer ni själva.
 
 Övningen:
-Lägg till kod som gör att man kan skicka med ett nytt valfritt argument när man
-skapar objekt ifrån vår klass. Det nya argumentet ska kunna ta emot en samling
-av ord och använda den samlingen istället för POSSIBLE_WORDS. Om man inte
-skickar in någon ordsamling så ska POSSIBLE_WORDS användas istället.
+	- Lägg till kod som gör att man kan skicka med ett nytt valfritt argument
+		när man skapar objekt ifrån vår klass.
+
+	- Det nya argumentet ska kunna ta emot en samling av ord och använda den
+		samlingen istället för POSSIBLE_WORDS. Om man inte skickar in någon
+		ordsamling så ska POSSIBLE_WORDS användas istället.
