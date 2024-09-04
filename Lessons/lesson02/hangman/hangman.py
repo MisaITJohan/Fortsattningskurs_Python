@@ -75,7 +75,7 @@ class HangmanGame:
 
 
     def check_game_over(self):
-        if self.incorrect_guesses_made == self.allowed_guesses:
+        if self.incorrect_guesses_made >= self.allowed_guesses:
             print("Game over! Det hemliga ordet var", self.word_to_guess)
             quit()
 

@@ -12,6 +12,7 @@ POSSIBLE_WORDS = (
     "Elefant",
     )
 
+
 class HangmanGame:
 
     def __init__(self, allowed_guesses=5):
@@ -42,7 +43,7 @@ class HangmanGame:
     def make_guess(self):
         guess = input("Gissa en bokstav: ").lower()
         self.guessed_letters.add(guess)
-        #self.current_guess = guess
+        self.current_guess = guess
         check_correct = self.check_guess()
         if check_correct is True:
             self.correct_guess()
@@ -66,30 +67,17 @@ class HangmanGame:
         self.check_game_over()
 
     def check_game_won(self):
-        pass
+        for letter in self.word_to_guess:
+            if letter not in self.guessed_letters:
+                return
+        print("Du vann! Det hemliga ordet var", self.word_to_guess)
+        quit()
+
 
     def check_game_over(self):
-        pass
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        if self.incorrect_guesses_made >= self.allowed_guesses:
+            print("Game over! Det hemliga ordet var", self.word_to_guess)
+            quit()
 
 
 if __name__ == "__main__":
