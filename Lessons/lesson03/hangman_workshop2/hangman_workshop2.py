@@ -37,7 +37,8 @@ class HangmanGame:
     def display_current_state(self):
         print("Det hemliga ordet är", len(self.word_to_guess), "tecken långt.")
         if len(self.guessed_letters) > 0:
-            print("Du har gissat dessa bokstäver:", *self.guessed_letters)
+            print("Du har gissat dessa bokstäver:",
+                  *sorted(list(self.guessed_letters)))
             print("Du har gissat fel", self.incorrect_guesses_made, "gånger.")
         print("Du har", self.allowed_guesses - self.incorrect_guesses_made, "gissningar kvar.")
         self.make_guess()
