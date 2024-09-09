@@ -1,5 +1,4 @@
-# INLINES
-# TODO: FINISH
+# Exempel på kedjade kontroller, alltså kontroller på resultatet av kontroller.
 
 def check_even_and_dividable_by_3(my_int):
     check_even = True if my_int % 2 == 0 else False

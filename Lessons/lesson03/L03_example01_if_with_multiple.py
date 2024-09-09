@@ -1,4 +1,5 @@
-# Exempel på hur man kan ha flera delar i en if-sats
+# Exempel på hur man kan ha flera delar i en if-sats.
+# Vi tittar med på "and" och "or" i nästa exempel.
 
 x = 42
 false_bool = False

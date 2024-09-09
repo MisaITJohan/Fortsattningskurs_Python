@@ -1,0 +1,21 @@
+I grundkursen, och tidigare i denna kurs, har vi hållit på med en hel del
+jämförelser och även en del matematik.
+
+Det finns många operatorer vi inte gått igenom i Python och två som vi nu ska
+kolla på är operatorerna "or" och "and".
+
+Som man kanske kan lista ut av namnen är dessa två nya jämförelseoperatorer.
+
+and
+	"and" är en operator som kontrollerar att det som är på bägge sidorna om
+	operatorn är Truthy.
+	1 and 2         Ger resultatet True i en jämförelse
+	1 and 0         Ger resultatet False i en jämförelse
+	0 and 0         Ger resultatet False i en jämförelse
+
+
+or
+	"or" är en operator som kontrollerar att åtminstone en av sidorna är Truthy.
+	1 or 2          Ger resultatet True i en jämförelse
+	1 or 0          Ger resultatet True i en jämförelse
+	0 or 0          Ger resultatet False i en jämförelse

@@ -8,3 +8,42 @@ List comprehension
     men resulterar i set respektive dicts.
     Vad det är går vi igenom strax.
 
+Operator
+	Tecken och ord som betyder något matematiskt (eller logiskt).
+	Python tolkar dessa enligt samma prioritetsordning som man använder i
+	matematiken (och logiken).
+	T.ex:
+		+ är en operator som betyder "addera" eller "konkatenera"
+
+		- är en operator som betyder "subtrahera" eller "dra ifrån"
+
+		< är en operator som betyder "jämför om det till vänster är mindre än
+			det till höger"
+
+		== är en operator som betyder "jämför om det till vänster är likvärdigt
+			med det till höger"
+
+		= är en operator som betyder "tilldela namnet till vänster det värde som
+			är till höger"
+
+		() är operatorer som meddelar prioritet
+			(1 + 2) * 2 och 1 + 2 * 2 ger olika resultat på grund av prioritering
+
+
+	En intressant sak man kan göra är att ändra hur objekt reagerar på operatorer
+	genom att använda sig av särskilda metoder. (__add__, __gt__, __mul__)
+
+Jämförelseoperator
+	En operator som jämför om två saker uppfyller ett särskilt krav. Vilket
+	krav detta är beror på vilken operator man använder. Om kravet stämmer så
+	får man tillbaka ett "True", annars får man "False".
+	De som vi använde under grundkursen var ==, <, >, <=, >=. Vissa omgångar
+	går jag också igenom !=.
+
+Truthy och Falsy
+	Värden som tolkas som "True" av Python är "Truthy" och värden som tolkas som
+	"False" är "Falsy".
+	T.ex:
+		En lista som innehåller element tolkas som True medans en tom lista
+		tolkas som False. Detta gäller även om listan bara innehåller värden
+		som är Falsy.
