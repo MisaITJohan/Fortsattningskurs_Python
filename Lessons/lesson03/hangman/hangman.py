@@ -37,15 +37,29 @@ class HangmanGame:
 
     def display_current_state(self):
         print("Det hemliga ordet är", len(self.word_to_guess), "tecken långt.")
+
         if len(self.guessed_letters) > 0:
-            print("Du har gissat dessa bokstäver:", *self.guessed_letters)
+            self.display_all_guesses()
+            self.display_correct_guesses()
+
             print("Du har gissat fel", self.incorrect_guesses_made, "gånger.")
-        print("Du har", self.allowed_guesses - self.incorrect_guesses_made, "gissningar kvar.")
+        print("Du har", self.allowed_guesses - self.incorrect_guesses_made, "gissningar kvar.\n")
+
+    def display_all_guesses(self):
+        print("Du har gissat dessa bokstäver:",
+              *sorted(list(self.guessed_letters)))
+
+    def display_correct_guesses(self):
+        print("Av de gissade bokstäverna är dessa i det hemliga ordet:",
+              *sorted([x for x in self.guessed_letters if x in self.word_to_guess]))
 
     def make_guess(self):
         guess = ""
         while guess in self.guessed_letters or len(guess) != 1:
-            guess = input("Gissa en bokstav: ").lower()
+            guess = input("Gissa en bokstav eller lämna tomt för att avsluta spelet: ").lower()
+            if not guess:
+                self.game_finished = True
+                return
         self.guessed_letters.add(guess)
         self.current_guess = guess
         check_correct = self.check_guess()
@@ -58,11 +72,13 @@ class HangmanGame:
         return self.current_guess in self.word_to_guess
 
     def correct_guess(self):
-        print(self.current_guess.upper(), "finns i det hemliga ordet.\n")
+        print("\n", self.current_guess.upper(), " finns i det hemliga ordet.\n",
+              sep="")
         self.check_game_won()
 
     def incorrect_guess(self):
-        print(self.current_guess.upper(), "finns inte i det hemliga ordet.\n")
+        print("\n", self.current_guess.upper(), " finns inte i det hemliga ordet.\n",
+              sep="")
         self.incorrect_guesses_made += 1
         self.check_game_over()
 
@@ -87,25 +103,6 @@ class HangmanGame:
                 break
 
 
-# TODO: Finish this ASAP
-# Too distracted; leaving this for later.
-# class GameController:
-#     def __init__(self):
-#         self.game = HangmanGame()
-#
-#     def run_game(self):
-#         restart = False
-#         reset = False
-#         while True:
-#
-#             game = HangmanGame()
-#             while restart:
-#                 game.setup()
-#
-#     def game_loop(self):
-#         while True:
-
-
 def main():
     game = HangmanGame()
     done = False
@@ -116,8 +113,6 @@ def main():
             game.make_guess()
 
         done = input("Vill du köra igen? Lämna blankt om du vill avsluta.\n>>>")
-        if done == "":
-            break
 
 
 
