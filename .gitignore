@@ -1,3 +1,6 @@
+### vim swp files
+*.swp
+
 ### NotepadPP template
 # Notepad++ backups #
 *.bak
