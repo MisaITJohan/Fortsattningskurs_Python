@@ -1,0 +1,14 @@
+f-strängar:
+
+f-strängar är en förkortning för formaterade strängar.
+
+f-strängar fungerar i grunden precis som vanliga strängar men det finns lite
+extra syntax som man kan använda sig av.
+För att skapa en f-sträng använder man citattecken, precis som man gör med
+vanliga strängar, men man sätter ett "f" framför det första citattecknet.
+Se exempel L04_example01_f_strings.py
+
+f-strängar har alltså möjligheten att hämta data från variabler (eller andra
+källor) och placera den datan inom strängen.
+
+Vi kommer att använda oss av f-strängar genom resten av kursen.
