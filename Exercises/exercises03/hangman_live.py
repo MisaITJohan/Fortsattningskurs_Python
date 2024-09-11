@@ -85,12 +85,12 @@ class HangmanGame:
             print("Game over! Det hemliga ordet var", self.word_to_guess)
             self.game_finished = True
 
-    def game_loop(self):
-        while self.game_finished is not True:
-            self.display_current_state()
-            self.make_guess()
-            if self.incorrect_guesses_made >= self.allowed_guesses:
-                break
+    # def game_loop(self):
+    #     while True:
+    #         self.display_current_state()
+    #         self.make_guess()
+    #         if self.incorrect_guesses_made >= self.allowed_guesses:
+    #             break
 
 
 def main():
@@ -98,7 +98,9 @@ def main():
     done = False
     while done != "":
         game.setup()
-        game.game_loop()
+        while game.game_finished is not True:
+            game.display_current_state()
+            game.make_guess()
 
         done = input("Vill du köra igen? Lämna blankt om du vill avsluta.\n>>>")
 
