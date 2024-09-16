@@ -4,13 +4,14 @@ Denna lektion kommer att handla om hur man lättare kan hantera data och text
 i sina program.
 
 Strängar är någonting som vi hållit på med mycket, men det finns otroligt mycket
-mer man kan göra med dem än vad vi gjort hittills.
+mer man kan göra än det vi gjort hittills.
 
 Datahantering är ett väldigt brett ämne så vi kommer bara hinna gå igenom några
-nya sätt, men det finns många andra trick och smarta lösningar i Python.
+nya sätt att hantera data, men det finns många andra trick och smarta lösningar
+i Python.
 
 Saker vi kommer gå igenom under denna lektion:
 	- f-strängar
-	- join()-metoden på strängar
-	- Formatering av data i strängar
+	- join()-metoden och några andra metoder som finns i strängar
+	- formatering av data i strängar
 	- data packing och data unpacking

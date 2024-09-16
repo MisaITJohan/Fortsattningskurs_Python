@@ -7,6 +7,6 @@ print("Johan är " + str(age) + " år gammal.")
 # Inte jättekrångligt, men det är otympligt och man bör inte förlita sig på
 # strängkonkatenering.
 
-# Om vi använder en f-sträng så kan vi istället skriva så här:
+
+# Om vi använder oss av en f-sträng så kan vi skriva så här:
 print(f"Johan är {age} år gammal.")
-print(f"{1+1=}")

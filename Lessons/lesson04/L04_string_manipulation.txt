@@ -1,0 +1,28 @@
+Strängmanipulering:
+
+Python tillåter inte att man ändrar en sträng, de är oföränderliga, så om
+man behöver uppdatera en textsträng måste man komma runt detta.
+
+Det finns flera sätt att göra detta på, varav det kanske enklaste och
+effektivaste sättet är att använda strängmetoden replace() för att skapa
+en ny sträng som man sedan tilldelar sin variabel:
+	Se L04_example04_string_manipulation_part1.py
+
+Några fler metoder som är användbara (det finns många fler än dessa och jag
+klistrar in en länk till dokumentationen för alla metoderna i slutet av denna
+fil):
+	join() skapar en ny sträng som består av alla element i den samling som man
+		måste skicka som argument.
+
+	strip() och dess varianter tar bort tecken som man inte vill ha och returnerar
+		en ny sträng utan dessa. Just strip() tar, om man inte anger något annat
+		via argument, bort all whitespace i början och slutet av strängen.
+
+	upper() gör alla tecken i strängen till versaler (stora bokstäver).
+
+	lower() gör alla tecken i strängen till gemener (små bokstäver).
+
+	capitalize() gör att första tecknet blir en stor bokstav och resten blir små
+		bokstäver. Notera att detta kan göra att saker som ska ha stor bokstav,
+		t.ex. namn, blir fel.
+
