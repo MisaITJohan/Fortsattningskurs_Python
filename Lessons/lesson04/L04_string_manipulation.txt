@@ -26,3 +26,6 @@ fil):
 		bokstäver. Notera att detta kan göra att saker som ska ha stor bokstav,
 		t.ex. namn, blir fel.
 
+
+Länk till dokumentationen för strängars metoder:
+https://docs.python.org/3/library/stdtypes.html#string-methods

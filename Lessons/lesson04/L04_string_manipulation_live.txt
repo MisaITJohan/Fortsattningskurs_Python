@@ -28,3 +28,7 @@ fil):
 
 	is[nånting]() är en serie metoder som kontrollerar att ett påstående om
 		strängen stämmer. Dessa returnerar inte en ny sträng utan True eller False.
+
+
+Länk till dokumentationen för strängars metoder:
+https://docs.python.org/3/library/stdtypes.html#string-methods
