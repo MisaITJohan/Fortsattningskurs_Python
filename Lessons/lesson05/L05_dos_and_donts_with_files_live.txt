@@ -10,6 +10,6 @@ Var försiktig!
 	I just Python så hanteras detta åt dig, förutsatt att du använder dig av den
 	funktionaliteten. Vi kommer såklart gå igenom detta.
 
-Öppna filerna på det sätt som du behöver!
+Öppna filerna på det sättet som du behöver!
 	Denna punkt går även in under den första, var försiktig, men detta är så lätt
 	att råka göra fel på att jag tycker det förtjänar en separat punkt.
