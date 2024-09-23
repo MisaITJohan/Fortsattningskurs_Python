@@ -1,0 +1,50 @@
+Lesson05: Filhantering
+
+Vad är filhantering?
+
+	Filhantering är egentligen en väldigt bred term som innefattar alla typer
+	av interaktion med filer i datorns filsystem. Egentligen är även .py-filerna,
+	som våra program består av, filer men de brukar inte räknas in i begreppet.
+
+
+Vad är "interaktioner" i denna kontext?
+
+	Att skapa, läsa, skriva, ändra, flytta och radera filer är vad som syftas på.
+	Lite bredare kan man säga att allt som interagerar med datorns filsystem
+	filhantering.
+
+
+Varför ska man hålla på med filer?
+
+	Dataåtkomst:
+		Med filer kan man använda sig av material från andra källor än sitt
+		nuvarande program.
+
+	Permanens (att göra saker permanenta):
+		När man kör ett Pythonprogram och lagrar data i t.ex. en lista eller en
+		klass så försvinner all den data som inte lagrats på annat sätt så fort
+		man avslutar programmet.
+
+		Genom att spara ner data, alltså information, i en fil på datorn så kan
+		man t.ex. öppna den filen nästa gång som programmet körs.
+
+	Integration med andra system och program:
+		Med hjälp av att arbeta med filer kan olika program skicka och ta emot
+		data mellan varandra.
+
+
+
+	Några exempel:
+		Inställningar; att behöva ställa in allt från grunden varenda gång
+		man startar ett program blir otroligt frustrerande.
+
+
+		Processer med flera steg; säg att man spelar in en film i ett program
+		som då sparas ned i en fil. Efter det öppnar man den filen i ett annat
+		program som är till för att klippa bort oönskade bitar. Sen kanske man
+		öppnar samma fil igen i ett program som gör att man kan lägga till
+		effekter. Och så vidare.
+
+		Program där man vill kunna använda sig av sitt eget material;
+		säg att man har ett hänga gubbe-spel där man vill kunna hämta in en
+		ordlista.

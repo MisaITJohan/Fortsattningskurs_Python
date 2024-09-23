@@ -1,0 +1,15 @@
+{
+  "förnamn": "Emma",
+  "efternamn": "Svensson",
+  "ålder": 25,
+  "adress": {
+    "gatuadress": "Drottninggatan 47",
+    "postort": "Boden",
+    "postnummer": "96 177"
+  },
+  "telefonnummer": [
+    { "typ": "mobil", "nummer": "070 123 45 67" },
+    { "typ": "fax", "nummer": "646 555-4567" }
+  ],
+  "foretagsnamn": null
+}
