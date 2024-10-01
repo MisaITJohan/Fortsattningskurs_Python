@@ -1,0 +1,39 @@
+Denna fil inkluderar även förklaring för denna och de första XXXXX övningarna för den här veckan.
+
+Förklaring:
+	- För den första övningen ska ni utgå ifrån den hangman.py som jag laddat upp i Discord eller den som ligger
+		i exercises06 på Github, de är identiska.
+
+	- För resterande övningar så ska ni utgå från den versionen av hangman som ni skapat i den förra övningen.
+		T.ex. om ni håller på med den fjärde övningen ska ni utgå från den version av hangman som ni skrev i övning
+		nummer tre.
+
+	- Ni kan använda samma fil för att lösa varje uppgift eller göra en ny kopia
+		för varje, det bestämmer ni själva.
+
+
+Övningen:
+
+	- Skapa en metod som heter check_invalid().
+
+	- Metoden ska anropas i början av den existerande metoden make_guess(), exakt var är det en del av övningen
+		att lista ut.
+
+	- Vad metoden ska göra är att kontrollera om någon av de följande sakerna stämmer för det som användaren precis
+		skrev in:
+			- Bokstaven har redan gissats på
+			- Fler eller färre tecken än ett skrivs in
+			- Det som skrevs in är inte en bokstav.
+
+	- Om något av ovanstående stämmer ska metoden returnera True, annars ska den returnera False.
+
+	- En ledtråd för det tredje kravet är att länken
+		https://docs.python.org/3/library/stdtypes.html#string-methods
+		är till hjälp.
+
+
+	- Om ni vill, kan ni vända funktionaliteten på metoden så att den kontrollerar om något är en giltig gissning
+		istället för en ogiltig.
+
+	- Se till att testa programmet noga efter att ni skapat metoden och anropat den på rätt plats, det kan vara
+		lätt att råka göra fel här.

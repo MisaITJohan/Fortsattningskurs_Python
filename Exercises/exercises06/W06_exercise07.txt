@@ -1,0 +1,24 @@
+Övningen:
+
+	- Skriv om klassen Hangman så att den inte längre tar emot en ordlista som argument vid skapandet av
+		en instans.
+
+	- Istället ska programmet anropa load_from_file().
+
+	- När programmet startar (när vi skapar vår instans) så ska användaren få frågan om hen vill använda
+		standardlistan eller om användaren vill skriva in namnet på en fil som innehåller en ordlista.
+
+	- Om användaren vill skriva in ett namn så ska ett filnamn/en sökväg hämtas från användaren och sen skickas
+		med i anropet till load_from_file().
+
+	- Om användaren meddelar att hen inte vill skriva in något så ska load_from_file() anropas utan argument.
+
+
+	- Förslagsvis så kan denna funktionalitet läggas i en ny metod då vi vill kunna byta ordlista utan att behöva
+		starta om programmet.
+
+	EXTRA:
+	- Alternativt, för bättre användarvänlighet, kan allt detta läggas in i setup() och load_from_file() uppgraderas
+		med extra funktionalitet:
+			- Om användaren redan laddat in en egen ordlista så är det den ordlistan som laddas istället för
+				standardlistan om inget argument skickas till load_from_file().
