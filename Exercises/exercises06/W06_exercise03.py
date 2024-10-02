@@ -1,25 +1,23 @@
-#   Skriv ett program som ber användaren skriva in text (valfri längd) och 
-#   som sedan skriver den inmatade texten till en fil (t.ex. fil_1.txt).
+# Denna övning består av flera delar men alla går ut på samma sak:
+#   Att använda sig av modulen pathlib för att förenkla kod.
 #
-#   Om ingen text matas in ska filen inte skapas.
+# Uppgiften:
 #
-#   I bägge fallen så ska programmet skriva ut beskrivande text av vad som gjordes. Ett exempel
-#   har lämnats nedan.
+#   - Kopiera in koden från de tre första övningarna till denna fil.
 #
-#   Använd gärna f-strängar i din input-prompt och i den beskrivande texten.
+#   - Ändra koden så att du använder pathlib så mycket som möjligt.
+#
+#   - Dokumentationen för pathlib kan du hitta genom att skriva
+#
+#           import pathlib
+#           help(pathlib)
+#
+#       i ett interaktivt skall (t.ex. IDLE Shell eller Python-konsolen i Pycharm)
+#       eller genom att läsa igenom
+#       https://docs.python.org/3/library/pathlib.html
 #
 #
-#   W06_exercise_extra01.py handlar om att lägga till extra funktionalitet för detta program.
-#
-#
-#   TIPS 1: Kom ihåg att använda "with open(...)" så att filen stängs automatiskt.
-#
-#   TIPS 2: För att kontrollera att text skrivits in, kan du använda "if [my_text]:" (där
-#   [my_text] står för namnet på variabeln du använde i input()-satsen.
-
-out_file = 'fil_1.txt'
-
-
-    print(f"Ingen text skrevs in. Filen {out_file} lämnades orörd")
-
-
+#   TIPS: Det går att läsa och skriva text utan att behöva använda open() om man
+#       använder pathlib. Följ länken nedan för att komma till den delen av
+#       dokumentationen.
+#       https://docs.python.org/3/library/pathlib.html#reading-and-writing-files

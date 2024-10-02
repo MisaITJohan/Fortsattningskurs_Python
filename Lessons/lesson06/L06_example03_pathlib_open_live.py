@@ -1,8 +1,6 @@
-# Exempel på hur sökvägar kan skilja sig åt mellan operativsystem.
-# Nu för tiden så klarar Python av att tolka dessa utan problem men dessa hade
-# inte fungerat på alla operativsystem tidigare.
+# Exempel på hur man kan använda pathlibs Path-objekt.
+
 from pathlib import Path
-import pathlib
 
 
 windows_path = Path("test\\test.txt")
@@ -16,3 +14,6 @@ print(unix_linux_macos_open.read())
 
 windows_open.close()
 unix_linux_macos_open.close()
+
+print("-----")
+print(windows_path.read_text())

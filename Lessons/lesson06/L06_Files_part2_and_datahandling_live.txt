@@ -1,4 +1,4 @@
-Lesson06: Filer, del 2 och Datahantering
+Lesson06: Filer, del 2
 
 När man håller på och hanterar filer är det ofrånkomligt att man måste berätta
 för Python var filen eller filerna ligger.

@@ -1,4 +1,4 @@
-Denna fil inkluderar även förklaring för denna och de första XXXXX övningarna för den här veckan.
+Denna fil inkluderar även förklaring för denna och de följande två övningarna för den här veckan.
 
 Förklaring:
 	- För den första övningen ska ni utgå ifrån den hangman.py som jag laddat upp i Discord eller den som ligger

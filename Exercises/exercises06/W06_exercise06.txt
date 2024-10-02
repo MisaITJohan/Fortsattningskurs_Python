@@ -1,25 +1,24 @@
 Övningen:
 
-	- Skapa en metod som heter load_from_file().
+	- Skriv om klassen Hangman så att den inte längre tar emot en ordlista som argument vid skapandet av
+		en instans.
 
-	- Denna metod är tänkt att ersätta fetch_words() så delar av det som den nya metoden kan ni ta därifrån.
+	- Istället ska programmet anropa load_from_file().
 
-	- Vi implementerar metoden i nästa övning, för stunden ska metoden bara skapas.
+	- När programmet startar (när vi skapar vår instans) så ska användaren få frågan om hen vill använda
+		standardlistan eller om användaren vill skriva in namnet på en fil som innehåller en ordlista.
 
+	- Om användaren vill skriva in ett namn så ska ett filnamn/en sökväg hämtas från användaren och sen skickas
+		med i anropet till load_from_file().
 
-
-	- Metoden ska ha följande egenskaper:
-
-		- Metoden ska ha ett valfritt argument, d.v.s. att den ska fungera oavsett om argumentet skickades in
-			eller inte.
-		- Argumentet kan, förslagsvis, heta filepath.
-
-		- Om metoden anropas med argumentet ska metoden försöka öppna den fil som ligger på den sökväg som
-			skickades in.
-		- Om inget argument användes så ska metoden öppna den fil som innehåller standardlistan.
-
-		- Efter att en fil har öppnats så ska innehållet läsas av och läggas i self.possible_words.
+	- Om användaren meddelar att hen inte vill skriva in något så ska load_from_file() anropas utan argument.
 
 
-TIPS! Tänk på att ditt program kommer krascha om du försöker öppna en fil som inte existerar.
-	Detta är något som måste hanteras på något sätt.
+	- Förslagsvis så kan denna funktionalitet läggas i en ny metod då vi vill kunna byta ordlista utan att behöva
+		starta om programmet.
+
+	EXTRA:
+	- Alternativt, för bättre användarvänlighet, kan allt detta läggas in i setup() och load_from_file() uppgraderas
+		med extra funktionalitet:
+			- Om användaren redan laddat in en egen ordlista så är det den ordlistan som laddas istället för
+				standardlistan om inget argument skickas till load_from_file().
