@@ -1,0 +1,21 @@
+Lesson06: Felhantering och felsökning
+
+Det är sällan ett program fungerar precis som man vill direkt, oftast behöver
+man gå igenom flera iterationer av att lägga till kod, felsöka, lägga till kod,
+felsöka etc. etc.
+
+Utöver det är det ofta som program stöter på mer eller mindre väntade problem.
+Det kan vara saker som att användaren gör något oförutsett, att någon (inklusive
+du själv) använder en klass eller funktion på ett sätt som inte är menat.
+
+Vi kommer att lägga fokus på just hur man hanterar att ens program stöter på
+problem och hur man hanterar detta.
+
+Saker vi kommer att tala om:
+	Exceptions
+	try-except
+	Logiska fel jämfört med syntaxfel
+
+Om vi hinner kommer vi även titta på:
+	try-else
+	try-finally

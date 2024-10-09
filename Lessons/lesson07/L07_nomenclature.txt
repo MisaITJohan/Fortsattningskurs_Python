@@ -1,0 +1,20 @@
+Nomenklatur för lektion 7:
+
+Exception:
+	Denna term betyder, bokstavligt översatt, undantag.
+	I Python hanteras och betraktas dessa lite annorlunda än i andra
+	programmeringsspråk.
+
+Testning:
+	Inom programmering så finns det många olika system för testning, vi skulle
+	kunna ha en hel kurs i enbart testning, men alla syftar till att se till att
+	ett program fungerar så bra som möjligt.
+
+LBYL:
+	Look Before You Leap.
+	En typ av design där man kontrollerar att saker är som förväntat innan man
+	kör kod som kan få problem.
+
+EAFP:
+	Easier to Ask for Forgiveness than Permission.
+	En typ av design där man ser till att om något går fel så hanterar man det då.

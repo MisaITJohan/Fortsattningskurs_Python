@@ -1,0 +1,23 @@
+Exceptions:
+
+Traditionellt sett är Exceptions något som är oönskat, saker som visar att
+något har gått allvarligt fel under ett programs körning.
+
+I Python tänker man lite annorlunda. Exceptions i Python kan även uppstå i
+situationer som är helt förväntade och en planerad del av programmet.
+
+En intressant sak med Exceptions är att de är Klasser och vissa ärver därför av
+varandra.
+
+Några exempel på Exceptions som finns i Python är:
+	KeyError
+	FileNotFoundError
+	AttributeError
+	NameError
+
+	Man kan även skapa sina egna.
+
+En fullständig lista på de inbyggda kan man hitta här:
+https://docs.python.org/3/library/exceptions.html#concrete-exceptions
+Längst ned på den sidan finns en lista som visar alla på en gång och demonstrerar
+även hierarkin.
