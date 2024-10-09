@@ -1,6 +1,6 @@
 Nomenklatur för lektion 6:
 
-File/ Fil:
+File / Fil:
 	Denna term kanske känns självklar, men vad som kallas för en fil skiljer sig
 	åt mellan operativsystem, främst så är det Windows som sticker ut med att
 	klassa väldigt få saker som filer.

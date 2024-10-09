@@ -3,7 +3,7 @@
 #
 # Uppgiften:
 #
-#   - Kopiera in koden från de tre första övningarna till denna fil.
+#   - Kopiera in koden från de två första övningarna till denna fil.
 #
 #   - Ändra koden så att du använder pathlib så mycket som möjligt.
 #
