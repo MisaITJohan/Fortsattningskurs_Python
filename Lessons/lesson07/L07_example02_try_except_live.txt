@@ -1,0 +1,40 @@
+try-except:
+
+När ett Pythonprogram stöter på ett fel som inte hanteras på något sätt i koden
+så avslutas hela programmet på ett okontrollerat sätt, det kraschar.
+
+Med hjälp av en try-except-sats så kan man fånga upp fel som uppkommer, hantera
+dem och låta programmet fortsätta köra.
+
+
+Det simplaste möjliga exemplet av en try-except ser ut så här:
+try:
+	[Vadän som kan orsaka en krasch]
+except:
+	[Vad man ska göra om en krasch är på väg att hända]
+
+Snälla, gör inte så. Detta kan orsaka helt nya problem.
+För att demonstrera:
+	Se L07_example03_unstoppable_program.py
+
+Varför detta sker, att man inte kan stoppa körningen, är för att vi fångar ALLA
+exception. Som jag sa tidigare, i Python finns det Exceptions som är en viktig
+del av ett programs normala körning.
+
+
+Här kan man se vilka Exceptions som ärver från vilka:
+https://docs.python.org/3/library/exceptions.html#exception-hierarchy
+
+Istället för att ha en "bare except", d.v.s. att man bara skriver "except:"
+så bör man specificera vilket eller vilka Exceptions som förväntas upp stå:
+try:
+	[Nånting]
+except TypeError:
+	[Nånting]
+except AttributeError:
+	[Nånting
+
+Fångar man nånting som är högre upp i hierarkin så fångar man även alla som
+ärver från det, vilket kan oönskat beteende.
+Använd därför ALDRIG "BaseException", det orsakar samma fel som att inte
+skriva nånting.

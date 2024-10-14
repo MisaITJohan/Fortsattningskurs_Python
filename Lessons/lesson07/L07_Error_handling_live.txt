@@ -2,7 +2,7 @@ Lesson06: Felhantering och felsökning
 
 Det är sällan ett program fungerar precis som man vill direkt, oftast behöver
 man gå igenom flera iterationer av att lägga till kod, felsöka, lägga till kod,
-felsöka etc. etc.
+felsöka, etc. etc.
 
 Dessutom är det ofta som program stöter på mer eller mindre väntade problem.
 
@@ -12,7 +12,7 @@ vad som helst egentligen; man kan aldrig vara säker på att allt går precis so
 man tänkt sig.
 
 
-Vi kommer att lägga fokus på just hur man hanterar att ens program stöter på
+Vi kommer att lägga fokus på hur man hanterar att ens program stöter på
 problem och hur man hanterar detta.
 
 Saker vi kommer att tala om:

@@ -1,0 +1,19 @@
+Logiska fel, syntaxfel och "undantag":
+
+När man programmer är det oftast väldigt lätt att upptäcka när man gjort ett
+syntaxfel, programmet kommer helt enkelt att inte ens starta.
+	Se L07_example05_syntax_errors_live.py
+
+Syntaxfel är alltså när man skriver kod som förhindrar Python att förbereda ett
+program för körning eller, i tekniska termer, förhindrar Python från att kompilera
+koden.
+
+
+Man missar sällan att man råkat göra ett syntaxfel, det är värre med de logiska
+felen.
+Logiska fel är nämligen när koden fungerar precis som den skriven, men man
+har råkat göra ett misstag som gör att programmet inte fungerar som det är menat.
+
+Dessa kan vara nästan omöjliga att upptäcka utan köra sitt program och testa
+noga att allt gör precis det som är förväntat.
+	Se L07_example06_logical_errors_live.py

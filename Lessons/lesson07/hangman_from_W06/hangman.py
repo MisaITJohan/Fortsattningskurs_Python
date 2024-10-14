@@ -104,7 +104,6 @@ class HangmanGame:
 
     def make_guess(self):
         guess = ""
-
         while self.check_invalid(guess):
             guess = input("Gissa en bokstav eller lämna tomt för att avsluta omgången: ").lower()
             if not guess:

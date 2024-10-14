@@ -21,4 +21,4 @@ EAFP:
 
 raise:
 	Översättningen blir "Lyft" på svenska.
-	När ett Exception aktiveras så kallas det att det "lyfts".
+	När ett Exception aktiveras så kallas det för att det "lyfts".

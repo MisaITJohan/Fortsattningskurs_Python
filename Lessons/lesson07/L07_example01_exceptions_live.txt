@@ -5,14 +5,14 @@ något har gått allvarligt fel under ett programs körning.
 
 I Python tänker man lite annorlunda. Exceptions i Python kan även uppstå i
 situationer som är helt förväntade och en planerad del av programmet.
-Ett exempel på detta är att varje for-loop avslutas med ett Exception som heter
+Ett exempel detta är att varje for-loop avslutas med Exception som heter
 StopIteration.
 
 En intressant sak med Exceptions är att de är Klasser och vissa ärver därför av
 varandra.
 
 Några exempel på Exceptions som finns i Python är:
-	KeyError			<--- När man försöker slå upp en nyckel som inte existerar i t.ex. en dict.
+	KeyError			<--- När man försöker slå upp en nyckel som inte finns i t.ex. en dict.
 	FileNotFoundError	<--- När man försöker interagera med en fil som inte existerar.
 	KeyboardInterrupt	<--- När man avbryter ett program, per standard genom att trycka ctrl-c.
 	NameError			<--- När ett namn inte hittas i någon av de aktiva namnrymderna.

@@ -4,7 +4,6 @@
 import pathlib
 import random
 
-
 POSSIBLE_WORDS = (
     "Apa",
     "Banan",
@@ -16,20 +15,27 @@ POSSIBLE_WORDS = (
 
 class HangmanGame:
 
-    def __init__(self, wordlist=None, allowed_guesses=5):
+    def __init__(self, allowed_guesses=5):
         self.possible_words = None
-        self.fetch_words(wordlist)
         self.allowed_guesses = allowed_guesses
         self.incorrect_guesses_made = 0
         self.word_to_guess = ""
         self.guessed_letters = set()
         self.current_guess = ""
         self.game_finished = False
+        self.custom_list_path = ""
 
 
     def setup(self):
         self.game_finished = False
         self.incorrect_guesses_made = 0
+        custom_list = input(f"Vill du ladda in en {"ny " if self.custom_list_path else ""}"
+                            f"ordlista? ja/NEJ (Lämna blankt för "
+                            f"nej.) ").casefold()
+        if custom_list == "ja".casefold():
+            self.load_from_file(input("Skriv in namnet på den fil som du vill ladda in: "))
+        else:
+            self.load_from_file()
         self.get_word_to_guess()
         if len(self.guessed_letters) > 0:
             self.guessed_letters.clear()
@@ -40,6 +46,29 @@ class HangmanGame:
         
         with open(target, "r", encoding="utf-8") as file:
             self.possible_words = [x.strip() for x in file.readlines()]
+
+    def load_from_file(self, file_path=None):
+        if file_path is None and not self.custom_list_path:
+            file_path = "wordlist_creator/wordlist.txt"
+        elif self.custom_list_path:
+            file_path = self.custom_list_path
+        elif file_path:
+            self.custom_list_path = file_path
+
+        file_to_check = pathlib.Path(file_path)
+
+        if not file_to_check.exists():
+            print(f"Det finns ingen fil som heter det som skrevs in, "
+                  f"{"standardlistan" if not self.custom_list_path else
+                  self.custom_list_path} används.")
+            if not self.custom_list_path:
+                file_to_open = pathlib.Path("wordlist_creator/wordlist.txt")
+            else:
+                file_to_open = pathlib.Path(self.custom_list_path)
+        else:
+            file_to_open = file_to_check
+
+        self.possible_words = file_to_open.read_text().splitlines()
 
     def get_word_to_guess(self):
         self.word_to_guess = random.choice(self.possible_words).lower()
@@ -73,8 +102,8 @@ class HangmanGame:
 
     def make_guess(self):
         guess = ""
-        while guess in self.guessed_letters or len(guess) != 1:
-            guess = input("Gissa en bokstav eller lämna tomt för att avsluta spelet: ").lower()
+        while self.check_invalid(guess):
+            guess = input("Gissa en bokstav eller lämna tomt för att avsluta omgången: ").lower()
             if not guess:
                 self.game_finished = True
                 return
@@ -85,6 +114,15 @@ class HangmanGame:
             self.correct_guess()
         else:
             self.incorrect_guess()
+
+    def check_invalid(self, guess):
+        previously_guessed = guess in self.guessed_letters
+        invalid_length = len(guess) != 1
+        is_not_letter = not guess.isalpha()
+
+        is_invalid = previously_guessed or invalid_length or is_not_letter
+
+        return is_invalid
 
     def check_guess(self):
         return self.current_guess in self.word_to_guess
