@@ -54,17 +54,23 @@ class HangmanGame:
             file_path = "wordlist_creator/wordlist.txt"
         elif self.custom_list_path:
             file_path = self.custom_list_path
+        elif file_path:
+            self.custom_list_path = file_path
 
-# TODO: FIX WHERE FILENAME
+        file_to_check = pathlib.Path(file_path)
 
-        file = pathlib.Path(file_path)
-        if not file.exists():
+        if not file_to_check.exists():
             print(f"Det finns ingen fil som heter det som skrevs in, "
                   f"{"standardlistan" if not self.custom_list_path else
                   self.custom_list_path} används.")
-            file = pathlib.Path("wordlist_creator/wordlist.txt")
+            if not self.custom_list_path:
+                file_to_open = pathlib.Path("wordlist_creator/wordlist.txt")
+            else:
+                file_to_open = pathlib.Path(self.custom_list_path)
+        else:
+            file_to_open = file_to_check
 
-        self.possible_words = file.read_text().splitlines()
+        self.possible_words = file_to_open.read_text().splitlines()
 
     def get_word_to_guess(self):
         self.word_to_guess = random.choice(self.possible_words).lower()
