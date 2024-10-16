@@ -1,0 +1,17 @@
+Denna fil inkluderar även förklaring för denna och de följande två övningarna för den här veckan.
+
+Förklaring:
+	- För den första övningen ska ni utgå ifrån den hangman.py som jag laddat upp i Discord eller den som ligger
+		i exercises07 på Github, de är identiska.
+
+	- För resterande övningar så ska ni utgå från den versionen av hangman som ni skapat i den förra övningen.
+		T.ex. om ni håller på med den fjärde övningen ska ni utgå från den version av hangman som ni skrev i övning
+		nummer tre.
+
+	- Ni kan använda samma fil för att lösa varje uppgift eller göra en ny kopia
+		för varje, det bestämmer ni själva.
+
+Övningen:
+
+	- Skriv om metoden load_from_file() så att den använder try-except istället för
+		att kontrollera om filen existerar innan den öppnas.
