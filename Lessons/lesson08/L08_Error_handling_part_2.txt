@@ -1,0 +1,6 @@
+Lesson07: Felhantering del 2
+
+raise
+dokumentation
+annotations?
+except as
