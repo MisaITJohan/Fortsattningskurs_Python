@@ -5,5 +5,4 @@ Information som gåtts igenom under Lesson01:
 	-Summering av grundkursen
 	-Programmet/Spelet som kommer skapas under kursens gång
 	-Förklaring av Pycharm
-		Samt funktionen "Code with Me"
 	-Repetition av grundkursen

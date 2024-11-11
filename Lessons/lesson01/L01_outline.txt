@@ -20,11 +20,11 @@ Vad kommer vi gå igenom i fortsättningskursen enligt nuvarande planering?
 	Lektion01: Introduktion & repetition
 	Lektion02: Programstruktur och "Att skapa ett program"
 	Lektion03: Flödeskontroll i praktiken
-	Lektion04: GUI (Graphical User Interface) / grafiska gränssnitt
+	Lektion04: Strängmanipulering och datahantering
 	Lektion05: Filhantering, del 1
 	Lektion06: Filhantering, del 2
-	Lektion07: Strängmanipulering och datahantering
-	Lektion08: Felhantering
+	Lektion07: Felhantering
+	Lektion08: GUI (Graphical User Interface) / grafiska gränssnitt
 	Om tillfällen räcker till:
 	Lektion09: Deltagares önskemål
 
@@ -33,8 +33,8 @@ Spelet kommer att under kursens gång skapas i flera steg och när det är
 färdigt så kommer vi att ha gått från ett simpelt gissningsspel helt i text
 till "Hänga Gubbe".
 
-Vi kommer alla veckor, eller åtminstone de flesta, att läga till något till
+Vi kommer alla veckor, eller åtminstone de flesta, att lägga till något till
 spelet.
 
-Ni behöver inte göra samma spel, men om ni gör något annat så kommer det finnas
-mindre tid och möjlighet till hjälp.
+Ni behöver inte göra samma spel, eller ens göra specifikt ett spel, men om ni
+gör något annat så kommer det finnas mindre tid och möjlighet till hjälp.
