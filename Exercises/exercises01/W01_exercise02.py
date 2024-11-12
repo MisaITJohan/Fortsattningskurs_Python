@@ -4,6 +4,10 @@
 
 # Det finns flera möjliga sätt att lösa denna uppgift på, vilket sätt ni
 # löser uppgiften på är valfritt.
+
+# För extra utmaning: Skriv kod för så många olika sätt att lösa problemet
+#                     som du kommer på.
+
 # Att hårdkoda, d.v.s. att skriva print(55) är INTE rätt.
 
 # Ett möjligt sätt att lösa denna uppgift är att använda sig av en while-loop.
