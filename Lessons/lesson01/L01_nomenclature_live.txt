@@ -1,1 +1,27 @@
 Nomenklatur för lektion 1:
+
+Iterera
+	Att uprprepa.
+	Man kan "iterera över" en samling i Python, då gör man något för varje
+	element i samlingen.
+
+namn()
+	Detta betyder att "namn" är en funktion. Jag skriver så för att förtydliga
+	för er.
+	T.ex. print() eller range()
+
+Hårdkoda
+	Att skriva kod för varje enskilt fall eller kod som bara kan göra en specifik
+	sak. Detta är inte alltid fel, framförallt inte för mindre saker.
+	Men man förlorar helt fördelarna med kunna återanvända kod då man
+	måste skriva kod för ALLA möjliga fal.
+	T.ex.
+		print(0)
+		print(1)
+		print(2)
+		print(3)
+		etc...
+		print(99)
+	Istället för:
+		for x in range(100):
+			print(x)
