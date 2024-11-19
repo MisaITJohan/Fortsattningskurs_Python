@@ -1,12 +1,12 @@
 Programstruktur:
 
-Ni kanske har noterat att jag har delat upp lektionsmaterialen i fler filer,
+Ni har kanske noterat att jag har delat upp lektionsmaterialen i fler filer,
 detta är för att börja vänja er hur ett program ofta är uppdelat.
 
 Det finns flera konventioner (allmänt överenskomna regler) att följa när man
-programmerar. Stilreglerna för Python (PEP8) har ni hört lite om i grundkursen;
+programmerar. Stilreglerna (PEP8) har ni hört lite om i grundkursen;
 de är en del av det som man bör följa när man programmerar, men de
-innehåller mest "regler" som är unika för Python.
+innehåller mest "regler" som unika för Python.
 
 Grundprincipen som bör följas är egentligen rätt enkel: det ska inte vara svårt
 eller konfunderande att läsa koden som man skrivit.
@@ -18,5 +18,5 @@ arbetar i team.
 
 En tidigare programmeringslärare till mig sa att om en funktion är längre än fem
 rader så är den för lång och borde delas upp. Personligen tycker jag det är
-aningen extremt, men det kan vara bra att komma ihåg då det är korrekt att
-för långa funktioner gör att kod ofta blir otydlig.
+aningen extremt, men det kan vara bra att komma ihåg då det är korrekt att för
+långa funktioner gör att kod ofta blir otydlig.

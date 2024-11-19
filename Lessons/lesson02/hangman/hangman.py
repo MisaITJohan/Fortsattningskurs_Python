@@ -1,6 +1,7 @@
 # Första versionen av vårt spel kommer vara simplistiskt men fortfarande ett
 # fungerande program. Under kommande veckor kommer vi lägga till fler funktioner
 # samt dela upp programmet i flera filer.
+
 import random
 
 POSSIBLE_WORDS = (
@@ -22,7 +23,6 @@ class HangmanGame:
         self.guessed_letters = set()
         self.current_guess = ""
         self.display_current_state()
-
 
     def setup(self):
         # Här borde vissa delar av __init__ ligga för att korta ned den
@@ -80,5 +80,5 @@ class HangmanGame:
             quit()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     game = HangmanGame()

@@ -7,7 +7,7 @@ eller behov.
 
 Det finns flera olika sätt att gå till väga, men i grunden består alla av:
 	- Vad är problemet/behovet jag vill lösa?
-	- Vad slutmålet? Hur ser den slutliga lösningen ut i väldigt grova drag?
+	- Vad är slutmålet? Hur ser den slutgiltiga lösningen ut i väldigt grova drag?
 	- Lösa problemet.
 	- Kontrollera att problemet är löst och att allt fungerar.
 
@@ -32,4 +32,5 @@ T.ex:
 	Några av delarna som man delar upp inloggningssystemet i skulle kunna vara:
 		- Skapa en eller flera klasser som representerar användare
 		- Skapa regler för vad man kommer åt utan att logga in
-		- Skapa ett system för att kontrollera att lösenordet stämmer när en användare försöker logga in.
+		- Skapa ett system för att kontrollera att lösenordet stämmer när en
+			användare försöker logga in.
