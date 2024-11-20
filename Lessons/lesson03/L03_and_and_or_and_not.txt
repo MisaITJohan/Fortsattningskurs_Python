@@ -2,9 +2,9 @@ I grundkursen, och tidigare i denna kurs, har vi hållit på med en hel del
 jämförelser och även en del matematik.
 
 Det finns många operatorer vi inte gått igenom i Python och tre som vi nu ska
-kolla på är operatorerna "or" och "and".
+kolla på är operatorerna "or", "and" och "not".
 
-Som man kanske kan lista ut av namnen är dessa två nya jämförelseoperatorer.
+Som man kanske kan lista ut av namnen är dessa nya jämförelseoperatorer.
 
 and
 	"and" är en operator som kontrollerar att det som står på bägge sidorna om

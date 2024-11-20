@@ -58,11 +58,11 @@ class HangmanGame:
             return False
 
     def correct_guess(self):
-        print(self.current_guess.upper(), "finns i det hemliga ordet.\n")
+        print("\n", self.current_guess.upper(), " finns i det hemliga ordet.\n", sep="")
         self.check_game_won()
 
     def incorrect_guess(self):
-        print(self.current_guess.upper(), "finns inte i det hemliga ordet.\n")
+        print("\n", self.current_guess.upper(), " finns inte i det hemliga ordet.\n", sep="")
         self.incorrect_guesses_made += 1
         self.check_game_over()
 

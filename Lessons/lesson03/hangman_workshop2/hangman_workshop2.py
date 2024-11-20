@@ -58,11 +58,11 @@ class HangmanGame:
         return self.current_guess in self.word_to_guess
 
     def correct_guess(self):
-        print(self.current_guess.upper(), "finns i det hemliga ordet.\n")
+        print("\n", self.current_guess.upper(), " finns i det hemliga ordet.\n", sep="")
         self.check_game_won()
 
     def incorrect_guess(self):
-        print(self.current_guess.upper(), "finns inte i det hemliga ordet.\n")
+        print("\n", self.current_guess.upper(), " finns inte i det hemliga ordet.\n", sep="")
         self.incorrect_guesses_made += 1
         self.check_game_over()
 
@@ -70,16 +70,19 @@ class HangmanGame:
         for letter in self.word_to_guess:
             if letter not in self.guessed_letters:
                 return
-        print("Du vann! Det hemliga ordet var", self.word_to_guess)
-        quit()
-
+        print("Du vann!")
+        self.display_secret()
 
     def check_game_over(self):
         if self.incorrect_guesses_made >= self.allowed_guesses:
-            print("Game over! Det hemliga ordet var", self.word_to_guess)
-            quit()
+            print("Game over!")
+            self.display_secret()
 
+    def display_secret(self):
+        print("Det hemliga ordet var", self.word_to_guess)
+        input("Tryck enter för att avsluta.")
+        quit()
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     game = HangmanGame()
     game.setup()
