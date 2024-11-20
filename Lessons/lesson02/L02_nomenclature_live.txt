@@ -14,5 +14,5 @@ Virtuell miljö / Virtual environment
 
 Tester
 	Refererar oftast till s.k. "enhetstester" / "unit tests", vilket är
-	automatiserade tester programmera ofta skriver för att kontrollera att
+	automatiserade tester programmerare ofta skriver för att kontrollera att
 	alla delar av ens program fungerar som de ska.
