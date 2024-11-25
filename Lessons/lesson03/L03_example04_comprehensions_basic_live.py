@@ -2,11 +2,11 @@
 
 my_list = [1, 2, 3, 4, 5, 6, 7]
 
+# my_second_list = my_list[:]
 
 # my_second_list = []
 # for x in my_list:
 #     my_second_list.append(x)
-
 
 # Nedanstående kod är både snabbare, kortare och tydligare.
 my_second_list = [x for x in my_list]

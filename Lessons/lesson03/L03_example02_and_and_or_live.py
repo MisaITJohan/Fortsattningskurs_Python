@@ -15,6 +15,6 @@ if x == 43 or true_bool:
 if x == 42 or false_bool:
     print("Vår bool är falsk men x är 42")
 
-# Eftersom ena sidan är Falsy så stämmer inte detta
+# Eftersom ena sidan är Falsy så stämmer inte följande
 if x == 42 and false_bool:
     print("Detta kommer inte att skrivas ut")

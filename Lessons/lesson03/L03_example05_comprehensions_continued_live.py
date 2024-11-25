@@ -14,3 +14,9 @@ print(my_list_without_3)
 
 my_even_list = [x for x in my_list if check_even(x)]
 print(my_even_list)
+
+mel = []
+for x in my_list:
+    if check_even(x):
+        mel.append(x)
+print(mel)

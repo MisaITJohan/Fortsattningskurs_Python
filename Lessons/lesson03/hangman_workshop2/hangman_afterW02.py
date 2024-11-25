@@ -62,7 +62,7 @@ class HangmanGame:
         self.check_game_won()
 
     def incorrect_guess(self):
-        print("\n", self.current_guess.upper(), " finns inte i det hemliga ordet.\n", sep="")
+        print(self.current_guess.upper(), "finns inte i det hemliga ordet.\n")
         self.incorrect_guesses_made += 1
         self.check_game_over()
 
@@ -85,3 +85,4 @@ class HangmanGame:
 
 if __name__ == "__main__":
     game = HangmanGame()
+    game.setup()
