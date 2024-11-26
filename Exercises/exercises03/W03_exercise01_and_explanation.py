@@ -16,4 +16,6 @@ w = x and y
 print(z)
 print(w)
 
-# Ledtråd: Vad ger jämförelser för svar?
+# Ledtråd1: Vad ger jämförelser för svar?
+
+# Ledtråd2: Svaret är inte vad ni kanske förväntar er.
