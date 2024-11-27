@@ -18,3 +18,22 @@ print(my_third_list)
 
 my_fourth_list = [x for x in [1, 2, 3, 4, 5]]
 print(my_fourth_list)
+
+
+# Dictionary comprehensions ser nästan likadana ut.
+my_square_dict = {x:x**2 for x in range(1, 11)}
+print(my_square_dict)
+
+numbers_to_combine = [[1, 2], [3, 4], [5, 6]]
+my_combined_dict1 = {x[0]:x[1] for x in numbers_to_combine}
+print(my_combined_dict1)
+
+number_list1 = [1, 2, 3]
+number_list2 = [4, 5, 6]
+
+my_combined_dict2 = {x:y for x in number_list1 for y in number_list2}
+print(my_combined_dict2)
+
+# Extra (lite svårare) exempel
+# numbers_to_combine = [[1, 2, 3], [4, 5, 6]]
+# my_combined_dict = {x:y for x, y in zip(*numbers_to_combine)}

@@ -34,7 +34,9 @@ Operator
 
 
 	En intressant sak man kan göra är att ändra hur objekt reagerar på operatorer
-	genom att använda sig av särskilda metoder. (__add__, __gt__, __mul__)
+	genom att använda sig av särskilda metoder.
+	T.ex:
+		__add__(), __gt__() och __mul__()
 
 Jämförelseoperator
 	En operator som jämför om två saker uppfyller ett särskilt krav. Vilket
