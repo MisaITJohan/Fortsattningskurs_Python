@@ -25,8 +25,8 @@ class HangmanGame:
         self.display_current_state()
 
     def setup(self):
-        # Här borde vissa delar av __init__ ligga för att korta ned den
-        # metoden. Detta kan också användas för att nollställa spelet.
+        # Här borde vissa delar av __init__() ligga för att korta ned
+        # den metoden. Detta kan också användas för att nollställa spelet.
         pass
 
     def get_word_to_guess(self):
@@ -70,14 +70,20 @@ class HangmanGame:
         for letter in self.word_to_guess:
             if letter not in self.guessed_letters:
                 return
-        print("Du vann! Det hemliga ordet var", self.word_to_guess)
-        quit()
-
+        print("Du vann!")
+        self.display_secret()
 
     def check_game_over(self):
         if self.incorrect_guesses_made >= self.allowed_guesses:
-            print("Game over! Det hemliga ordet var", self.word_to_guess)
-            quit()
+            print("Game over!")
+            self.display_secret()
+
+    def display_secret(self):
+        print("Det hemliga ordet var", self.word_to_guess)
+        # För att ge oss en chans att se ordet så lägger vi in en input() med
+        # enda syfte att pausa programmet.
+        input("Tryck enter för att avsluta.")
+        quit()
 
 
 if __name__ == "__main__":

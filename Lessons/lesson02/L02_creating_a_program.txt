@@ -9,7 +9,7 @@ Det finns flera olika sätt att gå till väga, men i grunden består alla av:
 	- Vad är problemet/behovet jag vill lösa?
 	- Vad är slutmålet? Hur ser den slutgiltiga lösningen ut i väldigt grova drag?
 	- Lösa problemet.
-	- Kontrollera att problemet är löst och att allt fungerar.
+	- Kontrollera att problemet är löst eller behovet är uppfyllt och att allt fungerar.
 
 
 När man tittar på hur man ska lösa problemet gäller det att inte försöka lösa
@@ -19,9 +19,9 @@ T.ex:
 	Spelet som vi kommer skapa under kursens gång kommer gå igenom flera olika
 	steg där vi introducerar en ny del vid varje steg.
 
-	Vi kommer börja med ett simpelt och hårdkodat program med enbart text och
-	när vi är färdiga så kommer det vara ett spel som har simpel grafik och
-	alternativ.
+	Vi kommer börja med ett simpelt och hårdkodat program med enbart otydlig
+	text och när vi är färdiga så kommer det vara ett simpelt spel som har
+	alternativ, beskrivande text och (förhoppningsvis) simpel grafik.
 
 Vad det ovanstående betyder i praktiken är att det oftast är en bra idé att
 skapa en lista med mindre delar som fungerar oberoende av varandra.
