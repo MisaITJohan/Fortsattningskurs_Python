@@ -1,0 +1,5 @@
+Suppose we have the (nonsense) HTML "<body> <h1> <p> TEXT </p> </h1> </body>".
+For whatever reason, we want to know what tags are used, so we write the greedy RE "<.+>".
+Unfortunately, this will return the match "<body> <h1> <p> TEXT </p> </h1> </body>". Not very useful.
+Instead, we write the lazy RE "<.+?>". This will return, provided we use a method that allows multiple matches, the results "<body>", "<h1>", "<p>", "</p>", "</h1>" and "</body>".
+Had we only accepted one result we would have got "<body>" even though "<p>" is shorter as lazy wants to return the earliest possible match.
