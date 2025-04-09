@@ -1,4 +1,4 @@
-I grundkursen, och tidigare i denna kurs, har vi hållit på med en hel del
+I grundkursen, och tidigare i denna kurs, har vi hållit på med en del
 jämförelser och även en del matematik.
 
 Det finns många operatorer vi inte gått igenom i Python och tre som vi nu ska

@@ -26,7 +26,8 @@ class HangmanGame:
 
     def setup(self):
         # Här borde vissa delar av __init__() ligga för att korta ned
-        # den metoden. Detta kan också användas för att nollställa spelet.
+        # den metoden. Detta kan också användas för att nollställa
+        # spelet.
         pass
 
     def get_word_to_guess(self):
@@ -80,7 +81,7 @@ class HangmanGame:
 
     def display_secret(self):
         print("Det hemliga ordet var", self.word_to_guess)
-        # För att ge oss en chans att se ordet så lägger vi in en input() med
+        # För att ge oss en chans att se ordet så lägger vi in en input() vars
         # enda syfte att pausa programmet.
         input("Tryck enter för att avsluta.")
         quit()

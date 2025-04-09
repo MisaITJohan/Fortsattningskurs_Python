@@ -34,7 +34,9 @@ Operator
 
 
 	En intressant sak man kan göra är att ändra hur objekt reagerar på operatorer
-	genom att använda sig av särskilda metoder. (__add__, __gt__, __mul__)
+	genom att använda sig av särskilda metoder.
+	T.ex:
+		__add__(), __gt__() och __mul__()
 
 Jämförelseoperator
 	En operator som jämför om två saker uppfyller ett särskilt krav. Vilket
@@ -48,5 +50,5 @@ Truthy och Falsy
 	"False" är "Falsy".
 	T.ex:
 		En lista som innehåller element tolkas som True medans en tom lista
-		tolkas som False. Detta gäller även om listan bara innehåller värden
-		som är Falsy. Detta gäller för de flesta samlingar.
+		tolkas som False. Detta gäller även om listan bara innehåller värden som
+		är Falsy. Detta gäller för de flesta samlingar (alla inbyggda är så).

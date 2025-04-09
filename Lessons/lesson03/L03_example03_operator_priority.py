@@ -17,6 +17,6 @@ if (x == 43 and true_bool) or false_bool is False:
     print("x är inte 43 men vår bool är falsk")
 
 # Följande är hur man måste skriva om man vill att Python ska prioritera en
-# or-kontroll
+# or-kontroll.
 if x == 43 and (true_bool or false_bool is False):
     print("Våra bools är korrekta men x är inte 43")
