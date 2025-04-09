@@ -21,11 +21,11 @@ print(average)
 
 x = 10
 
-if x > 5 and x < 8:
-    print(f"x är större än 5 eller mindre än 8 och är: {x}")
+if x < 5 and x > 8:
+    print(f"x är mindre än 5 eller större än 8 och är: {x}")
 
 # Säg att vi vill garantera att x aldrig är 6 eller 7, då gör den här koden
 # det helt motsatta.
 # Visst, detta exempel kanske är relativt enkelt att upptäcka, men tänk om
-# jämförelse hade flera klausuler. Då kan det lätt bli att man råkar göra ett
+# jämförelsen hade haft flera klausuler. Då kan det lätt bli att man råkar göra ett
 # misstag.

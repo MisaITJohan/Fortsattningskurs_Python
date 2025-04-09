@@ -20,7 +20,7 @@ File-like / Filliknande:
 	Vi kan se ett exempel på detta i Python, även i Windows, genom att
 	titta på hur input() och print() fungerar. Det som användaren skriver in med
 	input() hämtas från "standard input" och det som print() skriver ut hamnar
-	i "sys.stdout" per standard. Notera att den parameter som man skicka med
+	i "sys.stdout" per standard. Notera att den parameter som man skickar med
 	till print() heter "file" av just den anledningen.
 		Se L06_example01_print_to_file_live.py
 
