@@ -1,6 +1,6 @@
-# Första versionen av vårt spel kommer vara simplistiskt men fortfarande ett
-# fungerande program. Under kommande veckor kommer vi lägga till fler funktioner
-# samt dela upp programmet i flera filer.
+# Denna vecka uppdaterar vi vårt program att ha ett bättre programflöde.
+# Vi lägger till möjligheten att spela spelet flera gånger utan att behöva
+# starta om hela programmet.
 import random
 
 POSSIBLE_WORDS = (

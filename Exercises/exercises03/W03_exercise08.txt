@@ -1,5 +1,5 @@
 Denna övning fungerar som övningarna för workshop02, er uppgift är att utöka
-den version av hangman_beforeW03.py som ligger tillsammans med denna övning enligt
+den version av hangman_before_W03.py som ligger tillsammans med denna övning enligt
 instruktionerna nedan.
 
 I display_current_state finns det en bit kod som skriver ut alla gissade

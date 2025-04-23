@@ -13,7 +13,7 @@ Ni kan använda samma fil för att lösa varje uppgift eller göra en ny kopia
 för varje, det bestämmer ni själva.
 
 Övningen:
-	-Utgå ifrån den hangman_beforeW02.py som jag laddat upp i Discord eller den som ligger
+	-Utgå ifrån den hangman_before_W02.py som jag laddat upp i Discord eller den som ligger
 		i exercises02 på Github, de är identiska.
 
 	- Bryt ut delar av metoden __init__() och lägg dem i setup(). Att lista ut vilka

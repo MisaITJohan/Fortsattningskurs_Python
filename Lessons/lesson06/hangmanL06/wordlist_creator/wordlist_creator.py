@@ -31,7 +31,7 @@ def generate_wordlist(enumerated=False):
             }"
             ).casefold() != "quit".casefold():
         length = int(input("Type the desired length of the created list (leave blank "
-                           "for a length of 1000: ") or 1000)
+                           "for a length of 1000): ") or 1000)
         _fetch_words(enumerated)
 
     else:

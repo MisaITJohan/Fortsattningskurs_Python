@@ -1,7 +1,8 @@
 Denna fil inkluderar även förklaring för denna och de följande två övningarna för den här veckan.
 
 Förklaring:
-	- För den första övningen ska ni utgå ifrån den hangman.py som jag laddat upp i Discord eller den som ligger
+	- För den första övningen ska ni utgå ifrån den hangman_before_W07.py som jag laddat upp i
+	Discord eller den som ligger
 		i exercises07 på Github, de är identiska.
 
 	- För resterande övningar så ska ni utgå från den versionen av hangman som ni skapat i den förra övningen.

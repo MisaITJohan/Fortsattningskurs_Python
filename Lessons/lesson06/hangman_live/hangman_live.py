@@ -3,7 +3,6 @@
 # samt dela upp programmet i flera filer.
 import pathlib
 import random
-import sys
 
 
 POSSIBLE_WORDS = (
