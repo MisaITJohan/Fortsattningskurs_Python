@@ -1,0 +1,10 @@
+- Övningen:
+
+	- Uppdatera konstruktorn (_init__-metoden) med följande ändringar:
+
+		- Ändra namnet på argumentet "possible_words" till "wordlist_path".
+			- Det ska fortfarande ha ett standardvärde på None.
+
+		- self.possible words ska skapas med värdet None.
+
+		- Anropa den nya metoden med "wordlist_path" som argument.

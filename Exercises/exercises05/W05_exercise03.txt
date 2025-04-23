@@ -1,0 +1,25 @@
+Övningen:
+
+	- Skapa en metod som heter load_words_from_file().
+
+	- Metoden ska anropas i konstruktorn, MEN det gör vi nästa övning.
+
+	- Syftet med metoden är att hämta ord ifrån en specificerad extern fil.
+
+	- Metoden ska uppfylla följande krav:
+
+		- Metoden ska ta emot ett valfritt argument, det ska alltså ha ett
+			standardvärde.
+			- Argumentet ska ha ett logiskt namn.
+			- Standardvärdet ska vara None.
+
+		- Om man inte skickar in något argument när funktionen anropas så ska
+			filen "wordlist.txt" användas. Annars så ska den sökväg som skickats
+			in användas.
+
+		- Metoden ska sedan öppna den fil som ska användas.
+			- Tänk på vilket läge som det passar att öppna filen i här.
+
+		- Metoden ska fylla/skapa listan self.possible words med de ord som
+			lästs in från filen.
+			- Här passar det väldigt bra att använda en list comprehension.

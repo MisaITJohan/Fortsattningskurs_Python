@@ -1,0 +1,31 @@
+Vårt program har ett problem som man lätt kan stöta på:
+	Om inte filen som användaren skrivit in namnet på existerar så kommer programmet
+	att krascha.
+
+- Övningen:
+
+	- Skriv om load_words_to_file() så att den antingen kontrollerar om filen
+		existerar eller anropar en metod som kontrollerar att den existerar.
+
+	- Om filen existerar så ska den öppnas, precis som den gör nu.
+
+	-Om filen INTE existerar så ska programmet automatiskt falla tillbaka på
+		den wordlist.txt som öppnas om man inte skickar in något argument till
+		load_words_from_file().
+
+
+- Bonus:
+
+	- För extra utmaning:
+
+		- Lägg till kontroller som kontrollerar att sökvägen som användaren
+			skrivit in uppfyller alla nödvändiga krav.
+
+		- Saker som måste stämma kan vara saker som:
+
+			- Är det en fil?
+			- Har vi rättigheter att läsa filen?
+			- Får vi ut faktisk text när vi försöker läsa filen?
+
+		- Det finns garanterat fler möjliga alternativ men vi kommer att ändra
+			det här senare i kursen, så lägg inte för mycket tid på det.

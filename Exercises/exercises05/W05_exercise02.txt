@@ -1,0 +1,10 @@
+Övningen:
+
+	- Skapa en ny fil som du döper till "wordlist.txt".
+
+	- Filen ska ligga i samma mapp som hangmanspelet.
+
+	- Lägg till åtminstone 10 ord i filen med ett ord per rad.
+		- Flytta över orden från POSSIBLE_WORDS och lägg till några egna.
+
+	- När du skickar in de färdiga övningarna, skicka även in din ordlista.

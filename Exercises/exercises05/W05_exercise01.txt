@@ -1,0 +1,19 @@
+Denna fil inkluderar även förklaring för denna och de följande fyra övningarna för den här veckan.
+
+Förklaring:
+	- För den första övningen ska ni utgå ifrån den hangman_before_W05.py som jag laddat upp i
+		Discord eller den som ligger i exercises05 på Github, de är identiska.
+
+	- För resterande övningar så ska ni utgå från den versionen av hangman som ni skapat i den förra övningen.
+		T.ex. om du håller på med övning nummer två så ska du utgå från den version av hangman som
+		du skrev i övning nummer ett.
+
+	- Ni kan använda samma fil för att lösa varje uppgift eller göra en ny kopia
+		för varje, det bestämmer ni själva.
+
+
+Övningen:
+
+	- Ändra, på så många ställen som möjligt, så att programmet använder f-strängar där
+		data och text ska kombineras.
+		Sju (7) ställen är antalet som jag kommer visa nästa vecka.

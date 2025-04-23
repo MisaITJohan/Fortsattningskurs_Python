@@ -1,19 +1,11 @@
 import random
 
-POSSIBLE_WORDS = (
-    "Apa",
-    "Banan",
-    "Cacao",
-    "Dans",
-    "Elefant",
-    )
-
 
 class HangmanGame:
 
-    def __init__(self, wordlist=None, allowed_guesses=5):
+    def __init__(self, wordlist_path=None, allowed_guesses=5):
         self.possible_words = None
-        self.fetch_words(wordlist)
+        self.load_words_from_file(wordlist_path)
         self.allowed_guesses = allowed_guesses
         self.incorrect_guesses_made = 0
         self.word_to_guess = ""
@@ -29,11 +21,11 @@ class HangmanGame:
         if len(self.guessed_letters) > 0:
             self.guessed_letters.clear()
     
-    def fetch_words(self, target=None):
-        if target is None:
-            target = "wordlist.txt"
+    def load_words_from_file(self, target_path=None):
+        if target_path is None:
+            target_path = "wordlist.txt"
         
-        with open(target, "r", encoding="utf-8") as file:
+        with open(target_path, "r", encoding="utf-8") as file:
             self.possible_words = [x for x in file.readlines()]
 
     def get_word_to_guess(self):
