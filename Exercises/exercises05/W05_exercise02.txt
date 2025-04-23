@@ -1,0 +1,7 @@
+Övningen:
+
+	- Skapa en metod som heter fetch_words().
+
+	- Metoden ska anropas i början av konstruktorn, MEN det gör vi nästa övning.
+
+	-
