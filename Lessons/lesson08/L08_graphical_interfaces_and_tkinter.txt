@@ -1,0 +1,28 @@
+LESSON 08 - SIMPLE GRAPHICAL INTERFACES WITH TKINTER
+
+1. Introduction to GUI Programming
+   - What is a Graphical User Interface (GUI)
+   - Why use GUIs instead of command-line interfaces
+   - Introduction to Tkinter library
+
+2. Basic Tkinter Components
+   - Creating a window
+   - Adding labels
+   - Adding buttons
+   - Text entry fields
+   - Working with layouts (grid, pack)
+
+3. Event Handling
+   - Understanding events
+   - Button click events
+   - Connecting functions to GUI elements
+
+4. Building a Simple Application
+   - Planning the interface
+   - Implementing functionality
+   - Putting it all together
+
+5. Best Practices
+   - Clear layout design
+   - Consistent interface
+   - Descriptive labels and messages

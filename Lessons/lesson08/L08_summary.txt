@@ -1,0 +1,26 @@
+LESSON 08 SUMMARY - SIMPLE GRAPHICAL INTERFACES WITH TKINTER
+
+In this lesson, we learned how to create simple graphical user interfaces (GUIs) using Python's tkinter library.
+
+Key Points:
+- Tkinter is Python's standard GUI (Graphical User Interface) library
+- GUIs make programs more accessible and easier to use
+- Basic tkinter components include: windows, labels, buttons, and entry fields
+- Layout managers like grid and pack help organize elements on the screen
+- Events allow your program to respond to user actions (like clicking a button)
+- Building a GUI application follows a pattern:
+  1. Create the main window
+  2. Add widgets (buttons, labels, etc.)
+  3. Define functions to handle events
+  4. Arrange the layout
+  5. Start the main loop
+
+Examples we covered:
+- Creating a simple window
+- Adding interactive buttons
+- Creating a text input form
+- Building a temperature converter
+- Creating a simple clicker game
+- Converting a text-based game (Hangman) to a GUI application
+
+Practice building more GUIs to get comfortable with tkinter's components and layouts!

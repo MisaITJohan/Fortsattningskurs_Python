@@ -1,0 +1,40 @@
+LESSON 08 NOMENCLATURE - SIMPLE GRAPHICAL INTERFACES WITH TKINTER
+
+GUI (Graphical User Interface): 
+A visual way for users to interact with software using graphical elements instead of text commands.
+
+Tkinter:
+Python's standard library for creating GUI applications.
+
+Widget:
+A GUI element like a button, label, or text field that users can interact with.
+
+Window:
+The main container that holds all other GUI elements.
+
+Label:
+A widget that displays text or images.
+
+Button:
+A widget that users can click to trigger an action.
+
+Entry:
+A widget that allows users to input text.
+
+Frame:
+A container widget used to organize other widgets.
+
+Event:
+An action like a button click or key press that a program can respond to.
+
+Event Handler:
+A function that executes when a specific event occurs.
+
+Layout Manager:
+A system for arranging widgets in a window (pack, grid, place).
+
+Mainloop:
+The method that starts a Tkinter application and waits for user interaction.
+
+Root:
+The main window of a Tkinter application.
