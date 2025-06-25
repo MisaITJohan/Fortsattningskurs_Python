@@ -35,7 +35,7 @@ def generate_wordlist(enumerated=False):
         _fetch_words(enumerated)
 
     else:
-        with open("wordlist.txt", "w+") as file:
+        with open("wordlist.txt", "w+", encoding="UTF-8") as file:
             for line in current_list:
                 file.write(f"{line}\n")
 
