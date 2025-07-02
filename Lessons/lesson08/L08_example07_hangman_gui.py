@@ -56,8 +56,12 @@ class HangmanGameGUI:
         self.title_frame = tk.Frame(self.master, bg=COLORS["background"])
         self.title_frame.pack(pady=10)
 
-        self.title_label = tk.Label(self.title_frame, text="Hangman",
-                                    font=FONTS["title"], bg=COLORS["background"])
+        self.title_label = tk.Label(
+            self.title_frame,
+            text="Hangman",
+            font=FONTS["title"],
+            bg=COLORS["background"]
+            )
         self.title_label.pack()
 
     def _create_game_info_section(self):
@@ -66,32 +70,53 @@ class HangmanGameGUI:
         self.info_frame.pack(pady=10)
 
         # Word length info
-        self.word_length_label = tk.Label(self.info_frame, text="",
-                                         font=FONTS["normal"], bg=COLORS["background"])
+        self.word_length_label = tk.Label(
+            self.info_frame, text="",
+            font=FONTS["normal"],
+            bg=COLORS["background"])
         self.word_length_label.pack(pady=5)
 
         # Display the current word with placeholders
-        self.word_display = tk.Label(self.info_frame, text="",
-                                    font=FONTS["word"], bg=COLORS["background"])
+        self.word_display = tk.Label(
+            self.info_frame,
+            text="",
+            font=FONTS["word"],
+            bg=COLORS["background"])
         self.word_display.pack(pady=10)
 
         # Guesses information
-        self.guesses_left_label = tk.Label(self.info_frame, text="",
-                                         font=FONTS["normal"], bg=COLORS["background"])
+        self.guesses_left_label = tk.Label(
+            self.info_frame,
+            text="",
+            font=FONTS["normal"],
+            bg=COLORS["background"]
+            )
         self.guesses_left_label.pack(pady=5)
 
-        self.guessed_letters_label = tk.Label(self.info_frame, text="",
-                                           font=FONTS["normal"], bg=COLORS["background"])
+        self.guessed_letters_label = tk.Label(
+            self.info_frame,
+            text="",
+            font=FONTS["normal"],
+            bg=COLORS["background"]
+            )
         self.guessed_letters_label.pack(pady=5)
 
-        self.correct_guesses_label = tk.Label(self.info_frame, text="",
-                                            font=FONTS["normal"], bg=COLORS["background"])
+        self.correct_guesses_label = tk.Label(
+            self.info_frame,
+            text="",
+            font=FONTS["normal"],
+            bg=COLORS["background"]
+            )
         self.correct_guesses_label.pack(pady=5)
 
         # Message area for game feedback
-        self.message_label = tk.Label(self.info_frame, text="",
-                                    font=FONTS["emphasis"], fg=COLORS["info"],
-                                    bg=COLORS["background"])
+        self.message_label = tk.Label(
+            self.info_frame,
+            text="",
+            font=FONTS["emphasis"],
+            fg=COLORS["info"],
+            bg=COLORS["background"]
+            )
         self.message_label.pack(pady=10)
 
     def _create_input_section(self):
@@ -99,17 +124,24 @@ class HangmanGameGUI:
         self.input_frame = tk.Frame(self.master, bg=COLORS["background"])
         self.input_frame.pack(pady=10)
 
-        self.guess_label = tk.Label(self.input_frame, 
-                                   text="Gissa en bokstav eller lämna tomt för att avsluta omgången:", 
-                                   font=FONTS["normal"], bg=COLORS["background"])
+        self.guess_label = tk.Label(
+            self.input_frame,
+            text="Gissa en bokstav eller lämna tomt för att avsluta omgången:",
+            font=FONTS["normal"],
+            bg=COLORS["background"]
+            )
         self.guess_label.grid(row=0, column=0, padx=5)
 
         self.guess_entry = tk.Entry(self.input_frame, width=3, font=FONTS["normal"])
         self.guess_entry.grid(row=0, column=1, padx=5)
         self.guess_entry.bind('<Return>', lambda event: self.make_guess())
 
-        self.guess_button = tk.Button(self.input_frame, text="Gissa", 
-                                     command=self.make_guess, font=FONTS["normal"])
+        self.guess_button = tk.Button(
+            self.input_frame,
+            text="Gissa",
+            command=self.make_guess,
+            font=FONTS["normal"]
+            )
         self.guess_button.grid(row=0, column=2, padx=5)
 
     def _create_control_section(self):
@@ -118,26 +150,39 @@ class HangmanGameGUI:
         self.control_frame.pack(pady=20)
 
         # Add a button to load a custom wordlist
-        self.load_wordlist_button = tk.Button(self.control_frame, text="Ladda ordlista", 
-                                            command=self.load_custom_wordlist, font=FONTS["normal"])
+        self.load_wordlist_button = tk.Button(
+            self.control_frame,
+            text="Ladda ordlista",
+            command=self.load_custom_wordlist,
+            font=FONTS["normal"]
+            )
         self.load_wordlist_button.pack(side=tk.LEFT, padx=10)
 
-        self.new_game_button = tk.Button(self.control_frame, text="Nytt spel", 
-                                        command=self.setup, font=FONTS["normal"])
+        self.new_game_button = tk.Button(
+            self.control_frame,
+            text="Nytt spel",
+            command=self.setup,
+            font=FONTS["normal"]
+            )
         self.new_game_button.pack(side=tk.LEFT, padx=10)
 
-        self.quit_button = tk.Button(self.control_frame, text="Avsluta", 
-                                    command=self.master.destroy, font=FONTS["normal"])
+        self.quit_button = tk.Button(
+            self.control_frame,
+            text="Avsluta",
+            command=self.master.destroy,
+            font=FONTS["normal"]
+            )
         self.quit_button.pack(side=tk.LEFT, padx=10)
 
         # Add a label to show the current wordlist file
         self.wordlist_info_frame = tk.Frame(self.master, bg=COLORS["background"])
         self.wordlist_info_frame.pack(pady=5)
 
-        self.wordlist_label = tk.Label(self.wordlist_info_frame, 
-                                      text="Använder standardordlista", 
-                                      font=(FONTS["normal"][0], 10), 
-                                      bg=COLORS["background"])
+        self.wordlist_label = tk.Label(
+            self.wordlist_info_frame,
+            text="Använder standardordlista",
+            font=(FONTS["normal"][0], 10),
+            bg=COLORS["background"])
         self.wordlist_label.pack()
 
     def load_custom_wordlist(self):
