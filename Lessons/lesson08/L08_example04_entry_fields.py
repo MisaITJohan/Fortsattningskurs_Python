@@ -2,12 +2,11 @@
 
 import tkinter as tk
 
-# Create the main window
 root = tk.Tk()
-root.title("Text Entry Example")
+root.title("Exempel på textinmatningsfält")
 root.geometry("400x300")
 
-# Function to handle button click
+# Funktion för att hämta texten som står i textrutan, kontrollera
 def greet_user():
     name = name_entry.get()  # Get text from entry field
     if name:
