@@ -29,7 +29,7 @@ root.geometry("400x300")
 # alltså ställa in, önskade värden för den nya Widgeten.
 label = tk.Label(root, text="Etikett med text!")
 
-# För att vår etikett ska synas måste vi använda en av de tre layouthanterarna
+# För att vår Label ska synas måste vi använda en av de tre layouthanterarna
 # för att placera den i vårt fönster. Vi tittar på hur det fungerar i nästa
 # exempel.
 label.pack(pady=20)

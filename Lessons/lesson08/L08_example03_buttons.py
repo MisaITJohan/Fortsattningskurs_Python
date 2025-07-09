@@ -29,7 +29,7 @@ button = tk.Button(root, text="Klicka på mig!", command=button_clicked)
 button.pack(pady=10)
 
 
-# Denna etikett blir konfigurerad av button_clicked()
+# Denna Label blir konfigurerad av button_clicked()
 result_label = tk.Label(root, text="Du har tryckt på knappen 0 gånger!")
 result_label.pack(pady=10)
 
