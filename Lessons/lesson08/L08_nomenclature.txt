@@ -8,6 +8,10 @@ GUI (Graphical User Interface / Grafiskt Användargränssnitt):
 	Ett visuellt sätt för användare att interagera med program. Används istället
 		för textkommandon.
 
+CLI (Command Line Interface / Kommandoradsgränssnitt):
+	Motsattsen till att ha ett GUI.
+	De program som ni skrivit tidigare har haft denna typ av gränssnitt.
+
 tkinter:
 	En del av Pythons standardbibliotek (de saker som kommer färdiginstallerade
 		med Python). Används för att skapa GUI.
@@ -26,18 +30,6 @@ Window / Toplevel / Fönster:
 	Varje program som använder tkinter består av minst ett fönster. Fönstret
 		innehåller alla andra grafiska element.
 	Fönster är också Widgets.
-
-Label / Etikett:
-	En Widget som kan visa text eller bilder.
-
-Button / Knapp:
-	En Widget som användare kan trycka på för att få något att hända.
-
-Entry / Textfält:
-	En Widget för att skriva in text.
-
-Frame / Ram:
-	En Widget man använder som "behållare" för att organisera andra Widgets.
 
 Event / Händelse:
 	En reaktion från programmet på att användaren har gjort något eller

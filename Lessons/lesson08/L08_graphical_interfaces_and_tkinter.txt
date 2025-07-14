@@ -1,4 +1,29 @@
-LESSON 08 - SIMPLE GRAPHICAL INTERFACES WITH TKINTER
+Lesson08: Simpla grafiska gränssnitt och tkinter
+
+Ett grafiskt gränssnitt (GUI) är ett sätt att använda ett program med hjälp av
+bilder, knappar och fält – istället för att skriva kommandon. I ett GUI så kan
+man klicka, skriva text, välja från menyer och se vad som händer direkt på skärmen.
+
+Anledningar att använda GUI istället för CLI:
+	Alla dessa förutsätter att det är ett väldesignat GUI.
+
+	- Lättare att förstå: Användare ser direkt vad som går att göra, vilket gör
+		programet mer intuitivt för de flesta användare, framförallt nybörjare.
+
+	- Snabb återkoppling: Användare ser direkt vad som händer.
+
+	- Enklare att hitta funktionalitet: Användare kan direkt se vad som går att
+		göra utan att behöva memorisera kommandon.
+
+	- Tillgänglighet: GUI är lättare att anpassa efter olika användares behov.
+
+
+
+
+
+
+
+
 
 1. Introduction to GUI Programming
    - What is a Graphical User Interface (GUI)

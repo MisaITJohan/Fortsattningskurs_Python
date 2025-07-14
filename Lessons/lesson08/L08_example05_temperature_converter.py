@@ -31,7 +31,7 @@ frame = tk.Frame(root, padx=20, pady=20)
 frame.pack()
 
 # Vi skapar en Label för titeln. Vi använder grid() för att lättare organisera
-#
+# våra Widgets på ett snyggt sätt.
 title_label = tk.Label(
     frame,
     text="Temperaturomvandlare",
@@ -39,14 +39,18 @@ title_label = tk.Label(
     )
 title_label.grid(row=0, column=0, columnspan=2, pady=10)
 
-# Add an instruction label
+
+# En Label för instruktioner. Notera att vi specificerar att Label:n ska vara
+# fäst till vänstra kanten av vår Frame.
 instruction_label = tk.Label(
     frame,
     text="Skriv in en temperatur i grader Celsius:",
     )
 instruction_label.grid(row=1, column=0, sticky="w", pady=5)
 
-# Add an entry field
+
+# Ett textfält för inmatning från användaren. Argumenten validate och
+# validatecommand ser till att det enbart är siffror som skrivs in i fältet.
 celsius_entry = tk.Entry(
     frame,
     width=10,
@@ -55,17 +59,23 @@ celsius_entry = tk.Entry(
     )
 celsius_entry.grid(row=1, column=1, pady=5)
 
-# Add a convert button
+# Här "binder" jag Event:et "Return", alltså ett tryck på knappen som vi
+# kallar för enter, till att convert_temperature() ska köras.
+# Notera! Det är enbart om textrutan är markerad som programmet reagerar på
+# denna bindning.
+celsius_entry.bind("<Return>", lambda event: convert_temperature())
+
+# Vi skapar en knapp som kör konverteringsfunktionen. Notera vad som händer
+# om man har med den bortkommenterade kodbiten.
 convert_button = tk.Button(frame, text="Konvertera", command=convert_temperature)
 convert_button.grid(row=2, column=0, columnspan=2, pady=10)  # sticky = "ew")
 
-# Add a label for results
+
+# Labels för resultatet samt felmeddelanden
 result_label = tk.Label(frame, text="", font=("Arial", 12))
 result_label.grid(row=3, column=0, columnspan=2, pady=5)
 
-# Add a label for error messages
 error_label = tk.Label(frame, text="", fg="red")
 error_label.grid(row=4, column=0, columnspan=2, pady=5)
 
-# Start the main event loop
 root.mainloop()
