@@ -51,6 +51,7 @@ instruction_label.grid(row=1, column=0, sticky="w", pady=5)
 
 # Ett textfält för inmatning från användaren. Argumenten validate och
 # validatecommand ser till att det enbart är siffror som skrivs in i fältet.
+# Se SubjectExamples/Validation_in_tkinter_Entry.py för mer om validering.
 celsius_entry = tk.Entry(
     frame,
     width=10,
@@ -59,7 +60,7 @@ celsius_entry = tk.Entry(
     )
 celsius_entry.grid(row=1, column=1, pady=5)
 
-# Här "binder" jag Event:et "Return", alltså ett tryck på knappen som vi
+# Här "binder" jag Event:et "Return", alltså ett tryck på tangenten som vi
 # kallar för enter, till att convert_temperature() ska köras.
 # Notera! Det är enbart om textrutan är markerad som programmet reagerar på
 # denna bindning.
@@ -67,15 +68,27 @@ celsius_entry.bind("<Return>", lambda event: convert_temperature())
 
 # Vi skapar en knapp som kör konverteringsfunktionen. Notera vad som händer
 # om man har med den bortkommenterade kodbiten.
-convert_button = tk.Button(frame, text="Konvertera", command=convert_temperature)
+convert_button = tk.Button(
+    frame,
+    text="Konvertera",
+    command=convert_temperature,
+    )
 convert_button.grid(row=2, column=0, columnspan=2, pady=10)  # sticky = "ew")
 
 
 # Labels för resultatet samt felmeddelanden
-result_label = tk.Label(frame, text="", font=("Arial", 12))
+result_label = tk.Label(
+    frame,
+    text="",
+    font=("Arial", 12),
+    )
 result_label.grid(row=3, column=0, columnspan=2, pady=5)
 
-error_label = tk.Label(frame, text="", fg="red")
+error_label = tk.Label(
+    frame,
+    text="",
+    fg="red",
+    )
 error_label.grid(row=4, column=0, columnspan=2, pady=5)
 
 root.mainloop()
