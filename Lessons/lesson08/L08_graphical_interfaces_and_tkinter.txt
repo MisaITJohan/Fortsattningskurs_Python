@@ -8,7 +8,7 @@ Anledningar att använda GUI istället för CLI:
 	Alla dessa förutsätter att det är ett väldesignat GUI.
 
 	- Lättare att förstå: Användare ser direkt vad som går att göra, vilket gör
-		programet mer intuitivt för de flesta användare, framförallt nybörjare.
+		programmet mer intuitivt för de flesta användare, framförallt nybörjare.
 
 	- Snabb återkoppling: Användare ser direkt vad som händer.
 
@@ -19,35 +19,28 @@ Anledningar att använda GUI istället för CLI:
 
 
 
+Events:
+	Events, eller Händelser, är något som händer, t.ex. att användaren klickar
+		med musen eller trycker på en tangent.
+	Genom att säga åt programmet att "lyssna" efter dessa kan det reagera när
+		ett Event inträffar.
+	Det vanligaste, och enklaste att hantera, Eventet är att användaren trycker
+		på en Button.
+	Utöver Buttons inbyggda funktionalitet att köra funktioner när de aktiveras
+		så kan man även "binda" funktioner till händelser med hjälp av metoden
+		bind() som finns på alla Widgets.
 
 
 
+Några riktlinjer för bra design:
 
+	Tydlig layout:
+		- Placera saker som hör ihop nära varandra
+		- Använd jämna mellanrum mellan element (ta hjälp av padx och pady)
+		- Använd Frames för att organisera
 
-
-1. Introduction to GUI Programming
-   - What is a Graphical User Interface (GUI)
-   - Why use GUIs instead of command-line interfaces
-   - Introduction to Tkinter library
-
-2. Basic Tkinter Components
-   - Creating a window
-   - Adding labels
-   - Adding buttons
-   - Text entry fields
-   - Working with layouts (grid, pack)
-
-3. Event Handling
-   - Understanding events
-   - Button click events
-   - Connecting functions to GUI elements
-
-4. Building a Simple Application
-   - Planning the interface
-   - Implementing functionality
-   - Putting it all together
-
-5. Best Practices
-   - Clear layout design
-   - Consistent interface
-   - Descriptive labels and messages
+	Konsekvent utseende:
+		- Konsekvent användade av typsnitt och färger
+		- Håll storlekarna på Widgets, såsom Buttons, konsekventa
+		- Gör det tydligt vad som går att interagera med, det vill säga vad som
+			går att klicka på och liknande.
