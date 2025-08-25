@@ -19,7 +19,7 @@ for item in my_list:
         item = "Två"
 
     if item == 4:
-        # Eftersom detta är en ny if-sats så kommer nästa rad att köras.
+        # Eftersom detta är en ny if-sats så kommer nästa rad att köras
         item = "Fyra igen"
 
     print(item)

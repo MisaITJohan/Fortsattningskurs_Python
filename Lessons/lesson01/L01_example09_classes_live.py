@@ -10,6 +10,7 @@ class Person:
     def get_data(self):
         return self.name, self.age, self.length
 
+
 my_obj = Person("Anna", 23, 172)
 print(my_obj)
 print()

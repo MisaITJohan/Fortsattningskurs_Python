@@ -25,12 +25,17 @@ person_list = [
 # Vi hämtar och skriver ut första två personerna i name_list:
 print(name_list[0:2])
 
+
 # Vi hämtar och skriver ut de två sista personerna i name_list:
 print(name_list[-2:])
+
 
 # Vi hämtar och skriver ut varannan person från name_list:
 print(name_list[::2])
 
+
 # Vi hämtar och skriver ut namnet på den sista personen i person_list:
 print(person_list[-1][0])
 print(person_list[-1:][0][0])
+# Notera den pyttelilla skillnaden som gör att vi behöver en extra [0] på raden
+# ovanför.

@@ -15,14 +15,17 @@ def get_name():
 print("\ngreet() med ett argument:")
 greet("Johan")
 
+
 # Anropar vi greet() utan argument så anropar den get_name() under sin körning.
 print("\ngreet() utan argument:")
 greet()
+
 
 # När vi anropar get_name() direkt så syns ingenting då det returnerade värdet
 # inte används på något sätt.
 print("\nget_name() utan att göra något med returvärdet:")
 get_name()
+
 
 # Vill vi använda oss av det returnerade värdet måste vi göra något med det
 # eller lagra det någonstans.
