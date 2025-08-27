@@ -8,6 +8,7 @@ def greet(name=None):
 def get_name():
     input_name = input("Vad heter du? ")
     return input_name
+    print("Detta går inte att nå!")
 
 
 # Anropar vi greet() med ett argument sätts variabeln name (i funktionens
