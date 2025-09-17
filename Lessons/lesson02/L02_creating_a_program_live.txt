@@ -19,8 +19,8 @@ T.ex:
 	Spelet som vi kommer skapa under kursens gång kommer gå igenom flera olika
 	steg där vi introducerar en ny del vid varje steg.
 
-	Vi kommer börja med ett simpelt och hårdkodat program med enbart otydlig
-	text och när vi är färdiga så kommer det vara ett simpelt spel som har
+	Vi kommer att börja med ett simpelt och hårdkodat program med enbart otydlig
+	text och när vi är färdiga kommer det vara ett simpelt spel som har
 	alternativ, beskrivande text och (förhoppningsvis) simpel grafik.
 
 Vad det ovanstående betyder i praktiken är att det oftast är en bra idé att
@@ -28,7 +28,7 @@ skapa en lista med mindre delar som fungerar oberoende av varandra.
 Därefter bör man dela upp varje "huvuddel" i mindre, lättöverskådliga, delar.
 T.ex:
 	Om man ska göra ett program som man behöver logga in i så är en av
-	"huvuddelarna" inloggningssystemet.
+		"huvuddelarna" inloggningssystemet.
 	Några av delarna som man delar upp inloggningssystemet i skulle kunna vara:
 		- Skapa en eller flera klasser som representerar användare
 		- Skapa regler för vad man kommer åt utan att logga in

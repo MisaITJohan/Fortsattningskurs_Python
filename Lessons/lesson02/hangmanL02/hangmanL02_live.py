@@ -11,6 +11,7 @@ POSSIBLE_WORDS = (
     "Elefant",
     )
 
+
 class HangmanGame:
 
     def __init__(self, allowed_guesses=5):
@@ -79,8 +80,11 @@ class HangmanGame:
 
     def display_secret(self):
         print("Det hemliga ordet var", self.word_to_guess)
+        # För att ge oss en chans att se ordet så lägger vi in en input() vars
+        # enda syfte är att pausa programmet.
         input("Tryck enter för att avsluta.")
         quit()
+
 
 if __name__ == "__main__":
     game = HangmanGame()
