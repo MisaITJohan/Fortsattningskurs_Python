@@ -1,5 +1,6 @@
 # Första versionen av vårt spel kommer vara simplistiskt men fortfarande ett
 # fungerande program. Under kommande veckor kommer vi lägga till fler funktioner.
+
 import random
 
 POSSIBLE_WORDS = (
@@ -61,7 +62,7 @@ class HangmanGame:
         self.check_game_won()
 
     def incorrect_guess(self):
-        print(self.current_guess.upper(), " finns inte i det hemliga ordet.\n")
+        print("\n", self.current_guess.upper(), " finns inte i det hemliga ordet.\n", sep="")
         self.incorrect_guesses_made += 1
         self.check_game_over()
 
@@ -79,8 +80,11 @@ class HangmanGame:
 
     def display_secret(self):
         print("Det hemliga ordet var", self.word_to_guess)
+        # För att ge oss en chans att se ordet så lägger vi in en input() vars
+        # enda syfte är att pausa programmet.
         input("Tryck enter för att avsluta.")
         quit()
+
 
 if __name__ == "__main__":
     game = HangmanGame()

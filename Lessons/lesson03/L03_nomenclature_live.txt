@@ -1,14 +1,16 @@
 Nomenklatur för lektion 3:
 
 List comprehension
-	En term som saknar svensks översättning. Direkt översatt blir det "listförståelse"
+
+	En term som saknar ordentlig svensk översättning. Direkt översatt blir det "listförståelse"
 	men det är nonsens.
-	Jag har sett termen "listbyggare" användas men jag kommer att använda termen comprehension.
+	Jag har även sett termen "listbyggare" användas men jag kommer att använda termen comprehension.
 	Man kan även ha "set comprehension" och "dict comprehension", de fungerar i grunden likadant
-	men resulterar i set respektive dict.
+	men resulterar i set respektive dicts.
 	Vad det är går vi igenom strax.
 
 Operator
+
 	Tecken och ord som betyder något matematiskt (eller logiskt).
 	Python tolkar dessa enligt samma prioritetsordning som man använder i
 	matematiken (och logiken).
@@ -21,28 +23,28 @@ Operator
 			det till höger"
 
 		== är en operator som betyder "jämför om det till vänster är likvärdigt
-			med det till höger"
+			med det som står till höger"
 
-		= är en operator som betyder som betyder "tilldela namnet till vänster
-			det värde som är till höger"
+		= är en operator som betyder "tilldela namnet till vänster det värde som
+			är till höger"
 
-		is är en operator som kollar om det till vänster är exakt samma sak som
-			det till höger
+		is är en operator som kollar om det till vänster är exakt samma sak som det
+			till höger
 
 		() är operatorer som meddelar prioritet
-			(1 + 2) * 2 och 1 + 2 * 2 ger olika resultat på grund av prioritering
+			(1 + 2) * 2 och 1 + 2 * 2 ger olika resultat på grånd av prioritering
 
 
 	En intressant sak man kan göra är att ändra hur objekt reagerar på operatorer
 	genom att använda sig av särskilda metoder.
 	T.ex:
-		__add__(), __gt__() och __mul__()
+		__add__(), __gt__(), och __mul__()
 
 Jämförelseoperator
 	En operator som jämför om två saker uppfyller ett särskilt krav. Vilket
 	krav detta är beror på vilken operator man använder. Om kravet stämmer så
-	får man tillbaka ett "True", annars får man "False".
-	De som vi använde under grundkursen var ==, <, > <=, >=. Vissa omgångar
+	får man tillbaka ett "True", annars får man tillbaka ett "False".
+	De som vi använde under grundkursen var ==, <, >, <=, >=. Vissa omgångar
 	går jag också igenom !=.
 
 Truthy och Falsy
@@ -50,5 +52,5 @@ Truthy och Falsy
 	"False" är "Falsy".
 	T.ex:
 		En lista som innehåller element tolkas som True medans en tom lista
-		tolkas som False. Detta gäller även om listan innehåller värden som
+		tolkas som False. Detta gäller även om listan bara innehåller värden som
 		är Falsy. Detta gäller för de flesta samlingar (alla inbyggda är så).
