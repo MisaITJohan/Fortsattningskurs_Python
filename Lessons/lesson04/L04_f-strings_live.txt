@@ -12,6 +12,7 @@ Se exempel L04_example01_f_strings.py
 f-strängar har alltså möjligheten att hämta data från variabler (eller andra
 källor) och placera datan inom strängen.
 
+
 Måsvingeparenteserna (alltså {}) är någonting som vi kan lägga in i f-strängar
 och när Python läser strängen så tolkar den det som står där och skriver ut
 resultatet.

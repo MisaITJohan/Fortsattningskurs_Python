@@ -11,7 +11,7 @@ print(f"1 + 1 blir: {1 + 1}")
 print(f"{sum(range(10))}")
 print(f"{[x for x in range(10)]}")
 
-person = {"name":"Josefin", "age":27}
+person = {"name":"Johan", "age":36}
 
-f_string = f"{person['name']} är {person['age']} år gammal."
+f_string = f"{person["name"]} är {person["age"]} år gammal."
 print(f_string)

@@ -1,5 +1,6 @@
 # Exempel på strip() och några av dess varianter.
-demonstration_string = "   \n text text\n    "
+
+demonstration_string = "  \n text text\n   "
 
 # Så här ser strängen ut om vi skriver ut den nu.
 # Jag lägger in > och < runt strängen för att visa var den börjar och slutar.

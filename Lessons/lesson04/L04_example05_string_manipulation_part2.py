@@ -14,7 +14,7 @@ print()
 # Om vi skickar med argument till strip() så kan vi tala om vilka tecken som ska
 # tas bort. Nu tar vi även bort bokstaven t, men bara från början och slutet.
 print(f"Så här ser strängen ut efter strip(' \\nt')"
-      f" >{demonstration_string.strip(' \nt')}<")
+      f">{demonstration_string.strip(' \nt')}<")
 
 print()
 
@@ -22,4 +22,3 @@ print()
 # ena sidan.
 print(f"Så här ser strängen ut efter rstrip() >{demonstration_string.rstrip()}<")
 print(f"Så här ser strängen ut efter lstrip() >{demonstration_string.lstrip()}<")
-
