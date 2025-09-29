@@ -2,8 +2,9 @@
 
 name = input("Namn: ")
 age = input("Ålder: ")
+
 # Någonting som bl.a. är väldigt praktiskt när man ska felsöka ett program är att
-# skriva in ett = (likamedtecken) efter det som ska tolkas av Python men innanför
+# skriva in ett = (likamedtecken) efter det som ska tolkaws av Python men innanför
 # måsvingarna. Det ser oftast inte lika snyggt ut men kan användas på flera
 # olika sätt.
 print(f"Hej {name=}! Du är {age=} år gammal.")
@@ -20,7 +21,7 @@ print(f"{1 + 1=}")
 
 print(f"{"----" * 4}")
 
-# Följande skulle kunna vara ett fall där man faktiskt vill använda sig av detta
+# Följande skulle kunna vara ett fall fär man faktiskt vill använda sig av detta
 # med likamedtecken-syntaxen även i "vanligt" bruk och inte bara i felsökning.
 x = 42
 y = 84

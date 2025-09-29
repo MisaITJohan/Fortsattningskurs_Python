@@ -37,11 +37,22 @@ class HangmanGame:
 
     def display_current_state(self):
         print("Det hemliga ordet är", len(self.word_to_guess), "tecken långt.")
+
         if len(self.guessed_letters) > 0:
-            print("Du har gissat dessa bokstäver:",
-                  *sorted(list(self.guessed_letters)))
+            self.display_all_guesses()
+            self.display_correct_guesses()
             print("Du har gissat fel", self.incorrect_guesses_made, "gånger.")
+
         print("Du har", self.allowed_guesses - self.incorrect_guesses_made, "gissningar kvar.")
+
+    def display_all_guesses(self):
+        print("Du har gissat dessa bokstäver:",
+              *sorted(list(self.guessed_letters)))
+
+    def display_correct_guesses(self):
+        correct_guesses = sorted([x for x in self.guessed_letters if x in self.word_to_guess])
+        if correct_guesses:
+            print("Av de gissade bokstäverna finns dessa i det hemliga ordet:", *correct_guesses)
 
     def make_guess(self):
         guess = ""
@@ -62,11 +73,13 @@ class HangmanGame:
         return self.current_guess in self.word_to_guess
 
     def correct_guess(self):
-        print("\n", self.current_guess.upper(), " finns i det hemliga ordet.\n", sep="")
+        print("\n", self.current_guess.upper(), " finns i det hemliga ordet.\n",
+              sep="")
         self.check_game_won()
 
     def incorrect_guess(self):
-        print("\n", self.current_guess.upper(), " finns inte i det hemliga ordet.\n", sep="")
+        print("\n", self.current_guess.upper(), " finns inte i det hemliga ordet.\n",
+              sep="")
         self.incorrect_guesses_made += 1
         self.check_game_over()
 

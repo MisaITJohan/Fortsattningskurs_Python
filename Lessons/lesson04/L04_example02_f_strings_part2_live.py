@@ -1,6 +1,6 @@
 # Exempel på lite mer av f-strängars funktionalitet.
 
-# Självklart så kan vi ha flera placeholders i samma f-sträng:
+# Självklar kan man ha flera placeholders i samma f-sträng.
 name = input("Namn: ")
 age = input("Ålder: ")
 
@@ -15,3 +15,4 @@ person = {"name":"Johan", "age":36}
 
 f_string = f"{person["name"]} är {person["age"]} år gammal."
 print(f_string)
+

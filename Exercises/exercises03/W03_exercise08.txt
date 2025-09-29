@@ -7,9 +7,9 @@ bokstäver.
 Gör en ny funktion som gör samma sak och anropa den funktionen där koden
 låg tidigare.
 
-Skapa även en ny funktion som skriver ut vilka av de bokstäver som är gissade
+Skapa även en ny funktion som skriver ut vilka av de bokstäver som är gissade som
 finns i det hemliga ordet. Anropa sedan den funktionen direkt efter att du
-anropat den första funktionen som skapade i denna uppgift.
+anropat den första funktionen som du skapade i denna uppgift.
 
 
 
