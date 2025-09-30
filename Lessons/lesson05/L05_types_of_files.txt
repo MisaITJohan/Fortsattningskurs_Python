@@ -15,7 +15,7 @@ Det finns, i grunden, två typer av filer: textfiler och binära filer.
 	den simplaste formen av dessa och det är en sådan som jag skriver i just nu.
 
 	Även .py-filerna som vi använder i Python är textfiler, vi kan lätt se det genom
-	att vi kan öppna dem i ett program i still med Anteckningar (Notepad) och få
+	att vi kan öppna dem i ett program i stil med Anteckningar (Notepad) och få
 	ut läsbar text. Det kan hända att det ser ut som nonsens, då man kan lägga
 	till formatering och liknande som inte Anteckningar klarar av att tolka,
 	men själva texten borde vara läsbar.
@@ -31,13 +31,13 @@ Det finns, i grunden, två typer av filer: textfiler och binära filer.
 
 
 När man sparar data från ett program i Python så kan man välja själv i vilket
-format som filen ska vara i. Detta med hjälp av att Python har ett gäng olika
+filformat som filen ska vara i. Detta med hjälp av att Python har ett gäng olika
 verktyg som gör det enkelt att skapa olika filer.
 
 Att spara saker i .txt-filer är det absolut enklaste men här är ett urval av
 filtyper som passar som datalagring:
 
-	JSON-filer, eller .json-filer
+	JSON-filer eller .json-filer
 		Dessa är textfiler som följer ett förutbestämt system och anses därför
 		väldigt pålitliga. Väldigt många system använder sig av dessa när data
 		ska föras över mellan olika system.
@@ -53,9 +53,11 @@ filtyper som passar som datalagring:
 		Öppnar man ett gammalt Excel-ark i en simpel textredigerare så är det
 		exakt så här de var uppbyggda.
 
+Databaser är ett annat sätt att lagra data i en dator men de fungerar annorlunda
+än hur vi kommer läsa och skriva till filer nu.
 
-En sak man måste tänka på när man håller på med textfiler är något som callas
-Encoding, kort sammanfattat är det alltså exakt hur tecknen i filen definierats.
+En sak man måste tänka på när man håller på med textfiler är något som kallas
+Encoding, kort sammanfattat är det hur tecknen i filen definierats.
 
 För att göra saker simpla, använd alltid något som heter "UTF-8" så behöver ni
 troligtvis inte tänka på det på ganska länge.

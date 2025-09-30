@@ -4,7 +4,7 @@ name = input("Namn: ")
 age = input("Ålder: ")
 
 # Någonting som bl.a. är väldigt praktiskt när man ska felsöka ett program är att
-# skriva in ett = (likamedtecken) efter det som ska tolkaws av Python men innanför
+# skriva in ett = (likamedtecken) efter det som ska tolkas av Python men innanför
 # måsvingarna. Det ser oftast inte lika snyggt ut men kan användas på flera
 # olika sätt.
 print(f"Hej {name=}! Du är {age=} år gammal.")

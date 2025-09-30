@@ -16,7 +16,7 @@ fil):
 
 	strip() och dess varianter tar bort tecken som man inte vill ha och returnerar
 		en ny sträng utan dessa. Just strip() tar, om man inte anger något annat
-		via argument, bort akk whitespace i början och slutet av strängen.
+		via argument, bort all whitespace i början och slutet av strängen.
 
 	upper() gör alla tecken i strängen till versaler (stora bokstäver).
 
