@@ -4,4 +4,4 @@
 data = "Detta är innehållet som ska skrivas till filen."
 with open("new_file.txt", "w", encoding="utf-8") as file:
     file.write(data)
-    print(file.read())
+    # print(file.read())

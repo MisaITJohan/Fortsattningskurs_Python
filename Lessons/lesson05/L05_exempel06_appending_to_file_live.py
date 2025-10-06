@@ -2,7 +2,7 @@
 # en befintlig fil och lägga till mer data i slutet av den.
 
 with open("new_file.txt", "a", encoding="utf-8") as file:
-    file.write("Mer data som ska läggas till i slutet av filen.")
+    file.write("Mer data som ska ligga i slutet av filen.")
 
 # Notera att ovanstående inte lägger in något radbyte om vi inte lägger in
 # ett \n i slutet av strängen.
