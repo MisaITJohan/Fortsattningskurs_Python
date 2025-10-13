@@ -1,20 +1,13 @@
 # Denna vecka gör vi inga ändringar i Hangman under lektionen.
 import random
 
-POSSIBLE_WORDS = (
-    "Apa",
-    "Banan",
-    "Cacao",
-    "Dans",
-    "Elefant",
-    )
 
 
 class HangmanGame:
 
-    def __init__(self, possible_words=None, allowed_guesses=5):
-        if possible_words is None:
-            self.possible_words = POSSIBLE_WORDS
+    def __init__(self, wordlist_path=None, allowed_guesses=5):
+        self.possible_words = None
+        self.load_words_from_file(wordlist_path)
         self.allowed_guesses = allowed_guesses
         self.incorrect_guesses_made = 0
         self.word_to_guess = ""
@@ -30,18 +23,25 @@ class HangmanGame:
         if len(self.guessed_letters) > 0:
             self.guessed_letters.clear()
 
+    def load_words_from_file(self, target_path=None):
+        if target_path is None:
+            target_path = "wordlist.txt"
+
+        with open(target_path, "r", encoding="utf-8") as file:
+            self.possible_words = [x for x in file.readlines()]
+
     def get_word_to_guess(self):
         self.word_to_guess = random.choice(self.possible_words).lower()
 
     def display_current_state(self):
-        print("Det hemliga ordet är", len(self.word_to_guess), "tecken långt.")
+        print(f"Det hemliga ordet är {len(self.word_to_guess)} tecken långt.")
 
         if len(self.guessed_letters) > 0:
             self.display_all_guesses()
             self.display_correct_guesses()
 
-            print("Du har gissat fel", self.incorrect_guesses_made, "gånger.")
-        print("Du har", self.allowed_guesses - self.incorrect_guesses_made, "gissningar kvar.\n")
+            print(f"Du har gissat fel {self.incorrect_guesses_made} gånger.")
+        print(f"Du har {self.allowed_guesses - self.incorrect_guesses_made} gissningar kvar.\n")
 
     def display_all_guesses(self):
         print("Du har gissat dessa bokstäver:",
@@ -71,13 +71,11 @@ class HangmanGame:
         return self.current_guess in self.word_to_guess
 
     def correct_guess(self):
-        print("\n", self.current_guess.upper(), " finns i det hemliga ordet.\n",
-              sep="")
+        print(f"\n{self.current_guess.upper()} finns i det hemliga ordet.\n")
         self.check_game_won()
 
     def incorrect_guess(self):
-        print("\n", self.current_guess.upper(), " finns inte i det hemliga ordet.\n",
-              sep="")
+        print(f"\n{self.current_guess.upper()} finns inte i det hemliga ordet.\n")
         self.incorrect_guesses_made += 1
         self.check_game_over()
 
@@ -96,7 +94,7 @@ class HangmanGame:
             self.game_finished = True
 
     def display_secret(self):
-        print("Det hemliga ordet var", self.word_to_guess)
+        print(f"Det hemliga ordet var {self.word_to_guess}")
 
     def game_loop(self):
         while not self.game_finished:

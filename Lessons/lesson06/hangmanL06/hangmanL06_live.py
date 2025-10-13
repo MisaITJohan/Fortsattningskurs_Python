@@ -1,3 +1,6 @@
+# Denna vecka uppdaterar vi load_words_from_file() till att använda pathlib
+# samt skapar en placeholder för en mer visuell upplevelse när man spelar.
+import pathlib
 import random
 
 
@@ -23,10 +26,10 @@ class HangmanGame:
     
     def load_words_from_file(self, target_path=None):
         if target_path is None:
-            target_path = "wordlist.txt"
+            target_path = pathlib.Path("wordlist_creator/wordlist.txt")
         
         with open(target_path, "r", encoding="utf-8") as file:
-            self.possible_words = [x for x in file.readlines()]
+            self.possible_words = [x.strip() for x in file.readlines()]
 
     def get_word_to_guess(self):
         self.word_to_guess = random.choice(self.possible_words).lower()
@@ -40,6 +43,14 @@ class HangmanGame:
 
             print(f"Du har gissat fel {self.incorrect_guesses_made} gånger.")
         print(f"Du har {self.allowed_guesses - self.incorrect_guesses_made} gissningar kvar.\n")
+        self.display_placeholder()
+
+    def display_placeholder(self):
+        placeholder = self.word_to_guess
+        for char in placeholder:
+            if char not in self.guessed_letters:
+                placeholder = placeholder.replace(char, "_")
+        print(f"Det hemliga ordet är: {placeholder}")
 
     def display_all_guesses(self):
         print("Du har gissat dessa bokstäver:",
@@ -60,7 +71,7 @@ class HangmanGame:
         self.guessed_letters.add(guess)
         self.current_guess = guess
         check_correct = self.check_guess()
-        if check_correct is True:
+        if check_correct:
             self.correct_guess()
         else:
             self.incorrect_guess()
