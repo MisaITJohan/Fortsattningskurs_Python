@@ -1,5 +1,5 @@
-# Första versionen av vårt spel kommer vara simplistiskt men fortfarande ett
-# fungerande program. Under kommande veckor kommer vi lägga till fler funktioner.
+# Denna vecka uppdaterar vi load_words_from_file() till att använda pathlib
+# samt skapar en placeholder för en mer visuell upplevelse när man spelar.
 import pathlib
 import random
 
@@ -71,7 +71,7 @@ class HangmanGame:
         self.guessed_letters.add(guess)
         self.current_guess = guess
         check_correct = self.check_guess()
-        if check_correct is True:
+        if check_correct:
             self.correct_guess()
         else:
             self.incorrect_guess()

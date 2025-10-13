@@ -1,0 +1,25 @@
+Övningen:
+
+	- Skapa en metod som heter load_from_file().
+
+	- Denna metod är tänkt att ersätta fetch_words() så delar av det som den nya metoden kan ni ta därifrån.
+
+	- Vi implementerar metoden i nästa övning, för stunden ska metoden bara skapas.
+
+
+
+	- Metoden ska ha följande egenskaper:
+
+		- Metoden ska ha ett valfritt argument, d.v.s. att den ska fungera oavsett om argumentet skickades in
+			eller inte.
+		- Argumentet kan, förslagsvis, heta filepath.
+
+		- Om metoden anropas med argumentet ska metoden försöka öppna den fil som ligger på den sökväg som
+			skickades in.
+		- Om inget argument användes så ska metoden öppna den fil som innehåller standardlistan.
+
+		- Efter att en fil har öppnats så ska innehållet läsas av och läggas i self.possible_words.
+
+
+TIPS! Tänk på att ditt program kommer krascha om du försöker öppna en fil som inte existerar.
+	Detta är något som måste hanteras på något sätt.
