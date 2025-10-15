@@ -42,9 +42,12 @@ try:
     assert getattr(test_user, "age") == 22, "Instansens age blir felaktig"
 
     # Kontroll av klassvariabel
-    assert hasattr(User, "programing_language")
-    assert User.programing_language == "Python"
-    assert test_user.programing_language == "Python"
+    assert hasattr(User, "programing_language"), (
+        "Klassen har ingen klassvariabel som heter programing_language.")
+    assert User.programing_language == "Python", (
+        "Klassvariabeln programing_language har fel värde. Den ska vara 'Python'.")
+    assert test_user.programing_language == "Python", (
+        "Klassvariabeln programing_language har fel värde eller är en instansvariabel.")
 
 
     # Kontroll att programing_language är en klassvariabel (inte instansvariabel)
@@ -58,10 +61,10 @@ try:
     # Kontroll av metoder
     correct_info_value = "alice (22) - alice@example.com"
 
-    assert isinstance(test_user.info(), str)
-    assert test_user.info() == correct_info_value, \
-        (f"info() returnerar fel värde. Kontrollera att formateringen är korrekt."
-         f"\nJämför dessa: \nFel:\t{test_user.info()}\nKorrekt:{correct_info_value}")
+    assert isinstance(test_user.info(), str), "info() måste returnera en textsträng"
+    assert test_user.info() == correct_info_value, (
+        f"info() returnerar fel värde. Kontrollera att formateringen är korrekt."
+        f"\nJämför dessa: \nFel:\t{test_user.info()}\nKorrekt:{correct_info_value}")
 
     assert test_user.is_adult() is True, "is_adult() returnerar inkorrekt värde"
 

@@ -1,5 +1,6 @@
-# Första versionen av vårt spel kommer vara simplistiskt men fortfarande ett
-# fungerande program. Under kommande veckor kommer vi lägga till fler funktioner.
+# Denna vecka uppdaterar vi vårt program att ha ett bättre programflöde.
+# Vi lägger till möjligheten att spela spelet flera gånger utan att behöva
+# starta om hela programmet.
 import random
 
 POSSIBLE_WORDS = (
@@ -77,23 +78,21 @@ class HangmanGame:
         self.display_secret()
         self.game_finished = True
 
-
     def check_game_over(self):
         if self.incorrect_guesses_made >= self.allowed_guesses:
             print("Game over!")
             self.display_secret()
             self.game_finished = True
 
-
     def display_secret(self):
         print("Det hemliga ordet var", self.word_to_guess)
 
-    # def game_loop(self):
-    #     while True:
-    #         self.display_current_state()
-    #         self.make_guess()
-    #         if self.incorrect_guesses_made >= self.allowed_guesses:
-    #             break
+    def game_loop(self):
+        while not self.game_finished:
+            self.display_current_state()
+            self.make_guess()
+            if self.incorrect_guesses_made >= self.allowed_guesses:
+                break
 
 
 def main():
@@ -101,13 +100,10 @@ def main():
     done = False
     while done != "":
         game.setup()
-        while game.game_finished is not True:
-            game.display_current_state()
-            game.make_guess()
+        game.game_loop()
 
         done = input("Vill du köra igen? Lämna blankt om du vill avsluta.\n>>>")
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

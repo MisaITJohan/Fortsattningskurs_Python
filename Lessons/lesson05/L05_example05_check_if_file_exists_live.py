@@ -10,4 +10,3 @@ if os.path.exists("new_file.txt"):
         print(file.read())
 else:
     print("Filen existerar inte.")
-

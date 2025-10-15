@@ -37,12 +37,12 @@ numbers_to_combine = [[1, 2], [3, 4], [5, 6]]
 my_combined_dict1 = {x[0]:x[1] for x in numbers_to_combine}
 print(my_combined_dict1)
 
+
 number_list1 = [1, 2, 3]
 number_list2 = [4, 5, 6]
 
-my_combined_dict2 = {x:y for x in number_list1 for y in number_list2}
+my_combined_dict2 = {x:y for x, y in zip(number_list1, number_list2)}
 print(my_combined_dict2)
 
-# Extra (lite svårare) exempel
-# numbers_to_combine = [[1, 2, 3], [4, 5, 6]]
-# my_combined_dict = {x:y for x, y in zip(*numbers_to_combine)}
+numbers_to_combine = [[1, 2, 3], [4, 5, 6]]
+my_combined_dict = {x:y for x, y in zip(numbers_to_combine[0], numbers_to_combine[1])}

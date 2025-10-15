@@ -1,9 +1,10 @@
-Lesson06: Filer, del 2 och Datahantering
+Lesson06: Filer, del 2
 
 När man håller på och hanterar filer är det ofrånkomligt att man måste berätta
 för Python var filen eller filerna ligger.
-Detta blir lätt problematiskt i och med att olika operativsystem lagrar filer
-på olika ställen.
+Detta blir lätt problematiskt i och med att olika operativsystem lagrar filer på
+olika ställen.
 
 Nu ska vi därför titta närmare på sökvägar och så kallade "Path-like objects".
 
+Om vi hinner kommer vi även titta lite på datahantering.

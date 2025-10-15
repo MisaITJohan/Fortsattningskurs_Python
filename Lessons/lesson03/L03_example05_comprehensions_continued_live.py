@@ -12,12 +12,13 @@ my_list = [1, 2, 3, 4, 5, 6, 7]
 my_list_without_3 = [x for x in my_list if x != 3]
 print(my_list_without_3)
 
-# my_second_list = []
-# for x in my_list:
-#     if check_even(x):
-#         my_second_list.append(x)
-# print(my_second_list)
+
+# Kod utan comprehension:
+my_second_list = []
+for x in my_list:
+    if check_even(x):
+        my_second_list.append(x)
+print(my_second_list)
 
 my_even_list = [x for x in my_list if check_even(x)]
 print(my_even_list)
-

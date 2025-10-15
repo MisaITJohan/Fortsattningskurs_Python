@@ -13,11 +13,12 @@ f-strängar har alltså möjligheten att hämta data från variabler (eller andr
 källor) och placera den datan inom strängen.
 
 
-Måsvingeparenteserna (alltså { }) är någonting som vi kan lägga in i f-strängar och
-när Python läser strängen så tolkar den det som står där och skriver ut resultatet.
+Måsvingeparenteserna (alltså { }) är någonting som vi kan lägga in i f-strängar
+och när Python läser strängen så tolkar den det som står där och skriver ut
+resultatet.
 
-Det som skrivs inom måsvingeparenteserna kan vara nästan vad som
-helst som returnerar ett värde.
+Det som skrivs inom måsvingeparenteserna kan vara nästan vad som helst som
+returnerar ett värde.
 
 Vi kommer att använda oss av f-strängar genom resten av kursen.
 

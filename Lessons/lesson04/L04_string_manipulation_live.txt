@@ -3,10 +3,10 @@ Strängmanipulering:
 Python tillåter inte att man ändrar en sträng, de är oföränderliga, så om
 man behöver uppdatera en textsträng måste man komma runt detta.
 
-Det finns flera sätt att göra detta på, varav det kanske enklaste och effektivaste
-sättet är att använda sig av metoden replace() för att skapa en ny sträng som
-man sedan tilldelar sin variabel:
-	Se exempel L04_example04_string_manipulation_part1.py
+Det finns flera olika sätt att göra detta på, varav det kanske enklaste och
+effektivaste sättet är att använda strängmetoden replace() för att skapa en ny
+sträng som man sedan tilldelar sin variabel:
+	Se L04_example04_string_manipulation_part1.py
 
 Några fler metoder som är användbara (det finns många fler än dessa och jag
 klistrar in en länk till dokumentationen för alla metoderna i slutet av denna
@@ -20,7 +20,7 @@ fil):
 
 	upper() gör alla tecken i strängen till versaler (stora bokstäver).
 
-	lower() gör alla tecken i strängen till gemener (små bokstäver).
+	lower() för alla tecken i strängen till gemener (små bokstäver).
 
 	capitalize() gör att första tecknet blir en stor bokstav och resten blir små
 		bokstäver. Notera att detta gör att saker som ska ha stor bokstav,
@@ -28,7 +28,6 @@ fil):
 
 	is[nånting]() är en serie metoder som kontrollerar att ett påstående om
 		strängen stämmer. Dessa returnerar inte en ny sträng utan True eller False.
-
 
 Länk till dokumentationen för strängars metoder:
 https://docs.python.org/3/library/stdtypes.html#string-methods

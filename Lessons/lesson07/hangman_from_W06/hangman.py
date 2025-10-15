@@ -103,6 +103,7 @@ class HangmanGame:
 
     def make_guess(self):
         guess = ""
+
         while self.check_invalid(guess):
             guess = input("Gissa en bokstav eller lämna tomt för att avsluta omgången: ").lower()
             if not guess:
@@ -141,17 +142,21 @@ class HangmanGame:
         for letter in self.word_to_guess:
             if letter not in self.guessed_letters:
                 return
-        print(f"Du vann! Det hemliga ordet var {self.word_to_guess}.")
+        print("Du vann!")
+        self.display_secret()
         self.game_finished = True
-
 
     def check_game_over(self):
         if self.incorrect_guesses_made >= self.allowed_guesses:
-            print(f"Game over! Det hemliga ordet var {self.word_to_guess}.")
+            print("Game over!")
+            self.display_secret()
             self.game_finished = True
 
+    def display_secret(self):
+        print(f"Det hemliga ordet var {self.word_to_guess}")
+
     def game_loop(self):
-        while self.game_finished is not True:
+        while not self.game_finished:
             self.display_current_state()
             self.make_guess()
             if self.incorrect_guesses_made >= self.allowed_guesses:
@@ -168,6 +173,5 @@ def main():
         done = input("Vill du köra igen? Lämna blankt om du vill avsluta.\n>>>")
 
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

@@ -2,6 +2,7 @@
 
 name = input("Namn: ")
 age = input("Ålder: ")
+
 # Någonting som bl.a. är väldigt praktiskt när man ska felsöka ett program är att
 # skriva in ett = (likamedtecken) efter det som ska tolkas av Python men innanför
 # måsvingarna. Det ser oftast inte lika snyggt ut men kan användas på flera
@@ -20,7 +21,7 @@ print(f"{1 + 1=}")
 
 print(f"{"----" * 4}")
 
-# Följande skulle kunna vara ett fall där man faktiskt vill använda sig av detta
+# Följande skulle kunna vara ett fall fär man faktiskt vill använda sig av detta
 # med likamedtecken-syntaxen även i "vanligt" bruk och inte bara i felsökning.
 x = 42
 y = 84
@@ -33,4 +34,3 @@ print(f"{"----"} * 4")  # Medvetet fel som en påminnelse om att tänka sig för
 # något som ni kunde se ett exempel på under förra workshoppen, hur or-klausuler
 # beter sig, i kombination med det vi tittar på nu.
 print(f"Hej {name or "du namnlösa främling"}! Du är {age or "okänd mängd"} år gammal.")
-

@@ -12,13 +12,13 @@ def greet_with_input():
 # skickar in.
 greet("Johan")
 
-print("\n")  # För att skapa utrymme mellan anropen
+print("\n")  # För att skapa utrymme mellan anropen.
 
 # Anropar vi greet() utan argument sätts variabeln name till standardvärdet
 # "namnlös".
 greet()
 
-print("\n")  # För att skapa utrymme mellan anropen
+print("\n")  # För att skapa utrymme mellan anropen.
 
 # När vi anropar greet_with_input() så anropar den funktionen greet() under
 # sin körning.
