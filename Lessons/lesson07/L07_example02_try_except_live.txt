@@ -26,7 +26,7 @@ Här kan man se vilka Exceptions som ärver från vilka:
 https://docs.python.org/3/library/exceptions.html#exception-hierarchy
 
 Istället för att ha en "bare except", d.v.s. att man bara skriver "except:"
-så bör man specificera vilket eller vilka Exceptions som förväntas upp stå:
+så bör man specificera vilket eller vilka Exceptions som förväntas uppstå:
 try:
 	[Nånting]
 except TypeError:
