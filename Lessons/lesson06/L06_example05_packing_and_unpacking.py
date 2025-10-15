@@ -1,13 +1,13 @@
 # Oordnat exempel på unpacking och packing.
 
-name_list = ["1", "2", "3", "4"]
+number_list = ["1", "2", "3", "4"]
 
-print(*name_list)
+print(*number_list)
 
-a, b, c, d = name_list
+a, b, c, d = number_list
 print("Separata variabler:", a, b, c, d)
 
-a, b, *c = name_list
+a, b, *c = number_list
 print("Separata variabler med stjärnat c:", a, b, c)
 print(type(c))
 

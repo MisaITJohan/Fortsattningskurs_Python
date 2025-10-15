@@ -7,7 +7,7 @@ File / Fil:
 	klassa väldigt få saker som filer.
 	I Unix, och andra operativsystem baserade på Unix, så brukar man säga
 		"Everything is a file"
-	Det är en sanning med modifikation, i de flesta fal syftar man egentligen
+	Det är en sanning med modifikation, i de flesta fall syftar man egentligen
 	på att allt är Filliknande.
 
 File-like / Filliknande:
@@ -20,8 +20,8 @@ File-like / Filliknande:
 	alla interaktioner med datorns system.
 
 	Vi kan se ett exempel på detta i Python, även i Windows, genom att
-	titta på hut input() och print() fungerar. Det som användaren skriver in med
-	input() hämtas fårn "standard input" och det som print() skriver ut hamnar
+	titta på hur input() och print() fungerar. Det som användaren skriver in med
+	input() hämtas från "standard input" och det som print() skriver ut hamnar
 	i "sys.stdout" ("standard out") per standard. Notera att den parameter som
 	man skickar med till print() heter "file" av just den anledningen.
 		Se L06_example01_print_to_file.py

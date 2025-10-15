@@ -15,4 +15,4 @@ windows_open.close()
 unix_linux_macos_open.close()
 
 print("------")
-print(windows_path.read_text())
+print(windows_path.read_text(encoding="utf-8"))
