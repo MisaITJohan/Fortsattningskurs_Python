@@ -7,7 +7,7 @@ Med hjälp av en try-except-sats så kan man fånga upp fel som uppkommer, hante
 dem och låta programmet fortsätta köra.
 
 
-Det simplast möjligaste exemplet av en try-except ser ut så här:
+Det simplaste möjliga exemplet av en try-except ser ut så här:
 try:
 	[Vadän som kan orsaka en krasch]
 except:
@@ -22,19 +22,19 @@ exceptions. Som jag sa tidigare, i Python finns det Exceptions som är en viktig
 del av ett programs normala körning.
 
 
-
 Här kan man se vilka Exceptions som ärver från vilka:
 https://docs.python.org/3/library/exceptions.html#exception-hierarchy
 
 Istället för att ha en "bare except", d.v.s. att man bara skriver "except:"
-så bör man specifiera vilket eller vilka Exceptions som förväntas uppstå:
+så bör man specificera vilket eller vilka Exceptions som förväntas uppstå:
 try:
 	[Nånting]
 except TypeError:
 	[Nånting]
+except AttributeError:
+	[Nånting
 
 Fångar man något som är högre upp i hierarkin så fångar man även alla som ärver
 från det, vilket kan leda till oönskat beteende.
 Använd därför ALDRIG "BaseException", det orsakar samma fel som att inte
 skriva nånting.
-
