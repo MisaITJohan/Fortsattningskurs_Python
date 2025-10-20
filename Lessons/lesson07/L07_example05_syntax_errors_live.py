@@ -3,14 +3,13 @@
 
 print("FÖRSTA RADEN!")
 
-#print(f"{ a b}")
+
+# print(f"{a b}")
 
 
 # if:
 #     pass
 
-
 # print("Test"
 
-
-# x = 42 if True
+# x = 42 if not True
