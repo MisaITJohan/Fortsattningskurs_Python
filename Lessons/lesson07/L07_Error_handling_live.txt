@@ -1,4 +1,4 @@
-Lesson06: Felhantering och felsökning
+Lesson07: Felhantering och felsökning
 
 Det är sällan ett program fungerar precis som man vill direkt, oftast behöver
 man gå igenom flera iterationer av att lägga till kod, felsöka, lägga till kod,
