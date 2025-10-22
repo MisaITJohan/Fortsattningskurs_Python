@@ -1,3 +1,16 @@
+# Disclaimer: För att skapa denna fil slog jag på AI-förslag i min IDE.
+
+# Detta är en någorlunda komplett variant av vårt ordgissningsspel.
+# Det finns fortfarande många förbättringspunkter som ni skulle kunna försöka
+# er på, det finns t.e.x. ingen faktisk grafik som gör det till ett faktiskt
+# "hangman"-spel.
+
+# För att demonstrera en potentiell förbättring har jag gjort något som man
+# inte ska göra: jag kombinerar metoder för hur jag hanterar de formaterade
+# strängarna. I dict:en MESSAGES har jag påbörjat processen av att
+# byta till ett system som gör programmet enklare att uppdatera.
+
+
 import tkinter as tk
 from tkinter import filedialog
 import pathlib
@@ -19,13 +32,25 @@ FONTS = {
     "emphasis": ("Arial", 12, "bold")
 }
 
+
+# This dictionary contains messages used in the UI, allowing for translation to other languages.
+MESSAGES = {
+    "title": "Hangman",
+    "guess_prompt": "Gissa en bokstav eller lämna tomt för att avsluta omgången:",
+    "guess_button": "Gissa",
+    "load_wordlist": "Ladda ordlista",
+    "new_game": "Nytt spel",
+    "using_wordlist": "Använder ordlista: {}",
+    "wordlist_loaded": "Ordlista laddad: {} ord",
+    }
+
 # This class implements a GUI version of the Hangman game
 # Based on the functionality of the original HangmanGame class
 class HangmanGameGUI:
     def __init__(self, master, wordlist=None, allowed_guesses=5):
         # Setup main window
         self.master = master
-        self.master.title("Hangman Spel")
+        self.master.title(MESSAGES["title"])
         self.master.geometry("600x550")  # Increased height for wordlist info
         self.master.configure(bg=COLORS["background"])
 
@@ -126,7 +151,7 @@ class HangmanGameGUI:
 
         self.guess_label = tk.Label(
             self.input_frame,
-            text="Gissa en bokstav eller lämna tomt för att avsluta omgången:",
+            text=MESSAGES["guess_prompt"],
             font=FONTS["normal"],
             bg=COLORS["background"]
             )
@@ -138,7 +163,7 @@ class HangmanGameGUI:
 
         self.guess_button = tk.Button(
             self.input_frame,
-            text="Gissa",
+            text=MESSAGES["guess_button"],
             command=self.make_guess,
             font=FONTS["normal"]
             )
@@ -152,7 +177,7 @@ class HangmanGameGUI:
         # Add a button to load a custom wordlist
         self.load_wordlist_button = tk.Button(
             self.control_frame,
-            text="Ladda ordlista",
+            text=MESSAGES["load_wordlist"],
             command=self.load_custom_wordlist,
             font=FONTS["normal"]
             )
@@ -160,7 +185,7 @@ class HangmanGameGUI:
 
         self.new_game_button = tk.Button(
             self.control_frame,
-            text="Nytt spel",
+            text=MESSAGES["new_game"],
             command=self.setup,
             font=FONTS["normal"]
             )
@@ -200,9 +225,10 @@ class HangmanGameGUI:
                 self.possible_words = words
                 # Update the wordlist label with the filename
                 filename = os.path.basename(file_path)
-                self.wordlist_label.config(text=f"Använder ordlista: {filename}")
+                self.wordlist_label.config(text=MESSAGES["using_wordlist"].format(filename))
                 # Start a new game with the new wordlist
-                self.show_message(f"Ordlista laddad: {len(words)} ord", "info")
+                # The next line is shown for such a short time that we won't see it
+                self.show_message(MESSAGES["wordlist_loaded"].format(len(words)), "info")
                 self.setup()
             else:
                 self.show_message("Kunde inte läsa från den valda filen.", "error")
@@ -285,10 +311,10 @@ class HangmanGameGUI:
         display_chars = []
         for letter in self.word_to_guess:
             if letter in self.guessed_letters:
-                display_chars.append(letter + " ")
+                display_chars.append(letter)
             else:
-                display_chars.append("_ ")
-        return "".join(display_chars)
+                display_chars.append("_")
+        return " ".join(display_chars)
 
     def update_guesses_left(self):
         """Update the label showing remaining guesses"""

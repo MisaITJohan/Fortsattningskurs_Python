@@ -12,7 +12,7 @@ def convert_temperature():
         result_label.config(text=f"{celsius}°C = {fahrenheit:.1f}°F")
         error_label.config(text="")
     except ValueError:
-        error_label.config(text="Please enter a valid number!")
+        error_label.config(text="Vänligen skriv in en siffra!")
         result_label.config(text="")
 
 def is_valid_number(value):
@@ -59,6 +59,9 @@ celsius_entry = tk.Entry(
     validatecommand=(root.register(is_valid_number), "%P")
     )
 celsius_entry.grid(row=1, column=1, pady=5)
+
+# Här gör jag så att textfältet är markerat när programmet startas.
+celsius_entry.focus()
 
 # Här "binder" jag Event:et "Return", alltså ett tryck på tangenten som vi
 # kallar för enter, till att convert_temperature() ska köras.

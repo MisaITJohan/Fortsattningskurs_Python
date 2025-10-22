@@ -111,7 +111,7 @@ class HangmanGameGUI:
 
         # Then try to use the default wordlist path
         try:
-            default_path = pathlib.Path("wordlist_creator/wordlist.txt")
+            default_path = pathlib.Path("../wordlist_creator/wordlist.txt")
             with open(default_path, "r", encoding="utf-8") as file:
                 self.possible_words = [x.strip() for x in file.readlines()]
         except (FileNotFoundError, IOError):

@@ -9,7 +9,7 @@ GUI (Graphical User Interface / Grafiskt Användargränssnitt):
 		för textkommandon.
 
 CLI (Command Line Interface / Kommandoradsgränssnitt):
-	Motsattsen till att ha ett GUI.
+	Motsatsen till att ha ett GUI.
 	De program som ni skrivit tidigare har haft denna typ av gränssnitt.
 
 tkinter:
@@ -62,7 +62,7 @@ root / tk.Tk():
 master:
 	Den Widget som en annan Widget tillhör. Det går att referera till en
 		Widgets master genom att använda syntaxen:
-			orginal_widgeten.master
+			orginalwidgeten.master
 
 	En Widget kan bara ha en master.
 	En Widget kan vara master för flera Widgets.

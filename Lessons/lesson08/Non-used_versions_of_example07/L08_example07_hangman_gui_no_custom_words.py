@@ -131,7 +131,7 @@ class HangmanGameGUI:
             # 1. Custom provided path
             lambda: self._load_from_file(target) if target else None,
             # 2. Default wordlist path
-            lambda: self._load_from_file(pathlib.Path("wordlist_creator/wordlist.txt")),
+            lambda: self._load_from_file(pathlib.Path("../wordlist_creator/wordlist.txt")),
             # 3. Fallback to hardcoded list
             lambda: default_words
         ]
