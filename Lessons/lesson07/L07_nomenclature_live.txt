@@ -16,9 +16,9 @@ LBYL:
 	kör kod som kan få problem.
 
 EAFP:
-	Easier to Ask for Forgiveness than Permission.
-	En typ av design där man ser till att om något går fel så hanterar man det då.
+	Easier to Ask for Forgiveness than Permission
+	En typ av design där man ser till at om något går fel så hanterar man det då.
 
 raise:
 	Översättningen blir "Lyft" på svenska.
-	När ett Exception aktiveras så kallas det för att det "lyfts".
+	När ett Exception aktiveras så kallas det att det "lyfts"

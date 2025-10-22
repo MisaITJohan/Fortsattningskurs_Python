@@ -63,8 +63,9 @@ class HangmanGame:
 
     def make_guess(self):
         guess = ""
-        while guess in self.guessed_letters or len(guess) != 1:
-            guess = input("Gissa en bokstav eller lämna tomt för att avsluta spelet: ").lower()
+
+        while self.check_invalid(guess):
+            guess = input("Gissa en bokstav eller lämna tomt för att avsluta omgången: ").lower()
             if not guess:
                 self.game_finished = True
                 return
@@ -75,6 +76,15 @@ class HangmanGame:
             self.correct_guess()
         else:
             self.incorrect_guess()
+
+    def check_invalid(self, guess):
+        previously_guessed = guess in self.guessed_letters
+        invalid_length = len(guess) != 1
+        is_not_letter = not guess.isalpha()
+
+        is_invalid = previously_guessed or invalid_length or is_not_letter
+
+        return is_invalid
 
     def check_guess(self):
         return self.current_guess in self.word_to_guess

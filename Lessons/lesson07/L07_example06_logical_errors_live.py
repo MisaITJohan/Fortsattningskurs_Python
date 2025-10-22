@@ -7,6 +7,7 @@
 x = 10
 y = range(x)
 sum = 0
+
 for number in y:
     print(number)
     sum += number
@@ -15,12 +16,13 @@ print(sum)
 print(average)
 
 # Vi kanske tror att vi räknar ut genomsnittet av alla siffror mellan ett till tio
-# men range() börjar per standard från noll.
+# men range() börjar per standard från noll och tar inte med det tal man skickar
+# som argument.
 
 
 # Exempel 2, felaktig jämförelse:
 
-x = 9
+x = 10
 
 if not x > 5 and not x < 8:  # Detta borde vara "if not(x > 5 and x < 8):"
     print(f"x är mindre än 5 eller större än 8 och x är: {x}")
