@@ -1,10 +1,10 @@
 Lesson08: Simpla grafiska gränssnitt och tkinter
 
 Ett grafiskt gränssnitt (GUI) är ett sätt att använda ett program med hjälp av
-bilder, knappar och fält – istället för att skriva kommandon. I ett GUI så kan
+bilder, knappar och fält - istället för att skriva kommandon. I ett GUI så kan
 man klicka, skriva text, välja från menyer och se vad som händer direkt på skärmen.
 
-Anledningar att använda GUI istället för CLI:
+Anledningar att använda GUI istället för CLI (Command Line Interface):
 	Alla dessa förutsätter att det är ett väldesignat GUI.
 
 	- Lättare att förstå: Användare ser direkt vad som går att göra, vilket gör
@@ -18,29 +18,27 @@ Anledningar att använda GUI istället för CLI:
 	- Tillgänglighet: GUI är lättare att anpassa efter olika användares behov.
 
 
-TODO: FLYTTA
 Events:
 	Events, eller Händelser, är något som händer, t.ex. att användaren klickar
 		med musen eller trycker på en tangent.
 	Genom att säga åt programmet att "lyssna" efter dessa kan det reagera när
 		ett Event inträffar.
-	Det vanligaste, och enklaste att hantera, Eventet är att användaren trycker
-		på en Button.
+	Det vanligast, och enklaste att hantera, Eventet är att användaren tycker
+		på en knapp.
 	Utöver Buttons inbyggda funktionalitet att köra funktioner när de aktiveras
-		så kan man även "binda" funktioner till händelser med hjälp av metoden
+		så kan man även "binda" funktioner till händelser med hjälpa av metoden
 		bind() som finns på alla Widgets.
-
 
 
 Några riktlinjer för bra design:
 
 	Tydlig layout:
 		- Placera saker som hör ihop nära varandra
-		- Använd jämna mellanrum mellan element (ta hjälp av padx och pady)
+		- Använd jämna mellanrum mellan element (ta hjälp av padx pady)
 		- Använd Frames för att organisera
 
 	Konsekvent utseende:
-		- Konsekvent användade av typsnitt och färger
+		- Konsekvent användande av typsnitt och färger
 		- Håll storlekarna på Widgets, såsom Buttons, konsekventa
 		- Gör det tydligt vad som går att interagera med, det vill säga vad som
-			går att klicka på och liknande.
+			går att klicka på och liknande

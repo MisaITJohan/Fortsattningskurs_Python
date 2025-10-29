@@ -1,0 +1,23 @@
+Några vanliga Widgets:
+
+
+Label / Etikett:
+	En Widget som kan visa text eller bilder.
+
+Button / Knapp:
+	En Widget som användare kan trycka på för att få något att hända.
+	När man skapar dessa så kan man ange ett argument för vilken funktion eller
+		metod som ska köras när knappen trycks på.
+
+Entry / Textfält:
+	En Widget för att skiva in text.
+
+Frame / Ram:
+	En Widget man använder som "behållare" för att organisera andra Widgets.
+
+Canvas / "Tavelduk":
+	En Widget som används för att "rita på."
+	Man kan t.ex. lägga in olika former och bilder.
+
+Toplevel / Fönster:
+	Ett nytt fönster. Är fortfarande kopplat till en master.

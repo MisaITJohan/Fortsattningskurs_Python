@@ -2,7 +2,7 @@
 
 # Detta är en någorlunda komplett variant av vårt ordgissningsspel.
 # Det finns fortfarande många förbättringspunkter som ni skulle kunna försöka
-# er på, det finns t.e.x. ingen faktisk grafik som gör det till ett faktiskt
+# er på, det finns t.ex. ingen faktisk grafik som gör det till ett faktiskt
 # "hangman"-spel.
 
 # För att demonstrera en potentiell förbättring har jag gjort något som man
