@@ -36,4 +36,3 @@ print("\nget_name() där vi först lagrar returvärdet i en variabel och sen ski
       "variabeln till print():")
 name = get_name()
 print(name)
-

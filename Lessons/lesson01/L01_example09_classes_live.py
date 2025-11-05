@@ -11,7 +11,7 @@ class Person:
         return self.name, self.age, self.length
 
 
-my_obj = Person("Anna", 23, 172)
+my_obj = Person("Anna", 23, 173)
 print(my_obj)
 print()
 

@@ -1,10 +1,8 @@
 # Exempel på hur man kan avbryta loopar i förväg och hoppa över varv.
 
-
-end_number = int(input('Skriv in hur många varv vi ska köra: '))  # or 1)
-skip_number = int(input('Skriv in vilket nummer som ska hoppas över: '))  # or 2)
-break_number = int(input('Skriv in vilket nummer ska avsluta loopen: '))  # or 4)
-
+end_number = int(input("Skriv in hur många varv vi ska köra: "))  # or 1)
+skip_number = int(input("Skriv in vilket nummer som ska hoppas över: "))  # or 2)
+break_number = int(input("Skriv in vilket nummer som ska avsluta loopen: "))  # or 4)
 
 i = 0
 while i < end_number:
