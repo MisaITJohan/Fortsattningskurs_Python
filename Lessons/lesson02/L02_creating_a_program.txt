@@ -28,7 +28,7 @@ skapa en lista med mindre delar som fungerar oberoende av varandra.
 Därefter bör man dela upp varje "huvuddel" i mindre, lättöverskådliga, delar.
 T.ex:
 	Om man ska göra ett program som man behöver logga in i så är en av
-	"huvuddelarna" inloggningssystemet.
+		"huvuddelarna" inloggningssystemet.
 	Några av delarna som man delar upp inloggningssystemet i skulle kunna vara:
 		- Skapa en eller flera klasser som representerar användare
 		- Skapa regler för vad man kommer åt utan att logga in
