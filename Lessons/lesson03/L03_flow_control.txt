@@ -7,6 +7,7 @@ I grundkursen gick vi igenom de två huvudsakliga typerna av flödeskontroll som
 
 Nu ska vi titta på hur det kan se ut när vi kombinerar de två och hur man kan ha
 flera delar i en bit flödeskontroll.
+
 Nya saker vi ska titta på:
 	and
 	or

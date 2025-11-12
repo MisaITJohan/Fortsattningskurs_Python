@@ -2,7 +2,6 @@
 
 my_list = [1, 2, 3, 4, 5, 6, 7]
 
-
 # my_second_list = []
 # for x in my_list:
 #     my_second_list.append(x)
@@ -20,13 +19,12 @@ my_fourth_list = [x for x in [1, 2, 3, 4, 5]]
 print(my_fourth_list)
 
 
-# I de fall där man ska ha en exakt kopia ev en lista finns bättre sätt att
+# I de fall där man ska ha en exakt kopia av en lista finns det bättre sätt att
 # göra det på, men dessa fungerar inte i alla situationer där man kan använda
 # comprehensions.
 
 # my_second_list = my_list[:]
 # my_second_list = my_list.copy()
-
 
 
 # Dictionary comprehensions ser nästan likadana ut.
