@@ -8,17 +8,17 @@ def greet_with_input():
     greet(input_name)
 
 
-# Anropar vi greet() med ett argument sätts variabeln name till värdet som vi
+# Anropar vi greet() med ett argument sätts variabel name till värdet som vi
 # skickar in.
 greet("Johan")
 
-print("\n")  # För att skapa utrymme mellan anropen.
+print("\n")  # För att skapa utrymme mellan anropen
 
 # Anropar vi greet() utan argument sätts variabeln name till standardvärdet
 # "namnlös".
 greet()
 
-print("\n")  # För att skapa utrymme mellan anropen.
+print("\n")  # För att skapa utrymme mellan anropen
 
 # När vi anropar greet_with_input() så anropar den funktionen greet() under
 # sin körning.

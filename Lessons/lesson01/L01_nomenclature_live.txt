@@ -9,7 +9,12 @@ namn()
 	Detta betyder att "namn" är en funktion. Jag skriver så för att förtydliga
 		för er.
 
-		T.ex. print() eller range()
+	T.ex. print() eller range()
+
+.namn()
+	Detta betyder att "namn" är en metod.
+
+	T.ex. .append()
 
 Hårdkoda
 	Att skriva kod för varje enskilt fall eller kod som bara kan göra en specifik
