@@ -20,13 +20,14 @@ class HangmanGame:
     def __init__(self, possible_words=None, max_incorrect_guesses=DEFAULT_MAX_INCORRECT_GUESSES):
         if possible_words is None:
             self.possible_words = POSSIBLE_WORDS
+        else:
+            self.possible_words = possible_words
         self.max_incorrect_guesses = max_incorrect_guesses
         self.incorrect_guesses_count = 0
         self.secret_word = ""
         self.guessed_letters = set()
         self.current_guess = ""
         self.game_finished = False
-
 
     def setup(self):
         self.game_finished = False

@@ -11,7 +11,7 @@ def check_even2(my_int):
     return check
 
 def check_even3(my_int):
-    return True if my_int % 2 == 0 else False
+    return my_int % 2 == 0
 
 def check_even4(my_int):
     return "Sant" if my_int % 2 == 0 else "Falskt"
@@ -23,7 +23,6 @@ my_even_list1 = [x for x in my_list if check_even1(x)]
 my_even_list2 = [x for x in my_list if check_even2(x)]
 my_even_list3 = [x for x in my_list if check_even3(x)]
 my_even_list4 = [check_even4(x) for x in my_list]
-
 
 print(my_even_list1)
 print(my_even_list2)

@@ -1,8 +1,8 @@
 # Exempel på kedjade kontroller, alltså kontroller på resultatet av kontroller.
 
 def check_even_and_dividable_by_3(my_int):
-    check_even = True if my_int % 2 == 0 else False
-    dividable_by_3 = True if my_int % 3 == 0 else False
+    check_even = my_int % 2 == 0
+    dividable_by_3 = my_int % 3 == 0
     return check_even and dividable_by_3
 
 

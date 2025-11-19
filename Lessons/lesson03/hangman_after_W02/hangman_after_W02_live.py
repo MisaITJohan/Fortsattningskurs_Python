@@ -17,28 +17,32 @@ POSSIBLE_WORDS = (
 
 class HangmanGame:
 
-    def __init__(self, max_incorrect_guesses=DEFAULT_MAX_INCORRECT_GUESSES):
+    def __init__(self, possible_words=None, max_incorrect_guesses=DEFAULT_MAX_INCORRECT_GUESSES):
+        if possible_words is None:
+            self.possible_words = POSSIBLE_WORDS
+        else:
+            self.possible_words = possible_words
         self.max_incorrect_guesses = max_incorrect_guesses
         self.incorrect_guesses_count = 0
         self.secret_word = ""
-        self.get_word_to_guess()
         self.guessed_letters = set()
         self.current_guess = ""
-        self.display_current_state()
 
     def setup(self):
-        # Här borde vissa delar av .__init__() ligga för att korta ned
-        # den metoden. Detta kan också användas för att nollställa
-        # spelet.
-        pass
+        self.incorrect_guesses_count = 0
+        self.get_word_to_guess()
+        if len(self.guessed_letters) > 0:
+            self.guessed_letters.clear()
+        self.display_current_state()
 
     def get_word_to_guess(self):
-        self.secret_word = random.choice(POSSIBLE_WORDS).lower()
+        self.secret_word = random.choice(self.possible_words).lower()
 
     def display_current_state(self):
         print("Det hemliga ordet är", len(self.secret_word), "tecken långt.")
         if len(self.guessed_letters) > 0:
-            print("Du har gissat dessa bokstäver:", self.guessed_letters)
+            print("Du har gissat dessa bokstäver:",
+                  *sorted(list(self.guessed_letters)))
             print("Du har gissat fel", self.incorrect_guesses_count, "gånger.")
         print("Du har", self.max_incorrect_guesses - self.incorrect_guesses_count, "gissningar kvar.")
         self.make_guess()
@@ -55,10 +59,7 @@ class HangmanGame:
         self.display_current_state()
 
     def check_guess(self):
-        if self.current_guess in self.secret_word:
-            return True
-        else:
-            return False
+        return self.current_guess in self.secret_word
 
     def correct_guess(self):
         print("\n", self.current_guess.upper(), " finns i det hemliga ordet.\n", sep="")
@@ -91,3 +92,4 @@ class HangmanGame:
 
 if __name__ == "__main__":
     game = HangmanGame()
+    game.setup()
