@@ -2,6 +2,7 @@
 
 name = input("Namn: ")
 age = input("Ålder: ")
+
 # Någonting som bl.a. är väldigt praktiskt när man ska felsöka ett program är att
 # skriva in ett = (likamedtecken) efter det som ska tolkas av Python men innanför
 # måsvingarna. Det ser oftast inte lika snyggt ut men kan användas på flera

@@ -6,11 +6,11 @@ i sina program.
 Strängar är någonting som vi hållit på med mycket, men det finns otroligt mycket
 mer man kan göra med dem än vad vi gjort hittills.
 
-Datahantering är ett väldigt brett ämne så vi kommer bara hinna gå igenom några
-nya sätt att hantera data, men det finns många andra trick och smarta lösningar
-i Python.
+Datahantering är ett väldigt brett ämne så vi kommer bara att (förhoppningsvis)
+hinna gå igenom några nya sätt att hantera data, men det finns många andra trick
+och smarta lösningar i Python.
 
 Saker vi kommer gå igenom under denna lektion:
 	- f-strängar
-	- join()-metoden och några andra metoder som finns i strängar
+	- .join()-metoden och några andra metoder som finns i strängar
 	- formatering av data i strängar

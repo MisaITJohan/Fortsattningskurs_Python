@@ -1,6 +1,6 @@
-# Exempel på join()
+# Exempel på .join()
 
-# join() är inte helt lätt för alla att lära sig att använda då det kan kännas
+# .join() är inte helt lätt för alla att lära sig att använda då det kan kännas
 # "baklänges" eller ointuitivt.
 list_to_join = ["Detta", "är", "en", "lista", "som", "ska", "bli", "en", "sträng", "."]
 

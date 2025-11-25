@@ -10,8 +10,8 @@ print(f"Ett nummer: {a_number}\nLite text: {some_text}\nEn lista: {a_list}")
 
 print()
 
-# Variant 2, format()-metoden:
-print("format()-metoden:")
+# Variant 2, .format()-metoden:
+print(".format()-metoden:")
 print("Ett nummer: {}\nLite text: {}\nEn lista: {exempel}".format(
     a_number, some_text, exempel=a_list
     ))
@@ -28,12 +28,12 @@ print()
 
 # Variant 2 kan vara den mest passande i vissa situationer.
 # Exempel på när man ska hämta från en dict:
-a_dict = {"name":"Johan", "age":34}
+a_dict = {"name":"Johan", "age":36}
 
 # Med f-sträng:
 print(f"Hämtat från en dict: {a_dict['name']} är {a_dict["age"]} år gammal.")
 
-# Med format():
+# Med .format():
 print("Hämtat från en dict: {0[name]} är {0[age]} år gammal.".format(a_dict))
 # alternativt
 print("Hämtat från en dict: {name} är {age} år gammal.".format(**a_dict))

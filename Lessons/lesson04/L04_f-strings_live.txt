@@ -3,26 +3,26 @@ f-strängar:
 f-strängar är en förkortning för formaterade strängar.
 
 f-strängar fungerar i grunden precis som vanliga strängar men det finns lite
-extra syntax som man kan använda sig av.
+	extra syntax som man kan använda sig av.
 För att skapa en f-sträng använder man citattecken, precis som man gör med
-vanliga strängar, men man sätter ett "f" framför det första citattecknet.
-Se exempel L04_example01_f_strings.py
+	"vanliga" strängar, men man sätter ett "f" framför det första citattecknet.
+		Se exempel L04_example01_f_strings.py
 
 
 f-strängar har alltså möjligheten att hämta data från variabler (eller andra
-källor) och placera den datan inom strängen.
+	källor) och placera den datan inom strängen.
 
 Måsvingeparenteserna (alltså {}) är någonting som vi kan lägga in i f-strängar
-och när Python läser strängen första gången så tolkar den det som står där och
-sparar resultatet som en vanlig sträng.
+	och när Python läser strängen första gången så tolkar den det som står där
+	och sparar resultatet som en vanlig sträng.
 
 Det som skrivs inom måsvingeparenteserna kan vara nästan vad som helst som
-returnerar ett värde.
+	returnerar ett värde.
 
 Vi kommer att använda oss av f-strängar genom resten av kursen.
 
 En viktig notis angående f-strängar:
-Det finns flera sätt att formatera strängar i Python och f-strängar är det sätt
-som tillkommit senast. Det är troligt att, om ni kollar på lite äldre Pythonkod,
-ni kommer stöta på de andra metoderna så jag kommer snabbt demonstrera dem
-i slutet av lektionen eller under workshoppen.
+	Det finns flera sätt att formatera strängar i Python och f-strängar är det
+	sätt som tillkommit senast. Det är troligt, om kollar på lite äldre
+	Pythonkod, att ni kommer stöta på de andra metoderna, så jag kommer snabbt
+	demonstrera dem i slutet av lektionen eller under workshoppen.
