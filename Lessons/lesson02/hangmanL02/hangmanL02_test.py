@@ -2,6 +2,7 @@
 # fungerande program. Under kommande veckor kommer vi lägga till fler funktioner.
 
 import random
+import sys
 
 # Vi samlar våra konstanter här för att göra det lättare att konfigurera.
 DEFAULT_MAX_INCORRECT_GUESSES = 5
@@ -22,6 +23,7 @@ class HangmanModel:
         self.incorrect_guesses_count = 0
         self.secret_word = ""
         self.current_guess = ""
+        self.current_guess_is_correct = False
         self.guessed_letters = set()
         self.game_is_over = False
         self.game_is_won = False
@@ -43,10 +45,8 @@ class HangmanModel:
 
         if self._check_guess() is True:
             self._handle_correct_guess()
-            return True
         else:
             self._handle_incorrect_guess()
-            return False
 
     def _check_guess(self):
         if self.current_guess in self.secret_word:
@@ -55,9 +55,11 @@ class HangmanModel:
             return False
 
     def _handle_correct_guess(self):
+        self.current_guess_is_correct = True
         self._check_game_won()
 
     def _handle_incorrect_guess(self):
+        self.current_guess_is_correct = False
         self.incorrect_guesses_count += 1
         self._check_game_lost()
 
@@ -124,9 +126,9 @@ class HangmanGame:
 
     def make_guess(self):
         guessed_letter = self.view.get_guess()
-        guess_is_correct = self.model.process_guess(guessed_letter)
+        self.model.process_guess(guessed_letter)
 
-        if guess_is_correct is True:
+        if self.model.current_guess_is_correct is True:
             self._correct_guess()
         else:
             self._incorrect_guess()
@@ -135,25 +137,23 @@ class HangmanGame:
 
     def _correct_guess(self):
         self.view.display_correct_guess(self.model.current_guess)
-        self._check_game_won()
+        self._check_game_over()
 
     def _incorrect_guess(self):
         self.view.display_incorrect_guess(self.model.current_guess)
-        self._check_game_lost()
+        self._check_game_over()
 
-    def _check_game_won(self):
-        if self.model.game_is_won:
-            self.view.display_game_won()
-            self.display_secret()
+    def _check_game_over(self):
+        if self.model.game_is_over:
+            if self.model.game_is_won:
+                self.view.display_game_won()
+            else:
+                self.view.display_game_over()
+            self._display_secret()
 
-    def _check_game_lost(self):
-        if self.model.game_is_lost:
-            self.view.display_game_over()
-            self.display_secret()
-
-    def display_secret(self):
+    def _display_secret(self):
         self.view.display_secret_word(self.model.secret_word)
-        quit()
+        sys.exit()
 
 if __name__ == "__main__":
     game = HangmanGame()
