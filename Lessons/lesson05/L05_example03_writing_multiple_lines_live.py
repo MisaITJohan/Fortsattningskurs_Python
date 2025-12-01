@@ -1,4 +1,4 @@
-# Om vi vill skriva flera rader till en fil kan man använda writelines().
+# Om vi vill skriva flera rader till en fil kan man använda .writelines().
 # Notera att, trots namnet, läggs inte radbyten in automatiskt så man får lägga
 # till det i slutet av de strängar som ska skrivas in.
 

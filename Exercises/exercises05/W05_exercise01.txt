@@ -16,4 +16,4 @@ Förklaring:
 
 	- Ändra, på så många ställen som möjligt, så att programmet använder f-strängar där
 		data och text ska kombineras.
-		Sex (6) ställen är antalet som jag kommer visa nästa vecka.
+		Sju (7) ställen är antalet som jag kommer visa nästa vecka.

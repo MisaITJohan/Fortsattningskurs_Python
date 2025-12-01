@@ -7,10 +7,14 @@ Var försiktig!
 	eller skriva över filer som man inte vill. Python i sig har inget skydd mot
 	att man skrivit rätt.
 
+
 Öppnar man en fil så ska man även stänga den filen när man är färdig!
+
 	I just Python så hanteras detta åt dig, förutsatt att du använder dig av den
 	funktionaliteten. Vi kommer såklart att gå igenom detta.
 
-Öppna filerna på det sätt som du behöver!
+
+Öppna filerna på det sätt du behöver!
+
 	Denna punkt går även in under den första, var försiktig, men detta är så lätt
 	att råka göra fel på att jag tycker det förtjänar en separat punkt.
