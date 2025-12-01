@@ -13,3 +13,6 @@ if x == 42 and false_bool is False:  # I grundkursen hade jag skrivit false_bool
 
 if x == 42 and false_bool:
     print("Detta kommer inte att skrivas ut")
+
+if x == 42 and not true_bool:
+    print("Detta kommer inte att skrivas ut")

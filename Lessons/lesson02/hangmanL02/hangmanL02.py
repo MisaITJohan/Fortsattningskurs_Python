@@ -84,7 +84,7 @@ class HangmanGame:
     def display_secret(self):
         print("Det hemliga ordet var", self.secret_word)
         # För att ge oss en chans att se ordet så lägger vi in en input() vars
-        # enda syfte att pausa programmet.
+        # enda syfte är att pausa programmet.
         input("Tryck enter för att avsluta.")
         quit()
 

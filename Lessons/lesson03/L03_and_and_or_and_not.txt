@@ -9,6 +9,7 @@ Som man kanske kan lista ut av namnen är dessa nya jämförelseoperatorer.
 and
 	"and" är en operator som kontrollerar att det som står på bägge sidorna om
 	operatorn är Truthy.
+
 	1 and 2			Ger resultatet True i en jämförelse
 	1 and 0			Ger resultatet False i en jämförelse
 	0 and 0			Ger resultatet False i en jämförelse
@@ -16,6 +17,7 @@ and
 
 or
 	"or" är en operator som kontrollerar att ÅTMINSTONE en av sidorna är Truthy.
+
 	1 or 2			Ger resultatet True i en jämförelse
 	1 or 0			Ger resultatet True i en jämförelse
 	0 or 0			Ger resultatet False i en jämförelse
@@ -23,5 +25,6 @@ or
 
 not
 	Vänder på efterföljande Truthy eller Falsy
+
 	not True		Ger resultatet False
 	not False		Ger resultatet True

@@ -11,7 +11,7 @@ Vad är "interaktioner" i denna kontext?
 
 	Att skapa, läsa, skriva, ändra, flytta och radera filer är vad som syftas på.
 	Lite bredare kan man säga att allt som interagerar med datorns filsystem
-	filhantering.
+	är filhantering.
 
 
 Varför ska man hålla på med filer?

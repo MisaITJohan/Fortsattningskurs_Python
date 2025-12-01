@@ -1,33 +1,37 @@
 Strängmanipulering:
 
-Python tillåter inte att man ändrar en sträng, de är oföränderliga, så om
-man behöver uppdatera en textsträng måste man komma runt detta.
+Python tillåter inte att man ändrar en sträng, de är oföränderliga, så om man
+behöver uppdatera en textsträng måste man komma runt detta.
 
 Det finns flera olika sätt att göra detta på, varav det kanske enklaste och
-effektivaste sättet är att använda strängmetoden replace() för att skapa en ny
-sträng som man sedan tilldelar sin variabel:
-	Se L04_example04_string_manipulation_part1.py
+	effektivaste sättet är att använda strängmetoden .replace() för att skapa en
+	ny sträng som man sedan tilldelar sin variabel:
+		Se L04_example04_string_manipulation_part1.py
+
 
 Några fler metoder som är användbara (det finns många fler än dessa och jag
 klistrar in en länk till dokumentationen för alla metoderna i slutet av denna
 fil):
-	join() skapar en ny sträng som består av alla element i den samling som man
+	.join() returnerar ny sträng som består av alla element i den samling som man
 		måste skicka som argument.
 
-	strip() och dess varianter tar bort tecken som man inte vill ha och returnerar
-		en ny sträng utan dessa. Just strip() tar, om man inte anger något annat
-		via argument, bort all whitespace i början och slutet av strängen.
+	.strip() och dess varianter tar bort tecken som man inte vill ha och returnerar
+		en ny sträng utan dessa. Just .strip() tar, om man inte anger något annat
+		via argument, bort all Whitespace i början och slutet av strängen.
 
-	upper() gör alla tecken i strängen till versaler (stora bokstäver).
+	.upper() returnerar en sträng där alla tecken gjorts om till versaler (stora
+		bokstäver).
 
-	lower() för alla tecken i strängen till gemener (små bokstäver).
+	.lower() returnerar en sträng där alla tecken gjorts om till gemener (små
+		bokstäver).
 
-	capitalize() gör att första tecknet blir en stor bokstav och resten blir små
-		bokstäver. Notera att detta gör att saker som ska ha stor bokstav,
-		t.ex. namn, blir fel.
+	.capitalize() returnerar en sträng där första tecknet gjorts om till versal
+		och resten blir gemener. Notera att detta gör att saker som ska ha stor
+		bokstav, t.ex. namn, blir fel.
 
-	is[nånting]() är en serie metoder som kontrollerar att ett påstående om
+	.is[nånting]() är en serie metoder som kontrollerar att ett påstående om
 		strängen stämmer. Dessa returnerar inte en ny sträng utan True eller False.
+
 
 Länk till dokumentationen för strängars metoder:
 https://docs.python.org/3/library/stdtypes.html#string-methods

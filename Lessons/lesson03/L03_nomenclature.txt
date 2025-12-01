@@ -1,17 +1,19 @@
 Nomenklatur för lektion 3:
 
 List comprehension
+
 	En term som saknar ordentlig svensk översättning. Direkt översatt blir det "listförståelse"
-	men det är nonsens.
+		men det är nonsens.
 	Jag har sett termen "listbyggare" användas men jag kommer att använda termen comprehension.
 	Man kan även ha "set comprehension" och "dict comprehension", de fungerar i grunden likadant
-	men resulterar i set respektive dicts.
+		men resulterar i set respektive dicts.
 	Vad det är går vi igenom strax.
 
 Operator
+
 	Tecken och ord som betyder något matematiskt (eller logiskt).
 	Python tolkar dessa enligt samma prioritetsordning som man använder i
-	matematiken (och logiken).
+		matematiken (och logiken).
 	T.ex:
 		+ är en operator som betyder "addera" eller "konkatenera"
 
@@ -21,7 +23,7 @@ Operator
 			det till höger"
 
 		== är en operator som betyder "jämför om det till vänster är likvärdigt
-			med det till höger"
+			med det som står till höger"
 
 		= är en operator som betyder "tilldela namnet till vänster det värde som
 			är till höger"
