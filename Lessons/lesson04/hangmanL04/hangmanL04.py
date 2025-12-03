@@ -1,6 +1,9 @@
 # Denna vecka gör vi inga ändringar i Hangman.
 import random
 
+# Vi samlar våra konstanter här för att göra det lättare att konfigurera.
+DEFAULT_MAX_INCORRECT_GUESSES = 5
+
 POSSIBLE_WORDS = (
     "Apa",
     "Banan",
