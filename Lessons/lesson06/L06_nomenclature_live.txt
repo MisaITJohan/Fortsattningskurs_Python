@@ -3,57 +3,63 @@ Nomenklatur för lektion 6:
 File / Fil:
 
 	Denna term kanske känns självklar, men vad som kallas för en fil skiljer sig
-	åt mellan operativsystem, främst så är det Windows som sticker ut med att
-	klassa väldigt få saker som filer.
+		åt mellan operativsystem, främst så är det Windows som sticker ut med
+		att klassa väldigt få saker som filer.
 	I Unix, och andra operativsystem baserade på Unix, så brukar man säga
 		"Everything is a file"
-	Det är en sanning med modifikation, i de flesta fall syftar man egentligen
-	på att allt är Filliknande.
+	Det är en sanning med modifikation, i de flesta fal syftar man egentligen
+		på att allt är Filliknande.
+
 
 File-like / Filliknande:
 
 	Detta är vad som egentligen syftas på med ovanstående citat, i alla fall i
-	system som är skapade efter Unix.
+		system som är skapade från Unix.
 
-	Vad denna term betyder är att dessa saker går att behandla som om de vore
-	filer och på så sätt kan man använda sig av samma syntax och verktyg för
-	alla interaktioner med datorns system.
+	Vad denna term betyder är dessa saker går att behandla som om de vore
+		filer och på så sätt kan man använda sig av samma syntax och verktyg för
+		alla interaktioner med datorns system.
 
-	Vi kan se ett exempel på detta i Python, även i Windows, genom att
-	titta på hur input() och print() fungerar. Det som användaren skriver in med
-	input() hämtas från "standard input" och det som print() skriver ut hamnar
-	i "sys.stdout" ("standard out") per standard. Notera att den parameter som
-	man skickar med till print() heter "file" av just den anledningen.
-		Se L06_example01_print_to_file.py
+	Vi kan se ett exempel på detta i Python, även i Windows, genom att titta på
+		hur input() och print() fungerar. Det som användaren skriver in med
+		input() hämtas från "standard input" och det som print() skriver ut
+		hamnar i "sys.stdout" ("standard out") per standard. Notera att det
+		argument man skickar med till print() heter "file" av just den
+		anledningen.
+			Se L06_example01_print_to_file.py
+
 
 File-stream:
 
-	Den data som man skickar eller tar emot från en fil.
+	Den data som man skickar till eller tar emot från en fil.
+
 
 Path:
+
 	Denna term kan syfta på två saker:
 
 		Det system som gör att datorn vet var t.ex. program ligger. Väldigt
-		förenklat, men hur allt det fungerar hamnar utanför denna kurs.
+			förenklat, men hur allt det fungerar hamnar utanför denna kurs.
 		När det är detta man syftar på brukar man skriva PATH i versaler för att
-		göra saker tydligare.
+			göra saker tydligare.
 
 	och
 
 		Var resurser ligger lagrade i datorns filsystem.
-		Översättningen av denna term blir lite klumpig men man brukar kalla det
-		för "sökväg".
+		Översättning av denna term blir lite klumpig men man brukar kalla det
+			för "sökväg".
 		T.ex:
 			"C:\exempel"
 			"C:\exempel\exempel.txt"
 			"C:\users\[username]"
 			"/usr/"
-			"/usr/bin/"
+			"/ust/bin/"
+
 
 Path-like:
 
 	I Python brukar man prata om "Path-like objects" snarare än sökvägar då det
-	skiljer sig åt mellan operativsystem hur sökvägarna ser ut.
+		skiljer sig åt mellan operativsystem hur säkvägarna ser ut.
 
-	Utöver det så det ofta strängar som man refererar till och, tekniskt sett,
-	så är ju dessa just strängar och inte sökvägar.
+	Utöver det så är det ofta strängar man refererar till och, tekniskt sett,
+		så är ju dessa just strängar och inte sökvägar.

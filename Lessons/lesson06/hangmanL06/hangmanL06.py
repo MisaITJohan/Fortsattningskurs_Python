@@ -51,7 +51,7 @@ class HangmanGame:
         self.display_placeholder()
 
     def display_placeholder(self):
-        placeholder = self.word_to_guess
+        placeholder = self.secret_word
         for char in placeholder:
             if char not in self.guessed_letters:
                 placeholder = placeholder.replace(char, "_ ")
