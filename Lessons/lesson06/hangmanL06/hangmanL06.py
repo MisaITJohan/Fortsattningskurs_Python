@@ -54,7 +54,7 @@ class HangmanGame:
         placeholder = self.secret_word
         for char in placeholder:
             if char not in self.guessed_letters:
-                placeholder = placeholder.replace(char, "_ ")
+                placeholder = placeholder.replace(char, "_")
         print(f"Det hemliga ordet är: {placeholder}")
 
     def display_all_guesses(self):

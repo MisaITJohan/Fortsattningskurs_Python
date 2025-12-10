@@ -10,8 +10,8 @@ print()
 
 print(*number_list)
 
-a, b, c, d = number_list
-print(f"Separata variabler: {a} {b} {c} {d}")
+a, b, c, d, *e = number_list
+print(f"Separata variabler: {a} {b} {c} {d} {e}")
 
 a, b, *c = number_list
 print(f"Separata variabler med stjärnat c: {a} {b} {c}")

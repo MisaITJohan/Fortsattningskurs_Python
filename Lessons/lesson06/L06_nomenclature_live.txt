@@ -7,7 +7,7 @@ File / Fil:
 		att klassa väldigt få saker som filer.
 	I Unix, och andra operativsystem baserade på Unix, så brukar man säga
 		"Everything is a file"
-	Det är en sanning med modifikation, i de flesta fal syftar man egentligen
+	Det är en sanning med modifikation, i de flesta fall syftar man egentligen
 		på att allt är Filliknande.
 
 
@@ -53,7 +53,7 @@ Path:
 			"C:\exempel\exempel.txt"
 			"C:\users\[username]"
 			"/usr/"
-			"/ust/bin/"
+			"/usr/bin/"
 
 
 Path-like:
