@@ -2,35 +2,22 @@ Logiska fel, syntaxfel och "undantag":
 
 
 När man programmerar är det oftast väldigt lätt att upptäcka när man gjort ett
-syntaxfel, programmet kommer helt enkelt att inte ens starta.
-	Se L07_example05_syntax_errors.py
+	syntaxfel, programmet kommer helt enkelt inte ens att starta.
+		Se L07_example05_syntax_errors.py
 
 Syntaxfel är alltså när man skrivit kod som förhindrar Python att förbereda ett
-program för körning, eller i tekniska termer, förhindrar Python att kompilera
-koden.
+	program för körning eller, i tekniska termer, förhindrar Python att kompilera
+	koden.
 
 
 Man missar sällan att man råkat göra ett syntaxfel, det är värre med de logiska
-felen.
+	felen.
 Logiska fel är nämligen när koden fungerar precis som den är skriven, men man
-har råkat göra ett misstag som gör att programmet inte fungerar som det är menat.
+	har råkat göra ett misstag som gör att programmet inte fungerar som det är
+	menat.
 
 Dessa kan vara nästan omöjliga att upptäcka utan att köra sitt program och testa
-noga att allt gör precis det som är förväntat.
-	Se L07_example06_logical_errors.py
+	noga att allt gör precis det som är förväntat.
+		Se L07_example06_logical_errors.py
 
 
-När det kommer till det som jag refererade till som "undantag" så stöter vi på
-en sak i Python som kan förvirra många som är nya till språket:
-	Exceptions kan vara både väntade och oväntade
-
-Säg att man råkat stava en funktion fel i ett anrop, det blir ett Exception.
-Säg att en användare skriver in fel namn på en fil som ska öppnas, det blir ett
-Exception.
-Det är till och med så att man ofta väljer att "lyfta" Exceptions med flit.
-
-Säg att vi har en klass där vi har möjlighet att lagra data i en variabel som
-vi döpt till text_for_file. Troligtvis vill vi inte att någon som använder sig
-av den här klassen försöker lagra något annat än text där så kan lägga in
-att ett Exception ska lyftas.
-	Se L07_example07_intentional_exceptions.py

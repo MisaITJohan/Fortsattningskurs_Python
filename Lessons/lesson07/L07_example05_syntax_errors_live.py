@@ -3,9 +3,7 @@
 
 print("FÖRSTA RADEN!")
 
-
 # print(f"{a b}")
-
 
 # if:
 #     pass

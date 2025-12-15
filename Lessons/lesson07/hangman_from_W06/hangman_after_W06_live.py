@@ -2,54 +2,82 @@
 # samt skapar en placeholder för en mer visuell upplevelse när man spelar.
 import pathlib
 import random
+from ctypes.wintypes import tagMSG
+
+# Vi samlar våra konstanter här för att göra det lättare att konfigurera.
+DEFAULT_MAX_INCORRECT_GUESSES = 5
 
 
 class HangmanGame:
 
-    def __init__(self, wordlist_path=None, allowed_guesses=5):
+    def __init__(self, max_incorrect_guesses=DEFAULT_MAX_INCORRECT_GUESSES):
         self.possible_words = None
-        self.load_words_from_file(wordlist_path)
-        self.allowed_guesses = allowed_guesses
-        self.incorrect_guesses_made = 0
-        self.word_to_guess = ""
+        self.max_incorrect_guesses = max_incorrect_guesses
+        self.incorrect_guesses_count = 0
+        self.secret_word = ""
         self.guessed_letters = set()
         self.current_guess = ""
         self.game_finished = False
+        self.custom_list_path = ""
 
 
     def setup(self):
         self.game_finished = False
-        self.incorrect_guesses_made = 0
+        self.incorrect_guesses_count = 0
+        custom_list = input(f"Vill du ladda in en {"ny " if self.custom_list_path else ""}"
+                            f"ordlista? ja/NEJ (Lämna blankt för "
+                            f"nej.) ").casefold()
+        if custom_list == "ja".casefold():
+            self.load_words_from_file(input("Skriv in namnet på den fil som du vill ladda in: "))
+        else:
+            self.load_words_from_file()
+
         self.get_word_to_guess()
         if len(self.guessed_letters) > 0:
             self.guessed_letters.clear()
     
     def load_words_from_file(self, target_path=None):
-        if target_path is None:
-            target_path = pathlib.Path("wordlist.txt")
-        
-        with open(target_path, "r", encoding="utf-8") as file:
-            self.possible_words = [x.strip() for x in file.readlines()]
+        if target_path is None and not self.custom_list_path:
+            target_path = "wordlist.txt"
+        elif self.custom_list_path:
+            target_path = self.custom_list_path
+        elif target_path:
+            self.custom_list_path = target_path
+
+        file_to_check = pathlib.Path(target_path)
+
+        if not file_to_check.exists():
+            print(f"Det finns ingen fil som heter det som skrevs in, "
+                  f"{"standardlistan" if not self.custom_list_path else
+                  self.custom_list_path} används.")
+            if not self.custom_list_path:
+                file_to_open = pathlib.Path("wordlist.txt")
+            else:
+                file_to_open = pathlib.Path(self.custom_list_path)
+        else:
+            file_to_open = file_to_check
+
+        self.possible_words = file_to_open.read_text(encoding="utf-8").splitlines()
 
     def get_word_to_guess(self):
-        self.word_to_guess = random.choice(self.possible_words).lower()
+        self.secret_word = random.choice(self.possible_words).lower()
 
     def display_current_state(self):
-        print(f"Det hemliga ordet är {len(self.word_to_guess)} tecken långt.")
+        print(f"Det hemliga ordet är {len(self.secret_word)} tecken långt.")
 
         if len(self.guessed_letters) > 0:
             self.display_all_guesses()
             self.display_correct_guesses()
 
-            print(f"Du har gissat fel {self.incorrect_guesses_made} gånger.")
-        print(f"Du har {self.allowed_guesses - self.incorrect_guesses_made} gissningar kvar.\n")
+            print(f"Du har gissat fel {self.incorrect_guesses_count} gånger.")
+        print(f"Du har {self.max_incorrect_guesses - self.incorrect_guesses_count} gissningar kvar.\n")
         self.display_placeholder()
 
     def display_placeholder(self):
-        placeholder = self.word_to_guess
+        placeholder = self.secret_word
         for char in placeholder:
             if char not in self.guessed_letters:
-                placeholder = placeholder.replace(char, "_ ")
+                placeholder = placeholder.replace(char, "_")
         print(f"Det hemliga ordet är: {placeholder}")
 
     def display_all_guesses(self):
@@ -57,13 +85,12 @@ class HangmanGame:
               *sorted(list(self.guessed_letters)))
 
     def display_correct_guesses(self):
-        correct_guesses = sorted([x for x in self.guessed_letters if x in self.word_to_guess])
+        correct_guesses = sorted([x for x in self.guessed_letters if x in self.secret_word])
         if correct_guesses:
             print("Av de gissade bokstäverna finns dessa i det hemliga ordet:", *correct_guesses)
 
     def make_guess(self):
         guess = ""
-
         while self.check_invalid(guess):
             guess = input("Gissa en bokstav eller lämna tomt för att avsluta omgången: ").lower()
             if not guess:
@@ -87,7 +114,7 @@ class HangmanGame:
         return is_invalid
 
     def check_guess(self):
-        return self.current_guess in self.word_to_guess
+        return self.current_guess in self.secret_word
 
     def correct_guess(self):
         print(f"\n{self.current_guess.upper()} finns i det hemliga ordet.\n")
@@ -95,11 +122,11 @@ class HangmanGame:
 
     def incorrect_guess(self):
         print(f"\n{self.current_guess.upper()} finns inte i det hemliga ordet.\n")
-        self.incorrect_guesses_made += 1
+        self.incorrect_guesses_count += 1
         self.check_game_over()
 
     def check_game_won(self):
-        for letter in self.word_to_guess:
+        for letter in self.secret_word:
             if letter not in self.guessed_letters:
                 return
         print("Du vann!")
@@ -107,20 +134,20 @@ class HangmanGame:
         self.game_finished = True
 
     def check_game_over(self):
-        if self.incorrect_guesses_made >= self.allowed_guesses:
+        if self.incorrect_guesses_count >= self.max_incorrect_guesses:
             print("Game over!")
             self.display_secret()
             self.game_finished = True
 
     def display_secret(self):
-        print(f"Det hemliga ordet var {self.word_to_guess}")
+        print(f"Det hemliga ordet var {self.secret_word}")
 
     def game_loop(self):
         while not self.game_finished:
             self.display_current_state()
             self.make_guess()
-            if self.incorrect_guesses_made >= self.allowed_guesses:
-                break
+            # if self.incorrect_guesses_count >= self.max_incorrect_guesses:
+            #     break
 
 
 def main():

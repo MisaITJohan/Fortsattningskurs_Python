@@ -17,7 +17,7 @@ LBYL:
 
 EAFP:
 	Easier to Ask for Forgiveness than Permission
-	En typ av design där man ser till at om något går fel så hanterar man det då.
+	En typ av design där man ser till att om något går fel så hanterar man det då.
 
 raise:
 	Översättningen blir "Lyft" på svenska.
