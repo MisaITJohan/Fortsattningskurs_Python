@@ -4,7 +4,7 @@ import pathlib
 
 IGNORED_DIRS = {
         "venv", ".venv", "env", ".env", "__pycache__",
-        ".git", ".idea", ".vscode"
+        ".git", ".idea", ".vscode",
         }
 
 PREVIOUS_COURSE_ROUNDS_DIRS = {
@@ -32,6 +32,7 @@ def _get_files(include_non_py_files):
     return [path for path in pathlib.Path(".").glob(glob_pattern) if path.is_file()]
 
 def _confirm_dangerous_operation():
+    """Ensure user wants to continue with dangerous operation."""
     try:
         return input("clean_file_name: All parameters have been set to True. "
                      "This might result in unwanted behavior."
@@ -98,6 +99,14 @@ def find_bad_files(include_non_py_files=False,
                    include_dashes=False,
                    include_spaces=False,
                    ):
+    """Finds and reports files with dashes or spaces in their names.
+
+    Either include_dashes or include_spaces has to be True
+    or a message is printed and the function returns early.
+
+    Setting show_previous=True will include files from previous course rounds
+    that are normally ignored.
+    """
     if not any([include_dashes, include_spaces]):
         print("find_bad_files: Both countable parameters have been set to False."
               " No files will be counted.")
@@ -152,7 +161,8 @@ def main():
     print(f"Testing {find_bad_files.__name__} with "
           f"include_spaces = True, "
           f"include_dashes = True, "
-          f"and include_non_py_files = True")
+          f"include_non_py_files = True, "
+          f"and print_individual = False")
     find_bad_files(include_spaces=True, include_dashes=True, include_non_py_files=True,
                    print_individual=False)
     print("-" * 20)
