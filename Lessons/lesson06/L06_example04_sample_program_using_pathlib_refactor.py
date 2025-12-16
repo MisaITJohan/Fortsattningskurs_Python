@@ -107,10 +107,10 @@ def find_bad_files(include_non_py_files=False,
     Setting show_previous=True will include files from previous course rounds
     that are normally ignored.
     """
-    if not any([include_dashes, include_spaces]):
-        print("find_bad_files: Both countable parameters have been set to False."
+    if not (include_dashes or include_spaces):
+        raise ValueError("find_bad_files: Both countable parameters have been set to False."
               " No files will be counted.")
-        return
+
     filelist = _get_files(include_non_py_files)
     dirs = {}
 
