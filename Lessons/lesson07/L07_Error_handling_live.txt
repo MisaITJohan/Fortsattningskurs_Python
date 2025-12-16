@@ -18,7 +18,7 @@ problem och hur man hanterar detta.
 Saker vi kommer att tala om:
 	Exceptions
 	try-except
-	Logiska fel jämför med syntaxfel
+	Logiska fel jämfört med syntaxfel
 
 Om vi hinner kommer vi även titta på:
 	try-else

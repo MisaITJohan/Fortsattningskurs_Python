@@ -8,7 +8,7 @@ Med hjälp av en try-except-sats så kan man fånga upp fel som uppkommer, hante
 	dem och låta programmet fortsätta köra.
 
 
-Det simplast möjliga exemplet av en try-except er ut så här:
+Det simplast möjliga exemplet av en try-except ser ut så här:
 	try:
 		[Vadän som kan orsaka en krasch]
 	except:

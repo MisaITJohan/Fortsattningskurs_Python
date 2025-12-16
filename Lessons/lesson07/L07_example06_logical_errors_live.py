@@ -2,7 +2,7 @@
 # skapar ett felmeddelande, kraschar eller visar något tydligt fel, men det finns
 # logiska fel som orsakar problem.
 
-# Exemel 1, beräkna fel genomsnitt:
+# Exempel 1, beräkna fel genomsnitt:
 
 x = 10
 y = range(x)

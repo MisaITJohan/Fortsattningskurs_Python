@@ -21,3 +21,17 @@ Dessa kan vara nästan omöjliga att upptäcka utan att köra sitt program och t
 		Se L07_example06_logical_errors.py
 
 
+När det kommer till det som jag refererade till som "undantag" så stöter vi på
+	en sak i Python som kan förvirra många som är nya till språket:
+		Exceptions kan både vara väntade och oväntade
+
+Säg att man råkat stava en funktion fel i ett anrop, det blir ett Exception.
+Säg att en användare skriver in fel namn på en fil som ska öppnas, det blir ett
+	Exception.
+Det är till och med så att man ofta väljer att "lyfta" Exceptions med flit.
+
+Säg att vi har en klass där vi har möjlighet att lagra data i en variabel som
+	vi döpt till text_for_file. Troligtvis vill inte att någon som använder sig
+	av den här klassen försöker lagra något annat är text där så kan lägga in
+	att ett Exception ska lyftas.
+		Se L07_example07_intentional_exceptions.py
