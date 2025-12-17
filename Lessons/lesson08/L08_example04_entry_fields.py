@@ -6,6 +6,7 @@ root = tk.Tk()
 root.title("Exempel på textinmatningsfält")
 root.geometry("400x300")
 
+
 def greet_user():
     """Funktion för att hämta texten i textrutan och, om det står något där,
     hälsa på användaren."""
@@ -36,8 +37,6 @@ name_entry = tk.Entry(
     width=30,
     )
 name_entry.pack(pady=10)
-
-
 
 greet_button = tk.Button(
     root,

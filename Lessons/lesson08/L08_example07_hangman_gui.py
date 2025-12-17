@@ -1,4 +1,11 @@
-# Disclaimer: För att skapa denna fil slog jag på AI-förslag i min IDE.
+# Disclaimer: För att skapa denna fil satte jag på AI-förslag i min IDE.
+
+# Denna fil skapades innan en del förbättringar gjordes under tidigare omgångar
+# och ser därför lite annorlunda ut.
+
+# För att både göra att programmet ser mer "korrekt" ut och för att det är
+# tydligare för mig är kommentarer i koden på engelska. Om ni känner er osäkra
+# på vad någon bit betyder, fråga mig.
 
 # Detta är en någorlunda komplett variant av vårt ordgissningsspel.
 # Det finns fortfarande många förbättringspunkter som ni skulle kunna försöka
@@ -6,9 +13,9 @@
 # "hangman"-spel.
 
 # För att demonstrera en potentiell förbättring har jag gjort något som man
-# inte ska göra: jag kombinerar metoder för hur jag hanterar de formaterade
-# strängarna. I dict:en MESSAGES har jag påbörjat processen av att
-# byta till ett system som gör programmet enklare att uppdatera.
+# inte bör göra på ett inkonsekvent sätt: jag kombinerar metoder för hur jag
+# hanterar de formaterade strängarna. I dict:en MESSAGES har jag påbörjat
+# processen av att byta till ett system som gör programmet enklare att uppdatera.
 
 
 import tkinter as tk
@@ -22,14 +29,14 @@ COLORS = {
     "background": "#f0f0f0",
     "success": "green",
     "error": "red",
-    "info": "blue"
+    "info": "blue",
 }
 
 FONTS = {
     "title": ("Arial", 24, "bold"),
     "normal": ("Arial", 12),
     "word": ("Courier", 18),
-    "emphasis": ("Arial", 12, "bold")
+    "emphasis": ("Arial", 12, "bold"),
 }
 
 
@@ -41,17 +48,21 @@ MESSAGES = {
     "load_wordlist": "Ladda ordlista",
     "new_game": "Nytt spel",
     "using_wordlist": "Använder ordlista: {}",
-    "wordlist_loaded": "Ordlista laddad: {} ord",
+    "wordlist_loaded": "Ordlista laddad: {word_count} ord",
     }
 
 # This class implements a GUI version of the Hangman game
-# Based on the functionality of the original HangmanGame class
+# The GUI and the game logic are supposed to be separate, but to not introduce
+# too many new concepts at once, I've kept them together in this single class.
+
+# Egentligen borde GUI och spellogik ligga i separata klasser, men det skulle
+# bli alldeles för många ändringar samtidigt.
 class HangmanGameGUI:
     def __init__(self, master, wordlist=None, allowed_guesses=5):
         # Setup main window
         self.master = master
         self.master.title(MESSAGES["title"])
-        self.master.geometry("600x550")  # Increased height for wordlist info
+        self.master.geometry("600x550")
         self.master.configure(bg=COLORS["background"])
 
         # Game state variables 
@@ -228,7 +239,7 @@ class HangmanGameGUI:
                 self.wordlist_label.config(text=MESSAGES["using_wordlist"].format(filename))
                 # Start a new game with the new wordlist
                 # The next line is shown for such a short time that we won't see it
-                self.show_message(MESSAGES["wordlist_loaded"].format(len(words)), "info")
+                self.show_message(MESSAGES["wordlist_loaded"].format(word_count=len(words)), "info")
                 self.setup()
             else:
                 self.show_message("Kunde inte läsa från den valda filen.", "error")
@@ -244,8 +255,10 @@ class HangmanGameGUI:
             lambda: self._load_from_file(target) if target else None,
             # 2. Default wordlist path
             lambda: self._load_from_file(pathlib.Path("wordlist_creator/wordlist.txt")),
-            # 3. Fallback to hardcoded list
-            lambda: default_words
+            # 3. Alternate default wordlist path
+            lambda: self._load_from_file(pathlib.Path("wordlist.txt")),
+            # 4. Fallback to hardcoded list
+            lambda: default_words,
         ]
 
         # Try each source until we get a valid wordlist
@@ -261,8 +274,7 @@ class HangmanGameGUI:
     def _load_from_file(self, file_path):
         """Helper method to load words from a file"""
         try:
-            with open(file_path, "r", encoding="utf-8") as file:
-                return [x.strip() for x in file.readlines()]
+            return pathlib.Path(file_path).read_text(encoding="utf-8").splitlines()
         except (FileNotFoundError, IOError):
             return None
 

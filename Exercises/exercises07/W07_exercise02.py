@@ -52,6 +52,7 @@
 #   Ändra koden nedan så att varje orsakat problem inte får programmet att krascha.
 #
 #   Att ändra koden så att felen aldrig sker överhuvudtaget är inte rätt.
+#   Det är inte heller rätt att fånga in mer än vad man behöver.
 
 
 print(10 / 0)         # Första felet

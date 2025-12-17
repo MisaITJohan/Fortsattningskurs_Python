@@ -16,8 +16,8 @@ def convert_temperature():
         result_label.config(text="")
 
 def is_valid_number(value):
-    """Funktion för validera att kontrollera att fältet enbart innehåller
-    siffror eller ingenting. """
+    """Funktion för att kontrollera att fältet enbart innehåller
+    siffror eller ingenting."""
     return value.isdigit() or value == ""
 
 
@@ -27,7 +27,11 @@ root.title("Temperaturomvandlare")
 root.geometry("400x250")
 
 # Vi skapar en ram för att lättare få alla Widgets där vi vill ha dem.
-frame = tk.Frame(root, padx=20, pady=20)
+frame = tk.Frame(
+    root,
+    padx=20,
+    pady=20,
+    )
 frame.pack()
 
 # Vi skapar en Label för titeln. Vi använder grid() för att lättare organisera
@@ -56,7 +60,7 @@ celsius_entry = tk.Entry(
     frame,
     width=10,
     validate="key",
-    validatecommand=(root.register(is_valid_number), "%P")
+    validatecommand=(root.register(is_valid_number), "%P"),
     )
 celsius_entry.grid(row=1, column=1, pady=5)
 
@@ -76,7 +80,7 @@ convert_button = tk.Button(
     text="Konvertera",
     command=convert_temperature,
     )
-convert_button.grid(row=2, column=0, columnspan=2, pady=10)  # sticky = "ew")
+convert_button.grid(row=2, column=0, columnspan=2, pady=10)  # , sticky = "ew")
 
 
 # Labels för resultatet samt felmeddelanden
@@ -93,5 +97,6 @@ error_label = tk.Label(
     fg="red",
     )
 error_label.grid(row=4, column=0, columnspan=2, pady=5)
+
 
 root.mainloop()

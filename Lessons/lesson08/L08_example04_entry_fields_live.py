@@ -28,7 +28,7 @@ instruction_label = tk.Label(
 instruction_label.pack(pady=10)
 
 
-# Vi skapar ett textfält och ger det en bredd på 30 tecken.
+# Vi skapar ett textfält och ger det en bredd på 30 tecken
 # Man kan skriva in fler tecken än så, bredden är bara visuell.
 name_entry = tk.Entry(
     root,
