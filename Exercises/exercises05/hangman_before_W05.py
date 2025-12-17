@@ -1,6 +1,9 @@
 # Denna vecka gör vi inga ändringar i Hangman under lektionen.
 import random
 
+# Vi samlar våra konstanter här för att göra det lättare att konfigurera.
+DEFAULT_MAX_INCORRECT_GUESSES = 5
+
 POSSIBLE_WORDS = (
     "Apa",
     "Banan",
@@ -35,6 +38,7 @@ class HangmanGame:
 
     def display_current_state(self):
         print("Det hemliga ordet är", len(self.secret_word), "tecken långt.")
+
         if len(self.guessed_letters) > 0:
             self.display_all_guesses()
             self.display_correct_guesses()

@@ -26,7 +26,7 @@
 #           # Kolla om filen redan finns och be användaren skriva in 
 #           # "ja" eller "nej". Om användaren skriver in något annat än "ja"
 #           avslutas programmet.
-#           if os.path.exists(out_file):
+#           if pathlib.Path(out_file).exists():
 #               confirm = input(f"Filen {out_file} finns redan. Vill du skriva över (ja/NEJ)? ")
 #               if confirm.lower() != "ja":
 #                   raise SystemExit(1)  # Avsluta programmet

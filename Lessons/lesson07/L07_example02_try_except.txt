@@ -18,7 +18,7 @@ För att demonstrera:
 	Se L07_example03_unstoppable_program.py
 
 Varför detta sker, att man inte kan stoppa körningen, är för att vi fångar ALLA
-exceptions. Som jag sa tidigare, i Python finns det Exceptions som är en viktig
+Exceptions. Som jag sa tidigare, i Python finns det Exceptions som är en viktig
 del av ett programs normala körning.
 
 
@@ -34,7 +34,9 @@ except TypeError:
 except AttributeError:
 	[Nånting
 
+
+
 Fångar man något som är högre upp i hierarkin så fångar man även alla som ärver
-från det, vilket kan leda till oönskat beteende.
+	från det, vilket kan leda till oönskat beteende.
 Använd därför ALDRIG "BaseException", det orsakar samma fel som att inte
-skriva nånting.
+	skriva nånting.

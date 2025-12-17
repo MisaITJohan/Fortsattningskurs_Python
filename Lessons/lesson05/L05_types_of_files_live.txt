@@ -1,7 +1,7 @@
 Filtyper:
 
 Precis som det finns datatyper i Python finns det olika typer för de filer som
-lagras på en dator. Ni har säkert stött på många tidigare, men de två spm vi
+lagras på en dator. Ni har säkert stött på många tidigare, men de två som vi
 träffat på tidigare under denna kurs och grundkursen är .txt och .py.
 
 Det finns i teorin oändligt många filtyper, då varje program som skrivs skulle
@@ -61,5 +61,5 @@ Databaser är ett annat sätt att lagra data i en dator men de fungerar annorlun
 En sak man måste tänka på när man håller på med textfiler är något som kallas
 encoding, kort sammanfattat är det hur tecken i filen definierats.
 
-För att göra saker simpla, använd alltid något som heter "UTF-8" så behöver ni
+För att göra saker simpla, använd alltid något som heter "utf-8" så behöver ni
 troligtvis inte tänka på det på ganska länge.
