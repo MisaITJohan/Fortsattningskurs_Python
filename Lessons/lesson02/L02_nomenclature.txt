@@ -8,14 +8,66 @@ IDE
 	En IDE är som en textredigerare men har extra funktionalitet.
 	Pycharm är en IDE.
 
+
 Virtuell miljö / Virtual environment
 
 	En "lokal" Python-installation. Det är rekommenderat att ha en virtuell
 	miljö per "projekt". Oftast döps mappen där miljön ligger till env, venv,
 	.env eller .venv.
 
+
 Tester
 
 	Refererar oftast till s.k. "enhetstester" / "unit tests", vilket är
 	automatiserade tester programmerare ofta skriver för att kontrollera att
 	alla delar av ens program fungerar som de ska.
+
+
+Hjälpfunktioner / Helper functions
+
+	Kortare funktioner som gör en specifik sak.
+		T.ex:
+			En funktion som tar emot en sträng och returnerar en ny sträng där
+				alla bokstäver har gjorts till versaler och alla specialtecken
+				tagits bort.
+			En funktion som kontrollerar att det som skickas in uppfyller ett
+				specifikt villkor.
+
+Hjälpmetoder / Helper methods
+
+	Metoder som enbart är menade att användas "bakom kulisserna", dvs. av andra
+		metoder i samma klass.
+	Dessa kallas ibland för "privata metoder" då det i andra programmeringsspråk
+		kan gå att låsa dem för användning endast inom samma klass. I Python går
+		det inte att göra detta.
+	Istället för att göra metoder privata så används ett särskilt sätt att
+		namnge dem: prefixet _ (understreck).
+			T.ex:
+				def _normalize(self, text)
+
+
+MVC-modellen / MVC model
+
+	Står för Model-View-Controller.
+	Ett sätt att designa program där logik och visning av data separeras.
+	Genom att göra detta så blir programmet mer flexibelt och lättare att
+		förbättra senare.
+
+
+Modellklasser / Model classes
+	
+	Klasser som hanterar logik och lagrar data.
+
+
+Viewklasser (Vyklasser) / View classes
+
+	Klasser som hanterar de delar av ett program som är synliga för en användare.
+	T.ex:
+		class UserView:
+
+
+Controllerklasser (Kontrollklasser) / Controller classes
+
+	Klasser som kopplar ihop modellklasser och viewklasser.
+
+Se exempel L02_example01_program_structure.py
