@@ -1,5 +1,7 @@
 # Första versionen av vårt spel kommer vara simplistiskt men fortfarande ett
-# fungerande program. Under kommande veckor kommer vi lägga till fler funktioner.
+# fungerande program. Under kommande veckor kommer vi lägga till mer
+# funktionalitet, göra det mer användarvänligt samt förbättra programmets
+# flöde.
 
 import random
 import sys
@@ -17,6 +19,7 @@ POSSIBLE_WORDS = (
 
 
 class HangmanModel:
+    """En klass som hanterar spellogiken samt lagrar information om spelstatus."""
 
     def __init__(self, max_incorrect_guesses=DEFAULT_MAX_INCORRECT_GUESSES):
         self.max_incorrect_guesses = max_incorrect_guesses
@@ -81,6 +84,8 @@ class HangmanModel:
 
 
 class HangmanView:
+    """En klass som hanterar de synliga delarna av spelet, det som kallas för
+    "vyn"."""
 
     def display_game_status(self, model):
         print("Det hemliga ordet är", len(model.secret_word), "tecken långt.")
@@ -113,6 +118,7 @@ class HangmanView:
 
 
 class HangmanGame:
+    """En klass som kombinerar modellen och vyn."""
     def __init__(self):
         self.model = HangmanModel()
         self.view = HangmanView()
@@ -153,6 +159,10 @@ class HangmanGame:
 
     def _display_secret(self):
         self.view.display_secret_word(self.model.secret_word)
+
+        # Att avsluta ett program på det här sättet är inte rekommenderat, men
+        # tills vi kollat närmare på "Flödeskontroll i Praktiken" så använder
+        # vi funktionen exit() från modulen sys.
         sys.exit()
 
 if __name__ == "__main__":
