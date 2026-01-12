@@ -1,4 +1,9 @@
 # name: cleanfilenames.py
+"""
+Functions:
+- clean_file_names: Renames files based on user-provided options.
+- find_bad_files: Identifies files with spaces or dashes in their names.
+"""
 
 import pathlib
 
@@ -102,7 +107,7 @@ def find_bad_files(include_non_py_files=False,
     """Finds and reports files with dashes or spaces in their names.
 
     Either include_dashes or include_spaces has to be True
-    or a message is printed and the function returns early.
+    or a ValueError is raised.
 
     Setting show_previous=True will include files from previous course rounds
     that are normally ignored.
