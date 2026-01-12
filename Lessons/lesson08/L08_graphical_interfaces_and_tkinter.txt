@@ -19,6 +19,7 @@ Anledningar att använda GUI istället för CLI:
 
 	- Tillgänglighet: GUI är lättare att anpassa efter olika användares behov.
 
+Gå igenom common_widgets
 
 TODO: FLYTTA
 Events:

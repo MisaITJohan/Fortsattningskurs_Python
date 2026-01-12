@@ -8,28 +8,27 @@ root.title("Exempel på layouthanterare")
 root.geometry("400x300")
 
 
-label = tk.Label(root, text="Etikett med text!", bg="blue")
+label1 = tk.Label(root, text="Etikett med text!", bg="blue")
 label2 = tk.Label(root, text="Ytterligare en etikett med text!", bg="red")
 label3 = tk.Label(root, text="En tredje etikett med text!", bg="green")
 label4 = tk.Label(root, text="En fjärde etikett med text!", bg="yellow")
 
 # För att våra etiketter ska synas måste vi använda en av de tre Layouthanterarna
 # för att placera dem i vårt fönster.
-# De tre fungerar på olika sätt, men alla kan ta emot vissa regler för hur
+# De tre fungerar på olika sätt, men lla kan ta emot vissa regler för hur
 # saker ska sättas ut. Dessa hanteras via argument när man anropar metoden.
 
 # .pack() lägger in Widgets enligt angivna regler, per standard så hamnar allt
-# i en enda lång kolumn. pady och padx ger oss utrymme runt Widgeten.
-#label.pack(pady=20)
+# i en enda lång kolumn. Argumenten pady och pad x ger oss utrymme runt Widgeten.
+# label1.pack(pady=20)
 
 # .place() lägger in Widgets enligt x- och y-värde, eller efter relativt värde.
-label2.place(relwidth=0.6, y=50)
+label2.place(relheight=0.6, y=50)
 
 # .grid() lägger in Widgets enligt ett osynligt rutnät. Per standard tar tomma
 # rutor inte upp någon plats, men man kan ställa in sådana regler.
 # Går inte att kombinera med .pack().
 label3.grid(column=1, row=0)
 label4.grid(column=2, row=1)
-
 
 root.mainloop()

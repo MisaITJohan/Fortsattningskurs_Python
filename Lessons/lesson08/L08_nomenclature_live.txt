@@ -1,8 +1,7 @@
 Nomenklatur för lektion 7:
 
-Det är väldigt många nya termer den här lektionen, återvänd gärna til ldenna fil
+Det är väldigt många nya termer den här lektionen, återvänd gärna till denna fil
 	och använd den som en ordlista.
-
 
 GUI (Graphical User Interface / Grafiskt Användargränssnitt):
 	Ett visuellt sätt för användare att interagera med program. Används istället
@@ -22,13 +21,13 @@ Widget:
 	Ett GUI-element.
 		Exempel inkluderar knappar, textfält och ramar.
 	I tkinter så tillhör alltid en Widget en annan Widget. Detta skapar en
-		hierarki som kan tänkas på som ett träd, där dte finns Widgets i
+		hierarki, som kan tänkas på som ett träd, där det finns Widgets i
 		Widgets i Widgets och så vidare.
 		Det enda undantaget är den Widget som man kallar för "root".
 
-Window / TopLevel / Fönster:
+Window / Toplevel / Fönster:
 	Varje program som använder tkinter består av minst ett fönster. Fönstret
-		innehåller alla andra grafiska element.
+		innehåller alla andra grafiska element
 	Fönster är också Widgets.
 
 Event / Händelse:
@@ -42,10 +41,10 @@ Event Handler / Händelsehanterare:
 
 Layout Manager / Geometry Manager / Layouthanterare:
 	Ett system för att organisera och placera Widgets i en Widget som går att
-		använda som behållare. Exempelvis ett fönster eller en Frame.
-	I tkinter finns pack(), grid() och place().
+		använda som behållare.
+	I tkinter finns pack, grid och place.
 
-mainloop:
+.mainloop():
 	Den metod som startar ett tkinter-baserat program och väntar på interaktion
 		från användaren.
 	Finns i det objekt som borde namngivits som root.
@@ -53,24 +52,24 @@ mainloop:
 		IDLE.
 
 root / tk.Tk():
-	Huvudfönstret för en tkinter-applikation:
+	Huvudfönstret för en tkinter-applikation.
 		root är ett namn som är standard att använda, precis som man använder
 			argumentet "self" i metoder.
-		Stänger man root så stänger man alla Widgets som finns där i och avslutar
-			därmed automatiskt programmet.
+	Stänger man root så stänger man alla Widgets som finns där i och avslutar
+		därmed programmet.
 
 master:
-	Den Widget som en annan Widget tillhör. Det går att referera till en
-		Widgets master genom att använda syntaxen:
+	Den Widget som en annan Widget tillhör. Det går att referera till en Widgets
+		master genom att använda syntaxen:
 			orginalwidgeten.master
 
 	En Widget kan bara ha en master.
 	En Widget kan vara master för flera Widgets.
 	Det är så man får den trädliknande hierarkin som nämndes tidigare.
 
-config:
-	Förkortning av configure (båda går att använda i tkinter). Betyder
-		konfiguration och är en metod som finns på alla Widgets.
+.config():
+	Förkortning av configure (båda går använda). Betyder konfigurera och
+		är en metod som finns på alla Widgets.
 	Använder man den från en Widget så kan man ändra på egenskaper såsom text
 		och färg. Alla egenskaper utöver "name" går att ändra på. "name" kan
 		enbart sättas när en Widget skapas.

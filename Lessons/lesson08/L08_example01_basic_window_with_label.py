@@ -10,7 +10,7 @@ root = tk.Tk()
 
 # Med hjälp av metoder på Tk-objektet så kan vi ändra på egenskaper hos vårt
 # fönster.
-# title() ändrar texten som står i överkant av fönstret.
+# .title() ändrar texten som står i överkant av fönstret.
 root.title("Ett simpelt fönster")
 
 

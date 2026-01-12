@@ -1,10 +1,12 @@
 Lesson08: Simpla grafiska gränssnitt och tkinter
 
 Ett grafiskt gränssnitt (GUI) är ett sätt att använda ett program med hjälp av
-bilder, knappar och fält - istället för att skriva kommandon. I ett GUI så kan
-man klicka, skriva text, välja från menyer och se vad som händer direkt på skärmen.
+	bilder, knappar och fält - istället för att skriva kommandon. I ett GUI så
+	kan man klicka, skriva text, välja från menyer och se vad som händer direkt
+	på skärmen.
 
-Anledningar att använda GUI istället för CLI (Command Line Interface):
+
+Anledningar att använda GUI istället för CLI:
 	Alla dessa förutsätter att det är ett väldesignat GUI.
 
 	- Lättare att förstå: Användare ser direkt vad som går att göra, vilket gör
@@ -13,7 +15,7 @@ Anledningar att använda GUI istället för CLI (Command Line Interface):
 	- Snabb återkoppling: Användare ser direkt vad som händer.
 
 	- Enklare att hitta funktionalitet: Användare kan direkt se vad som går att
-		göra utan att behöva memorisera kommandon.
+		göra utan att behöva memorera kommandon.
 
 	- Tillgänglighet: GUI är lättare att anpassa efter olika användares behov.
 
@@ -23,22 +25,23 @@ Events:
 		med musen eller trycker på en tangent.
 	Genom att säga åt programmet att "lyssna" efter dessa kan det reagera när
 		ett Event inträffar.
-	Det vanligast, och enklaste att hantera, Eventet är att användaren tycker
-		på en knapp.
+	Det vanligaste, och enklaste att hantera, Eventet är att användaren trycker
+		på en Button-Widget.
 	Utöver Buttons inbyggda funktionalitet att köra funktioner när de aktiveras
-		så kan man även "binda" funktioner till händelser med hjälpa av metoden
-		bind() som finns på alla Widgets.
+		så kan man även "binda" funktioner till händelser med hjälp av metoden
+		.bind() som finns på alla Widgets.
 
 
-Några riktlinjer för bra design:
+Riktlinjer för bra design:
 
 	Tydlig layout:
 		- Placera saker som hör ihop nära varandra
-		- Använd jämna mellanrum mellan element (ta hjälp av padx pady)
+		- Använd jämna mellanrum mellan element (ta hjälp av argumenten padx
+			och pady)
 		- Använd Frames för att organisera
 
 	Konsekvent utseende:
 		- Konsekvent användande av typsnitt och färger
 		- Håll storlekarna på Widgets, såsom Buttons, konsekventa
 		- Gör det tydligt vad som går att interagera med, det vill säga vad som
-			går att klicka på och liknande
+			går att klicka på och liknande.

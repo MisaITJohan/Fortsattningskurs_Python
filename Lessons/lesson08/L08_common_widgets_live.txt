@@ -10,13 +10,13 @@ Button / Knapp:
 		metod som ska köras när knappen trycks på.
 
 Entry / Textfält:
-	En Widget för att skiva in text.
+	En Widget för att skriva in text.
 
 Frame / Ram:
 	En Widget man använder som "behållare" för att organisera andra Widgets.
 
 Canvas / "Tavelduk":
-	En Widget som används för att "rita på."
+	En Widget som används för att "rita" på.
 	Man kan t.ex. lägga in olika former och bilder.
 
 Toplevel / Fönster:
