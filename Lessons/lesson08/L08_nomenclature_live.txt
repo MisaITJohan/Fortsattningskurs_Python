@@ -27,7 +27,7 @@ Widget:
 
 Window / Toplevel / Fönster:
 	Varje program som använder tkinter består av minst ett fönster. Fönstret
-		innehåller alla andra grafiska element
+		innehåller alla andra grafiska element.
 	Fönster är också Widgets.
 
 Event / Händelse:
@@ -68,7 +68,7 @@ master:
 	Det är så man får den trädliknande hierarkin som nämndes tidigare.
 
 .config():
-	Förkortning av configure (båda går använda). Betyder konfigurera och
+	Förkortning av configure (båda går att använda). Betyder konfigurera och
 		är en metod som finns på alla Widgets.
 	Använder man den från en Widget så kan man ändra på egenskaper såsom text
 		och färg. Alla egenskaper utöver "name" går att ändra på. "name" kan
