@@ -1,0 +1,25 @@
+Denna fil innehåller instruktioner för att börja konvertera Hangman till ett grafiskt gränssnitt (GUI).
+
+Förklaring:
+	- Utgå ifrån hangman_before_W08.py som ligger i denna mapp.
+	- Vi ska börja flytta logiken från konsolen (print/input) till ett tkinter-fönster.
+	- I den här veckans övning fokuserar vi på att sätta upp grundstrukturen för GUI-klassen.
+
+Övningen:
+
+	- Skapa en ny fil som heter hangman_gui.py.
+	- Importera tkinter som tk.
+	- Skapa en klass som heter HangmanGUI.
+	- I klassens __init__-metod:
+		1. Ta emot 'root' som ett argument.
+		2. Sätt fönstrets titel till "Hangman GUI".
+		3. Skapa en instans av HangmanGame-klassen (från hangman_before_W08.py) och spara den som self.game.
+		4. Anropa en metod som heter create_widgets() för att sätta upp gränssnittet.
+
+	- Skapa metoden create_widgets():
+		1. Skapa en Label som ska visa det maskerade ordet (t.ex. "_ _ _ _").
+		2. Skapa en Entry-widget där användaren kan skriva sin gissning.
+		3. Skapa en Button med texten "Gissa" som anropar en metod för att hantera gissningen.
+		4. Använd .pack() för att placera ut dessa element.
+
+	- Bonus: Försök att koppla "Gissa"-knappen så att den hämtar texten från Entry-widgeten och skriver ut den i konsolen (print) till att börja med.

@@ -11,11 +11,14 @@
 # Det finns fortfarande många förbättringspunkter som ni skulle kunna försöka
 # er på, det finns t.ex. ingen faktisk grafik som gör det till ett faktiskt
 # "hangman"-spel.
+# En annan uppenbar förbättringspunkt är att klassen är ALLDELES för stor.
+# GUI-bitarna borde ligga i en separat klass.
 
 # För att demonstrera en potentiell förbättring har jag gjort något som man
 # inte bör göra på ett inkonsekvent sätt: jag kombinerar metoder för hur jag
 # hanterar de formaterade strängarna. I dict:en MESSAGES har jag påbörjat
-# processen av att byta till ett system som gör programmet enklare att uppdatera.
+# processen av att byta till ett system som gör programmet enklare att uppdatera
+# och skulle göra det enklare att översätta.
 
 
 import tkinter as tk
