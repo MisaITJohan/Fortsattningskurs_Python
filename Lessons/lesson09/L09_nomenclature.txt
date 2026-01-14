@@ -1,0 +1,68 @@
+Nomenklatur för lektion 9:
+
+Precis som förra veckan är det en hel del nya termer.
+Använd gärna denna fil som en ordlista när du stöter på termer du är osäker på.
+
+
+Testing / Testning:
+	Den övergripande processen att köra ett program eller en del av ett program
+	för att säkerställa att det gör det vi vill att det ska göra, samt för att
+	hitta eventuella buggar.
+
+Unit test / Enhetstest:
+	Fokuserar på en liten, isolerad del av koden. Tänk dig att du testar en
+	enskild legobit för att se att den har rätt form, innan du försöker bygga
+	ihop den med hela slottet. Oftast testar man en enskild funktion eller metod.
+
+assert:
+	Betyder att intyga/påstå.
+
+	Kärnan i de flesta tester. Det är ett kommando som säger: "Jag påstår att
+	det här resultatet ska vara 5". Om resultatet faktiskt är 5 så fortsätter
+	programmet som vanligt. Om det inte är 5 så "skriker" programmet till genom
+	att kasta ett AssertionError, vilket avbryter testet och markerar det som misslyckat.
+
+Test case / Testfall:
+	En specifik situation eller scenario som testas. Till exempel: "Vad händer
+	om användaren skriver in en siffra som text i vårt räkneprogram?". Varje
+	testfall brukar ha en tydlig input och ett förväntat output.
+
+Test suite / Testsvit:
+	När man har många testfall brukar man gruppera dem i en svit. Det kan vara
+	alla tester för en specifik modul eller alla tester för hela programmet.
+	Det gör det enkelt att köra en stor mängd tester på en gång.
+
+Automated testing / Automatiserad testning:
+	Istället för att du själv sitter och klickar runt i programmet skriver du
+	kod (testskript) som gör jobbet åt dig. Det går snabbare, är mer pålitligt
+	och kan köras om och om igen utan extra ansträngning.
+
+unittest:
+	Pythons inbyggda bibliotek för testning. Inspirerat av Java's JUnit och
+	använder klasser och specifika metoder (som assertEqual) för att genomföra tester.
+
+pytest:
+	Ett tredjepartsbibliotek som är extremt populärt tack vare sin enkelhet.
+	Det tillåter oss att använda vanliga assert-uttryck och kräver mindre
+	kod än unittest för att komma igång.
+
+Mocking:
+	Betyder att efterlikna/härma.
+	Ett lite mer avancerat begrepp där man skapar "låtsas-versioner" av delar
+	som testet annars skulle vara beroende av, till exempel en databas eller
+	ett externt API. (Vi tittar endast på detta i det sista exemplet.)
+
+Gränsfall / Edge case:
+	Det är ofta här buggar gömmer sig!
+
+	En situation som inträffar vid ytterkanterna av vad programmet ska hantera.
+		T.ex: Den sista december, en tom lista, eller talet noll.
+	Används även för situationer som är så annorlunda att de lätt glöms bort.
+		T.ex: En lista med negativa tal eller den 29 februari.
+
+Refactoring / Refaktorering:
+	Att omstrukturera eller skriva om befintlig kod för att göra den mer lättläst,
+		effektiv eller lättare att underhålla, utan att ändra vad den faktiskt gör.
+	Det är som att städa upp i koden - du organiserar om, ger bättre namn åt
+		variabler och funktioner, eller bryter upp stora funktioner i mindre delar.
+	Resultatet ska fungera precis likadant för användaren.
