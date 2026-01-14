@@ -1,0 +1,76 @@
+Lesson09: Introduktion till testning
+
+Disclaimer: Jag har tagit hjälp av AI för att generera delar av den faktiska
+	koden som finns i denna lektion.
+	Exakt hela L09_example04_test_hangman.py är AI-genererad. Kan ni se
+		skillnaden?
+
+Vad är testning?
+
+	Testning är processen att verifiera att ett program fungerar som det är tänkt.
+	I sin enklaste form innebär det att köra koden och kontrollera att resultatet
+		blir det förväntade. Men testning kan också vara mycket mer än så;
+		att jobba som testare är ett heltidsjobb på större projekt.
+
+
+Varför ska man lägga tid på att skriva tester?
+
+	Det kan kännas som ett extra steg som tar tid från själva kodandet, men
+	fördelarna är många:
+
+	Hitta buggar tidigt:
+		Ju tidigare man upptäcker ett fel, desto lättare är det att fixa. Att
+		hitta ett fel medan man skriver koden är mycket enklare än att hitta
+		det tre månader senare när hela systemet har byggts ovanpå det.
+
+	Säkerställa att ny kod inte förstör gammal kod (Regressions-testning):
+		När ett program växer blir det svårt att ha hela logiken i huvudet. Genom
+		att ha automatiska tester kan man vara säker på att en ändring i en del
+		av programmet inte av misstag förstör något i en helt annan del.
+
+	Dokumentation:
+		Tester fungerar som en sorts levande dokumentation. Genom att läsa
+		testerna kan en annan programmerare (eller du själv om ett halvår) se
+		exakt hur en funktion är tänkt att användas och vad som förväntas hända
+		vid olika indata.
+
+	Refaktorering utan att behöva trippelkolla att man gjort rätt:
+		Refaktorering innebär att man skriver om kod för att göra den snyggare
+		eller mer effektiv, utan att ändra dess beteende. Om man har bra tester
+		kan man ändra i princip vad som helst i koden och direkt få svar på om
+		man råkat ändra beteendet eller inte.
+
+
+Olika typer av testning:
+
+	Manuellt testande:
+		Detta är vad de flesta gör naturligt. Man kör sitt program, skriver in
+		något värde och ser om det funkar. Problemet är att det är tidskrävande
+		att göra om varje gång man ändrat något, och det är lätt att glömma
+		att testa vissa specialfall.
+
+	Automatiserat testande:
+		Här skriver vi kod som testar vår andra kod. Det kräver lite mer jobb
+		i början, men när testerna väl är skrivna kan de köras på en bråkdel
+		av en sekund, hur många gånger som helst.
+
+
+Nivåer av testning:
+
+	Enhetstester (Unit tests):
+		Tester som fokuserar på minsta möjliga del av koden, oftast en enskild
+		funktion eller metod. Man vill testa saker i isolering för att se att just
+		den logiken stämmer.
+
+	Integrationstester:
+		Tester som kontrollerar hur olika delar av systemet pratar med varandra.
+		Funkar vår databaskoppling ihop med vår logik? Kan två klasser samarbeta?
+
+	Systemtester (End-to-End):
+		Att testa hela flödet från början till slut, precis som en användare
+		skulle göra.
+
+
+Vi kommer att titta på Enhetstester och hur man kan använda både
+	den inbyggda modulen unittest samt det populära ramverket pytest
+	för att göra dem smidiga att hantera.
