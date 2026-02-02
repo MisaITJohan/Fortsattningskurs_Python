@@ -10,10 +10,10 @@ while i < end_number:
 
     if i == skip_number:
         print("Vi hoppar över", skip_number)
-        continue  # Vi avbryter nuvarande varv (nuvarande iterationen) och fortsätter loopen.
+        continue  # Vi avbryter nuvarande varv (nuvarande iteration) och fortsätter loopen
 
     if i == break_number:
         print("Vi avslutar vid", break_number)
-        break  # Vi avslutar loopen trots att vi inte nått end_number.
+        break  # Vi avslutar loopen trots att vi inte har nått end_number
 
-    print("Nuvarande värdet på i:", i)
+    print("Nuvarande värde på i:", i)

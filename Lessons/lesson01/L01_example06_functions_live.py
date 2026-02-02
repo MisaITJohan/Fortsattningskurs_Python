@@ -8,7 +8,7 @@ def greet_with_input():
     greet(input_name)
 
 
-# Anropar vi greet() med ett argument sätts variabel name till värdet som vi
+# Anropar vi greet() med ett argument sätts variabeln name till värdet som vi
 # skickar in.
 greet("Johan")
 

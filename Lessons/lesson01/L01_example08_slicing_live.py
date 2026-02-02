@@ -22,13 +22,12 @@ person_list = [
     ("David Dahlgren", 34, 177),
     ]
 
+
 # Vi hämtar och skriver ut första två personerna i name_list:
 print(name_list[0:2])
 
-
 # Vi hämtar och skriver ut de två sista personerna i name_list:
 print(name_list[-2:])
-
 
 # Vi hämtar och skriver ut varannan person från name_list:
 print(name_list[::2])

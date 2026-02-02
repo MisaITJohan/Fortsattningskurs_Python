@@ -18,17 +18,17 @@ namn()
 
 Hårdkoda
 	Att skriva kod för varje enskilt fall eller kod som bara kan göra en specifik
-		sak. Detta är inte alltid fel, framförallt inte för mindre saker.
+		sak. Detta är inte alltid fel, framförallt för mindre saker.
 		Men man förlorar helt fördelarna med att kunna återanvända kod då man
 		måste skriva kod för ALLA möjliga fall.
 
-		T.ex.
-			print(0)
-			print(1)
-			print(2)
-			print(3)
-			etc...
-			print(99)
-		Istället för:
-			for x in range(100):
-				print(x)
+	T.ex.
+		print(0)
+		print(1)
+		print(2)
+		print(3)
+		etc...
+		print(99)
+	Istället för:
+		for x in range(100):
+			print(x)

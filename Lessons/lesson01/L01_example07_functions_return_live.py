@@ -9,8 +9,7 @@ def get_name():
     input_name = input("Vad heter du? ")
     return input_name
 
-
-# Anropar vi greet() med ett argument sätts variabeln name (i funktionens
+# Anropar vi greet() med ett argument sätts variabeln "name" (i funktionens
 # namnrymd) till värdet som vi skickar in.
 print("\ngreet() med ett argument:")
 greet("Johan")
@@ -19,7 +18,6 @@ greet("Johan")
 # Anropar vi greet() utan argument så anropar den get_name() under sin körning.
 print("\ngreet() utan argument:")
 greet()
-
 
 # När vi anropar get_name() direkt syns ingenting då det returnerade värdet
 # inte används på något sätt.

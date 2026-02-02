@@ -2,22 +2,28 @@
 
 class Person:
 
-    def __init__(self, name, age, length):
-        self.name = name
-        self.age = age
-        self.length = length
+    def __init__(self, name, age, height):
+        self._name = name
+        self._age = age
+        self._height = height
 
     def get_data(self):
-        return self.name, self.age, self.length
+        return self._name, self._age, self._height
+
+    def __repr__(self):
+        return self._name + " " + str(self._age) + " " + str(self._height)
 
 
-my_obj = Person("Anna", 23, 173)
+
+my_obj = Person("Anna", 23, 172)
 print(my_obj)
 print()
 
-print(my_obj.name)
-print(my_obj.age)
-print(my_obj.length)
+
+# DÅLIG IDÉ: Använd inte "skyddade" attribut utanför objektet
+print(my_obj._name)
+print(my_obj._age)
+print(my_obj._height)
 print()
 
 print(my_obj.get_data())

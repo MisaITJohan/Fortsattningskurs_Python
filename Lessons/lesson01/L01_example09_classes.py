@@ -2,10 +2,10 @@
 
 class Person:
 
-    def __init__(self, name, age, length):
+    def __init__(self, name, age, height):
         self.name = name
         self.age = age
-        self.length = length
+        self.length = height
 
     def get_data(self):
         return self.name, self.age, self.length

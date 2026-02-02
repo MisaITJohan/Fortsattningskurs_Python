@@ -28,7 +28,7 @@ Vad kommer vi gå igenom i fortsättningskursen enligt nuvarande planering?
 	Om tillfällen räcker till:
 	Lektion09: Deltagares önskemål
 
-Under kursens gång kommer vi att tillsammans skapa ett enkelt spel.
+Under kursens gång kommer vi att tillsammans skapa ett simpelt spel.
 	Spelet kommer att under kursens gång skapas i flera steg och när det är
 	färdigt så kommer vi att ha gått från ett simpelt gissningsspel helt i text
 	till "Hänga Gubbe".

@@ -6,17 +6,18 @@ Vad gick vi igenom i grundkursen?
 	- Flödeskontroll
 	- Slicing / hämtning av data
 	- Funktioner
-	- Importer, namnrymder, moduler
+	- Importer, namnrymder och moduler
 	- Objekt och klasser
 
 
 Till skillnad från i grundkursen så kommer många fler av filerna jag använder
 och termer jag går igenom vara på engelska. Förklaringar kommer fortsatt vara
 på svenska och om det är någon term som känns otydlig, tveka inte att avbryta
-mig och fråga om en översättning.
+mig och be om en översättning.
 
 
-Vad kommer vi gå igenom i fortsättningskursen enligt nuvarande planering?
+Vad kommer vi gå igenom enligt nuvarande planering?
+
 	Lektion01: Introduktion & repetition
 	Lektion02: Programstruktur och "Att skapa ett program"
 	Lektion03: Flödeskontroll i praktiken
@@ -37,4 +38,4 @@ Vi kommer alla veckor, eller åtminstone de flesta, att lägga till något till
 	spelet.
 
 Ni behöver inte göra samma spel, eller ens göra specifikt ett spel, men om ni
-	gör något annat så kommer det finnas mindre tid och möjlighet för hjälp.
+	gör något annat så kommer det finnas mindre tid och möjlighet till hjälp.
