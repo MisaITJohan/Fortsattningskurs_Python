@@ -40,7 +40,8 @@ class HangmanGame:
         if len(self.guessed_letters) > 0:
             print("Du har gissat dessa bokstäver:", self.guessed_letters)
             print("Du har gissat fel", self.incorrect_guesses_count, "gånger.")
-        print("Du har", self.max_incorrect_guesses - self.incorrect_guesses_count, "gissningar kvar.")
+        print("Du har", self.max_incorrect_guesses - self.incorrect_guesses_count,
+              "gissningar kvar.")
         self.make_guess()
 
     def make_guess(self):
