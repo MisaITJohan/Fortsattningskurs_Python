@@ -1,15 +1,15 @@
 Nomenklatur för lektion 3:
 
-List comprehension
+List comprehension:
 
 	En term som saknar ordentlig svensk översättning. Direkt översatt blir det "listförståelse"
 		men det är nonsens.
-	Jag har sett termen "listbyggare" användas men jag kommer att använda termen comprehension.
+	Jag har sett termen "listbyggare" användas, men jag kommer att använda termen comprehension.
 	Man kan även ha "set comprehension" och "dict comprehension", de fungerar i grunden likadant
 		men resulterar i set respektive dicts.
 	Vad det är går vi igenom strax.
 
-Operator
+Operator:
 
 	Tecken och ord som betyder något matematiskt (eller logiskt).
 	Python tolkar dessa enligt samma prioritetsordning som man använder i
@@ -28,29 +28,32 @@ Operator
 		= är en operator som betyder "tilldela namnet till vänster det värde som
 			är till höger"
 
-		is är en operator som kollar om det till vänster är exakt samma sak som det
-			till höger
+		is är en operator som kollar om det till vänster är exakt samma sak som
+			det till höger
 
 		() är operatorer som meddelar prioritet
 			(1 + 2) * 2 och 1 + 2 * 2 ger olika resultat på grund av prioritering
 
 
 	En intressant sak man kan göra är att ändra hur objekt reagerar på operatorer
-	genom att använda sig av särskilda metoder.
+		genom att använda sig av särskilda metoder.
 	T.ex:
-		__add__(), __gt__() och __mul__()
+		.__add__(), .__gt__() och .__mul__()
 
 Jämförelseoperator
+
 	En operator som jämför om två saker uppfyller ett särskilt krav. Vilket
-	krav detta är beror på vilken operator man använder. Om kravet stämmer så
-	får man tillbaka ett "True", annars får man "False".
+		krav detta är beror på vilken operator man använder. Om kravet stämmer så
+		får man tillbaka ett "True", annars får man "False".
 	De som vi använde under grundkursen var ==, <, >, <=, >=. Vissa omgångar
-	går jag också igenom !=.
+		går jag också igenom !=.
 
 Truthy och Falsy
+
 	Värden som tolkas som "True" av Python är "Truthy" och värden som tolkas som
-	"False" är "Falsy".
+		"False" är "Falsy".
 	T.ex:
 		En lista som innehåller element tolkas som True medans en tom lista
-		tolkas som False. Detta gäller även om listan bara innehåller värden som
-		är Falsy. Detta gäller för de flesta samlingar (alla inbyggda är så).
+			tolkas som False. Detta gäller även om listan bara innehåller värden
+			som är Falsy. Detta gäller för de flesta samlingar (alla inbyggda är
+			så).

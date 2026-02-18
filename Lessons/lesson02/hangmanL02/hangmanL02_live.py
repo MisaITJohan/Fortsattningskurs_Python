@@ -27,8 +27,9 @@ class HangmanGame:
         self.display_current_state()
 
     def _setup(self):
-        # Här borde vissa delar av __init__ ligga för att korta ned
-        # den metoden. Detta kan användas för att nollställa spelet.
+        # Här borde vissa delar av .__init__() ligga för att korta ned
+        # den metoden. Detta kan också användas för att nollställa
+        # spelet.
         pass
 
     def get_word_to_guess(self):

@@ -16,8 +16,8 @@ för varje, det bestämmer ni själva.
 	-Utgå ifrån den hangman_before_W02.py som jag laddat upp i Discord eller den som ligger
 		i exercises02 på Github, de är identiska.
 
-	- Bryt ut delar av metoden __init__() och lägg dem i setup(). Att lista ut vilka
+	- Bryt ut delar av metoden .__init__() och lägg dem i .setup(). Att lista ut vilka
 		delar som bör brytas ut är också en del av övningen.
 
-	-En ledtråd är att, som det står i kommentaren i setup(), setup() även borde
+	-En ledtråd är att, som det står i kommentaren i .setup(), .setup() även borde
 		kunna användas för att "nollställa" spelet och därmed starta en ny omgång.

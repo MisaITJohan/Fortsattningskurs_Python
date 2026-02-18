@@ -3,7 +3,7 @@
 
 import random
 
-# Vi samlar våra konstanter här för att göra det lättare att konfigurera.
+# Vi samlar våra konstanter för att göra det lättare att konfigurera.
 DEFAULT_MAX_INCORRECT_GUESSES = 5
 
 POSSIBLE_WORDS = (
@@ -26,7 +26,7 @@ class HangmanGame:
         self.current_guess = ""
         self.display_current_state()
 
-    def setup(self):
+    def _setup(self):
         # Här borde vissa delar av .__init__() ligga för att korta ned
         # den metoden. Detta kan också användas för att nollställa
         # spelet.
@@ -40,7 +40,8 @@ class HangmanGame:
         if len(self.guessed_letters) > 0:
             print("Du har gissat dessa bokstäver:", self.guessed_letters)
             print("Du har gissat fel", self.incorrect_guesses_count, "gånger.")
-        print("Du har", self.max_incorrect_guesses - self.incorrect_guesses_count, "gissningar kvar.")
+        print("Du har", self.max_incorrect_guesses - self.incorrect_guesses_count,
+              "gissningar kvar.")
         self.make_guess()
 
     def make_guess(self):

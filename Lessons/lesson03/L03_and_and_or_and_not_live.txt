@@ -11,19 +11,19 @@ and
 	"and" är en operator som kontrollerar att det som står på bägge sidorna om
 		operatorn är Truthy.
 
-	1 and 2             Ger resultatet True
-	1 and 0             Ger resultatet False
-	0 and 0             Ger resultatet False
+	1 and 2     Ger resultatet True
+	1 and 0     Ger resultatet False
+	0 and 0     Ger resultatet False
 
 or
-	"or" är en operator som kontrollerar at ÅTMINSTONE en av sidorna är Truthy.
+	"or" är en operator som kontrollerar att ÅTMINSTONE en av sidorna är Truthy.
 
-	1 or 2              Ger resultatet True
-	1 or 0              Ger resultatet True
-	0 or 0              Ger resultatet False
+	1 or 2      Ger resultatet True
+	1 or 0      Ger resultatet True
+	0 or 0      Ger resultatet False
 
 not
-	"not" är en operator som vänder på efterföljande Truthy eller Falsy
+	"not" är en operator som vänder på efterföljande Truthy eller Falsy.
 
-	not True            Ger resultatet False
-	not False           Ger resultatet True
+	not True    Ger resultatet False
+	not False   Ger resultatet True

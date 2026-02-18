@@ -13,6 +13,7 @@ my_list = [1, 2, 3, 4, 5, 6, 7]
 my_list_without_3 = [x for x in my_list if x != 3]
 print(my_list_without_3)
 
+
 # Kod utan comprehension:
 # my_second_list = []
 # for x in my_list:

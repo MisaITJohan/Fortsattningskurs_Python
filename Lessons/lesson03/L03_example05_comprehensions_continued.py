@@ -5,6 +5,7 @@ def check_even(my_int):
         return True
     else:
         return False
+    # return my_int % 2 == 0
 
 
 my_list = [1, 2, 3, 4, 5, 6, 7]

@@ -45,7 +45,8 @@ class HangmanGame:
             print("Du har gissat dessa bokstäver:",
                   *sorted(list(self.guessed_letters)))
             print("Du har gissat fel", self.incorrect_guesses_count, "gånger.")
-        print("Du har", self.max_incorrect_guesses - self.incorrect_guesses_count, "gissningar kvar.")
+        print("Du har", self.max_incorrect_guesses - self.incorrect_guesses_count,
+              "gissningar kvar.")
 
     def make_guess(self):
         guess = ""

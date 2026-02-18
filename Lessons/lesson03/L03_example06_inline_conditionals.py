@@ -11,7 +11,7 @@ def check_even2(my_int):
     return check
 
 def check_even3(my_int):
-    return True if my_int % 2 == 0 else False
+    return my_int % 2 == 0
 
 def check_even4(my_int):
     return "Sant" if my_int % 2 == 0 else "Falskt"

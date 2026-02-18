@@ -42,5 +42,6 @@ number_list2 = [4, 5, 6]
 my_combined_dict2 = {x:y for x, y in zip(number_list1, number_list2)}
 print(my_combined_dict2)
 
-numbers_to_combine = [[1, 2, 3], [4, 5, 6]]
-my_combined_dict = {x:y for x, y in zip(numbers_to_combine[0], numbers_to_combine[1])}
+# numbers_to_combine = [[1, 2, 3], [4, 5, 6]]
+# my_combined_dict = {x:y for x, y in zip(numbers_to_combine[0], numbers_to_combine[1])}
+# print(my_combined_dict)

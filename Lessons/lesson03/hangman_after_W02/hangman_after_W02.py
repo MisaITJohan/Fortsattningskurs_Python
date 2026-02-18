@@ -28,7 +28,7 @@ class HangmanGame:
         self.guessed_letters = set()
         self.current_guess = ""
 
-    def setup(self):
+    def _setup(self):
         self.incorrect_guesses_count = 0
         self.get_word_to_guess()
         if len(self.guessed_letters) > 0:
@@ -44,7 +44,8 @@ class HangmanGame:
             print("Du har gissat dessa bokstäver:",
                   *sorted(list(self.guessed_letters)))
             print("Du har gissat fel", self.incorrect_guesses_count, "gånger.")
-        print("Du har", self.max_incorrect_guesses - self.incorrect_guesses_count, "gissningar kvar.")
+        print("Du har", self.max_incorrect_guesses - self.incorrect_guesses_count,
+              "gissningar kvar.")
         self.make_guess()
 
     def make_guess(self):
@@ -89,7 +90,10 @@ class HangmanGame:
         input("Tryck enter för att avsluta.")
         quit()
 
+    def restart_game(self):
+        self._setup()
+
 
 if __name__ == "__main__":
     game = HangmanGame()
-    game.setup()
+    game.restart_game()
