@@ -1,4 +1,4 @@
-#    Skriv en funktion som ber användaren skriva in ett heltal och som därefter
+#    Skriv en funktion som tar emot ett heltal och som därefter
 #    skriver ut om talet är jämnt delbart med 2 eller med 3, eller med både 2
 #    och 3.
 #    Bara en av dessa tre alternativ ska alltså skrivas ut.
