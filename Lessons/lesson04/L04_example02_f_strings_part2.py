@@ -10,6 +10,8 @@ print(f"Hej {name}! Du är {age} år gammal.")
 print(f"1 + 1 blir: {1 + 1}")
 print(f"{sum(range(10))}")
 print(f"{[x for x in range(10)]}")
+kakor = 4
+print(f"Du har köpt {kakor} kak{"or" if kakor != 1 else "a"}")
 
 person = {"name":"Johan", "age":36}
 

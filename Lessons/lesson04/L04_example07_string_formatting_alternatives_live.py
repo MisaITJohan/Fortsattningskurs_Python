@@ -26,14 +26,14 @@ print("Ett nummer: %d\nLite text: %s\nEn lista: %s" % (a_number, some_text, a_li
 
 print()
 
-# Variant 2 kan vara den met passande i vissa situationer.
+# Variant 2 kan vara den mest passande i vissa situationer.
 # Exempel på när man ska hämta från en dict:
 a_dict = {"name":"Johan", "age":36}
 
 # Med f-sträng:
-print(f"Hämtat från en dict: {a_dict['name']} är {a_dict["age"]} år gammal.")
+print(f"Hämtat från en dict: {a_dict['name']} är {a_dict['age']} år gammal.")
 
 # Med .format()
 print("Hämtat från en dict: {0[name]} är {0[age]} år gammal.".format(a_dict))
-# alternativt
+# alternativ
 print("Hämtat från en dict: {name} är {age} år gammal.".format(**a_dict))

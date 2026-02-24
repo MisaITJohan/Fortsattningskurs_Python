@@ -4,5 +4,5 @@
 # "baklänges" eller ointuitivt.
 list_to_join = ["Detta", "är", "en", "lista", "som", "ska", "bli", "en", "sträng", "."]
 
-joined_string = "".join(list_to_join)  # Medvetet fel för att demonstrera.
+joined_string = " ".join(list_to_join)  # Medvetet fel för att demonstrera.
 print(joined_string)

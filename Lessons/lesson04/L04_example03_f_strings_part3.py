@@ -3,10 +3,11 @@
 name = input("Namn: ")
 age = input("Ålder: ")
 
-# Någonting som bl.a. är väldigt praktiskt när man ska felsöka ett program är att
-# skriva in ett = (likamedtecken) efter det som ska tolkas av Python men innanför
-# måsvingarna. Det ser oftast inte lika snyggt ut men kan användas på flera
-# olika sätt.
+# Någonting som bl.a. är väldigt praktiskt när man ska felsöka ett program är
+# att skriva in ett = (likamedtecken) efter det som ska tolkas av Python men
+# innanför måsvingarna. Det ser oftast inte lika snyggt ut men kan användas på
+# flera olika sätt.
+# Detta kallas ofta för "självdokumenterande kod".
 print(f"Hej {name=}! Du är {age=} år gammal.")
 
 print("----" * 4)
@@ -20,6 +21,7 @@ print(f"{1 + 1= }")
 # mellanrum, ibland inte. Det gäller att tänka på hur man vill att det ska se ut.
 
 print(f"{"----" * 4}")
+
 
 # Följande skulle kunna vara ett fall där man faktiskt vill använda sig av detta
 # med likamedtecken-syntaxen även i "vanligt" bruk och inte bara i felsökning.

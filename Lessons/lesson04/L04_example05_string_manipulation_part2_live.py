@@ -2,7 +2,7 @@
 
 demonstration_string = "  \n text text\n   "
 
-# Så här ser strängen ut om vi skriver ut den nu.
+# Så här ser strängen ut om skriver ut den nu.
 # Jag lägger in > och < runt strängen för att visa var den börjar och slutar.
 print(f">{demonstration_string}<")
 
@@ -11,10 +11,10 @@ print(f"Så här ser strängen ut efter .strip() >{stripped_string}<")
 
 print()
 
-# Om vi skickar med argument till .strip() så kan vi tala om vilka tecken som ska
-# tas bort. Nu tar vi även bort bokstaven t, men bara från början ock slutet.
-print(f"Så här ser strängen ut efter .strip(' \\nt')"
-      f" >{demonstration_string.strip(' \nt')}<")
+# Om vi skickar med argument till .strip() så kan vi tala om vilka tecken som
+# ska tas bort. Nu tar vi även bort bokstaven t, men bara från början och slutet.
+print(f"Så här ser strängen ut efter .strip(' \\nt') "
+      f">{demonstration_string.strip(' \nt')}<")
 
 print()
 

@@ -1,13 +1,15 @@
 Nomenklatur för lektion 4:
 
 Placeholder / Platshållare
+
 	Någonting som meddelar att "här ska det vara något".
 	Placeholders används t.ex. när något inte är färdigt men man vill fortfarande
-	reservera den ytan som det kommer ta upp när det är klart.
+		reservera den ytan som det kommer ta upp när det är klart.
 	Vi har använt oss av Pythons "pass" lite tidigare, det är en form av placeholder.
 
 Whitespace
-	Alla tecken som ser ut som att de är "tomma". I Python är det dessa tecken:
+
+	Alla tecken som ser ut att vara "tomma". I Python är det dessa tecken:
 		space, tab, linefeed, return, formfeed och vertical tab.
 	Man kallar det Whitespace för att på t.ex. ett papper så är dessa tecken
 	ett vitt utrymme.
