@@ -83,15 +83,18 @@ class HangmanGame:
               *sorted(list(self.guessed_letters)))
 
     def display_correct_guesses(self):
-        correct_guesses = sorted([x for x in self.guessed_letters if x in self.secret_word])
+        correct_guesses = sorted(
+            [x for x in self.guessed_letters if x in self.secret_word])
         if correct_guesses:
-            print("Av de gissade bokstäverna finns dessa i det hemliga ordet:", *correct_guesses)
+            print("Av de gissade bokstäverna finns dessa i det hemliga ordet:",
+                  *correct_guesses)
 
     def make_guess(self):
         guess = ""
 
         while self.check_invalid(guess):
-            guess = input("Gissa en bokstav eller lämna tomt för att avsluta omgången: ").lower()
+            guess = input(
+                "Gissa en bokstav eller lämna tomt för att avsluta omgången: ").lower()
             if not guess:
                 self.game_finished = True
                 return

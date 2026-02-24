@@ -2,14 +2,17 @@
 import pathlib
 import random
 
+# Vi samlar våra konstanter här för att göra det lättare att konfigurera.
+DEFAULT_MAX_INCORRECT_GUESSES = 5
+
 
 class HangmanGame:
 
-    def __init__(self, allowed_guesses=5):
+    def __init__(self, max_incorrect_guesses=DEFAULT_MAX_INCORRECT_GUESSES):
         self.possible_words = None
-        self.allowed_guesses = allowed_guesses
-        self.incorrect_guesses_made = 0
-        self.word_to_guess = ""
+        self.max_incorrect_guesses = max_incorrect_guesses
+        self.incorrect_guesses_count = 0
+        self.secret_word = ""
         self.guessed_letters = set()
         self.current_guess = ""
         self.game_finished = False
@@ -18,7 +21,7 @@ class HangmanGame:
 
     def setup(self):
         self.game_finished = False
-        self.incorrect_guesses_made = 0
+        self.incorrect_guesses_count = 0
         custom_list = input(f"Vill du ladda in en {"ny " if self.custom_list_path else ""}"
                             f"ordlista? ja/NEJ (Lämna blankt för "
                             f"nej.) ").casefold()
@@ -79,15 +82,18 @@ class HangmanGame:
               *sorted(list(self.guessed_letters)))
 
     def display_correct_guesses(self):
-        correct_guesses = sorted([x for x in self.guessed_letters if x in self.secret_word])
+        correct_guesses = sorted(
+            [x for x in self.guessed_letters if x in self.secret_word])
         if correct_guesses:
-            print("Av de gissade bokstäverna finns dessa i det hemliga ordet:", *correct_guesses)
+            print("Av de gissade bokstäverna finns dessa i det hemliga ordet:",
+                  *correct_guesses)
 
     def make_guess(self):
         guess = ""
 
         while self.check_invalid(guess):
-            guess = input("Gissa en bokstav eller lämna tomt för att avsluta omgången: ").lower()
+            guess = input(
+                "Gissa en bokstav eller lämna tomt för att avsluta omgången: ").lower()
             if not guess:
                 self.game_finished = True
                 return

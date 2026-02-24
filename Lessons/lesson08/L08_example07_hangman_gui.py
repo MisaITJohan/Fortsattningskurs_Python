@@ -27,6 +27,10 @@ import pathlib
 import random
 import os
 
+
+# Vi samlar våra konstanter här för att göra det lättare att konfigurera.
+DEFAULT_MAX_INCORRECT_GUESSES = 5
+
 # Constants for UI appearance and configuration
 COLORS = {
     "background": "#f0f0f0",
@@ -61,7 +65,7 @@ MESSAGES = {
 # Egentligen borde GUI och spellogik ligga i separata klasser, men det skulle
 # bli alldeles för många ändringar samtidigt.
 class HangmanGameGUI:
-    def __init__(self, master, wordlist=None, allowed_guesses=5):
+    def __init__(self, master, wordlist=None, max_incorrect_guesses=DEFAULT_MAX_INCORRECT_GUESSES):
         # Setup main window
         self.master = master
         self.master.title(MESSAGES["title"])
@@ -70,9 +74,9 @@ class HangmanGameGUI:
 
         # Game state variables 
         self.possible_words = None
-        self.allowed_guesses = allowed_guesses
-        self.incorrect_guesses_made = 0
-        self.word_to_guess = ""
+        self.max_incorrect_guesses = max_incorrect_guesses
+        self.incorrect_guesses_count = 0
+        self.secret_word = ""
         self.guessed_letters = set()
         self.current_guess = ""
         self.game_finished = False
@@ -285,7 +289,7 @@ class HangmanGameGUI:
         """Reset and start a new game"""
         # Reset game state
         self.game_finished = False
-        self.incorrect_guesses_made = 0
+        self.incorrect_guesses_count = 0
         self.guessed_letters.clear()
         self.get_word_to_guess()
 
@@ -307,12 +311,12 @@ class HangmanGameGUI:
 
     def get_word_to_guess(self):
         """Choose a random word from the available words"""
-        self.word_to_guess = random.choice(self.possible_words).lower()
+        self.secret_word = random.choice(self.possible_words).lower()
 
     def update_word_length_label(self):
         """Update the label showing word length"""
         self.word_length_label.config(
-            text=f"Det hemliga ordet är {len(self.word_to_guess)} tecken långt."
+            text=f"Det hemliga ordet är {len(self.secret_word)} tecken långt."
         )
 
     def update_word_display(self):
@@ -324,7 +328,7 @@ class HangmanGameGUI:
     def _get_word_with_placeholders(self):
         """Helper method to format the word display with placeholders"""
         display_chars = []
-        for letter in self.word_to_guess:
+        for letter in self.secret_word:
             if letter in self.guessed_letters:
                 display_chars.append(letter)
             else:
@@ -333,7 +337,7 @@ class HangmanGameGUI:
 
     def update_guesses_left(self):
         """Update the label showing remaining guesses"""
-        guesses_left = self.allowed_guesses - self.incorrect_guesses_made
+        guesses_left = self.max_incorrect_guesses - self.incorrect_guesses_count
         self.guesses_left_label.config(
             text=f"Du har {guesses_left} gissningar kvar."
         )
@@ -359,7 +363,8 @@ class HangmanGameGUI:
 
     def _get_correct_guesses(self):
         """Helper method to get sorted list of correct guesses"""
-        return sorted([letter for letter in self.guessed_letters if letter in self.word_to_guess])
+        return sorted(
+            [letter for letter in self.guessed_letters if letter in self.secret_word])
 
     def make_guess(self):
         """Process a player's guess"""
@@ -425,7 +430,7 @@ class HangmanGameGUI:
 
     def check_guess(self):
         """Check if the guess is in the word"""
-        return self.current_guess in self.word_to_guess
+        return self.current_guess in self.secret_word
 
     def correct_guess(self):
         """Handle a correct guess"""
@@ -441,7 +446,7 @@ class HangmanGameGUI:
             f"{self.current_guess.upper()} finns inte i det hemliga ordet.",
             "error"
         )
-        self.incorrect_guesses_made += 1
+        self.incorrect_guesses_count += 1
         self.check_game_over()
 
     def check_game_won(self):
@@ -451,30 +456,30 @@ class HangmanGameGUI:
 
     def _all_letters_guessed(self):
         """Check if all letters in the word have been guessed"""
-        return all(letter in self.guessed_letters for letter in self.word_to_guess)
+        return all(letter in self.guessed_letters for letter in self.secret_word)
 
     def _handle_win(self):
         """Handle when player wins the game"""
         self.game_finished = True
         self.show_message(
-            f"Du vann! Det hemliga ordet var {self.word_to_guess}.",
+            f"Du vann! Det hemliga ordet var {self.secret_word}.",
             "success"
         )
 
     def check_game_over(self):
         """Check if the player has lost"""
-        if self.incorrect_guesses_made >= self.allowed_guesses:
+        if self.incorrect_guesses_count >= self.max_incorrect_guesses:
             self._handle_loss()
 
     def _handle_loss(self):
         """Handle when player loses the game"""
         self.game_finished = True
         self.show_message(
-            f"Game over! Det hemliga ordet var {self.word_to_guess}.",
+            f"Game over! Det hemliga ordet var {self.secret_word}.",
             "error"
         )
         # Reveal the word
-        self.word_display.config(text=self.word_to_guess)
+        self.word_display.config(text=self.secret_word)
 
 def main():
     """Main function to run the Hangman game"""
