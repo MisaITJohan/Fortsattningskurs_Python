@@ -20,13 +20,14 @@ class HangmanGame:
     def __init__(self, possible_words=None, max_incorrect_guesses=DEFAULT_MAX_INCORRECT_GUESSES):
         if possible_words is None:
             self.possible_words = POSSIBLE_WORDS
+        else:
+            self.possible_words = possible_words
         self.max_incorrect_guesses = max_incorrect_guesses
         self.incorrect_guesses_count = 0
         self.secret_word = ""
         self.guessed_letters = set()
         self.current_guess = ""
         self.game_finished = False
-
 
     def setup(self):
         self.game_finished = False
@@ -44,12 +45,14 @@ class HangmanGame:
             print("Du har gissat dessa bokstäver:",
                   *sorted(list(self.guessed_letters)))
             print("Du har gissat fel", self.incorrect_guesses_count, "gånger.")
-        print("Du har", self.max_incorrect_guesses - self.incorrect_guesses_count, "gissningar kvar.")
+        print("Du har", self.max_incorrect_guesses - self.incorrect_guesses_count,
+              "gissningar kvar.")
 
     def make_guess(self):
         guess = ""
         while guess in self.guessed_letters or len(guess) != 1:
-            guess = input("Gissa en bokstav eller lämna tomt för att avsluta spelet: ").lower()
+            guess = input(
+                "Gissa en bokstav eller lämna tomt för att avsluta spelet: ").lower()
             if not guess:
                 self.game_finished = True
                 return
@@ -65,11 +68,13 @@ class HangmanGame:
         return self.current_guess in self.secret_word
 
     def correct_guess(self):
-        print("\n", self.current_guess.upper(), " finns i det hemliga ordet.\n", sep="")
+        print("\n", self.current_guess.upper(),
+              " finns i det hemliga ordet.\n", sep="")
         self.check_game_won()
 
     def incorrect_guess(self):
-        print("\n", self.current_guess.upper(), " finns inte i det hemliga ordet.\n", sep="")
+        print("\n", self.current_guess.upper(),
+              " finns inte i det hemliga ordet.\n", sep="")
         self.incorrect_guesses_count += 1
         self.check_game_over()
 
