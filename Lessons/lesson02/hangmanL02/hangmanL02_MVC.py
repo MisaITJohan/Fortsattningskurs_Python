@@ -88,7 +88,12 @@ class HangmanView:
     "vyn".
     Vyn ska inte behöva veta någonting om modellen."""
 
-    def display_game_status(self, secret_word_len, guessed_letters, incorrect_guesses_count, remaining_guesses):
+    def display_game_status(self,
+                            secret_word_len,
+                            guessed_letters,
+                            incorrect_guesses_count,
+                            remaining_guesses,
+                            ):
         print("Det hemliga ordet är", secret_word_len, "tecken långt.")
 
         if len(guessed_letters) > 0:
