@@ -31,11 +31,11 @@ Det finns, i grunden, två typer av filer: textfiler och binära filer.
 
 
 När man sparar data från ett program i Python så kan man själv välja i vilket
-filformat som filen ska vara i. Detta med hjälp av att Python har ett gäng olika
-verktyg som gör det enkelt att skapa olika filer.
+	filformat som filen ska vara i. Detta med hjälp av att Python har ett gäng
+	olika verktyg som gör det enkelt att skapa olika filer.
 
 Att spara saker i .txt-filer är det absolut enklaste, men här är ett urval av
-filtyper som passar som datalagring:
+	filtyper som passar som datalagring:
 
 	JSON-filer eller .json-filer
 
@@ -44,7 +44,7 @@ filtyper som passar som datalagring:
 		ska föras över mellan olika system.
 		JSON-filer är strukturerade på ett sätt som är väldigt snarlikt Pythons
 		dicts.
-		Se L05_json_example.json
+			Se L05_json_example.json
 		Namnet står för JavaScript Object Notation.
 
 	CSV-filer, eller .csv-filer
@@ -56,10 +56,10 @@ filtyper som passar som datalagring:
 		exakt så här de var uppbyggda.
 
 Databaser är ett annat sätt att lagra data i en dator men de fungerar annorlunda
-än hur vi kommer läsa och skriva till filer nu.
+	än hur vi kommer att läsa och skriva till filer nu.
 
 En sak man måste tänka på när man håller på med textfiler är något som kallas
-encoding, kort sammanfattat är det hur tecken i filen definierats.
+	encoding, kort sammanfattat är det hur tecken i filen definierats.
 
-För att göra saker simpla, använd alltid något som heter "UTF-8" så behöver ni
-troligtvis inte tänka på det på ganska länge.
+För att göra saker simpla, använd alltid något som heter "utf-8" så behöver ni
+	troligtvis inte tänka på det på ganska länge.
