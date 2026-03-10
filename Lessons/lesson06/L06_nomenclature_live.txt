@@ -4,7 +4,7 @@ File / Fil:
 
 	Denna term kanske känns självklar, men vad som kallas för en fil skiljer sig
 		åt mellan operativsystem, främst så är det Windows som sticker ut med
-		att klassa väldigt få saker som filer.
+		att klassa väldigt fi saker som filer.
 	I Unix, och andra operativsystem baserade på Unix, så brukar man säga
 		"Everything is a file"
 	Det är en sanning med modifikation, i de flesta fall syftar man egentligen
@@ -16,7 +16,7 @@ File-like / Filliknande:
 	Detta är vad som egentligen syftas på med ovanstående citat, i alla fall i
 		system som är skapade från Unix.
 
-	Vad denna term betyder är dessa saker går att behandla som om de vore
+	Vad denna term betyder är att dessa saker går at behandla som om de vore
 		filer och på så sätt kan man använda sig av samma syntax och verktyg för
 		alla interaktioner med datorns system.
 
@@ -49,7 +49,7 @@ Path:
 		Översättning av denna term blir lite klumpig men man brukar kalla det
 			för "sökväg".
 		T.ex:
-			"C:\exempel"
+			"C:\exempel\"
 			"C:\exempel\exempel.txt"
 			"C:\users\[username]"
 			"/usr/"
@@ -59,7 +59,7 @@ Path:
 Path-like:
 
 	I Python brukar man prata om "Path-like objects" snarare än sökvägar då det
-		skiljer sig åt mellan operativsystem hur säkvägarna ser ut.
+		skiljer sig åt mellan operativsystem ser ut.
 
-	Utöver det så är det ofta strängar man refererar till och, tekniskt sett,
+	Utöver det så det ofta strängar man refererar till och, tekniskt sett,
 		så är ju dessa just strängar och inte sökvägar.

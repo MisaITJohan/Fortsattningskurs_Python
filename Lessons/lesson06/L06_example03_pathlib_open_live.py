@@ -15,5 +15,5 @@ print(unix_linux_macos_open.read())
 windows_open.close()
 unix_linux_macos_open.close()
 
-print("----")
+print("-----")
 print(windows_path.read_text(encoding="utf-8"))

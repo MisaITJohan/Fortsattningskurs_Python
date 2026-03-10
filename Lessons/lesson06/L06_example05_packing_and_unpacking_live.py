@@ -16,6 +16,13 @@ print(f"Separata variabler: {a} {b} {c} {d} {e}")
 a, b, *c = number_list
 print(f"Separata variabler med stjärnat c: {a} {b} {c}")
 print(type(c))
+print()
+
+x = 1
+y = 2
+print(f"{x=}, {y=}")
+x, y = y, x
+print(f"{x=}, {y=}")
 
 
 def my_func(*args, **kwargs):
@@ -25,6 +32,7 @@ def my_func(*args, **kwargs):
     print("End of args.")
 
     for kwarg in kwargs:
+        print(kwarg)
         print(kwargs[kwarg])
 
     print("End of kwargs.")

@@ -1,6 +1,6 @@
-# Denna vecka uppdaterar vi load_words_from_file() till att använda pathlib
+# Denna vecka uppdaterar vi .load_words_from_file() till att använda pathlib
 # samt skapar en placeholder för en mer visuell upplevelse när man spelar.
-import pathlib
+from pathlib import Path
 import random
 
 # Vi samlar våra konstanter här för att göra det lättare att konfigurera.
@@ -19,7 +19,6 @@ class HangmanGame:
         self.current_guess = ""
         self.game_finished = False
 
-
     def setup(self):
         self.game_finished = False
         self.incorrect_guesses_count = 0
@@ -28,8 +27,8 @@ class HangmanGame:
             self.guessed_letters.clear()
     
     def load_words_from_file(self, target_path=None):
-        if target_path is None or not pathlib.Path(target_path).exists():
-            target_path = pathlib.Path("wordlist_creator/wordlist.txt")
+        if target_path is None or not Path(target_path).exists():
+            target_path = Path("wordlist_creator/wordlist.txt")
         
         with open(target_path, "r", encoding="utf-8") as file:
             # .strip() kan istället köras när ett ord väljs ut så sparar man
@@ -62,14 +61,17 @@ class HangmanGame:
               *sorted(list(self.guessed_letters)))
 
     def display_correct_guesses(self):
-        correct_guesses = sorted([x for x in self.guessed_letters if x in self.secret_word])
+        correct_guesses = sorted(
+            [x for x in self.guessed_letters if x in self.secret_word])
         if correct_guesses:
-            print("Av de gissade bokstäverna finns dessa i det hemliga ordet:", *correct_guesses)
+            print("Av de gissade bokstäverna finns dessa i det hemliga ordet:",
+                  *correct_guesses)
 
     def make_guess(self):
         guess = ""
         while guess in self.guessed_letters or len(guess) != 1:
-            guess = input("Gissa en bokstav eller lämna tomt för att avsluta spelet: ").lower()
+            guess = input(
+                "Gissa en bokstav eller lämna tomt för att avsluta spelet: ").lower()
             if not guess:
                 self.game_finished = True
                 return

@@ -7,7 +7,7 @@ windows_path = Path("test\\test.txt")
 windows_open = windows_path.open()
 
 unix_linux_macos_path = Path("test/test.txt")
-unix_linux_macos_open = open(unix_linux_macos_path)
+unix_linux_macos_open = unix_linux_macos_path.open()
 
 print(windows_open.read())
 print(unix_linux_macos_open.read())
