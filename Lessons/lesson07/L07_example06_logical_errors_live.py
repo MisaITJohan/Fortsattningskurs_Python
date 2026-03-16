@@ -15,9 +15,9 @@ average = sum_ / x
 print(sum_)
 print(average)
 
-# Vi kanske tror att vi räknar ut genomsnittet av alla siffror mellan ett och 10
-# men range() börjar per standard från noll och tar inte med det tal som man
-# skickar som argument.
+# Vi kanske tror att vi räknar ut genomsnittet av alla siffror mellan ett och tio
+#   men range() börjar per standar från noll och tar inte med det tal som man
+#   skickar som argument.
 
 
 # Exempel 2, felaktig jämförelse:
@@ -25,10 +25,10 @@ print(average)
 x = 10
 
 if not x > 5 and not x < 8:  # Detta borde vara "not (x > 5 and x < 8)" alternativt "5 < x < 8"
-    print(f"x är mindre än fem eller större än 8 och x är: {x}")
+    print(f"x är mindre än 5 eller större än 8 och är: {x}")
 
 # Säg att vi vill garantera att x aldrig är 6 eller 7, nu har vi dock råkat
-# göra att koden aldrig körs istället.
+#   göra att koden aldrig körs istället.
 # Visst, detta exempel kanske är relativt lätt att upptäcka, men tänk om
-# jämförelsen hade haft flera klausuler. Då kan det lätt bli att man råkar göra
-# ett misstag.
+#   jämförelsen hade haft flera klausuler. Då kan det lätt bli att man råkar
+#   göra ett misstag.

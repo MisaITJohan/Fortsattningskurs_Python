@@ -12,9 +12,11 @@ En intressant sak med Exceptions är att de är klasser och vissa ärver därfö
 	varandra.
 
 Några exempel på Exceptions som finns i Python är:
-	KeyError            <--- När man försöker så upp en nyckel som inte existerar i t.ex. en dict.
+	KeyError            <--- När man försöker slå upp en nyckel som inte existerar
+								i t.ex. en dict.
 	FileNotFoundError   <--- När man försöker interagera med en fil som inte existerar.
-	KeyboardInterrupt   <--- När man avbryter ett program, per standard genom att trycka ctrl-c.
+	KeyboardInterrupt   <--- När man avbryter ett program, per standard genom att
+								trycka ctrl-c.
 	NameError           <--- När ett namn inte hittas i någon av de aktiva namnrymderna.
 
 	Man kan även skapa sina egna.

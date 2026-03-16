@@ -1,6 +1,6 @@
-# Denna vecka uppdaterar vi load_words_from_file() till att använda pathlib
+# Denna vecka uppdaterar vi .load_words_from_file() till att använda pathlib
 # samt skapar en placeholder för en mer visuell upplevelse när man spelar.
-import pathlib
+from pathlib import Path
 import random
 
 # Vi samlar våra konstanter här för att göra det lättare att konfigurera.
@@ -27,8 +27,8 @@ class HangmanGame:
             self.guessed_letters.clear()
     
     def load_words_from_file(self, target_path=None):
-        if target_path is None or not pathlib.Path(target_path).exists():
-            target_path = pathlib.Path("wordlist.txt")
+        if target_path is None or not Path(target_path).exists():
+            target_path = Path("wordlist_creator/wordlist.txt")
         
         with open(target_path, "r", encoding="utf-8") as file:
             # .strip() kan istället köras när ett ord väljs ut så sparar man

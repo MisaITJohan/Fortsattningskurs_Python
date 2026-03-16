@@ -11,13 +11,13 @@ class MyInt(int):
 
 x = MyInt(2)
 y = MyInt(3)
-print(f"{x=}")
-print(f"{y=}")
+print(f"{x = }")
+print(f"{y = }")
 
 
 z = x + y
-print(f"{z=}")
+print(f"{z = }")
 
 
 q = x + 3
-print(f"{q=}")
+print(f"{q = }")
