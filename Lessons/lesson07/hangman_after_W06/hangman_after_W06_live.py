@@ -1,8 +1,7 @@
-# Denna vecka uppdaterar vi load_words_from_file() till att använda pathlib
+# Denna vecka uppdaterar vi .load_words_from_file() till att använda pathlib
 # samt skapar en placeholder för en mer visuell upplevelse när man spelar.
-import pathlib
+from pathlib import Path
 import random
-from ctypes.wintypes import tagMSG
 
 # Vi samlar våra konstanter här för att göra det lättare att konfigurera.
 DEFAULT_MAX_INCORRECT_GUESSES = 5
@@ -20,7 +19,6 @@ class HangmanGame:
         self.game_finished = False
         self.custom_list_path = ""
 
-
     def setup(self):
         self.game_finished = False
         self.incorrect_guesses_count = 0
@@ -31,33 +29,18 @@ class HangmanGame:
             self.load_words_from_file(input("Skriv in namnet på den fil som du vill ladda in: "))
         else:
             self.load_words_from_file()
-
         self.get_word_to_guess()
         if len(self.guessed_letters) > 0:
             self.guessed_letters.clear()
     
     def load_words_from_file(self, target_path=None):
-        if target_path is None and not self.custom_list_path:
-            target_path = "wordlist.txt"
-        elif self.custom_list_path:
-            target_path = self.custom_list_path
-        elif target_path:
-            self.custom_list_path = target_path
-
-        file_to_check = pathlib.Path(target_path)
-
-        if not file_to_check.exists():
-            print(f"Det finns ingen fil som heter det som skrevs in, "
-                  f"{"standardlistan" if not self.custom_list_path else
-                  self.custom_list_path} används.")
-            if not self.custom_list_path:
-                file_to_open = pathlib.Path("wordlist.txt")
-            else:
-                file_to_open = pathlib.Path(self.custom_list_path)
-        else:
-            file_to_open = file_to_check
-
-        self.possible_words = file_to_open.read_text(encoding="utf-8").splitlines()
+        if target_path is None or not Path(target_path).exists():
+            target_path = Path("wordlist_creator/wordlist.txt")
+        
+        with open(target_path, "r", encoding="utf-8") as file:
+            # .strip() kan istället köras när ett ord väljs ut så sparar man
+            # in mängder av anrop.
+            self.possible_words = [x.strip() for x in file.readlines()]
 
     def get_word_to_guess(self):
         self.secret_word = random.choice(self.possible_words).lower()
@@ -85,14 +68,18 @@ class HangmanGame:
               *sorted(list(self.guessed_letters)))
 
     def display_correct_guesses(self):
-        correct_guesses = sorted([x for x in self.guessed_letters if x in self.secret_word])
+        correct_guesses = sorted(
+            [x for x in self.guessed_letters if x in self.secret_word])
         if correct_guesses:
-            print("Av de gissade bokstäverna finns dessa i det hemliga ordet:", *correct_guesses)
+            print("Av de gissade bokstäverna finns dessa i det hemliga ordet:",
+                  *correct_guesses)
 
     def make_guess(self):
         guess = ""
+
         while self.check_invalid(guess):
-            guess = input("Gissa en bokstav eller lämna tomt för att avsluta omgången: ").lower()
+            guess = input(
+                "Gissa en bokstav eller lämna tomt för att avsluta spelet: ").lower()
             if not guess:
                 self.game_finished = True
                 return
