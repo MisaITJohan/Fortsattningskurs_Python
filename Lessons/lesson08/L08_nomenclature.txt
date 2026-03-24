@@ -15,7 +15,7 @@ CLI (Command Line Interface / Kommandoradsgränssnitt):
 tkinter:
 	En del av Pythons standardbibliotek (de saker som kommer färdiginstallerade
 		med Python). Används för att skapa GUI.
-	Namnet kommer ifrån att det är ett sätt att interagera med ett
+	Namnet kommer från att det är ett sätt att interagera med ett
 		verktygspaket som heter Tk. "Tk interface" helt enkelt.
 
 Widget:
@@ -42,10 +42,10 @@ Event Handler / Händelsehanterare:
 
 Layout Manager / Geometry Manager / Layouthanterare:
 	Ett system för att organisera och placera Widgets i en Widget som går att
-		använda som behållare. Exempelvis ett fönster eller en Frame.
+		använda som behållare.
 	I tkinter finns pack, grid och place.
 
-mainloop:
+.mainloop():
 	Den metod som startar ett tkinter-baserat program och väntar på interaktion
 		från användaren.
 	Finns i det objekt som borde namngivits som root.
@@ -60,17 +60,17 @@ root / tk.Tk():
 		därmed automatiskt programmet.
 
 master:
-	Den Widget som en annan Widget tillhör. Det går att referera till en
-		Widgets master genom att använda syntaxen:
+	Den Widget som en annan Widget tillhör. Det går att referera till en Widgets
+		master genom att använda syntaxen:
 			orginalwidgeten.master
 
 	En Widget kan bara ha en master.
 	En Widget kan vara master för flera Widgets.
 	Det är så man får den trädliknande hierarkin som nämndes tidigare.
 
-config:
+.config():
 	Förkortning av configure (båda går att använda). Betyder konfigurera och
-		är en metod som finns på alla Widget.
+		är en metod som finns på alla Widgets.
 	Använder man den från en Widget så kan man ändra på egenskaper såsom text
 		och färg. Alla egenskaper utöver "name" går att ändra på. "name" kan
 		enbart sättas när en Widget skapas.

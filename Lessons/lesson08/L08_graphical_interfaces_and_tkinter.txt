@@ -1,8 +1,9 @@
 Lesson08: Simpla grafiska gränssnitt och tkinter
 
 Ett grafiskt gränssnitt (GUI) är ett sätt att använda ett program med hjälp av
-bilder, knappar och fält – istället för att skriva kommandon. I ett GUI så kan
-man klicka, skriva text, välja från menyer och se vad som händer direkt på skärmen.
+	bilder, knappar och fält - istället för att skriva kommandon. I ett GUI så
+	kan man klicka, skriva text, välja från menyer och se vad som händer direkt
+	på skärmen.
 
 Gå igenom nomenklatur.
 
@@ -31,15 +32,15 @@ Events:
 		på en Button-Widget.
 	Utöver Buttons inbyggda funktionalitet att köra funktioner när de aktiveras
 		så kan man även "binda" funktioner till händelser med hjälp av metoden
-		bind() som finns på alla Widgets.
+		.bind() som finns på alla Widgets.
 
 
-
-Några riktlinjer för bra design:
+Riktlinjer för bra design:
 
 	Tydlig layout:
 		- Placera saker som hör ihop nära varandra
-		- Använd jämna mellanrum mellan element (ta hjälp av argumenten padx och pady)
+		- Använd jämna mellanrum mellan element (ta hjälp av argumenten padx
+			och pady)
 		- Använd Frames för att organisera
 
 	Konsekvent utseende:

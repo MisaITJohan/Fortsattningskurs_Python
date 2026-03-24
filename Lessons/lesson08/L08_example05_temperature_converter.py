@@ -35,7 +35,7 @@ frame = tk.Frame(
 frame.pack()
 
 # Vi skapar en Label för titeln. Vi använder grid() för att lättare organisera
-# våra Widgets på ett snyggt sätt.
+#   våra Widgets på ett snyggt sätt.
 title_label = tk.Label(
     frame,
     text="Temperaturomvandlare",
@@ -45,7 +45,7 @@ title_label.grid(row=0, column=0, columnspan=2, pady=10)
 
 
 # En Label för instruktioner. Notera att vi specificerar att Label:n ska vara
-# fäst till vänstra kanten av vår Frame.
+#   fäst till vänstra kanten av vår Frame.
 instruction_label = tk.Label(
     frame,
     text="Skriv in en temperatur i grader Celsius:",
@@ -54,7 +54,7 @@ instruction_label.grid(row=1, column=0, sticky="w", pady=5)
 
 
 # Ett textfält för inmatning från användaren. Argumenten validate och
-# validatecommand ser till att det enbart är siffror som skrivs in i fältet.
+#   validatecommand ser till att det enbart är siffror som skrivs in i fältet.
 # Se SubjectExamples/Validation_in_tkinter_Entry.py för mer om validering.
 celsius_entry = tk.Entry(
     frame,
@@ -68,13 +68,13 @@ celsius_entry.grid(row=1, column=1, pady=5)
 celsius_entry.focus()
 
 # Här "binder" jag Event:et "Return", alltså ett tryck på tangenten som vi
-# kallar för enter, till att convert_temperature() ska köras.
+#   kallar för enter, till att convert_temperature() ska köras.
 # Notera! Det är enbart om textrutan är markerad som programmet reagerar på
-# denna bindning.
+#   denna bindning.
 celsius_entry.bind("<Return>", lambda event: convert_temperature())
 
 # Vi skapar en knapp som kör konverteringsfunktionen. Notera vad som händer
-# om man har med den bortkommenterade kodbiten.
+#   om man har med den bortkommenterade kodbiten.
 convert_button = tk.Button(
     frame,
     text="Konvertera",
