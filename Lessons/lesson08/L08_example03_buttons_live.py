@@ -26,11 +26,10 @@ instruction_label = tk.Label(
     )
 instruction_label.pack(pady=10)
 
-
 # Skapa en knapp och ställ in egenskapen command.
 # command ska peka på en funktion. Notera att jag inte lägger till några
-# parenteser efter button_clicked då funktionen inte ska köras när knappen
-# skapas.
+#   parenteser efter button_clicked då funktionen inte ska köras när
+#   knappen skapas.
 button = tk.Button(
     root,
     text="Klicka på mig!",

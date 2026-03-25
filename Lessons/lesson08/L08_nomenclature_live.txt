@@ -3,6 +3,7 @@ Nomenklatur för lektion 7:
 Det är väldigt många nya termer den här lektionen, återvänd gärna till denna fil
 	och använd den som en ordlista.
 
+
 GUI (Graphical User Interface / Grafiskt Användargränssnitt):
 	Ett visuellt sätt för användare att interagera med program. Används istället
 		för textkommandon.
@@ -22,7 +23,7 @@ Widget:
 		Exempel inkluderar knappar, textfält och ramar.
 	I tkinter så tillhör alltid en Widget en annan Widget. Detta skapar en
 		hierarki, som kan tänkas på som ett träd, där det finns Widgets i
-		Widgets i Widgets och så vidare.
+		Widgets och så vidare.
 		Det enda undantaget är den Widget som man kallar för "root".
 
 Window / Toplevel / Fönster:
@@ -56,7 +57,7 @@ root / tk.Tk():
 		root är ett namn som är standard att använda, precis som man använder
 			argumentet "self" i metoder.
 	Stänger man root så stänger man alla Widgets som finns där i och avslutar
-		därmed programmet.
+		därmed automatiskt programmet.
 
 master:
 	Den Widget som en annan Widget tillhör. Det går att referera till en Widgets
@@ -68,7 +69,7 @@ master:
 	Det är så man får den trädliknande hierarkin som nämndes tidigare.
 
 .config():
-	Förkortning av configure (båda går att använda). Betyder konfigurera och
+	Förkörtning av configure (båda går att använda). Betyder konfigurera och
 		är en metod som finns på alla Widgets.
 	Använder man den från en Widget så kan man ändra på egenskaper såsom text
 		och färg. Alla egenskaper utöver "name" går att ändra på. "name" kan
