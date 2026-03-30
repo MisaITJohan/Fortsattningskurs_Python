@@ -18,7 +18,7 @@ def click_cookie():
     score += click_value
     score_label.config(text=f"Score: {score}")
 
-    # slumpvis flytta kakan en liten bit
+    # Slumpvis flytta kakan en liten bit
     x = random.randint(-10, 10)
     y = random.randint(-10, 10)
     cookie_button.place(x=cookie_button.winfo_x() + x, y=cookie_button.winfo_y() + y)
@@ -35,7 +35,6 @@ def upgrade_click():
     else:
         status_label.config(text="Not enough points! Need 10 points.")
 
-
 # Skapa ramar
 header_frame = tk.Frame(root)
 header_frame.pack(pady=10)
@@ -43,7 +42,7 @@ header_frame.pack(pady=10)
 game_frame = tk.Frame(root)
 game_frame.pack(pady=20)
 
-# Lägg till label för poäng
+# Lägg till Label för poäng
 score_label = tk.Label(
     header_frame,
     text="Score: 0",
@@ -51,7 +50,7 @@ score_label = tk.Label(
     )
 score_label.pack()
 
-# Lägg till label för mängden poäng per klick
+# Lägg till Label för mängden poäng per klick
 click_value_label = tk.Label(
     header_frame,
     text="Click Value: 1",
@@ -76,7 +75,7 @@ upgrade_button = tk.Button(
     )
 upgrade_button.pack(pady=10)
 
-# Lägg til len statuslabel
+# Lägg till en statuslabel
 status_label = tk.Label(
     game_frame,
     text="",
@@ -84,12 +83,13 @@ status_label = tk.Label(
     )
 status_label.pack(pady=10)
 
-# Label med instruktioner
+# Lägg till en Label med instruktioner
 instruction_label = tk.Label(
     root,
-    text="Click the cookie to earn points.\nUpgrade to get more points per click!",
+    text="Klicka på kakan för att få poäng.\nUppgradera för att få fler "
+         "poäng per klick!",
     )
-instruction_label.pack(side=tk.BOTTOM, pady=20)
+instruction_label.pack(side="bottom", pady=20)
 
 
 root.mainloop()

@@ -10,10 +10,12 @@ root.geometry("400x300")
 def greet_user():
     """Funktion för att hämta texten i textrutan och, om det står något där,
     hälsa på användaren."""
+
+    # Hämtar texten från rutan och lagrar den i name
     name = name_entry.get()
     if name:
         greeting_label.config(
-            text=f"Hej {name}!",
+            text=f"Hej {name}!"
             )
     else:
         greeting_label.config(
@@ -28,7 +30,7 @@ instruction_label = tk.Label(
 instruction_label.pack(pady=10)
 
 
-# Vi skapar ett textfält och ger det en bredd på 30 tecken
+# Vi skapar ett textfält och ger det en bredd på 30 tecken.
 # Man kan skriva in fler tecken än så, bredden är bara visuell.
 name_entry = tk.Entry(
     root,
@@ -39,7 +41,7 @@ name_entry.pack(pady=10)
 greet_button = tk.Button(
     root,
     text="Hälsa på mig!",
-    command=greet_user,
+    command=greet_user
     )
 greet_button.pack(pady=10)
 
