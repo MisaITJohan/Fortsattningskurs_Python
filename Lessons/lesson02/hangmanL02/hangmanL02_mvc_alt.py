@@ -114,15 +114,20 @@ class HangmanController:
 
     def make_guess(self):
         guess = self.view.get_guess()
+        self.register_guess(guess)
+        self.evaluate_guess()
+        self.play_turn()
+
+    def register_guess(self, guess):
         self.model.guessed_letters.add(guess)
         self.model.current_guess = guess
 
+    def evaluate_guess(self):
         check_correct = self.model.check_guess()
         if check_correct is True:
             self.correct_guess()
         else:
             self.incorrect_guess()
-        self.play_turn()
 
     def correct_guess(self):
         self.view.display_correct_guess(self.model.current_guess)
