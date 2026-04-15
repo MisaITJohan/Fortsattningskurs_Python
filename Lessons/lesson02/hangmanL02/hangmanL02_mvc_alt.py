@@ -1,5 +1,7 @@
 # Första versionen av vårt spel kommer vara simplistiskt men fortfarande ett
-# fungerande program. Under kommande veckor kommer vi lägga till fler funktioner.
+# fungerande program. Under kommande veckor kommer vi lägga till mer
+# funktionalitet, göra det mer användarvänligt samt förbättra programmets
+# flöde.
 #
 # Vi använder MVC-mönstret (Model-View-Controller) för att dela upp koden
 # i tre delar:
@@ -110,32 +112,32 @@ class HangmanController:
 
     def play_turn(self):
         self.view.display_current_state(self.model)
-        self.make_guess()
+        self._make_guess()
 
-    def make_guess(self):
+    def _make_guess(self):
         guess = self.view.get_guess()
-        self.register_guess(guess)
-        self.evaluate_guess()
+        self._register_guess(guess)
+        self._evaluate_guess()
         self.play_turn()
 
-    def register_guess(self, guess):
+    def _register_guess(self, guess):
         self.model.guessed_letters.add(guess)
         self.model.current_guess = guess
 
-    def evaluate_guess(self):
+    def _evaluate_guess(self):
         check_correct = self.model.check_guess()
         if check_correct is True:
-            self.correct_guess()
+            self._correct_guess()
         else:
-            self.incorrect_guess()
+            self._incorrect_guess()
 
-    def correct_guess(self):
+    def _correct_guess(self):
         self.view.display_correct_guess(self.model.current_guess)
         if self.model.check_game_won():
             self.view.display_game_won()
             self.end_game()
 
-    def incorrect_guess(self):
+    def _incorrect_guess(self):
         self.view.display_incorrect_guess(self.model.current_guess)
         self.model.incorrect_guesses_count += 1
         if self.model.check_game_over():
@@ -150,5 +152,8 @@ class HangmanController:
         quit()
 
 
+def main():
+    controller = HangmanController()
+
 if __name__ == "__main__":
-    game = HangmanController()
+    main()
