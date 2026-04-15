@@ -6,14 +6,14 @@ IDE
 	Integrerad Utvecklingsmiljö
 	I grundkursen använde vi oss av IDLE.
 	En IDE är som en textredigerare men har extra funktionalitet.
-	Pycharm är en IDE.
+	PyCharm är en IDE.
 
 
 Virtuell miljö / Virtual environment
 
 	En "lokal" Python-installation. Det är rekommenderat att ha en virtuell
-	miljö per "projekt". Oftast döps mappen där miljön ligger till env, venv,
-	.env eller .venv.
+		miljö per "projekt". Oftast döps mappen där miljön ligger till env, venv,
+		.env eller .venv.
 
 
 Tester

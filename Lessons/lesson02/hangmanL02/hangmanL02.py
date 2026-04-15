@@ -26,7 +26,7 @@ class HangmanGame:
         self.current_guess = ""
         self.display_current_state()
 
-    def setup(self):
+    def _setup(self):
         # Här borde vissa delar av .__init__() ligga för att korta ned
         # den metoden. Detta kan också användas för att nollställa
         # spelet.

@@ -5,7 +5,7 @@ Ni har kanske noterat att jag har delat upp lektionsmaterialen i fler filer,
 
 Det finns flera konventioner (allmänt överenskomna regler) att följa när man
 	programmerar. Stilreglerna för Python (PEP8) har ni hört lite om i grundkursen;
-	de är en del av det som man för följa när man programmerar, men de innehåller
+	de är en del av det som man bör följa när man programmerar, men de innehåller
 	mest "regler" som är unika för Python.
 
 Grundprincipen som bör följas är egentligen rätt enkel; det ska inte vara svårt

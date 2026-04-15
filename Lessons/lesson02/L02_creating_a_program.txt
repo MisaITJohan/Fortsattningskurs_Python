@@ -24,7 +24,7 @@ T.ex:
 	alternativ, beskrivande text och (förhoppningsvis) simpel grafik.
 
 Vad det ovanstående betyder i praktiken är att det oftast är en bra idé att
-skapa en lista med mindre delar som fungerar oberoende av varandra.
+	skapa en lista med mindre delar som fungerar oberoende av varandra.
 Därefter bör man dela upp varje "huvuddel" i mindre, lättöverskådliga, delar.
 T.ex:
 	Om man ska göra ett program som man behöver logga in i så är en av
@@ -33,4 +33,4 @@ T.ex:
 		- Skapa en eller flera klasser som representerar användare
 		- Skapa regler för vad man kommer åt utan att logga in
 		- Skapa ett system för att kontrollera att lösenordet stämmer när en
-			användare försöker logga in.
+			användare försöker logga in
