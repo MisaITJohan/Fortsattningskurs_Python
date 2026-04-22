@@ -4,14 +4,14 @@ Vårt program har ett problem som man lätt kan stöta på:
 
 - Övningen:
 
-	- Skriv om load_words_to_file() så att den antingen kontrollerar om filen
-		existerar eller anropar en metod som kontrollerar att den existerar.
+	- Skriv om HangmanModel.load_words_from_file() så att den antingen kontrollerar
+		om filen existerar eller anropar en metod som kontrollerar att den existerar.
 
 	- Om filen existerar så ska den öppnas, precis som den gör nu.
 
-	-Om filen INTE existerar så ska programmet automatiskt falla tillbaka på
+	- Om filen INTE existerar så ska programmet automatiskt falla tillbaka på
 		den wordlist.txt som öppnas om man inte skickar in något argument till
-		load_words_from_file().
+		.load_words_from_file().
 
 
 - Bonus:
