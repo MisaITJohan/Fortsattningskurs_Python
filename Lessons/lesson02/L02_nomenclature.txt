@@ -33,7 +33,7 @@ Hjälpfunktioner / Helper functions
 			En funktion som kontrollerar att det som skickas in uppfyller ett
 				specifikt villkor.
 
-Hjälpmetoder / Helper methods
+Hjälpmetoder / Helper methods / Skyddade metoder
 
 	Metoder som enbart är menade att användas "bakom kulisserna", dvs. av andra
 		metoder i samma klass.
