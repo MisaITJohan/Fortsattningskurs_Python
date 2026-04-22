@@ -3,9 +3,8 @@
 
 Övningen:
 	- När man har gissat minst en gång så skrivs
-			"Du har gissat dessa bokstäver:", self.guessed_letters
-		ut. Detta skrivs ut med parenteser och citattecken. Ändra koden så att
-		varje bokstav skrivs ut för sig.
-
+			"Du har gissat dessa bokstäver:", model.guessed_letters
+		ut i HangmanView.display_current_state(). Detta skrivs ut med parenteser
+		och citattecken. Ändra koden så att varje bokstav skrivs ut för sig.
 	- För lite extra svårighet så kan ni lägga till kod som gör att bokstäverna
-		skrivs ut i alfabetisk ordning.
+	skrivs ut i alfabetisk ordning.
