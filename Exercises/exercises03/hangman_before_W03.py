@@ -113,7 +113,7 @@ class HangmanController:
                 len(self.model.secret_word),
                 self.model.guessed_letters,
                 self.model.incorrect_guesses_count,
-                self.model.guesses_remaining()
+                self.model.guesses_remaining(),
             )
             self._make_guess()
 
