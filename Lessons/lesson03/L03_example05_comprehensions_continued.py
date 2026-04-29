@@ -15,11 +15,11 @@ print(my_list_without_3)
 
 
 # Kod utan comprehension:
-# my_second_list = []
+# my_even_list = []
 # for x in my_list:
 #     if check_even(x):
-#         my_second_list.append(x)
-# print(my_second_list)
+#         my_even_list.append(x)
+# print(my_even_list)
 
 my_even_list = [x for x in my_list if check_even(x)]
 print(my_even_list)

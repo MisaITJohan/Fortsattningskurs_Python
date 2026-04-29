@@ -15,9 +15,9 @@ Nya saker vi ska titta på:
 	if i klausulen för en loop
 	"Comprehensions"
 
-Någonting nytt vi kommer att titta på är comprehensions. Dessa är väldigt
+Någonting nytt vi kommer att titta på är Comprehensions. Dessa är väldigt
 	effektiva och smidiga sätt att skapa nya samlingar på.
-Comprehensions finns list, set och dict. Försöker man göra en
+Comprehensions finns för list, set och dict. Försöker man göra en
 	"tuple comprehension" så skapas istället något som kallas för en "generator".
 Dessa är otroligt praktiska att använda i vissa situationer, men vi kommer
 	inte gå igenom dem i detalj.
