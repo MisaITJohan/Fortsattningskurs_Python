@@ -127,7 +127,7 @@ class HangmanController:
                 self.model.guessed_letters,
                 self.model.incorrect_guesses_count,
                 self.model.guesses_remaining(),
-                self.model.get_correct_guesses()
+                self.model.get_correct_guesses(),
             )
             self._make_guess()
 
