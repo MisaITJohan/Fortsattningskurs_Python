@@ -38,7 +38,7 @@ Att spara saker i .txt-filer är det absolut enklaste, men här är ett urval av
 
 	JSON-filer eller .json-filer
 
-		Dessa är textfiler som följder ett förutbestämt system och anses därför
+		Dessa är textfiler som följer ett förutbestämt system och anses därför
 			väldigt pålitliga. Väldigt många system använder sig av dessa när
 			data ska föras över mellan olika system.
 		JSON-filer är strukturerade på ett sätt som är väldigt snarlikt Pythons

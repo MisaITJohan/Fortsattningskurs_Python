@@ -18,5 +18,3 @@ Var försiktig!
 
 	I just Python så hanteras detta åt dig, förutsatt att du använder dig av den
 	funktionaliteten. Vi kommer såklart att gå igenom detta.
-
-

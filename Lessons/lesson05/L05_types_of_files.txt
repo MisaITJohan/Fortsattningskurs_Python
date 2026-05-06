@@ -1,31 +1,30 @@
 Filtyper:
 
 Precis som det finns datatyper i Python finns det olika typer för de filer som
-lagras på en dator. Ni har säkert stött på många tidigare, men de två som vi
-träffat på tidigare under denna kurs och grundkursen är .txt och .py.
+	lagras på en dator. Ni har säkert stött på många tidigare, men de två som vi
+	träffat på tidigare under denna kurs och grundkursen är .txt och .py.
 
 Det finns i teorin oändligt många filtyper, då varje program som skrivs skulle
-kunna ha en eller flera egenskapade filtyper, men det finns en stor mängd som
-är standard att använda.
+	kunna ha en eller flera egenskapade filtyper, men det finns en stor mängd
+	som är standard att använda.
 
 
 Det finns, i grunden, två typer av filer: textfiler och binära filer.
 
 	Textfiler är, som namnet antyder, filer som består av simpel text. .txt-filer
-		är den simplaste formen av dessa och det är en sådan som jag skriver i just nu.
+		är den simplaste formen av dessa och det är en sådan som jag skriver i nu.
 
 		Även .py-filerna som vi använder i Python är textfiler, vi kan lätt se det
-		genom att vi kan öppna dem i ett program i stil med Anteckningar (Notepad)
-		och få ut läsbar text. Det kan hända att en del ser ut som nonsens, då man
-		kan lägga till formatering och liknande som inte Anteckningar klarar av att
-		tolka, men själva texten borde vara läsbar.
+			genom att vi kan öppna dem i ett program i stil med Anteckningar (Notepad)
+			och få ut läsbar text. Det kan hända att en del ser ut som nonsens, då man
+			kan lägga till formatering och liknande som inte Anteckningar klarar av att
+			tolka, men själva texten borde vara läsbar.
 
 		Filer som är utan filändelser (det som är efter sista punkten i filnamnet)
-		antar de flesta system är textfiler.
-
+			antar de flesta system är textfiler.
 
 	Binära filer är, väldigt simpelt uttryckt, alla andra filer.
-		Om man försöker öppna en binär fil i en simpel textredigerare i stil med
+		Om man öppnar en binär fil i en simpel textredigerare i stil med
 		Anteckningar så kommer man få en totalt obegriplig samling tecken och
 		konstiga symboler.
 
@@ -40,20 +39,20 @@ Att spara saker i .txt-filer är det absolut enklaste, men här är ett urval av
 	JSON-filer eller .json-filer
 
 		Dessa är textfiler som följer ett förutbestämt system och anses därför
-		väldigt pålitliga. Väldigt många system använder sig av dessa när data
-		ska föras över mellan olika system.
+			väldigt pålitliga. Väldigt många system använder sig av dessa när
+			data ska föras över mellan olika system.
 		JSON-filer är strukturerade på ett sätt som är väldigt snarlikt Pythons
-		dicts.
-			Se L05_json_example.json
+			dicts.
+				Se L05_json_example.json
 		Namnet står för JavaScript Object Notation.
 
-	CSV-filer, eller .csv-filer
+	CSV-filer eller .csv-filer
 
 		Även dessa är textfiler som följer ett mönster.
 		CSV står för Comma Separated Values (kommaseparerade värden) och det är
-		exakt vad filerna innehåller.
+			exakt vad filerna innehåller.
 		Öppnar man ett gammalt Excel-ark i en simpel textredigerare så är det
-		exakt så här de var uppbyggda.
+			exakt så här de var uppbyggda.
 
 Databaser är ett annat sätt att lagra data i en dator men de fungerar annorlunda
 	än hur vi kommer att läsa och skriva till filer nu.
