@@ -16,8 +16,9 @@ Det finns, i grunden, två typer av filer: textfiler och binära filer.
 
 		Även .py-filerna som vi använder i Python är textfiler, vi kan lätt se det
 			genom att vi kan öppna dem i ett program i stil med Anteckningar (Notepad)
-			och få ut läsbar text. Det kan hända att en del ser ut som nonsens, då man
-			kan lägga till formatering och liknande som inte Anteckningar klarar av att
+			och få ut läsbar text.
+		Det kan hända att en del ser ut som nonsens, då man kan lägga till
+			formatering och liknande som inte Anteckningar klarar av att
 			tolka, men själva texten borde vara läsbar.
 
 		Filer som är utan filändelser (det som är efter sista punkten i filnamnet)
