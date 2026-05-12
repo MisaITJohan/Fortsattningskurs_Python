@@ -7,7 +7,9 @@ import random
 DEFAULT_MAX_INCORRECT_GUESSES = 5
 
 
-class HangmanGame:
+# Model-klassen hanterar spelets data och logik.
+class HangmanModel:
+    """En klass som hanterar spellogiken samt lagrar information om spelstatus."""
 
     def __init__(self, max_incorrect_guesses=DEFAULT_MAX_INCORRECT_GUESSES):
         self.possible_words = None
@@ -19,21 +21,13 @@ class HangmanGame:
         self.game_finished = False
         self.custom_list_path = ""
 
-
     def setup(self):
         self.game_finished = False
         self.incorrect_guesses_count = 0
-        custom_list = input(f"Vill du ladda in en {"ny " if self.custom_list_path else ""}"
-                            f"ordlista? ja/NEJ (Lämna blankt för "
-                            f"nej.) ").casefold()
-        if custom_list == "ja".casefold():
-            self.load_words_from_file(input("Skriv in namnet på den fil som du vill ladda in: "))
-        else:
-            self.load_words_from_file()
         self.get_word_to_guess()
         if len(self.guessed_letters) > 0:
             self.guessed_letters.clear()
-    
+
     def load_words_from_file(self, target_path=None):
         if target_path is None and not self.custom_list_path:
             target_path = Path("wordlist_creator/wordlist.txt")
@@ -42,69 +36,25 @@ class HangmanGame:
         elif target_path:
             self.custom_list_path = target_path
 
-        file_to_check = pathlib.Path(target_path)
+        file_to_check = Path(target_path)
 
         if not file_to_check.exists():
-            print(f"Det finns ingen fil som heter det som skrevs in, "
-                  f"{"standardlistan" if not self.custom_list_path else
-                  self.custom_list_path} används.")
             if not self.custom_list_path:
-                file_to_open = pathlib.Path("wordlist.txt")
+                file_to_open = Path("wordlist.txt")
             else:
-                file_to_open = pathlib.Path(self.custom_list_path)
+                file_to_open = Path(self.custom_list_path)
+            return file_to_open, False
         else:
             file_to_open = file_to_check
 
         self.possible_words = file_to_open.read_text(encoding="utf-8").splitlines()
+        return file_to_open, True
 
     def get_word_to_guess(self):
         self.secret_word = random.choice(self.possible_words).lower()
 
-    def display_current_state(self):
-        print(f"Det hemliga ordet är {len(self.secret_word)} tecken långt.")
-
-        if len(self.guessed_letters) > 0:
-            self.display_all_guesses()
-            self.display_correct_guesses()
-
-            print(f"Du har gissat fel {self.incorrect_guesses_count} gånger.")
-        print(f"Du har {self.max_incorrect_guesses - self.incorrect_guesses_count} gissningar kvar.\n")
-        self.display_placeholder()
-
-    def display_placeholder(self):
-        placeholder = self.secret_word
-        for char in placeholder:
-            if char not in self.guessed_letters:
-                placeholder = placeholder.replace(char, "_")
-        print(f"Det hemliga ordet är: {placeholder}")
-
-    def display_all_guesses(self):
-        print("Du har gissat dessa bokstäver:",
-              *sorted(list(self.guessed_letters)))
-
-    def display_correct_guesses(self):
-        correct_guesses = sorted(
-            [x for x in self.guessed_letters if x in self.secret_word])
-        if correct_guesses:
-            print("Av de gissade bokstäverna finns dessa i det hemliga ordet:",
-                  *correct_guesses)
-
-    def make_guess(self):
-        guess = ""
-
-        while self.check_invalid(guess):
-            guess = input(
-                "Gissa en bokstav eller lämna tomt för att avsluta omgången: ").lower()
-            if not guess:
-                self.game_finished = True
-                return
-        self.guessed_letters.add(guess)
-        self.current_guess = guess
-        check_correct = self.check_guess()
-        if check_correct:
-            self.correct_guess()
-        else:
-            self.incorrect_guess()
+    def check_guess(self):
+        return self.current_guess in self.secret_word
 
     def check_invalid(self, guess):
         previously_guessed = guess in self.guessed_letters
@@ -115,51 +65,179 @@ class HangmanGame:
 
         return is_invalid
 
-    def check_guess(self):
-        return self.current_guess in self.secret_word
-
-    def correct_guess(self):
-        print(f"\n{self.current_guess.upper()} finns i det hemliga ordet.\n")
-        self.check_game_won()
-
-    def incorrect_guess(self):
-        print(f"\n{self.current_guess.upper()} finns inte i det hemliga ordet.\n")
-        self.incorrect_guesses_count += 1
-        self.check_game_over()
-
     def check_game_won(self):
         for letter in self.secret_word:
             if letter not in self.guessed_letters:
-                return
-        print("Du vann!")
-        self.display_secret()
-        self.game_finished = True
+                return False
+        return True
 
     def check_game_over(self):
         if self.incorrect_guesses_count >= self.max_incorrect_guesses:
-            print("Game over!")
-            self.display_secret()
-            self.game_finished = True
+            return True
+        return False
 
-    def display_secret(self):
-        print(f"Det hemliga ordet var {self.secret_word}")
+    def guesses_remaining(self):
+        return self.max_incorrect_guesses - self.incorrect_guesses_count
+
+    def get_correct_guesses(self):
+        return sorted([x for x in self.guessed_letters
+                       if x in self.secret_word])
+
+    def get_placeholder(self):
+        placeholder = self.secret_word
+        for char in placeholder:
+            if char not in self.guessed_letters:
+                placeholder = placeholder.replace(char, "_")
+        return placeholder
+
+
+# View-klassen hanterar allt som visas för spelaren och hämtar input
+class HangmanView:
+    """En klass som hanterar de synliga delarna av spelet, det som kallas för
+    "vyn".
+    Vyn ska inte behöva veta någonting om modellen."""
+
+    def display_current_state(self, word_length, guessed_letters,
+                               incorrect_guesses_count, guesses_remaining,
+                               correct_guesses=None, placeholder=None):
+        print(f"Det hemliga ordet är {word_length} tecken långt.")
+        if len(guessed_letters) > 0:
+            self.display_all_guesses(guessed_letters)
+            if correct_guesses is not None:
+                self.display_correct_guesses(correct_guesses)
+            print(f"Du har gissat fel {incorrect_guesses_count} gånger.")
+        print(f"Du har {guesses_remaining} gissningar kvar.\n")
+        if placeholder is not None:
+            self.display_placeholder(placeholder)
+
+    def display_all_guesses(self, guessed_letters):
+        print("Du har gissat dessa bokstäver:",
+              *sorted(list(guessed_letters)))
+
+    def display_correct_guesses(self, correct_guesses):
+        if correct_guesses:
+            print("Av de gissade bokstäverna finns dessa i det hemliga ordet:",
+                  *correct_guesses)
+
+    def display_placeholder(self, placeholder):
+        print(f"Det hemliga ordet är: {placeholder}")
+
+    def ask_load_wordlist(self, has_custom_list):
+        return input(f"Vill du ladda in en {"ny " if has_custom_list else ""}"
+                     f"ordlista? ja/NEJ (Lämna blankt för "
+                     f"nej.) ").casefold()
+
+    def ask_wordlist_path(self):
+        return input("Skriv in namnet på den fil som du vill ladda in: ")
+
+    def display_file_not_found(self, fallback_path, custom_list_path):
+        print(f"Det finns ingen fil som heter det som skrevs in, "
+              f"{"standardlistan" if not custom_list_path else
+              custom_list_path} används.")
+
+    def get_guess(self):
+        guess = input(
+            "Gissa en bokstav eller lämna tomt för att avsluta omgången: ")
+        return guess
+
+    def display_correct_guess(self, letter):
+        print(f"\n{letter} finns i det hemliga ordet.\n")
+
+    def display_incorrect_guess(self, letter):
+        print(f"\n{letter} finns inte i det hemliga ordet.\n")
+
+    def display_game_won(self):
+        print("Du vann!")
+
+    def display_game_over(self):
+        print("Game over!")
+
+    def display_secret(self, secret_word):
+        print(f"Det hemliga ordet var {secret_word}")
+
+    def ask_play_again(self):
+        return input("Vill du köra igen? Lämna blankt om du vill avsluta.\n>>>")
+
+
+# Controller-klassen kopplar ihop Model och View och styr spelets flöde.
+class HangmanController:
+
+    def __init__(self):
+        self.model = HangmanModel()
+        self.view = HangmanView()
+
+    def _handle_wordlist_loading(self):
+        custom_list = self.view.ask_load_wordlist(
+            bool(self.model.custom_list_path))
+        if custom_list == "ja".casefold():
+            path = self.view.ask_wordlist_path()
+            file_to_open, success = self.model.load_words_from_file(path)
+        else:
+            file_to_open, success = self.model.load_words_from_file()
+        if not success:
+            self.view.display_file_not_found(
+                file_to_open, self.model.custom_list_path)
+            self.model.possible_words = file_to_open.read_text(
+                encoding="utf-8").splitlines()
 
     def game_loop(self):
-        while not self.game_finished:
-            self.display_current_state()
-            self.make_guess()
-            # if self.incorrect_guesses_count >= self.max_incorrect_guesses:
-            #     break
+        self._handle_wordlist_loading()
+        self.model.setup()
+        while not self.model.game_finished:
+            self.view.display_current_state(
+                len(self.model.secret_word),
+                self.model.guessed_letters,
+                self.model.incorrect_guesses_count,
+                self.model.guesses_remaining(),
+                self.model.get_correct_guesses(),
+                self.model.get_placeholder(),
+            )
+            self._make_guess()
+
+    def _make_guess(self):
+        guess = ""
+
+        while self.model.check_invalid(guess):
+            guess = self.view.get_guess()
+            if not guess:
+                self.model.game_finished = True
+                return
+        self._register_guess(guess)
+        self._evaluate_guess()
+
+    def _register_guess(self, guess):
+        self.model.guessed_letters.add(guess)
+        self.model.current_guess = guess
+
+    def _evaluate_guess(self):
+        check_correct = self.model.check_guess()
+        if check_correct:
+            self._correct_guess()
+        else:
+            self._incorrect_guess()
+
+    def _correct_guess(self):
+        self.view.display_correct_guess(self.model.current_guess)
+        if self.model.check_game_won():
+            self.view.display_game_won()
+            self.view.display_secret(self.model.secret_word)
+            self.model.game_finished = True
+
+    def _incorrect_guess(self):
+        self.view.display_incorrect_guess(self.model.current_guess)
+        self.model.incorrect_guesses_count += 1
+        if self.model.check_game_over():
+            self.view.display_game_over()
+            self.view.display_secret(self.model.secret_word)
+            self.model.game_finished = True
 
 
 def main():
-    game = HangmanGame()
-    done = False
-    while done != "":
-        game.setup()
-        game.game_loop()
-
-        done = input("Vill du köra igen? Lämna blankt om du vill avsluta.\n>>>")
+    controller = HangmanController()
+    while True:
+        controller.game_loop()
+        if not controller.view.ask_play_again():
+            break
 
 
 if __name__ == "__main__":
