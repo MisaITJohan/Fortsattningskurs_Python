@@ -13,17 +13,19 @@ print(*number_list)
 a, b, c, d, *e = number_list
 print(f"Separata variabler: {a} {b} {c} {d} {e}")
 
-a, b, *c = number_list
-print(f"Separata variabler med stjärnat c: {a} {b} {c}")
-print(type(c))
+a, *b, c = number_list
+print(f"Separata variabler med stjärnat b: {a} {b} {c}")
+print(type(b))
 
 
 def my_func(*args, **kwargs):
+    print(f"{args = }")
     for arg in args:
         print(arg)
 
     print("End of args.")
 
+    print(f"{kwargs = }")
     for kwarg in kwargs:
         print(kwargs[kwarg])
 
