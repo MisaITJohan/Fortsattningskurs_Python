@@ -14,5 +14,5 @@ Förklaring:
 
 Övningen:
 
-	- Skriv om metoden load_from_file() så att den använder try-except istället för
+	- Skriv om metoden HangmanModel.load_words_from_file() så att den använder try-except istället för
 		att kontrollera om filen existerar innan den öppnas.
