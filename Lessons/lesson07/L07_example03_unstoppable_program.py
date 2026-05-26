@@ -7,7 +7,7 @@
 
 while True:
     try:
-        x = input("Skriv in ett värde som ska skrivas ut: ")
+        x = int(input("Skriv in ett tal som ska skrivas ut: "))
         print(x)
     except:
         print("Fångade ett fel! Hurra!")
