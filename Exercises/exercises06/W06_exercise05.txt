@@ -10,9 +10,10 @@
 		Användarinput ska hämtas via HangmanView.
 
 	- Om användaren vill skriva in ett namn så ska ett filnamn/en sökväg hämtas från användaren och sen skickas
-		med i anropet till load_words_from_file().
+		med i anropet till .load_words_from_file().
 
-	- Om användaren meddelar att hen inte vill skriva in något så ska load_words_from_file() anropas
+	- Om användaren meddelar att hen inte vill skriva in något så ska .load_words_from_file()
+	anropas
 	 utan argument.
 
 
@@ -20,7 +21,7 @@
 		då vi vill kunna byta ordlista utan att behöva starta om programmet.
 
 	EXTRA:
-	- Alternativt, för bättre användarvänlighet, kan allt detta läggas in i game_loop() och
+	- Alternativt, för bättre användarvänlighet, kan allt detta läggas in i .game_loop() och
 		HangmanModel.load_words_from_file() uppgraderas med extra funktionalitet:
 			- Om användaren redan laddat in en egen ordlista så är det den ordlistan som laddas istället för
-				standardlistan om inget argument skickas till load_words_from_file().
+				standardlistan om inget argument skickas till .load_words_from_file().

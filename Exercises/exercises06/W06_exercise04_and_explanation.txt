@@ -14,9 +14,9 @@ Förklaring:
 
 Övningen:
 
-	- Skapa en ny metod i HangmanModel som heter check_invalid().
+	- Skapa en ny metod i HangmanModel som heter .check_invalid().
 
-	- Metoden ska anropas i början av den existerande metoden _make_guess() i HangmanController,
+	- Metoden ska anropas i början av den existerande metoden ._make_guess() i HangmanController,
 		exakt var är det en del av övningen att lista ut.
 
 	- Vad metoden ska göra är att kontrollera om någon av de följande sakerna stämmer för det som användaren precis

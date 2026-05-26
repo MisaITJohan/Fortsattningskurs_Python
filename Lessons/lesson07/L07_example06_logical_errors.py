@@ -24,11 +24,11 @@ print(average)
 
 x = 10
 
-if not x > 5 and not x < 8:  # Detta borde vara "not (x > 5 and x < 8)" alternativt "5 < x < 8"
-    print(f"x är mindre än 5 eller större än 8 och x är: {x}")
+if not x > 5 and not x < 8:  # Detta borde vara "not (x > 5 and x < 8)" alternativt "not 5 < x < 8"
+    print(f"x är mindre än 5 eller större än 8 och är: {x}")
 
 # Säg att vi vill garantera att x aldrig är 6 eller 7, nu har vi dock råkat
-# göra att koden aldrig körs istället.
+#   göra att koden aldrig körs istället.
 # Visst, detta exempel kanske är relativt lätt att upptäcka, men tänk om
-# jämförelsen hade haft flera klausuler. Då kan det lätt bli att man råkar göra
-# ett misstag.
+#   jämförelsen hade haft flera klausuler. Då kan det lätt bli att man råkar
+#   göra ett misstag.
