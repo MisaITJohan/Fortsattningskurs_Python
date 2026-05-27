@@ -1,18 +1,19 @@
-# Disclaimer: För att skapa denna fil satte jag på AI-förslag i min IDE.
+# Denna fil är en GUI-version av hangmanL08.py, som använder MVC-mönstret.
+# Model-klassen är identisk med den i hangmanL08.py.
+# View-klassen är en GUI-version som ersätter konsol-vyn med tkinter-widgets.
+# Controller-klassen kopplar ihop Model och View och styr spelets flöde.
 
-# Denna fil skapades innan en del förbättringar gjordes under tidigare omgångar
-# och ser därför lite annorlunda ut.
+# Eftersom tkinter är händelsestyrt (event-driven) istället för sekventiellt
+# som en konsolapplikation, kan Controller inte använda exakt samma game_loop()
+# med blockerande input()-anrop. Istället använder Controller samma metoder
+# (_make_guess, _register_guess, _evaluate_guess, _correct_guess,
+# _incorrect_guess) men anropas av GUI:ts händelser istället för att driva
+# en egen loop.
 
-# För att både göra att programmet ser mer "korrekt" ut och för att det är
-# tydligare för mig är kommentarer i koden på engelska. Om ni känner er osäkra
-# på vad någon bit betyder, fråga mig.
-
-# Detta är en någorlunda komplett variant av vårt ordgissningsspel.
-# Det finns fortfarande många förbättringspunkter som ni skulle kunna försöka
-# er på, det finns t.ex. ingen faktisk grafik som gör det till ett faktiskt
-# "hangman"-spel.
-# En annan uppenbar förbättringspunkt är att klassen är ALLDELES för stor.
-# GUI-bitarna borde ligga i en separat klass.
+# Notera att View-klassen har samma metod-gränssnitt som konsol-vyn i
+# hangmanL08.py (display_correct_guess, display_incorrect_guess,
+# display_game_won, display_game_over, display_current_state, etc.)
+# så att Controller inte behöver veta vilken typ av vy den arbetar med.
 
 # För att demonstrera en potentiell förbättring har jag gjort något som man
 # inte bör göra på ett inkonsekvent sätt: jag kombinerar metoder för hur jag
@@ -23,9 +24,8 @@
 
 import tkinter as tk
 from tkinter import filedialog
-import pathlib
+from pathlib import Path
 import random
-import os
 
 
 # Vi samlar våra konstanter här för att göra det lättare att konfigurera.
@@ -46,8 +46,8 @@ FONTS = {
     "emphasis": ("Arial", 12, "bold"),
 }
 
-
-# This dictionary contains messages used in the UI, allowing for translation to other languages.
+# This dictionary contains messages used in the UI, allowing for translation
+# to other languages.
 MESSAGES = {
     "title": "Hangman",
     "guess_prompt": "Gissa en bokstav eller lämna tomt för att avsluta omgången:",
@@ -56,23 +56,14 @@ MESSAGES = {
     "new_game": "Nytt spel",
     "using_wordlist": "Använder ordlista: {}",
     "wordlist_loaded": "Ordlista laddad: {word_count} ord",
-    }
+}
 
-# This class implements a GUI version of the Hangman game
-# The GUI and the game logic are supposed to be separate, but to not introduce
-# too many new concepts at once, I've kept them together in this single class.
 
-# Egentligen borde GUI och spellogik ligga i separata klasser, men det skulle
-# bli alldeles för många ändringar samtidigt.
-class HangmanGameGUI:
-    def __init__(self, master, wordlist=None, max_incorrect_guesses=DEFAULT_MAX_INCORRECT_GUESSES):
-        # Setup main window
-        self.master = master
-        self.master.title(MESSAGES["title"])
-        self.master.geometry("600x550")
-        self.master.configure(bg=COLORS["background"])
+# Model-klassen hanterar spelets data och logik.
+class HangmanModel:
+    """En klass som hanterar spellogiken samt lagrar information om spelstatus."""
 
-        # Game state variables 
+    def __init__(self, max_incorrect_guesses=DEFAULT_MAX_INCORRECT_GUESSES):
         self.possible_words = None
         self.max_incorrect_guesses = max_incorrect_guesses
         self.incorrect_guesses_count = 0
@@ -80,15 +71,90 @@ class HangmanGameGUI:
         self.guessed_letters = set()
         self.current_guess = ""
         self.game_finished = False
+        self.custom_list_path = ""
 
-        # Create widgets first so the wordlist label exists when fetch_words is called
-        self.create_widgets()
+    def setup(self):
+        self.game_finished = False
+        self.incorrect_guesses_count = 0
+        self.get_word_to_guess()
+        if len(self.guessed_letters) > 0:
+            self.guessed_letters.clear()
 
-        # Initialize the game
-        self.fetch_words(wordlist)
-        self.setup()
+    def load_words_from_file(self, target_path=None):
+        if target_path is None and not self.custom_list_path:
+            target_path = Path("wordlist_creator/wordlist.txt")
+        elif self.custom_list_path:
+            target_path = self.custom_list_path
+        elif target_path:
+            self.custom_list_path = target_path
 
-    def create_widgets(self):
+        file_to_open = Path(target_path)
+
+        try:
+            self.possible_words = file_to_open.read_text(encoding="utf-8").splitlines()
+            return file_to_open, True
+        except FileNotFoundError:
+            if not self.custom_list_path:
+                file_to_open = Path("wordlist.txt")
+            else:
+                file_to_open = Path(self.custom_list_path)
+            return file_to_open, False
+
+    def get_word_to_guess(self):
+        self.secret_word = random.choice(self.possible_words).lower()
+
+    def check_guess(self):
+        return self.current_guess in self.secret_word
+
+    def check_invalid(self, guess):
+        previously_guessed = guess in self.guessed_letters
+        invalid_length = len(guess) != 1
+        is_not_letter = not guess.isalpha()
+
+        is_invalid = previously_guessed or invalid_length or is_not_letter
+
+        return is_invalid
+
+    def check_game_won(self):
+        for letter in self.secret_word:
+            if letter not in self.guessed_letters:
+                return False
+        return True
+
+    def check_game_over(self):
+        if self.incorrect_guesses_count >= self.max_incorrect_guesses:
+            return True
+        return False
+
+    def guesses_remaining(self):
+        return self.max_incorrect_guesses - self.incorrect_guesses_count
+
+    def get_correct_guesses(self):
+        return sorted([x for x in self.guessed_letters
+                       if x in self.secret_word])
+
+    def get_placeholder(self):
+        placeholder = self.secret_word
+        for char in placeholder:
+            if char not in self.guessed_letters:
+                placeholder = placeholder.replace(char, "_")
+        return placeholder
+
+
+# View-klassen hanterar allt som visas för spelaren via GUI.
+# Den har samma metod-gränssnitt som konsol-vyn i hangmanL08.py.
+class HangmanGUIView:
+    """En klass som hanterar de synliga delarna av spelet via tkinter.
+    Vyn ska inte behöva veta någonting om modellen."""
+
+    def __init__(self, master):
+        self.master = master
+        self.master.title(MESSAGES["title"])
+        self.master.configure(bg=COLORS["background"])
+
+        self._create_widgets()
+
+    def _create_widgets(self):
         self._create_title_section()
         self._create_game_info_section()
         self._create_input_section()
@@ -104,7 +170,7 @@ class HangmanGameGUI:
             text="Hangman",
             font=FONTS["title"],
             bg=COLORS["background"]
-            )
+        )
         self.title_label.pack()
 
     def _create_game_info_section(self):
@@ -112,14 +178,12 @@ class HangmanGameGUI:
         self.info_frame = tk.Frame(self.master, bg=COLORS["background"])
         self.info_frame.pack(pady=10)
 
-        # Word length info
         self.word_length_label = tk.Label(
             self.info_frame, text="",
             font=FONTS["normal"],
             bg=COLORS["background"])
         self.word_length_label.pack(pady=5)
 
-        # Display the current word with placeholders
         self.word_display = tk.Label(
             self.info_frame,
             text="",
@@ -127,13 +191,12 @@ class HangmanGameGUI:
             bg=COLORS["background"])
         self.word_display.pack(pady=10)
 
-        # Guesses information
         self.guesses_left_label = tk.Label(
             self.info_frame,
             text="",
             font=FONTS["normal"],
             bg=COLORS["background"]
-            )
+        )
         self.guesses_left_label.pack(pady=5)
 
         self.guessed_letters_label = tk.Label(
@@ -141,7 +204,7 @@ class HangmanGameGUI:
             text="",
             font=FONTS["normal"],
             bg=COLORS["background"]
-            )
+        )
         self.guessed_letters_label.pack(pady=5)
 
         self.correct_guesses_label = tk.Label(
@@ -149,17 +212,16 @@ class HangmanGameGUI:
             text="",
             font=FONTS["normal"],
             bg=COLORS["background"]
-            )
+        )
         self.correct_guesses_label.pack(pady=5)
 
-        # Message area for game feedback
         self.message_label = tk.Label(
             self.info_frame,
             text="",
             font=FONTS["emphasis"],
             fg=COLORS["info"],
             bg=COLORS["background"]
-            )
+        )
         self.message_label.pack(pady=10)
 
     def _create_input_section(self):
@@ -172,19 +234,17 @@ class HangmanGameGUI:
             text=MESSAGES["guess_prompt"],
             font=FONTS["normal"],
             bg=COLORS["background"]
-            )
+        )
         self.guess_label.grid(row=0, column=0, padx=5)
 
         self.guess_entry = tk.Entry(self.input_frame, width=3, font=FONTS["normal"])
         self.guess_entry.grid(row=0, column=1, padx=5)
-        self.guess_entry.bind('<Return>', lambda event: self.make_guess())
 
         self.guess_button = tk.Button(
             self.input_frame,
             text=MESSAGES["guess_button"],
-            command=self.make_guess,
             font=FONTS["normal"]
-            )
+        )
         self.guess_button.grid(row=0, column=2, padx=5)
 
     def _create_control_section(self):
@@ -192,32 +252,27 @@ class HangmanGameGUI:
         self.control_frame = tk.Frame(self.master, bg=COLORS["background"])
         self.control_frame.pack(pady=20)
 
-        # Add a button to load a custom wordlist
         self.load_wordlist_button = tk.Button(
             self.control_frame,
             text=MESSAGES["load_wordlist"],
-            command=self.load_custom_wordlist,
             font=FONTS["normal"]
-            )
+        )
         self.load_wordlist_button.pack(side=tk.LEFT, padx=10)
 
         self.new_game_button = tk.Button(
             self.control_frame,
             text=MESSAGES["new_game"],
-            command=self.setup,
             font=FONTS["normal"]
-            )
+        )
         self.new_game_button.pack(side=tk.LEFT, padx=10)
 
         self.quit_button = tk.Button(
             self.control_frame,
             text="Avsluta",
-            command=self.master.destroy,
             font=FONTS["normal"]
-            )
+        )
         self.quit_button.pack(side=tk.LEFT, padx=10)
 
-        # Add a label to show the current wordlist file
         self.wordlist_info_frame = tk.Frame(self.master, bg=COLORS["background"])
         self.wordlist_info_frame.pack(pady=5)
 
@@ -228,280 +283,278 @@ class HangmanGameGUI:
             bg=COLORS["background"])
         self.wordlist_label.pack()
 
-    def load_custom_wordlist(self):
-        """Open a file dialog to let the user select a custom word file"""
-        # Show file dialog to select a word list file
-        file_path = filedialog.askopenfilename(
+    # --- Metoder som matchar konsol-vyns gränssnitt ---
+
+    def display_current_state(self, word_length, guessed_letters,
+                               incorrect_guesses_count, guesses_remaining,
+                               correct_guesses=None, placeholder=None):
+        """Update all display elements with current game state"""
+        self.word_length_label.config(
+            text=f"Det hemliga ordet är {word_length} tecken långt."
+        )
+        self.guesses_left_label.config(
+            text=f"Du har {guesses_remaining} gissningar kvar."
+        )
+
+        if len(guessed_letters) > 0:
+            sorted_letters = sorted(list(guessed_letters))
+            self.guessed_letters_label.config(
+                text=f"Du har gissat dessa bokstäver: {' '.join(sorted_letters)}"
+            )
+            if correct_guesses:
+                self.correct_guesses_label.config(
+                    text=f"Av de gissade bokstäverna finns dessa i det "
+                         f"hemliga ordet: {' '.join(correct_guesses)}"
+                )
+            else:
+                self.correct_guesses_label.config(text="")
+        else:
+            self.guessed_letters_label.config(
+                text="Du har inte gissat några bokstäver än."
+            )
+            self.correct_guesses_label.config(text="")
+
+        if placeholder is not None:
+            self.display_placeholder(placeholder)
+
+    def display_placeholder(self, placeholder):
+        """Update the word display with placeholders"""
+        self.word_display.config(text=" ".join(placeholder))
+
+    def display_correct_guess(self, letter):
+        self._show_message(
+            f"{letter.upper()} finns i det hemliga ordet.", "success"
+        )
+
+    def display_incorrect_guess(self, letter):
+        self._show_message(
+            f"{letter.upper()} finns inte i det hemliga ordet.", "error"
+        )
+
+    def display_game_won(self):
+        self._show_message("Du vann!", "success")
+
+    def display_game_over(self):
+        self._show_message("Game over!", "error")
+
+    def display_secret(self, secret_word):
+        self._show_message(
+            f"Det hemliga ordet var {secret_word}.", "info"
+        )
+
+    def display_file_not_found(self, fallback_path, custom_list_path):
+        self._show_message(
+            f"Det finns ingen fil som heter det som skrevs in, "
+            f"{'standardlistan' if not custom_list_path else custom_list_path}"
+            f" används.", "error"
+        )
+
+    def display_invalid_guess(self):
+        self._show_message(
+            "Ogiltig gissning! Ange en bokstav som du inte har gissat tidigare.",
+            "error"
+        )
+
+    def display_game_ended(self):
+        self._show_message("Spelet avslutades.", "info")
+
+    def display_new_game(self):
+        self._show_message("Nytt spel har startat!", "info")
+
+    def display_wordlist_info(self, filename):
+        self.wordlist_label.config(
+            text=MESSAGES["using_wordlist"].format(filename)
+        )
+
+    def display_wordlist_loaded(self, word_count):
+        self._show_message(
+            MESSAGES["wordlist_loaded"].format(word_count=word_count), "info"
+        )
+
+    def display_default_wordlist(self):
+        self.wordlist_label.config(text="Använder standardordlista")
+
+    # --- GUI-specifika metoder ---
+
+    def get_guess(self):
+        """Get and clear the guess from the entry field"""
+        guess = self.guess_entry.get().lower()
+        self.guess_entry.delete(0, tk.END)
+        return guess
+
+    def ask_load_wordlist(self, has_custom_list):
+        """Open a file dialog to let the user select a custom word file.
+        GUI-versionen av konsol-vyns ask_load_wordlist + ask_wordlist_path."""
+        return filedialog.askopenfilename(
             title="Välj en ordlistefil",
             filetypes=[("Text files", "*.txt"), ("All files", "*.*")],
             initialdir=os.getcwd()
         )
 
-        if file_path:  # If a file was selected
-            words = self._load_from_file(file_path)
-            if words:  # If the file contained valid words
-                self.possible_words = words
-                # Update the wordlist label with the filename
-                filename = os.path.basename(file_path)
-                self.wordlist_label.config(text=MESSAGES["using_wordlist"].format(filename))
-                # Start a new game with the new wordlist
-                # The next line is shown for such a short time that we won't see it
-                self.show_message(MESSAGES["wordlist_loaded"].format(word_count=len(words)), "info")
-                self.setup()
-            else:
-                self.show_message("Kunde inte läsa från den valda filen.", "error")
-
-    def fetch_words(self, target=None):
-        """Load words from a file with fallback options"""
-        # Default wordlist if all else fails
-        default_words = ["apa", "banan", "cacao", "dans", "elefant"]
-
-        # Try loading from different sources in order of priority
-        sources = [
-            # 1. Custom provided path
-            lambda: self._load_from_file(target) if target else None,
-            # 2. Default wordlist path
-            lambda: self._load_from_file(pathlib.Path("wordlist_creator/wordlist.txt")),
-            # 3. Alternate default wordlist path
-            lambda: self._load_from_file(pathlib.Path("wordlist.txt")),
-            # 4. Fallback to hardcoded list
-            lambda: default_words,
-        ]
-
-        # Try each source until we get a valid wordlist
-        for source in sources:
-            result = source()
-            if result:
-                self.possible_words = result
-                # If using the default words, update the label
-                if result == default_words:
-                    self.wordlist_label.config(text="Använder standardordlista")
-                return
-
-    def _load_from_file(self, file_path):
-        """Helper method to load words from a file"""
-        try:
-            return pathlib.Path(file_path).read_text(encoding="utf-8").splitlines()
-        except (FileNotFoundError, IOError):
-            return None
-
-    def setup(self):
-        """Reset and start a new game"""
-        # Reset game state
-        self.game_finished = False
-        self.incorrect_guesses_count = 0
-        self.guessed_letters.clear()
-        self.get_word_to_guess()
-
-        # Update all UI elements
-        self._update_all_displays()
-        self.message_label.config(text="Nytt spel har startat!", fg=COLORS["info"])
-
-        # Reset and focus entry field
+    def focus_entry(self):
+        """Focus the entry field"""
         self.guess_entry.delete(0, tk.END)
         self.guess_entry.focus()
 
-    def _update_all_displays(self):
-        """Update all display elements at once"""
-        self.update_word_length_label()
-        self.update_word_display()
-        self.update_guesses_left()
-        self.update_guessed_letters()
-        self.update_correct_guesses_label()
+    def bind_guess(self, callback):
+        """Bind the guess button and Enter key to a callback"""
+        self.guess_button.config(command=callback)
+        self.guess_entry.bind('<Return>', lambda event: callback())
 
-    def get_word_to_guess(self):
-        """Choose a random word from the available words"""
-        self.secret_word = random.choice(self.possible_words).lower()
+    def bind_new_game(self, callback):
+        """Bind the new game button to a callback"""
+        self.new_game_button.config(command=callback)
 
-    def update_word_length_label(self):
-        """Update the label showing word length"""
-        self.word_length_label.config(
-            text=f"Det hemliga ordet är {len(self.secret_word)} tecken långt."
-        )
+    def bind_load_wordlist(self, callback):
+        """Bind the load wordlist button to a callback"""
+        self.load_wordlist_button.config(command=callback)
 
-    def update_word_display(self):
-        """Update the display of the word with placeholders"""
-        # Create a display with underscores for unguessed letters
-        display = self._get_word_with_placeholders()
-        self.word_display.config(text=display)
+    def bind_quit(self, callback):
+        """Bind the quit button to a callback"""
+        self.quit_button.config(command=callback)
 
-    def _get_word_with_placeholders(self):
-        """Helper method to format the word display with placeholders"""
-        display_chars = []
-        for letter in self.secret_word:
-            if letter in self.guessed_letters:
-                display_chars.append(letter)
-            else:
-                display_chars.append("_")
-        return " ".join(display_chars)
-
-    def update_guesses_left(self):
-        """Update the label showing remaining guesses"""
-        guesses_left = self.max_incorrect_guesses - self.incorrect_guesses_count
-        self.guesses_left_label.config(
-            text=f"Du har {guesses_left} gissningar kvar."
-        )
-
-    def update_guessed_letters(self):
-        """Update the label showing all guessed letters"""
-        if self.guessed_letters:
-            sorted_letters = sorted(list(self.guessed_letters))
-            text = f"Du har gissat dessa bokstäver: {' '.join(sorted_letters)}"
-        else:
-            text = "Du har inte gissat några bokstäver än."
-        self.guessed_letters_label.config(text=text)
-
-    def update_correct_guesses_label(self):
-        """Update the label showing correct guesses"""
-        correct_guesses = self._get_correct_guesses()
-        if correct_guesses:
-            text = (f"Av de gissade bokstäverna finns dessa i det hemliga ordet: "
-                    f"{' '.join(correct_guesses)}")
-        else:
-            text = ""
-        self.correct_guesses_label.config(text=text)
-
-    def _get_correct_guesses(self):
-        """Helper method to get sorted list of correct guesses"""
-        return sorted(
-            [letter for letter in self.guessed_letters if letter in self.secret_word])
-
-    def make_guess(self):
-        """Process a player's guess"""
-        # Check if game is already finished
-        if self.game_finished:
-            self.show_message("Spelet är slut. Starta ett nytt spel!", "error")
-            return
-
-        # Get and clear the guess from the entry field
-        guess = self.guess_entry.get().lower()
-        self.guess_entry.delete(0, tk.END)
-
-        # Handle different guess scenarios
-        if not guess:
-            self._handle_empty_guess()
-        elif self.check_invalid(guess):
-            self._handle_invalid_guess()
-        else:
-            self._process_valid_guess(guess)
-
-        # Reset focus to entry field
-        self.guess_entry.focus()
-
-    def _handle_empty_guess(self):
-        """Handle when player submits an empty guess (quits game)"""
-        self.game_finished = True
-        self.show_message("Spelet avslutades.", "info")
-
-    def _handle_invalid_guess(self):
-        """Handle when player submits an invalid guess"""
-        self.show_message(
-            "Ogiltig gissning! Ange en bokstav som du inte har gissat tidigare.", 
-            "error"
-        )
-
-    def _process_valid_guess(self, guess):
-        """Process a valid guess"""
-        # Record the guess
-        self.guessed_letters.add(guess)
-        self.current_guess = guess
-
-        # Check if guess is correct and handle accordingly
-        if self.check_guess():
-            self.correct_guess()
-        else:
-            self.incorrect_guess()
-
-        # Update all displays
-        self._update_all_displays()
-
-    def show_message(self, message, message_type="info"):
+    def _show_message(self, message, message_type="info"):
         """Display a message with appropriate styling"""
         self.message_label.config(text=message, fg=COLORS[message_type])
 
-    def check_invalid(self, guess):
-        """Check if a guess is invalid"""
-        validations = [
-            guess in self.guessed_letters,  # previously guessed
-            len(guess) != 1,               # not a single character
-            not guess.isalpha()            # not a letter
-        ]
-        return any(validations)
 
-    def check_guess(self):
-        """Check if the guess is in the word"""
-        return self.current_guess in self.secret_word
+# Controller-klassen kopplar ihop Model och View och styr spelets flöde.
+# Den använder samma metoder som konsol-versionen i hangmanL08.py
+# (_make_guess, _register_guess, _evaluate_guess, _correct_guess,
+# _incorrect_guess) men anpassad för händelsestyrd GUI-interaktion.
+class HangmanController:
 
-    def correct_guess(self):
-        """Handle a correct guess"""
-        self.show_message(
-            f"{self.current_guess.upper()} finns i det hemliga ordet.",
-            "success"
+    def __init__(self, master):
+        self.model = HangmanModel()
+        self.view = HangmanGUIView(master)
+
+        # Bind view events to controller methods
+        self.view.bind_guess(self._make_guess)
+        self.view.bind_new_game(self._new_game)
+        self.view.bind_load_wordlist(self._handle_wordlist_loading)
+        self.view.bind_quit(master.destroy)
+
+        # Load words and start the game
+        self._initialize_wordlist()
+        self._new_game()
+
+    def _initialize_wordlist(self):
+        """Load the default wordlist at startup"""
+        file_to_open, success = self.model.load_words_from_file()
+        if not success:
+            self.view.display_file_not_found(
+                file_to_open, self.model.custom_list_path)
+            try:
+                self.model.possible_words = file_to_open.read_text(
+                    encoding="utf-8").splitlines()
+            except FileNotFoundError:
+                self.model.possible_words = [
+                    "apa", "banan", "cacao", "dans", "elefant"
+                ]
+                self.view.display_default_wordlist()
+
+    def _handle_wordlist_loading(self):
+        """Handle loading a custom wordlist via file dialog"""
+        file_path = self.view.ask_load_wordlist(
+            bool(self.model.custom_list_path))
+
+        if file_path:
+            file_to_open, success = self.model.load_words_from_file(file_path)
+            if success:
+                filename = Path(file_path).name
+                self.view.display_wordlist_info(filename)
+                self.view.display_wordlist_loaded(len(self.model.possible_words))
+                self._new_game()
+            else:
+                self.view.display_file_not_found(
+                    file_to_open, self.model.custom_list_path)
+
+    def _new_game(self):
+        """Start a new game"""
+        self.model.setup()
+        self._update_display()
+        self.view.display_new_game()
+        self.view.focus_entry()
+
+    def _update_display(self):
+        """Update the view with current model state"""
+        self.view.display_current_state(
+            len(self.model.secret_word),
+            self.model.guessed_letters,
+            self.model.incorrect_guesses_count,
+            self.model.guesses_remaining(),
+            self.model.get_correct_guesses(),
+            self.model.get_placeholder(),
         )
-        self.check_game_won()
 
-    def incorrect_guess(self):
-        """Handle an incorrect guess"""
-        self.show_message(
-            f"{self.current_guess.upper()} finns inte i det hemliga ordet.",
-            "error"
-        )
-        self.incorrect_guesses_count += 1
-        self.check_game_over()
+    def _make_guess(self):
+        """Process a player's guess — same logic as console version"""
+        if self.model.game_finished:
+            return
 
-    def check_game_won(self):
-        """Check if the player has won"""
-        if self._all_letters_guessed():
-            self._handle_win()
+        guess = self.view.get_guess()
 
-    def _all_letters_guessed(self):
-        """Check if all letters in the word have been guessed"""
-        return all(letter in self.guessed_letters for letter in self.secret_word)
+        if not guess:
+            self.model.game_finished = True
+            self.view.display_game_ended()
+            return
 
-    def _handle_win(self):
-        """Handle when player wins the game"""
-        self.game_finished = True
-        self.show_message(
-            f"Du vann! Det hemliga ordet var {self.secret_word}.",
-            "success"
-        )
+        if self.model.check_invalid(guess):
+            self.view.display_invalid_guess()
+            self.view.focus_entry()
+            return
 
-    def check_game_over(self):
-        """Check if the player has lost"""
-        if self.incorrect_guesses_count >= self.max_incorrect_guesses:
-            self._handle_loss()
+        self._register_guess(guess)
+        self._evaluate_guess()
+        self._update_display()
+        self.view.focus_entry()
 
-    def _handle_loss(self):
-        """Handle when player loses the game"""
-        self.game_finished = True
-        self.show_message(
-            f"Game over! Det hemliga ordet var {self.secret_word}.",
-            "error"
-        )
-        # Reveal the word
-        self.word_display.config(text=self.secret_word)
+    def _register_guess(self, guess):
+        self.model.guessed_letters.add(guess)
+        self.model.current_guess = guess
+
+    def _evaluate_guess(self):
+        check_correct = self.model.check_guess()
+        if check_correct:
+            self._correct_guess()
+        else:
+            self._incorrect_guess()
+
+    def _correct_guess(self):
+        self.view.display_correct_guess(self.model.current_guess)
+        if self.model.check_game_won():
+            self.view.display_game_won()
+            self.view.display_secret(self.model.secret_word)
+            self.model.game_finished = True
+
+    def _incorrect_guess(self):
+        self.view.display_incorrect_guess(self.model.current_guess)
+        self.model.incorrect_guesses_count += 1
+        if self.model.check_game_over():
+            self.view.display_game_over()
+            self.view.display_secret(self.model.secret_word)
+            self.model.game_finished = True
+
 
 def main():
     """Main function to run the Hangman game"""
     root = tk.Tk()
-    # Set window icon and other properties if needed
     root.configure(bg=COLORS["background"])
 
     # Center window on screen
     window_width = 600
-    window_height = 550  # Increased height for wordlist info
+    window_height = 550
     screen_width = root.winfo_screenwidth()
     screen_height = root.winfo_screenheight()
     center_x = int(screen_width/2 - window_width/2)
     center_y = int(screen_height/2 - window_height/2)
     root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
 
-    # Create game instance
-    hangman_game = HangmanGameGUI(root)
+    # Create controller (which creates model and view)
+    HangmanController(root)
 
-    # Start the main loop
     root.mainloop()
 
-# Run the game if this file is executed directly
+
 if __name__ == "__main__":
     main()
