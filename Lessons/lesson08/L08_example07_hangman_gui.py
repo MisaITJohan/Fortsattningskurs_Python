@@ -338,9 +338,9 @@ class HangmanGUIView:
         self._show_message("Game over!", "error")
 
     def display_secret(self, secret_word):
-        self._show_message(
-            f"Det hemliga ordet var {secret_word}.", "info"
-        )
+        current_text = self.message_label.cget("text")
+        combined = f"{current_text} Det hemliga ordet var {secret_word}."
+        self.message_label.config(text=combined)
 
     def display_file_not_found(self, fallback_path, custom_list_path):
         self._show_message(
