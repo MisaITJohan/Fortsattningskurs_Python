@@ -3,23 +3,28 @@
 # View-klassen är en GUI-version som ersätter konsol-vyn med tkinter-widgets.
 # Controller-klassen kopplar ihop Model och View och styr spelets flöde.
 
-# Eftersom tkinter är händelsestyrt (event-driven) istället för sekventiellt
-# som en konsolapplikation, kan Controller inte använda exakt samma game_loop()
-# med blockerande input()-anrop. Istället använder Controller samma metoder
-# (_make_guess, _register_guess, _evaluate_guess, _correct_guess,
-# _incorrect_guess) men anropas av GUI:ts händelser istället för att driva
-# en egen loop.
+# DISCLAIMER: För att skapa denna fil aktiverade jag AI-hjälp, annars hade den
+#   tagit alldeles för lång tid att skriva ihop. Särskilt då jag inte är
+#   jättebekant med GUI-programmering och tkinter.
+
+
+# Eftersom tkinter är händelsestyrt (event-driven) istället för sekventiellt,
+#   rad-för-rad, som en CLI-applikation, kan Controller inte använda exakt
+#   samma .game_loop() med blockerande input()-anrop.
+# Istället använder Controller samma metoder (_make_guess, _register_guess,
+#   _evaluate_guess, _correct_guess, _incorrect_guess) men anropas av GUI:ts
+#   händelser istället för att driva en egen loop.
 
 # Notera att View-klassen har samma metod-gränssnitt som konsol-vyn i
-# hangmanL08.py (display_correct_guess, display_incorrect_guess,
-# display_game_won, display_game_over, display_current_state, etc.)
-# så att Controller inte behöver veta vilken typ av vy den arbetar med.
+#   hangmanL08.py (display_correct_guess, display_incorrect_guess,
+#   display_game_won, display_game_over, display_current_state, etc.)
+#   så att Controller inte behöver veta vilken typ av vy den arbetar med.
 
 # För att demonstrera en potentiell förbättring har jag gjort något som man
-# inte bör göra på ett inkonsekvent sätt: jag kombinerar metoder för hur jag
-# hanterar de formaterade strängarna. I dict:en MESSAGES har jag påbörjat
-# processen av att byta till ett system som gör programmet enklare att uppdatera
-# och skulle göra det enklare att översätta.
+#   inte bör göra på ett inkonsekvent sätt: jag kombinerar metoder för hur jag
+#   hanterar de formaterade strängarna. I dict:en MESSAGES har jag påbörjat
+#   processen av att byta till ett system som gör programmet enklare att
+#   uppdatera och skulle göra det enklare att översätta.
 
 
 import tkinter as tk
@@ -31,7 +36,7 @@ import random
 # Vi samlar våra konstanter här för att göra det lättare att konfigurera.
 DEFAULT_MAX_INCORRECT_GUESSES = 5
 
-# Constants for UI appearance and configuration
+# Konstanter för utseende och konfiguration av användargränssnittet
 COLORS = {
     "background": "#f0f0f0",
     "success": "green",
@@ -46,8 +51,8 @@ FONTS = {
     "emphasis": ("Arial", 12, "bold"),
 }
 
-# This dictionary contains messages used in the UI, allowing for translation
-# to other languages.
+# Denna dictionary innehåller meddelanden som används i användargränssnittet,
+#   vilket, bland annat, möjliggör översättning till andra språk.
 MESSAGES = {
     "title": "Hangman",
     "guess_prompt": "Gissa en bokstav eller lämna tomt för att avsluta omgången:",
@@ -154,6 +159,8 @@ class HangmanGUIView:
 
         self._create_widgets()
 
+    # Metoder för att konfigurera GUI-elementen
+
     def _create_widgets(self):
         self._create_title_section()
         self._create_game_info_section()
@@ -161,7 +168,7 @@ class HangmanGUIView:
         self._create_control_section()
 
     def _create_title_section(self):
-        """Create the title section of the UI"""
+        """Skapa titel-sektionen i användargränssnittet"""
         self.title_frame = tk.Frame(self.master, bg=COLORS["background"])
         self.title_frame.pack(pady=10)
 
@@ -174,7 +181,7 @@ class HangmanGUIView:
         self.title_label.pack()
 
     def _create_game_info_section(self):
-        """Create the game information display section"""
+        """Skapa sektionen för att visa spelinformation"""
         self.info_frame = tk.Frame(self.master, bg=COLORS["background"])
         self.info_frame.pack(pady=10)
 
@@ -225,7 +232,7 @@ class HangmanGUIView:
         self.message_label.pack(pady=10)
 
     def _create_input_section(self):
-        """Create the user input section"""
+        """Skapa sektionen för användarinmatning"""
         self.input_frame = tk.Frame(self.master, bg=COLORS["background"])
         self.input_frame.pack(pady=10)
 
@@ -248,7 +255,7 @@ class HangmanGUIView:
         self.guess_button.grid(row=0, column=2, padx=5)
 
     def _create_control_section(self):
-        """Create the game control buttons section"""
+        """Skapa sektionen för spelkontrollknappar"""
         self.control_frame = tk.Frame(self.master, bg=COLORS["background"])
         self.control_frame.pack(pady=20)
 
@@ -283,12 +290,12 @@ class HangmanGUIView:
             bg=COLORS["background"])
         self.wordlist_label.pack()
 
-    # --- Metoder som matchar konsol-vyns gränssnitt ---
+    # Metoder som matchar konsol-vyns gränssnitt
 
     def display_current_state(self, word_length, guessed_letters,
                                incorrect_guesses_count, guesses_remaining,
                                correct_guesses=None, placeholder=None):
-        """Update all display elements with current game state"""
+        """Uppdatera alla visningselement med aktuellt spelläge"""
         self.word_length_label.config(
             text=f"Det hemliga ordet är {word_length} tecken långt."
         )
@@ -318,7 +325,7 @@ class HangmanGUIView:
             self.display_placeholder(placeholder)
 
     def display_placeholder(self, placeholder):
-        """Update the word display with placeholders"""
+        """Uppdatera ordvisningen med platshållare"""
         self.word_display.config(text=" ".join(placeholder))
 
     def display_correct_guess(self, letter):
@@ -374,16 +381,14 @@ class HangmanGUIView:
     def display_default_wordlist(self):
         self.wordlist_label.config(text="Använder standardordlista")
 
-    # --- GUI-specifika metoder ---
-
     def get_guess(self):
-        """Get and clear the guess from the entry field"""
+        """Hämta och rensa gissningen från inmatningsfältet"""
         guess = self.guess_entry.get().lower()
         self.guess_entry.delete(0, tk.END)
         return guess
 
     def ask_load_wordlist(self, has_custom_list):
-        """Open a file dialog to let the user select a custom word file.
+        """Öppna en fildialog för att låta användaren välja en egen ordfil.
         GUI-versionen av konsol-vyns ask_load_wordlist + ask_wordlist_path."""
         return filedialog.askopenfilename(
             title="Välj en ordlistefil",
@@ -392,29 +397,29 @@ class HangmanGUIView:
         )
 
     def focus_entry(self):
-        """Focus the entry field"""
+        """Sätt fokus på inmatningsfältet och töm det på text"""
         self.guess_entry.delete(0, tk.END)
         self.guess_entry.focus()
 
     def bind_guess(self, callback):
-        """Bind the guess button and Enter key to a callback"""
+        """Koppla gissningsknappen och Enter-tangenten till en callback"""
         self.guess_button.config(command=callback)
         self.guess_entry.bind('<Return>', lambda event: callback())
 
     def bind_new_game(self, callback):
-        """Bind the new game button to a callback"""
+        """Koppla nytt spel-knappen till en callback"""
         self.new_game_button.config(command=callback)
 
     def bind_load_wordlist(self, callback):
-        """Bind the load wordlist button to a callback"""
+        """Koppla ladda ordlista-knappen till en callback"""
         self.load_wordlist_button.config(command=callback)
 
     def bind_quit(self, callback):
-        """Bind the quit button to a callback"""
+        """Koppla avsluta-knappen till en callback"""
         self.quit_button.config(command=callback)
 
     def _show_message(self, message, message_type="info"):
-        """Display a message with appropriate styling"""
+        """Visa ett meddelande med lämplig formatering"""
         self.message_label.config(text=message, fg=COLORS[message_type])
 
 
@@ -428,18 +433,18 @@ class HangmanController:
         self.model = HangmanModel()
         self.view = HangmanGUIView(master)
 
-        # Bind view events to controller methods
+        # Koppla vyns händelser till kontrollerns metoder
         self.view.bind_guess(self._make_guess)
         self.view.bind_new_game(self._new_game)
         self.view.bind_load_wordlist(self._handle_wordlist_loading)
         self.view.bind_quit(master.destroy)
 
-        # Load words and start the game
+        # Ladda ord och starta spelet
         self._initialize_wordlist()
         self._new_game()
 
     def _initialize_wordlist(self):
-        """Load the default wordlist at startup"""
+        """Ladda standardordlistan vid uppstart"""
         file_to_open, success = self.model.load_words_from_file()
         if not success:
             self.view.display_file_not_found(
@@ -454,7 +459,7 @@ class HangmanController:
                 self.view.display_default_wordlist()
 
     def _handle_wordlist_loading(self):
-        """Handle loading a custom wordlist via file dialog"""
+        """Hantera laddning av en egen ordlista via fildialog"""
         file_path = self.view.ask_load_wordlist(
             bool(self.model.custom_list_path))
 
@@ -470,14 +475,14 @@ class HangmanController:
                     file_to_open, self.model.custom_list_path)
 
     def _new_game(self):
-        """Start a new game"""
+        """Starta ett nytt spel"""
         self.model.setup()
         self._update_display()
         self.view.display_new_game()
         self.view.focus_entry()
 
     def _update_display(self):
-        """Update the view with current model state"""
+        """Uppdatera vyn med aktuellt modellläge"""
         self.view.display_current_state(
             len(self.model.secret_word),
             self.model.guessed_letters,
@@ -488,7 +493,7 @@ class HangmanController:
         )
 
     def _make_guess(self):
-        """Process a player's guess — same logic as console version"""
+        """Bearbeta en spelares gissning — samma logik som konsolversionen"""
         if self.model.game_finished:
             return
 
@@ -537,11 +542,10 @@ class HangmanController:
 
 
 def main():
-    """Main function to run the Hangman game"""
     root = tk.Tk()
     root.configure(bg=COLORS["background"])
 
-    # Center window on screen
+    # Centrera fönstret på skärmen
     window_width = 600
     window_height = 550
     screen_width = root.winfo_screenwidth()
@@ -550,7 +554,7 @@ def main():
     center_y = int(screen_height/2 - window_height/2)
     root.geometry(f'{window_width}x{window_height}+{center_x}+{center_y}')
 
-    # Create controller (which creates model and view)
+    # Skapa en Controller-instans (som i sin tur skapar Modell och Vy)
     HangmanController(root)
 
     root.mainloop()
