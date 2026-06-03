@@ -1,4 +1,5 @@
 # Working with text entry fields
+# TODO: Översätt
 
 import tkinter as tk
 

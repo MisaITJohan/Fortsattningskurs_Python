@@ -27,7 +27,7 @@ instruction_label = tk.Label(
 instruction_label.pack(pady=10)
 
 
-# Skapa en knapp och ställ in egenskapen command.
+# Skapa en knapp och ställ in argumentet command.
 # command ska peka på en funktion. Notera att jag inte lägger till några
 #   parenteser efter button_clicked [kolla om någon kan gissa varför ] då
 #   funktionen inte ska köras när knappen skapas.
