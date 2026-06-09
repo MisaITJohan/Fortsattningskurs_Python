@@ -31,6 +31,7 @@ import tkinter as tk
 from tkinter import filedialog
 from pathlib import Path
 import random
+import os
 
 
 # Vi samlar våra konstanter här för att göra det lättare att konfigurera.
@@ -188,22 +189,24 @@ class HangmanGUIView:
         self.word_length_label = tk.Label(
             self.info_frame, text="",
             font=FONTS["normal"],
-            bg=COLORS["background"])
+            bg=COLORS["background"],
+            )
         self.word_length_label.pack(pady=5)
 
         self.word_display = tk.Label(
             self.info_frame,
             text="",
             font=FONTS["word"],
-            bg=COLORS["background"])
+            bg=COLORS["background"],
+            )
         self.word_display.pack(pady=10)
 
         self.guesses_left_label = tk.Label(
             self.info_frame,
             text="",
             font=FONTS["normal"],
-            bg=COLORS["background"]
-        )
+            bg=COLORS["background"],
+            )
         self.guesses_left_label.pack(pady=5)
 
         self.guessed_letters_label = tk.Label(
@@ -211,15 +214,15 @@ class HangmanGUIView:
             text="",
             font=FONTS["normal"],
             bg=COLORS["background"]
-        )
+            )
         self.guessed_letters_label.pack(pady=5)
 
         self.correct_guesses_label = tk.Label(
             self.info_frame,
             text="",
             font=FONTS["normal"],
-            bg=COLORS["background"]
-        )
+            bg=COLORS["background"],
+            )
         self.correct_guesses_label.pack(pady=5)
 
         self.message_label = tk.Label(
@@ -227,8 +230,8 @@ class HangmanGUIView:
             text="",
             font=FONTS["emphasis"],
             fg=COLORS["info"],
-            bg=COLORS["background"]
-        )
+            bg=COLORS["background"],
+            )
         self.message_label.pack(pady=10)
 
     def _create_input_section(self):
@@ -240,8 +243,8 @@ class HangmanGUIView:
             self.input_frame,
             text=MESSAGES["guess_prompt"],
             font=FONTS["normal"],
-            bg=COLORS["background"]
-        )
+            bg=COLORS["background"],
+            )
         self.guess_label.grid(row=0, column=0, padx=5)
 
         self.guess_entry = tk.Entry(self.input_frame, width=3, font=FONTS["normal"])
@@ -250,8 +253,8 @@ class HangmanGUIView:
         self.guess_button = tk.Button(
             self.input_frame,
             text=MESSAGES["guess_button"],
-            font=FONTS["normal"]
-        )
+            font=FONTS["normal"],
+            )
         self.guess_button.grid(row=0, column=2, padx=5)
 
     def _create_control_section(self):
@@ -262,22 +265,22 @@ class HangmanGUIView:
         self.load_wordlist_button = tk.Button(
             self.control_frame,
             text=MESSAGES["load_wordlist"],
-            font=FONTS["normal"]
-        )
+            font=FONTS["normal"],
+            )
         self.load_wordlist_button.pack(side=tk.LEFT, padx=10)
 
         self.new_game_button = tk.Button(
             self.control_frame,
             text=MESSAGES["new_game"],
-            font=FONTS["normal"]
-        )
+            font=FONTS["normal"],
+            )
         self.new_game_button.pack(side=tk.LEFT, padx=10)
 
         self.quit_button = tk.Button(
             self.control_frame,
             text="Avsluta",
-            font=FONTS["normal"]
-        )
+            font=FONTS["normal"],
+            )
         self.quit_button.pack(side=tk.LEFT, padx=10)
 
         self.wordlist_info_frame = tk.Frame(self.master, bg=COLORS["background"])
@@ -287,7 +290,8 @@ class HangmanGUIView:
             self.wordlist_info_frame,
             text="Använder standardordlista",
             font=(FONTS["normal"][0], 10),
-            bg=COLORS["background"])
+            bg=COLORS["background"],
+            )
         self.wordlist_label.pack()
 
     # Metoder som matchar konsol-vyns gränssnitt
@@ -297,28 +301,28 @@ class HangmanGUIView:
                                correct_guesses=None, placeholder=None):
         """Uppdatera alla visningselement med aktuellt spelläge"""
         self.word_length_label.config(
-            text=f"Det hemliga ordet är {word_length} tecken långt."
-        )
+            text=f"Det hemliga ordet är {word_length} tecken långt.",
+            )
         self.guesses_left_label.config(
-            text=f"Du har {guesses_remaining} gissningar kvar."
-        )
+            text=f"Du har {guesses_remaining} gissningar kvar.",
+            )
 
         if len(guessed_letters) > 0:
             sorted_letters = sorted(list(guessed_letters))
             self.guessed_letters_label.config(
-                text=f"Du har gissat dessa bokstäver: {' '.join(sorted_letters)}"
-            )
+                text=f"Du har gissat dessa bokstäver: {' '.join(sorted_letters)}",
+                )
             if correct_guesses:
                 self.correct_guesses_label.config(
                     text=f"Av de gissade bokstäverna finns dessa i det "
-                         f"hemliga ordet: {' '.join(correct_guesses)}"
-                )
+                         f"hemliga ordet: {' '.join(correct_guesses)}",
+                    )
             else:
                 self.correct_guesses_label.config(text="")
         else:
             self.guessed_letters_label.config(
                 text="Du har inte gissat några bokstäver än."
-            )
+                )
             self.correct_guesses_label.config(text="")
 
         if placeholder is not None:
@@ -331,12 +335,12 @@ class HangmanGUIView:
     def display_correct_guess(self, letter):
         self._show_message(
             f"{letter.upper()} finns i det hemliga ordet.", "success"
-        )
+            )
 
     def display_incorrect_guess(self, letter):
         self._show_message(
             f"{letter.upper()} finns inte i det hemliga ordet.", "error"
-        )
+            )
 
     def display_game_won(self):
         self._show_message("Du vann!", "success")
@@ -354,13 +358,13 @@ class HangmanGUIView:
             f"Det finns ingen fil som heter det som skrevs in, "
             f"{'standardlistan' if not custom_list_path else custom_list_path}"
             f" används.", "error"
-        )
+            )
 
     def display_invalid_guess(self):
         self._show_message(
             "Ogiltig gissning! Ange en bokstav som du inte har gissat tidigare.",
             "error"
-        )
+            )
 
     def display_game_ended(self):
         self._show_message("Spelet avslutades.", "info")
@@ -371,12 +375,12 @@ class HangmanGUIView:
     def display_wordlist_info(self, filename):
         self.wordlist_label.config(
             text=MESSAGES["using_wordlist"].format(filename)
-        )
+            )
 
     def display_wordlist_loaded(self, word_count):
         self._show_message(
             MESSAGES["wordlist_loaded"].format(word_count=word_count), "info"
-        )
+            )
 
     def display_default_wordlist(self):
         self.wordlist_label.config(text="Använder standardordlista")
@@ -429,15 +433,15 @@ class HangmanGUIView:
 # _incorrect_guess) men anpassad för händelsestyrd GUI-interaktion.
 class HangmanController:
 
-    def __init__(self, master):
+    def __init__(self, root):
         self.model = HangmanModel()
-        self.view = HangmanGUIView(master)
+        self.view = HangmanGUIView(root)
 
         # Koppla vyns händelser till kontrollerns metoder
         self.view.bind_guess(self._make_guess)
         self.view.bind_new_game(self._new_game)
         self.view.bind_load_wordlist(self._handle_wordlist_loading)
-        self.view.bind_quit(master.destroy)
+        self.view.bind_quit(root.destroy)
 
         # Ladda ord och starta spelet
         self._initialize_wordlist()
