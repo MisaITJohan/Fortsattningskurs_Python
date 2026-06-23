@@ -1,9 +1,9 @@
 # Exempel på att använda den typ av automatiserade tester som finns i Pythons
-# inbyggda bibliotek: modulen 'unittest'.
+#   inbyggda bibliotek: modulen 'unittest'.
 #
 # 'unittest' är ett kraftfullt ramverk som gör det enkelt att skriva,
-# organisera och köra stora mängder tester. Det har länge varit standard i Python
-# och är inspirerat av liknande verktyg i andra språk.
+#   organisera och köra stora mängder tester. Det har länge varit standard i Python
+#   och är inspirerat av liknande verktyg i andra språk.
 
 import unittest
 
