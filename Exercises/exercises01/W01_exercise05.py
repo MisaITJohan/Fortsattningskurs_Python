@@ -31,6 +31,9 @@
 
 # ÄNDRA INTE KODEN NEDANFÖR. DEN TESTAR OM DIN KLASS FUNGERAR.
 try:
+
+    assert "User" in dir(), "Klassen User finns inte."
+
     test_user = User("alice", "alice@example.com", 22)
 
     # Kontroll av attribut
