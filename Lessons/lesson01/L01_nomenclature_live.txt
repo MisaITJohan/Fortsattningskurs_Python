@@ -1,7 +1,7 @@
 Nomenklatur för lektion 1:
 
 Iterera
-	Att upprepa.
+	Att upprepa
 	Man kan "iterera över" en samling i Python, då gör man något för varje
 		element i samlingen.
 
@@ -14,11 +14,11 @@ namn()
 .namn()
 	Detta betyder att "namn" är en metod.
 
-	T.ex. .append()
+	T.ex .append()
 
 Hårdkoda
-	Att skriva kod för varje enskilt fall eller kod som bara kan göra en specifik
-		sak. Detta är inte alltid fel, framförallt för mindre saker.
+	Att skriva kod för varje enskilt fall eller kod som bara kan göra en
+		specifik sak. Detta är inte alltid fel, framförallt för mindre saker.
 		Men man förlorar helt fördelarna med att kunna återanvända kod då man
 		måste skriva kod för ALLA möjliga fall.
 
