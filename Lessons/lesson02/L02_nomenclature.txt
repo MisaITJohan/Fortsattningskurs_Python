@@ -70,4 +70,21 @@ Controllerklasser (Kontrollklasser) / Controller classes
 
 	Klasser som kopplar ihop modellklasser och viewklasser.
 
-Se exempel L02_example01_program_structure.py
+
+Typannoteringar / Type hints
+
+	Ett sätt att tala om för Python (och andra programmerare) vilken
+		datatyp en variabel, parameter eller returvärde förväntas ha.
+	Detta gör koden mer lättläst och hjälper din IDE att varna för fel.
+	Annoteringar skrivs med ett kolon efter en variabel och pil (->) för
+		returvärden.
+		T.ex:
+			name: str = ""
+			def greet(name: str) -> str:
+
+
+Se exempel L02_example01_program_structure.py, L02_example02_type_hints.py och
+	L02_example03_type_hints_collections.py.
+
+L02_example04_advanced_type_hints.py är frivillig fördjupning. Du behöver inte
+	kunna använda typannoteringarna i det exemplet för lektionen eller workshopparna.
