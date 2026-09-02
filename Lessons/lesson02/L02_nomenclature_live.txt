@@ -5,8 +5,9 @@ IDE
 	Integrated Development Environment
 	Integrerad Utvecklingsmiljö
 	I grundkursen använde vi oss av IDLE.
-	En IDE är som en textredigerare men har extra funktionalitet.
-	PyCharm är en IDE.
+	EN IDE är som en textredigerare men har extra funktionalitet.
+	Pycharm är en IDE.
+
 
 Virtuell miljö / Virtual environment
 
@@ -14,8 +15,78 @@ Virtuell miljö / Virtual environment
 		miljö per "projekt". Oftast döps mappen där miljön ligger till env, venv,
 		.env eller .venv.
 
+
 Tester
 
-	Referer oftast till s.k. "enhetstester" / "unit tests", vilket är
+	Refererar oftast till s.k. "enhetstester" / "unit tests", vilket är
 		automatiserade tester programmerare ofta skriver för att kontrollera att
-		alla delar av en program fungerar som de ska.
+		alla delar av ens program fungerar som de ska.
+
+
+Hjälpfunktioner / Helper functions
+
+	Kortare funktioner som gör en specifik sak.
+		T.ex:
+			En funktion som tar emot en sträng och returnerar en ny sträng där
+				alla bokstäver har gjorts om till versaler och alla specialtecken
+				tagits bort.
+			En funktion som kontrollerar att det som skickas in uppfyller ett
+				specifikt villkor.
+
+Hjälpmetoder / Helper methods / Skyddade metoder
+
+	Metoder som enbart är menade att användas "bakom kulisserna", dvs. av andra
+		metoder i samma klass.
+	Dessa kallas ibland för "privata metoder" då det i andra programmeringsspråk
+		kan gå att låsa dem för användning endast inom samma klass. I Python går
+		det inte att göra detta.
+	Istället för at göra metoder privata så används ett särskilt sätt att
+		namnge dem: prefixet _ (understreck)
+			T.ex:
+				def _normalize(self, text): ...
+
+
+MVC-modellen / MVC model
+
+	Står för Model-View-Controller.
+	Ett sätt att designa program där logik och visning av data separeras.
+	Genom att göra detta så blir programmet mer flexibelt och lättare att
+		förbättra senare.
+
+
+Modellklasser / Model classes
+
+	Klasser som hanterar logik och lagrar data.
+	T.ex:
+		class User: ...
+
+
+Viewklasser (Vyklasser) / View Classes
+
+	Klasser som hanterar de delar av ett program som är synliga för en användare.
+	T.ex:
+		class UserView: ...
+
+
+Controllerklasser (Kontrollklasser) / Controller classes
+
+	Klasser som kopplar ihop modellklasser och vyklasser.
+
+
+Typannoteringar / Type hints
+
+	Ett sätt att tala om för Python (och därmed andra programmerare) vilken
+		datatyp en variabel, parameter eller returvärde förväntas ha.
+	Detta gör koden mer lättläst och hjälper din IDE att varna för fel.
+	När koden faktiskt körs, så ignoreras alla annoteringar.
+	Annoteringar skrivs med ett kolon efter en variabel och pil (->) för
+		returvärden.
+		T.ex:
+			name: str = ""
+			def greet(name: str) -> str: ...
+
+Se exempel L02_example01_program_structure.py, L02_example02_type_hints.py och
+	L02_example03_type_hints_collections.py.
+
+L02_example04_advanced_type_hints.py är frivillig fördjupning. Du behöver inte
+	kunna använda typannoteringarna i det exemplet för lektionen eller workshopparna.

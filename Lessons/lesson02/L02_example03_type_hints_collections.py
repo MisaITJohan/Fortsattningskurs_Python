@@ -1,6 +1,6 @@
 # Exempel på hur man använder typannoteringar med samlingar som listor och mängder.
 
-# 1. Listor (list)
+# 1. Listor och tuples
 # Vi talar om att possible_words ska vara en lista.
 possible_words: list = ["apa", "banan", "citron"]
 
@@ -9,13 +9,13 @@ possible_words: list = ["apa", "banan", "citron"]
 #possible_words: list[str] = ["apa", "banan", "citron"]
 
 # En tuple kan innehålla ett valfritt antal strängar. I tuple[str, ...] anger
-#   str typen för varje värde och ... anger att tuplen kan ha hur många värden
+#   str-typen för varje värde och ... anger att tuplen kan ha hur många värden
 #   som helst, även noll.
 possible_word_tuple: tuple[str, ...] = ("apa", "banan", "citron")
 
-# 2. Mängder (set)
-# Vi talar om att guessed_letters ska vara en mängd av strängar.
-# Mängder används ofta för att lagra unika saker, som gissade bokstäver.
+# 2. Set ("Mängder")
+# Vi talar om att guessed_letters ska vara ett set av strängar.
+# Set används ofta för att lagra unika saker, som gissade bokstäver.
 guessed_letters: set[str] = {"a", "b"}
 
 

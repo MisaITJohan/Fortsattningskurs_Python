@@ -12,21 +12,23 @@ is_student: bool = True
 
 
 # 2. Funktioner
-# Man kan ange typer för argument (tekniskt sett är dessa parametrar) och vad funktionen
-#   returnerar (med ->).
+# Man kan ange typer för argument (tekniskt sett är dessa parametrar) och vad
+#   funktionen returnerar (med ->)
 def create_greeting(user_name: str, user_age: int) -> str:
     """Skapar en hälsningsfras för en användare."""
-    # Vi använder str() för att göra om heltalet till en sträng vid sammanslagning
     return "Hej " + user_name + "! Du är " + str(user_age) + " år gammal."
+
+create_greeting("Johan", 36)
 
 
 # 3. Klasser
 # I klasser kan vi annotera både attribut och metoder.
 class Product:
 
-    def __init__(self, name: str, price: float):
+    def __init__(self, name: str, price: float) -> None:
         # Variablerna som skapas här har redan implicit fått sina typer annoterade
-        #   i parametrarna men man kan ändå ange typerna explicit för att vara tydligare.
+        #   i parametrarna men man kan ändå ange typerna explicit för att
+        #   vara tydligare.
         self.name: str = name
         self.price: float = price
 
@@ -38,7 +40,7 @@ class Product:
 
 # Exempel på användning:
 
-# Vi behöver inte, men kan om vi vill, annotera message nedan. Vi vet redan
+# Vi behöver inte, men vi kan om vi vill, annotera message nedan. Vi vet redan
 #   att message är en sträng då det är vad create_greeting() returnerar.
 message = create_greeting(name, age)
 print(message)
@@ -55,15 +57,15 @@ print("Det nya priset för", my_product.name, "är", new_price, "kr.")
 
 # 4. Alternativa typer med |
 # Ett lodrätt streck betyder "eller" i en typannotering. Typen str | None
-#   betyder att resultatet antingen är en sträng eller None. None betyder här
+#   betyder att variabeln antingen är en sträng eller None. None betyder här
 #   att det inte finns någon hälsning att returnera.
 # Syntaxen kräver Python 3.10 eller senare.
-#   Tidigare behövde manb använda Union[str, None] istället för str | None.
+#   Tidigare behövde man använda Union[str, None] istället för str | None
 #   Union behövde man importera från modulen typing.
 #       from typing import Union
 
 def find_greeting(user_name: str) -> str | None:
-    """Returnerar en hälsning för Anna eller None för andra namn."""
+    """Returnerar en hälsning för Anna eller None för andra namn"""
     if user_name == "Anna":
         return "Hej Anna!"
     return None
