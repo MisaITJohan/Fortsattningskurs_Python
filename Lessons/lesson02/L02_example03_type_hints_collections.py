@@ -20,7 +20,7 @@ guessed_letters: set[str] = {"a", "b"}
 
 
 # 3. Funktioner med samlingar
-# Här anger vi att funktionen tar emot en sträng och en mängd,
+# Här anger vi att funktionen tar emot en sträng och ett set,
 #   och att den returnerar en boolean (True/False).
 def is_word_guessed(secret_word: str, guesses: set[str]) -> bool:
     """Kontrollerar om alla bokstäver i ordet har gissats."""
@@ -34,7 +34,7 @@ def is_word_guessed(secret_word: str, guesses: set[str]) -> bool:
 
 secret: str = "apa"
 
-# Vi anropar funktionen och skickar med vår mängd (guesses)
+# Vi anropar funktionen och skickar med vårt set (guesses)
 if is_word_guessed(secret, guessed_letters):
     print("Grattis! Du gissade ordet:", secret)
 else:

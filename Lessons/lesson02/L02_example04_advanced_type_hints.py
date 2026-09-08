@@ -104,7 +104,7 @@ unknown_value: Any = "ett värde som kan ha vilken typ som helst"
 # 2. Vad en funktion behöver kunna göra
 
 # Iterable[str] betyder "något som går att loopa över och ger strängar".
-# En lista, tuple, mängd och sträng är iterable. Funktionen får bara förutsätta
+# En lista, tuple, set och sträng är iterable. Funktionen får bara förutsätta
 #   att en for-loop fungerar; den får inte förutsätta att len() eller [0] fungerar.
 def print_words(words: Iterable[str]) -> None:
     """Skriver ut varje ord."""

@@ -100,4 +100,59 @@ class HangmanView:
         #   enda syfte är att pausa programmet.
         input("Tryck enter för att avsluta.")
 
-print()
+
+# Controller-klassen kopplar ihop Model och View och styr spelets flöde.
+class HangmanController:
+
+    def __init__(self) -> None:
+        self.model: HangmanModel = HangmanModel()
+        self.view: HangmanView = HangmanView()
+        self.play_turn()
+
+    def play_turn(self) -> None:
+        self.view.display_current_state(self.model)
+        self._make_guess()
+
+    def _make_guess(self) -> None:
+        guess: str = self.view.get_guess()
+        self._register_guess(guess)
+        self._evaluate_guess()
+        self.play_turn()
+
+    def _register_guess(self, guess: str) -> None:
+        self.model.guessed_letters.add(guess)
+        self.model.current_guess = guess
+
+    def _evaluate_guess(self) -> None:
+        check_correct: bool = self.model.check_guess()
+        if check_correct is True:
+            self._correct_guess()
+        else:
+            self._incorrect_guess()
+
+    def _correct_guess(self) -> None:
+        self.view.display_correct_guess(self.model.current_guess)
+        if self.model.check_game_won():
+            self.view.display_game_won()
+            self.end_game()
+
+    def _incorrect_guess(self) -> None:
+        self.view.display_incorrect_guess(self.model.current_guess)
+        self.model.incorrect_guesses_count += 1
+        if self.model.check_game_over():
+            self.view.display_game_over()
+            self.end_game()
+
+    def end_game(self) -> None:
+        self.view.display_secret(self.model.secret_word)
+        # Att avsluta ett program på det här sättet är inte rekommenderat, men
+        #   tills att vi kollat närmare på "Flödeskontroll i Praktiken" så
+        #   använder vi funktionen quit().
+        quit()
+
+
+def main()-> None:
+    controller: HangmanController = HangmanController()
+
+if __name__ == "__main__":
+    main()
