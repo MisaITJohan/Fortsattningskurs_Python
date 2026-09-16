@@ -1,6 +1,6 @@
 # Ett exempel på hur man kan ha kontroller i en comprehension.
 
-def check_even(my_int):
+def is_even(my_int: int) -> bool:
     if my_int % 2 == 0:
         return True
     else:
@@ -15,11 +15,11 @@ print(my_list_without_3)
 
 
 # Kod utan comprehension:
-# my_second_list = []
+# my_even_list = []
 # for x in my_list:
-#     if check_even(x):
-#         my_second_list.append(x)
-# print(my_second_list)
+#     if is_even(x):
+#         my_even_list.append(x)
+# print(my_even_list)
 
-my_even_list = [x for x in my_list if check_even(x)]
+my_even_list = [x for x in my_list if is_even(x)]
 print(my_even_list)

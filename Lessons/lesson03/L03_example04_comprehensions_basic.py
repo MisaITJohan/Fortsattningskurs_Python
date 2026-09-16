@@ -5,6 +5,7 @@ my_list = [1, 2, 3, 4, 5, 6, 7]
 # my_second_list = []
 # for x in my_list:
 #     my_second_list.append(x)
+# print(my_second_list)
 
 
 # Nedanstående kod är både snabbare, kortare och tydligare.
