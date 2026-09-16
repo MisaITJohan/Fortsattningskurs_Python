@@ -1,5 +1,5 @@
 #    Skriv en funktion som tar ett heltal som argument
-#    och returnerar True om talet är udda.
+#    och returnerar True om talet är udda och False om det är jämt.
 #    Ändra sen koden längst ned i denna fil så att den testar din funktion.
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 #

@@ -3,9 +3,8 @@
 #    mellan 0 och 100.
 #    Skriv sedan ut listan med udda tal.
 # = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-#
-#
-#
+
+
 
 # Kopiera din funktion från förra övningen och klistra in den härunder.
 def din_funktion():
@@ -13,4 +12,4 @@ def din_funktion():
 
 
 # Ledtråd: if-biten av en comprehension kommer sist. För vissa hjälper det
-# att tänka på hur skulle skriva en engelsk mening.
+#   att tänka på hur man skulle skriva i en engelsk mening.
