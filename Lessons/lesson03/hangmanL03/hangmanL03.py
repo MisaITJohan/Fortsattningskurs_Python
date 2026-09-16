@@ -20,11 +20,14 @@ POSSIBLE_WORDS: tuple[str, ...] = (
 class HangmanModel:
     """En klass som hanterar spellogiken samt lagrar information om spelstatus."""
 
-    def __init__(self, possible_words=None, max_incorrect_guesses=DEFAULT_MAX_INCORRECT_GUESSES):
+    def __init__(self,
+                 possible_words: Iterable[str] | None = None,
+                 max_incorrect_guesses: int = DEFAULT_MAX_INCORRECT_GUESSES,
+    ) -> None:
         if possible_words is None:
-            self.possible_words = POSSIBLE_WORDS
+            self.possible_words: Iterable[str] = POSSIBLE_WORDS
         else:
-            self.possible_words = possible_words
+            self.possible_words: Iterable[str] = possible_words
         self.max_incorrect_guesses: int = max_incorrect_guesses
         self.incorrect_guesses_count: int = 0
         self.secret_word: str = ""
@@ -72,7 +75,7 @@ class HangmanView:
                               guessed_letters: set[str],
                               incorrect_guesses_count: int,
                               guesses_remaining: int,
-    ):
+    ) -> None:
         print("Det hemliga ordet är", word_length, "tecken långt.")
         if len(guessed_letters) > 0:
             print("Du har gissat dessa bokstäver:",
@@ -111,7 +114,7 @@ class HangmanController:
         self.model: HangmanModel = HangmanModel()
         self.view: HangmanView = HangmanView()
 
-    def game_loop(self):
+    def game_loop(self) -> None:
         self.model.setup()
         while not self.model.game_finished:
             self.view.display_current_state(
@@ -159,7 +162,7 @@ class HangmanController:
             self.model.game_finished = True
 
 
-def main():
+def main() -> None:
     controller: HangmanController = HangmanController()
     while True:
         controller.game_loop()
