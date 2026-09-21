@@ -1,8 +1,8 @@
 # Exempel på lite mer av f-strängars funktionalitet.
 
 # Självklart så kan vi ha flera placeholders i samma f-sträng.
-name = input("Namn: ")
-age = input("Ålder: ")
+name: str = input("Namn: ")
+age: str = input("Ålder: ")
 
 print(f"Hej {name}! Du är {age} år gammal.")
 
@@ -13,7 +13,3 @@ print(f"{[x for x in range(10)]}")
 kakor = 4
 print(f"Du har köpt {kakor} kak{"or" if kakor != 1 else "a"}")
 
-person = {"name":"Johan", "age":36}
-
-f_string = f"{person["name"]} är {person["age"]} år gammal."
-print(f_string)

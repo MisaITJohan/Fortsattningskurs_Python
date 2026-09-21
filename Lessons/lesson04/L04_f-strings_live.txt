@@ -1,6 +1,6 @@
 f-strängar:
 
-f-strängar är en förkortning av formaterade strängar.
+f-strängar är en förkortning för formaterade strängar.
 
 f-strängar fungerar i grunden precis som "vanliga" strängar men det finns lite
 	extra syntax som man kan använda sig av.
@@ -25,4 +25,4 @@ En viktig notis angående f-strängar:
 	Det finns flera sätt att formatera strängar i Python och f-strängar är det
 		sätt som tillkommit senast. Det är troligt, om ni kollar på lite äldre
 		Pythonkod, att ni kommer stöta på de andra metoderna, så jag kommer
-		snabbt demonstrera dem i slutet av lektionen eller under workshoppen.
+		att demonstrera dem senare.

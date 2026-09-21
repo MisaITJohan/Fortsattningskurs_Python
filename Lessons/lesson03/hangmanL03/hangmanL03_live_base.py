@@ -1,8 +1,9 @@
 # Denna vecka uppdaterar vi vårt program att ha ett bättre programflöde.
 # Vi lägger till möjligheten att spela spelet flera gånger utan att behöva
-# starta om hela programmet.
+#   starta om hela programmet.
 
 import random
+from typing import Iterable
 
 # Vi samlar våra konstanter här för att göra det lättare att konfigurera.
 DEFAULT_MAX_INCORRECT_GUESSES: int = 5
@@ -20,11 +21,14 @@ POSSIBLE_WORDS: tuple[str, ...] = (
 class HangmanModel:
     """En klass som hanterar spellogiken samt lagrar information om spelstatus."""
 
-    def __init__(self, possible_words=None, max_incorrect_guesses=DEFAULT_MAX_INCORRECT_GUESSES):
+    def __init__(self,
+                 possible_words: Iterable[str] | None = None,
+                 max_incorrect_guesses: int = DEFAULT_MAX_INCORRECT_GUESSES,
+    ) -> None:
         if possible_words is None:
-            self.possible_words = POSSIBLE_WORDS
+            self.possible_words: Iterable[str] = POSSIBLE_WORDS
         else:
-            self.possible_words = possible_words
+            self.possible_words: Iterable[str] = possible_words
         self.max_incorrect_guesses: int = max_incorrect_guesses
         self.incorrect_guesses_count: int = 0
         self.secret_word: str = ""

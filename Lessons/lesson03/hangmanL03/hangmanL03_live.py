@@ -1,113 +1,180 @@
 # Denna vecka uppdaterar vi vårt program att ha ett bättre programflöde.
 # Vi lägger till möjligheten att spela spelet flera gånger utan att behöva
-# starta om hela programmet.
+#   starta om hela programmet.
+
 import random
+from typing import Iterable
 
 # Vi samlar våra konstanter här för att göra det lättare att konfigurera.
-DEFAULT_MAX_INCORRECT_GUESSES = 5
+DEFAULT_MAX_INCORRECT_GUESSES: int = 5
 
-POSSIBLE_WORDS = (
-    "Apa",
-    "Banan",
-    "Cacao",
-    "Dans",
-    "Elefant",
+POSSIBLE_WORDS: tuple[str, ...] = (
+    "apa",
+    "banan",
+    "cacao",
+    "dans",
+    "elefant",
     )
 
 
-class HangmanGame:
+# Model-klassen hanterar spelets data och logik.
+class HangmanModel:
+    """En klass som hanterar spellogiken samt lagrar information om spelstatus."""
 
-    def __init__(self, possible_words=None, max_incorrect_guesses=DEFAULT_MAX_INCORRECT_GUESSES):
+    def __init__(self,
+                 possible_words: Iterable[str] | None = None,
+                 max_incorrect_guesses: int = DEFAULT_MAX_INCORRECT_GUESSES,
+    ) -> None:
         if possible_words is None:
-            self.possible_words = POSSIBLE_WORDS
+            self.possible_words: Iterable[str] = POSSIBLE_WORDS
         else:
-            self.possible_words = possible_words
-        self.max_incorrect_guesses = max_incorrect_guesses
-        self.incorrect_guesses_count = 0
-        self.secret_word = ""
-        self.guessed_letters = set()
-        self.current_guess = ""
-        self.game_finished = False
+            self.possible_words: Iterable[str] = possible_words
+        self.max_incorrect_guesses: int = max_incorrect_guesses
+        self.incorrect_guesses_count: int = 0
+        self.secret_word: str = ""
+        self.guessed_letters: set[str] = set()
+        self.current_guess: str = ""
+        self.game_is_finished: bool = False
 
-    def setup(self):
-        self.game_finished = False
-        self.incorrect_guesses_count = 0
+    def setup(self) -> None:
+        self.game_is_finished: bool = False
+        self.incorrect_guesses_count: int = 0
         self.get_word_to_guess()
         if len(self.guessed_letters) > 0:
+        #if self.guessed_letters:
             self.guessed_letters.clear()
 
-    def get_word_to_guess(self):
-        self.secret_word = random.choice(self.possible_words).lower()
+    def get_word_to_guess(self) -> None:
+        self.secret_word = random.choice(self.possible_words)
 
-    def display_current_state(self):
-        print("Det hemliga ordet är", len(self.secret_word), "tecken långt.")
-        if len(self.guessed_letters) > 0:
-            print("Du har gissat dessa bokstäver:",
-                  *sorted(list(self.guessed_letters)))
-            print("Du har gissat fel", self.incorrect_guesses_count, "gånger.")
-        print("Du har", self.max_incorrect_guesses - self.incorrect_guesses_count,
-              "gissningar kvar.")
-
-    def make_guess(self):
-        guess = ""
-        while guess in self.guessed_letters or len(guess) != 1:
-            guess = input("Gissa en bokstav eller lämna tomt för att avsluta spelet: ").lower()
-            if not guess:
-                self.game_finished = True
-                return
-        self.guessed_letters.add(guess)
-        self.current_guess = guess
-        check_correct = self.check_guess()
-        if check_correct is True:
-            self.correct_guess()
-        else:
-            self.incorrect_guess()
-
-    def check_guess(self):
+    def check_guess(self) -> bool:
         return self.current_guess in self.secret_word
 
-    def correct_guess(self):
-        print("\n", self.current_guess.upper(), " finns i det hemliga ordet.\n", sep="")
-        self.check_game_won()
-
-    def incorrect_guess(self):
-        print("\n", self.current_guess.upper(), " finns inte i det hemliga ordet.\n", sep="")
-        self.incorrect_guesses_count += 1
-        self.check_game_over()
-
-    def check_game_won(self):
+    def check_game_won(self) -> bool:
         for letter in self.secret_word:
             if letter not in self.guessed_letters:
-                return
-        print("Du vann!")
-        self.display_secret()
-        self.game_finished = True
+                return False
+        return True
 
-    def check_game_over(self):
+    def check_game_over(self) -> bool:
         if self.incorrect_guesses_count >= self.max_incorrect_guesses:
-            print("Game over!")
-            self.display_secret()
-            self.game_finished = True
+            return True
+        return False
 
-    def display_secret(self):
-        print("Det hemliga ordet var", self.secret_word)
-
-    def game_loop(self):
-        while not self.game_finished:
-            self.display_current_state()
-            self.make_guess()
-            if self.incorrect_guesses_count >= self.max_incorrect_guesses:
-                break
+    def guesses_remaining(self) -> int:
+        return self.max_incorrect_guesses - self.incorrect_guesses_count
 
 
-def main():
-    game = HangmanGame()
-    done = False
-    while done != "":
-        game.setup()
-        game.game_loop()
+# View-klassen hanterar allt som visas för spelaren och hämtar input
+class HangmanView:
+    """En klass som hanterar de synliga delarna av spelet, det som kallas för
+    "vyn".
+    Vyn ska inte behöva veta någonting om modellen."""
 
-        done = input("Vill du köra igen? Lämna blankt om du vill avsluta.\n>>>")
+    def display_current_state(self,
+                              word_length: int,
+                              guessed_letters: set[str],
+                              incorrect_guesses_count: int,
+                              guesses_remaining: int,
+    ) -> None:
+        print("Det hemliga ordet är", word_length, "tecken långt.")
+        if len(guessed_letters) > 0:
+            print("Du har gissat dessa bokstäver:",
+                  *sorted(guessed_letters))
+            print("Du har gissat fel", incorrect_guesses_count, "gånger.")
+        print("Du har", guesses_remaining, "gissningar kvar.")
+
+    def get_guess(self) -> str:
+        guess: str = input(
+            "Gissa en bokstav eller lämna tomt för att avsluta spelet: ")
+        return guess
+
+    def display_correct_guess(self, letter: str) -> None:
+        print("\n", letter, " finns i det hemliga ordet.\n", sep="")
+
+    def display_incorrect_guess(self, letter: str) -> None:
+        print("\n", letter, " finns inte i det hemliga ordet.\n", sep="")
+
+    def display_game_won(self) -> None:
+        print("Du vann!")
+
+    def display_game_over(self) -> None:
+        print("Game over!")
+
+    def display_secret(self, secret_word: str) -> None:
+        print("Det hemliga ordet var", secret_word)
+
+    def ask_play_again(self) -> str:
+        return input("Vill du köra igen? Lämna blankt om du vill avsluta.\n>>>")
+
+
+# Controller-klassen kopplar ihop Model och View och styr spelets flöde.
+class HangmanController:
+
+    def __init__(self) -> None:
+        self.model: HangmanModel = HangmanModel()
+        self.view: HangmanView = HangmanView()
+        self.model.setup()
+
+    def game_loop(self) -> None:
+        while not self.model.game_is_finished:
+            self.view.display_current_state(
+                len(self.model.secret_word),
+                self.model.guessed_letters,
+                self.model.incorrect_guesses_count,
+                self.model.guesses_remaining(),
+            )
+            self._make_guess()
+
+    def _make_guess(self) -> None:
+        guess: str = ""
+        while guess in self.model.guessed_letters or len(guess) != 1:
+            guess = self.view.get_guess()
+            if not guess:
+                self.model.game_is_finished = True
+                return
+        self._register_guess(guess)
+        self._evaluate_guess()
+
+    def _register_guess(self, guess: str) -> None:
+        self.model.guessed_letters.add(guess)
+        self.model.current_guess = guess
+
+    def _evaluate_guess(self) -> None:
+        check_correct: bool = self.model.check_guess()
+        if check_correct is True:
+            self._correct_guess()
+        else:
+            self._incorrect_guess()
+
+    def _correct_guess(self) -> None:
+        self.view.display_correct_guess(self.model.current_guess)
+        if self.model.check_game_won():
+            self.view.display_game_won()
+            self.end_game()
+
+    def _incorrect_guess(self) -> None:
+        self.view.display_incorrect_guess(self.model.current_guess)
+        self.model.incorrect_guesses_count += 1
+        if self.model.check_game_over():
+            self.view.display_game_over()
+            self.end_game()
+
+    def end_game(self) -> None:
+        self.view.display_secret(self.model.secret_word)
+        self.model.game_is_finished = True
+
+    def reset_model(self) -> None:
+        self.model.setup()
+
+
+def main() -> None:
+    controller: HangmanController = HangmanController()
+    while True:
+        controller.reset_model()
+        controller.game_loop()
+        if not controller.view.ask_play_again():
+            break
 
 
 if __name__ == "__main__":
