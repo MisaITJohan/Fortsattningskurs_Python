@@ -35,4 +35,5 @@ print(f"{"----"} * 4")  # Medvetet fel som en påminnelse om att tänka sig för
 # En sak som är väldigt praktisk i vissa situationer är att använda sig av
 # något som ni kunde se ett exempel på under förra workshoppen, hur or-klausuler
 # beter sig, i kombination med det vi tittar på nu.
-print(f"Hej {name or "du namnlösa främling"}! Du är {age or "okänd mängd"} år gammal.")
+print_name = name or "du namnlösa främling"
+print(f"Hej {print_name}! Du är {age or "okänd mängd"} år gammal.")

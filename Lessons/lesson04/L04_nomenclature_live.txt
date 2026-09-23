@@ -9,7 +9,7 @@ Placeholder / Platshållare:
 		placeholder.
 
 
-Whitespace
+Whitespace:
 
 	Alla tecken som ser ut att vara "tomma". I Python är det dessa tecken:
 		space, tab, linefeed, return, formfeed, och vertical tab.
