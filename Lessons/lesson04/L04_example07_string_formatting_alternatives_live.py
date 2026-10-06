@@ -1,8 +1,8 @@
 # Exempel som demonstrerar de tre sätten man kan formatera strängar.
 
-a_number = 42
-some_text = "Hiya!"
-a_list = [1, 2, 3]
+a_number: int = 42
+some_text: str = "Hiya!"
+a_list: list[int] = [1, 2, 3]
 
 # Variant 1, f-strängar:
 print("f-strängar:")
@@ -14,26 +14,28 @@ print()
 print(".format()-metoden:")
 print("Ett nummer: {}\nLite text: {}\nEn lista: {exempel}".format(
     a_number, some_text, exempel=a_list,
-    ))
+))
 
 print()
 
 # Variant 3 (det äldsta sättet), %-mönstret:
 print("%-mönstret:")
-print("Ett nummer: %d\nLite text: %s\nEn lista: %s" % (a_number, some_text, a_list))
-
+print("Ett nummer: %d\nLite text: %s\nEn lista: %s" %
+      (a_number, some_text, a_list)
+)
 # Använd ALDRIG variant 3.
 
 print()
 
 # Variant 2 kan vara den mest passande i vissa situationer.
 # Exempel på när man ska hämta från en dict:
-a_dict = {"name":"Johan", "age":36}
+a_dict: dict = {"name":"Johan", "age":37}
 
 # Med f-sträng:
 print(f"Hämtat från en dict: {a_dict['name']} är {a_dict['age']} år gammal.")
 
-# Med .format()
+# Med .format():
 print("Hämtat från en dict: {0[name]} är {0[age]} år gammal.".format(a_dict))
-# alternativ
+# alternativt
 print("Hämtat från en dict: {name} är {age} år gammal.".format(**a_dict))
+#print("Hämtat från en dict: {name} är {age} år gammal.".format(name="Johan", age=37))

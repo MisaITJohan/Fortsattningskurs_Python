@@ -25,4 +25,4 @@
 
 # Den inbyggda sorted():
 #
-# https://docs.python.org/3/library/stdtypes.html#list.sort
+# https://docs.python.org/3/builtins/functions.html#sorted
