@@ -15,38 +15,34 @@ Det finns, i grunden, två typer av filer: textfiler och binära filer.
 		är den simplaste formen av dessa och det är en sådan som jag skriver i nu.
 
 		Även .py-filerna som vi använder i Python är textfiler, vi kan lätt se det
-			genom att vi kan öppna dem i ett program i stil med Anteckningar (Notepad)
-			och få ut läsbar text. Det kan hända att en del ser ut som nonsens, då man
-			kan lägga till formatering och liknande som inte Anteckningar klarar av att
-			tolka, men själva texten borde vara läsbar.
+			genom att vi kan öppna dem i ett program i stil med Anteckningar
+			(Notepad) och få ut läsbar text. Det kan hända att en del ser ut som
+			nonsens, då man kan lägga till formatering och liknande som inte
+			Anteckningar klarar av att tolka, men själva texten borde vara
+			läsbar.
 
-		Filer som är utan filändelser (det som är efter sista punkten i filnamnet)
-			antar de flesta system är textfiler.
+		Filer som är utan filändelser (det som är efter sista punkten i
+			filnamnet) antar de flesta system är textfiler.
 
-	Binära filer är, väldigt simpel uttryckt, alla andra filer.
-		Om man öppnar en binär fil i en simpel textredigerare i stil med
-		Anteckningar så kommer man få en totalt obegriplig samling tecken och
-		konstiga symboler.
-
-
-När man sparar data från ett program i Python så kan man själv välja i vilket
-	filformat som filen ska vara i. Detta med hjälp av att Python har ett gäng
-	olika verktyg som gör det enkelt att skapa olika filer.
+	Binära filer är, väldigt simpelt uttryckt, alla andra filer.
+		Om man öppnar en binär fil i en simple textredigerare i stil med
+			Anteckningar så kommer man få en totalt obegriplig samling tecken
+			och konstiga symboler.
 
 Att spara saker i .txt-filer är det absolut enklaste, men här är ett urval av
 	filtyper som passar som datalagring:
 
-	JSON-filer eller .json-filer
+	JSON-filer eller .json-filer:
 
-		Dessa är textfiler som följer ett förutbestämt system och anses därför
-			väldigt pålitliga. Väldigt många system använder sig av dessa när
-			data ska föras över mellan olika system.
+		Dessa är vanliga textfiler som följer ett förutbestämt system och anses
+			därför väldigt pålitliga. Väldigt många system använder sig av dessa
+			när data ska föras över mellan olika system.
 		JSON-filer är strukturerade på ett sätt som är väldigt snarlikt Pythons
 			dicts.
 				Se L05_json_example.json
 		Namnet står för JavaScript Object Notation.
 
-	CSV-filer eller .csv-filer
+	CSV-filer eller .csv-filer:
 
 		Även dessa är textfiler som följer ett mönster.
 		CSV står för Comma Separated Values (kommaseparerade värden) och det är
