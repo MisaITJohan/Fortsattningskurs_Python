@@ -1,6 +1,6 @@
 # Exempel på hur sökvägar kan skilja sig åt mellan operativsystem.
 # Nu för tiden så klarar Python av att tolka dessa utan problem men dessa hade
-# inte fungerat på alla operativsystem tidigare.
+#   inte fungerat på alla operativsystem tidigare.
 
 windows_path = "test\\test.txt"
 windows_open = open(windows_path)

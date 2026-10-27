@@ -1,5 +1,5 @@
 # Denna vecka uppdaterar vi .load_words_from_file() till att använda pathlib
-# samt skapar en placeholder för en mer visuell upplevelse när man spelar.
+#   samt skapar en placeholder för en mer visuell upplevelse när man spelar.
 from pathlib import Path
 import random
 
@@ -88,7 +88,7 @@ class HangmanView:
 
     def display_all_guesses(self, guessed_letters):
         print("Du har gissat dessa bokstäver:",
-              *sorted(list(guessed_letters)))
+              *sorted(guessed_letters))
 
     def display_correct_guesses(self, correct_guesses):
         if correct_guesses:
