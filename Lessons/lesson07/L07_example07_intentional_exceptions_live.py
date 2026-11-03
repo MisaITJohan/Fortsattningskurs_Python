@@ -18,6 +18,8 @@ print(f"{y = }")
 z = x + y
 print(f"{z = }")
 
-
-q = x + 3
-print(f"{q = }")
+try:
+    q = x + 3
+    print(f"{q = }")
+except NotImplementedError as e:
+    print("Hörru, det där fungerar inte! Anledning:", e)

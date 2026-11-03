@@ -32,6 +32,6 @@ Det är till och med så att man ofta väljer att "lyfta" Exceptions med flit.
 
 Säg att vi har en klass där vi har möjlighet att lagra data i en variabel som
 	vi döpt till text_for_file. Troligtvis vill vi inte att någon som använder sig
-	av den här klassen försöker lagra något annat än text där så vi kan lägga in
+	av den här klassen försöker lagra något annat än just text där så kan lägga in
 	att ett Exception ska lyftas.
 		Se L07_example07_intentional_exceptions.py
