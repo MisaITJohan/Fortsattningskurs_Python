@@ -7,7 +7,7 @@
 
 import unittest
 
-def add(a, b):
+def add(a: int|float, b: int|float) -> int|float:
     """En enkel funktion som returnerar summan av två tal."""
     return a + b
 

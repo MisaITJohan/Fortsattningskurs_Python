@@ -3,14 +3,14 @@ Lesson09: Introduktion till testning
 Disclaimer: Jag har tagit hjälp av AI för att generera delar av den faktiska
 	koden som finns i denna lektion.
 	Exakt hela L09_example04_test_hangman.py är AI-genererad. Kan ni se
-		skillnaden?
+		skillnaden från hur jag skriver kod?
 
 Vad är testning?
 
 	Testning är processen att verifiera att ett program fungerar som det är tänkt.
 	I sin enklaste form innebär det att köra koden och kontrollera att resultatet
 		blir det förväntade. Men testning kan också vara mycket mer än så;
-		att jobba som testare är ett heltidsjob på större projekt.
+		att jobba som testare är ett heltidsjobb på större projekt.
 
 
 Varför ska man lägga tid på att skriva tester?
@@ -23,7 +23,7 @@ Varför ska man lägga tid på att skriva tester?
 			hitta ett fel medan man skriver koden är mycket enklare än att hitta
 			det tre månader senare när hela systemet har byggts ovanpå det.
 
-	Säkerställa att ny kod inte förstör gammal kod (Regressions-testning):
+	Säkerställa att ny kod inte förstör gammal kod (Regressionstestning):
 		När ett program växer blir det svårt att ha hela logiken i huvudet. Genom
 			att ha automatiska tester kan man vara säker på att en ändring i en
 			del av programmet inte av misstag förstör något i en annan del.
@@ -45,9 +45,9 @@ Olika typer av testning:
 
 	Manuellt testande:
 		Detta är vad de flesta gör naturligt. Man kör sitt program, skriver in
-			något värde och ser om det funkar. Problemet är att det är tidskrävande
-			att göra om varje gång man ändrat något, och det är lätt att glömma
-			att testa vissa specialfall.
+			något värde och ser om det fungerar. Problemet är att det är
+			tidskrävande att göra varje gång man ändrat något, och det är lätt
+			att glömma att testa vissa specialfall.
 
 	Automatiserat testande:
 		Här skriver vi kod som testar vår andra kod. Det kräver lite mer jobb
@@ -64,8 +64,8 @@ Nivåer av testning:
 
 	Integrationstester:
 		Tester som kontrollerar hur olika delar av systemet pratar med varandra.
-		Funkar vår databaskoppling ihop med vår logik? Kan dessa två klasser
-			samarbeta?
+		Fungerar vår databaskoppling ihop med vår logik? Kan dessa två
+			klasser samarbeta?
 
 	Systemtester (End-to-End):
 		Att testa hela flödet från början till slut, precis som användare skulle

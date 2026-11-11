@@ -1,11 +1,11 @@
 # Exempel på att manuellt testa en funktion.
 
 # Detta är det mest grundläggande sättet att testa sin kod på. Vi kör koden,
-# matar in värden och tittar sedan manuellt i konsolen för att se om 
+# matar in värden och tittar sedan manuellt i konsolen för att se om
 # resultatet stämmer överens med vad vi förväntade oss. Nästan alla övningar
 # från både grund- och fortsättningskursen fungerar på detta sätt.
 
-def add(a, b):
+def add(a: int|float, b: int|float) -> int|float:
     """En enkel funktion som returnerar summan av två tal."""
     return a + b
 

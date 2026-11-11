@@ -6,13 +6,13 @@ Använd gärna denna fil som en ordlista när du stöter på termer du är osäk
 
 Testing / Testning:
 	Den övergripande processen att köra ett program eller en del av ett program
-		för att säkerställa att det gör det vi vill att det ska göra, samt för att
-		hitta eventuella buggar.
+	för att säkerställa att det gör det vi vill att det ska göra, samt för att
+	hitta eventuella buggar.
 
 Unit test / Enhetstest:
 	Fokuserar på en liten, isolerad del av koden. Tänk dig att du testar en
-		enskild legobit för att se att den har rätt form, innan du försöker bygga
-		ihop den med hela slottet. Oftast testar man en enskild funktion eller metod.
+	enskild legobit för att se att den har rätt form, innan du försöker bygga
+	ihop den med hela slottet. Oftast testar man en enskild funktion eller metod.
 
 assert:
 	Betyder att intyga/påstå.

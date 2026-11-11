@@ -10,7 +10,7 @@
 # Ni kunde se exempel på detta i W01_exercise05.py
 
 
-def add(a, b):
+def add(a: int|float, b: int|float) -> int|float:
     """En enkel funktion som returnerar summan av två tal."""
     return a + b
 

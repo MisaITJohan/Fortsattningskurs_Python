@@ -1,13 +1,13 @@
 # Exempel på att använda 'pytest', ett av de mest populära ramverken för 
 # testning i Python-världen.
-
+#
 # pytest är känt för att vara enkelt att använda och kräver mindre "boilerplate"
 # (extra kod) än unittest. Det använder vanliga 'assert'-uttryck istället för 
 # speciella metoder som 'assertEqual'.
 
 import pytest
 
-def add(a, b):
+def add(a: int|float, b: int|float) -> int|float:
     """En enkel funktion som returnerar summan av två tal."""
     return a + b
 
