@@ -1,13 +1,11 @@
-# Kopiera över koden som du skrev i W06_exercise01.py till denna fil.
+# Kopiera över koden som du skrev i W06_exercise03.py till denna fil.
 #
 #   Lägg till en kontroll om filen redan finns och be i så fall användaren
 #   bekräfta (genom att skriva in "ja") att filen får skrivas över (ersättas
 #   med nytt innehåll). Om användaren svarar "nej", avsluta programmet.
 #
 #   TIPS 1:
-#       Använd funktionen os.path.exists() för att kontrollera om filen
-#       existerar. Eller, ännu hellre, använd .exists() på ett Path-object
-#       (Path kommer från modulen pathlib).
+#       Använd metoden .exists() på ditt Path-object.
 #       
 #   TIPS 2:
 #       Ett alternativ till "quit()" för att avsluta programmet är: 
