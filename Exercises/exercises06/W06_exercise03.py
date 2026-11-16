@@ -12,7 +12,7 @@
 #           import pathlib
 #           help(pathlib)
 #
-#       i ett interaktivt skall (t.ex. IDLE Shell eller Python-konsolen i Pycharm)
+#       i ett interaktivt skal (t.ex. IDLE Shell eller Python-konsolen i Pycharm)
 #       eller genom att läsa igenom
 #       https://docs.python.org/3/library/pathlib.html
 #

@@ -53,6 +53,7 @@
 #
 #   Att ändra koden så att felen aldrig sker överhuvudtaget är inte rätt.
 #   Det är inte heller rätt att fånga in mer än vad man behöver.
+#   Lös problemen var för sig, inte i ett enda stort block.
 
 
 print(10 / 0)         # Första felet
