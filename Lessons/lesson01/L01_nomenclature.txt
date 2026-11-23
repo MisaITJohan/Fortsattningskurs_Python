@@ -17,8 +17,8 @@ namn()
 	T.ex. .append()
 
 Hårdkoda
-	Att skriva kod för varje enskilt fall eller kod som bara kan göra en specifik
-		sak. Detta är inte alltid fel, framförallt inte för mindre saker.
+	Att skriva kod för varje enskilt fall eller kod som bara kan göra en
+		specifik sak. Detta är inte alltid fel, framförallt för mindre saker.
 		Men man förlorar helt fördelarna med att kunna återanvända kod då man
 		måste skriva kod för ALLA möjliga fall.
 

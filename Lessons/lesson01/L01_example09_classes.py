@@ -10,8 +10,7 @@ class Person:
     def get_data(self):
         return self._name, self._age, self._height
 
-    # TODO: Make into __str__ instead?
-    def __repr__(self):
+    def __str__(self):
         return self._name + " " + str(self._age) + " " + str(self._height)
 
 
