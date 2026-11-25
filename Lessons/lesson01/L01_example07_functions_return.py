@@ -12,7 +12,7 @@ def get_name():
 
 
 # Anropar vi greet() med ett argument sätts variabeln name (i funktionens
-# namnrymd) till värdet som vi skickar in.
+#   namnrymd) till värdet som vi skickar in.
 print("\ngreet() med ett argument:")
 greet("Johan")
 
@@ -23,12 +23,12 @@ greet()
 
 
 # När vi anropar get_name() direkt så syns ingenting då det returnerade värdet
-# inte används på något sätt.
+#   inte används på något sätt.
 print("\nget_name() utan att göra något med returvärdet:")
 get_name()
 
 # Vill vi använda oss av det returnerade värdet måste vi göra något med det
-# eller lagra det någonstans.
+#   eller lagra det någonstans.
 print("\nget_name() där vi direkt skickar returvärdet till print():")
 print(get_name())
 

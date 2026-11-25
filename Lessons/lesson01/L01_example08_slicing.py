@@ -37,4 +37,4 @@ print(name_list[::2])
 print(person_list[-1][0])
 print(person_list[-1:][0][0])
 # Notera den pyttelilla skillnaden som gör att vi behöver en extra [0] på raden
-# ovanför.
+#   ovanför.

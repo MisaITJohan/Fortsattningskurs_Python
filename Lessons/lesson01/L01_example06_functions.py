@@ -10,13 +10,13 @@ def greet_with_input():
 
 
 # Anropar vi greet() med ett argument sätts variabeln name till värdet som vi
-# skickar in.
+#   skickar in.
 greet("Johan")
 
 print("\n")  # För att skapa utrymme mellan anropen.
 
 # Anropar vi greet() utan argument sätts variabeln name till standardvärdet
-# "namnlös".
+#   "namnlös".
 greet()
 
 print("\n")  # För att skapa utrymme mellan anropen.
